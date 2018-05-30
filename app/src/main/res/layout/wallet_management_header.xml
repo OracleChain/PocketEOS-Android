@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wallet_management_header_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFF7EA"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dimens_20"
+        android:text="@string/wallect_intro"
+        android:textColor="#FFFFB540"
+        android:textSize="@dimen/dimens_13"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_90"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_20">
+
+        <TextView
+            android:id="@+id/create_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@mipmap/create_number"
+            android:gravity="center"
+            android:text="@string/create_number"
+           style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_12"/>
+
+        <TextView
+            android:id="@+id/import_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@mipmap/import_number"
+            android:gravity="center"
+            android:text="@string/import_number"
+            style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_12"/>
+
+        <TextView
+            android:id="@+id/backup_number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@mipmap/backup_number"
+            android:gravity="center"
+            android:text="@string/backup_number"
+            style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_12"/>
+
+        <TextView
+            android:id="@+id/reset_password"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@mipmap/reset_password"
+            android:gravity="center"
+            android:text="@string/reset_password"
+            style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_12"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_10"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_80"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_number"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_13"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:text="@string/main_number_notice"
+            style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_12"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        style="?attr/line_style"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_80">
+        <ImageView
+            android:id="@+id/main_account_img"
+            android:layout_width="@dimen/dimens_50"
+            android:layout_height="@dimen/dimens_50"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:layout_marginRight="@dimen/dimens_20"
+            android:src="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:id="@+id/main_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/main_account_img"
+            android:drawablePadding="@dimen/dimens_10"
+            android:gravity="center_vertical"
+            android:text="@string/vip158415321561"
+            style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_10"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_60"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:text="@string/other_number"
+        style="?attr/text_one_style"
+        android:textSize="@dimen/dimens_13"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        style="?attr/line_style"/>
+</LinearLayout>

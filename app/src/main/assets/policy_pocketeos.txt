@@ -1,0 +1,66 @@
+<p style="text-align:center">
+    <strong><span style="font-size:32px;line-height:115%">Pocket EOS</span></strong><strong><span style="font-size:32px;line-height:115%;font-family:宋体">隐私政策</span></strong>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">1. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">基本政策</span></strong>
+</p>
+<p>
+    <span style="color:#212529">a. </span><span style="font-family:宋体;color:#212529">隐私权是一种基本人权，易口袋尊重并保护用户的隐私。</span>
+</p>
+<p>
+    <span style="color:#212529">b. </span><span style="font-family:宋体;color:#212529">我们只要求最必要、最有限的信息进行注册和实现相关功能。</span>
+</p>
+<p>
+    <span style="color:#212529">c. </span><span style="font-family:宋体;color:#212529">我们不保存您的私钥和钱包文件，无法控制您的账户。</span><span style="color:#212529"> </span>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">2. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">注册信息</span></strong>
+</p>
+<p>
+    <span style="font-family:宋体;color:#212529">注册</span><span style="color:#212529">Pocket EOS</span><span style="font-family:宋体;color:#212529">时仅需向易口袋服务器提供最有限的信息。这些信息仅用于标记您的身份，并将某些需要通过易口袋服务器实现的功能与您联系起来。</span>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">3. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">账户信息</span></strong>
+</p>
+<p>
+    <span style="color:#212529">Pocket EOS</span><span style="font-family:宋体;color:#212529">不会向服务器上传您的钱包文件和密码，它们仅在您的设备上本地使用。因此，当您更换设备时，您需要迁移它们，或删除原设备上的钱包文件并重新导入钱包。</span>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">4. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">照片信息</span></strong>
+</p>
+<p>
+    <span style="font-family:宋体;color:#212529">您的摄像头将只会用于扫描二维码，我们不会搜集您的个人图像。</span>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">5. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">位置信息</span></strong>
+</p>
+<h5 style="margin-top:0;margin-right:0;margin-bottom:3px;margin-left: 0;line-height:120%;page-break-after:auto">
+    <a></a><span style="font-family:宋体;color:#212529">除非事先得到您的同意，我们不会收集您的位置信息。</span>
+</h5>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">6. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">区块链交易</span></strong>
+</p>
+<h5 style="margin-top:0;margin-right:0;margin-bottom:3px;margin-left: 0;line-height:120%;page-break-after:auto">
+    <a></a><span style="font-family:宋体;color:#212529">基于分布式系统的公开属性，您的区块链交易信息将会在节点网络中广播。</span>
+</h5>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">7. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">网络安全</span></strong>
+</p>
+<p>
+    <span style="font-family:宋体;color:#212529">我们的所有服务器都支持</span><span style="color:#212529">HTTPS</span><span style="font-family:宋体;color:#212529">协议。</span>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">8. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">使用信息统计</span></strong>
+</p>
+<h5 style="margin-top:0;margin-right:0;margin-bottom:3px;margin-left: 0;line-height:120%;page-break-after:auto">
+    <a></a><span style="font-family:宋体;color:#212529">为了提升</span><span style="color:#212529">Pocket EOS</span><span style="font-family:宋体;color:#212529">的服务体验，我们可能会收集您的使用信息来完善其功能和设计，但这些信息都是匿名的、无法指向您个人。我们不会收集您的姓名、电子邮件或其他和个人身份有关的信息。</span>
+</h5>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">9. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">在一下情形中，易口袋可能会在法律允许的范围内收集并使用您的个人信息且无需征得您的授权同意：</span></strong><strong><span style="font-size:19px;line-height:115%"><br/> </span></strong><span style="font-family:宋体;color:#212529">（</span><span style="color:#212529">1</span><span style="font-family:宋体;color:#212529">）</span> <span style="font-family:宋体;color:#212529">与国家安全、国防安全有关的；</span><span style="color:#212529"><br/> </span><span style="font-family:宋体;color:#212529">（</span><span style="color:#212529">2</span><span style="font-family:宋体;color:#212529">）</span> <span style="font-family:宋体;color:#212529">与公共安全、公共卫生、重大公共利益有关的；</span><span style="color:#212529"><br/> </span><span style="font-family:宋体;color:#212529">（</span><span style="color:#212529">3</span><span style="font-family:宋体;color:#212529">）</span> <span style="font-family:宋体;color:#212529">与犯罪侦查、起诉、审判和判决执行等有关的；</span><span style="color:#212529"><br/> </span><span style="font-family:宋体;color:#212529">（</span><span style="color:#212529">4</span><span style="font-family:宋体;color:#212529">）</span> <span style="font-family:宋体;color:#212529">用于维护服务的安全和合规所必需的，例如发现、处理产品和服务的故障；</span><span style="color:#212529"><br/> </span><span style="font-family:宋体;color:#212529">（</span><span style="color:#212529">5</span><span style="font-family:宋体;color:#212529">）</span> <span style="font-family:宋体;color:#212529">法律法规规定的其他情形。</span>
+</p>
+<p>
+    <strong><span style="font-size:19px;line-height: 115%">10. </span></strong><strong><span style="font-size:19px;line-height:115%;font-family:宋体">我们收集信息的方式如下：</span></strong><br/> <span style="font-family:宋体">（</span>1<span style="font-family:宋体">）</span> <span style="font-family:宋体">您向我们提供信息。例如，您在</span>“<span style="font-family: 宋体">个人中心</span>”<span style="font-family:宋体">页面中填写姓名、手机号码或银行卡号，或在反馈问题时提供邮件地址，或在使用我们的特定服务时，您额外向我们提供。</span><br/> <span style="font-family:宋体">（</span>2<span style="font-family:宋体">）</span> <span style="font-family:宋体">我们在您使用</span>Pocket EOS<span style="font-family: 宋体">的过程中获取信息，包括您移动设备信息以及您对</span>Pocket EOS<span style="font-family:宋体">的操作记录等信息；</span><br/> <span style="font-family:宋体">（</span>3<span style="font-family:宋体">）</span> <span style="font-family:宋体">我们通过区块链系统，拷贝您全部或部分的交易记录。但交易记录以区块链系统的记载为准。</span><strong><span style="font-size:19px;line-height:115%"><br/> <br/> </span></strong>
+</p>
+<p>
+    <br/>
+</p>

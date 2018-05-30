@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/dimens_20">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="@string/app_name"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_13"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_15"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/go_weixin_friend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimens_20"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimens_54"
+                    android:layout_height="@dimen/dimens_54"
+                    android:scaleType="center"
+                    android:src="@mipmap/share_weixin"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_weixin_friend"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dimens_12"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/go_weixin_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimens_20"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimens_54"
+                    android:layout_height="@dimen/dimens_54"
+                    android:scaleType="center"
+                    android:src="@mipmap/share_weixin_circle"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_weixin_circle"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dimens_12"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/go_qq_friend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimens_20"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimens_54"
+                    android:layout_height="@dimen/dimens_54"
+                    android:scaleType="center"
+                    android:src="@mipmap/share_qq_friend"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_qq_friend"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dimens_12"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/go_qzone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimens_54"
+                    android:layout_height="@dimen/dimens_54"
+                    android:scaleType="center"
+                    android:src="@mipmap/share_qzone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_qzone"
+                    android:textColor="@color/txt_color"
+                    android:textSize="@dimen/dimens_12"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_40"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:background="@null"
+            android:text="@string/seach_cancel"
+            android:textSize="@dimen/dimens_16"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dimens_20">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimens_10">
+
+
+        <TextView
+            android:id="@+id/transfer_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_14"/>
+
+        <TextView
+            android:id="@+id/transfer_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_14"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/transfer_details"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/dimens_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/transfer_details"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:singleLine="true"
+            android:text="成功"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/dimens_14"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:background="@color/line"/>
+</LinearLayout>
+

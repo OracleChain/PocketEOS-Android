@@ -1,0 +1,15 @@
+<p>
+    <br/>
+</p>
+<p style="word-wrap: break-word;font-family: &#39;sans serif&#39;, tahoma, verdana, helvetica;font-size: 12px;white-space: normal">
+    <span style="">Pocket EOS是一款跨平台的移动端EOS钱包应用，以“生活中的区块链，口袋里的EOS”为核心设计理念，除了转账，收款，资产管理基本的区块链钱包功能外，还允许用户方便地接入各类基于区块链的服务和DAPP，将EOS区块链和信息获取，网络社交等高频需求连接起来，打造一站式EOS生态平台，让区块链更贴近生活，更加好玩。</span>
+</p>
+<p style="word-wrap: break-word;font-family: &#39;sans serif&#39;, tahoma, verdana, helvetica;font-size: 12px;white-space: normal">
+    &nbsp;
+</p>
+<p style="word-wrap: break-word;font-family: &#39;sans serif&#39;, tahoma, verdana, helvetica;font-size: 12px;white-space: normal">
+    <span style="">Pocket EOS是北京易口袋科技有限公司发布的开源产品，并由易口袋科技提供服务和技术支持。在开源协议的框架内，易口袋科技对Pocket EOS保留所有权利。如果您有任何问题或建议，可以查阅掌上EOS的官方网站（</span>易口袋科技有限公司发布的开源产品，并由易口袋科技提供服务和技术支持。在开源协议的框架内，易口袋科技对Pocket EOS保留所有权利。如果您有任何问题或建议，可以查阅掌上EOS的官方网站（<a href="https://pocketeos.com/"><span style=""><span style="">HTTPS&nbsp;</span></span></a><a href="https://pocketeos.com/"><span style=""><span style="">：//&nbsp;</span></span></a><a href="https://pocketeos.com/"><span style=""><span style="">pocketeos&nbsp;</span></span></a><a href="https://pocketeos.com/"><span style=""><span style="">。</span></span></a><a href="https://pocketeos.com/"><span style=""><span style="">的COM</span></span></a><span style="">）及Github上项目，也可以直接通过掌上EOS中的反馈功能和我们取得联系。</span>
+</p>
+<p>
+    <br/>
+</p>

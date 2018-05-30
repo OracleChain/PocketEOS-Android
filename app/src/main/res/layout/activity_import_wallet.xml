@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.wallet.importwallet.ImportWalletActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <EditText
+        android:id="@+id/import_wallet_edt"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_160"
+        android:layout_margin="@dimen/dimens_20"
+        android:background="@drawable/input_wallet_back_up"
+        android:gravity="left|top"
+        android:hint="@string/import_wallet_toast"
+        android:padding="@dimen/dimens_10"
+        android:textColor="@color/txt_color"
+        android:textColorHint="@color/gray_color"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="@dimen/dimens_12"/>
+
+    <Button
+        android:id="@+id/import_wallet"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_42"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:background="@color/blue_button"
+        android:text="导入"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+</LinearLayout>

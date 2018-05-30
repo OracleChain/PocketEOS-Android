@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".modules.wallet.createwallet.login.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_200"
+        android:background="@drawable/login_gradual_change"
+        android:padding="@dimen/dimens_20">
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/pocket_eos"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_23"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt1"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:text="@string/login_des"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_13"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/black_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:clickable="true"
+                android:drawablePadding="@dimen/dimens_10"
+                android:layout_marginTop="@dimen/dimens_20"
+                android:drawableRight="@mipmap/more"
+                android:text="@string/black_box"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_14"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:src="@mipmap/login_img"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/mobile_phone"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/mobile_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/input_phone"
+        android:inputType="number"
+        android:maxLength="11"
+        android:textColor="@color/title_color"
+        android:textColorHint="@color/gray_color"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/sms_password"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.oraclechain.pocketeos.view.ClearEditText
+            android:id="@+id/sms_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:layout_marginRight="@dimen/dimens_20"
+            android:layout_toLeftOf="@+id/get_code"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/inpue_sms_password"
+            android:inputType="number"
+            android:textColor="@color/title_color"
+            android:textColorHint="@color/gray_color"
+            android:textCursorDrawable="@drawable/edittext_cursor"
+            android:textSize="@dimen/dimens_15"/>
+
+        <TextView
+            android:id="@+id/get_code"
+            android:layout_width="@dimen/dimens_100"
+            android:layout_height="@dimen/dimens_30"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimens_20"
+            android:background="@drawable/gray_line_broder"
+            android:gravity="center"
+            android:text="@string/get_code"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_13"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/line"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_15"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/check_box"
+            style="@style/CustomCheckBoxTheme"
+            android:layout_width="@dimen/dimens_17"
+            android:layout_height="@dimen/dimens_17"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:checked="true"
+            android:clickable="false"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_17"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:id="@+id/go_pocketeos_user"
+            android:clickable="true"
+            android:text="@string/read_agreement"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_12"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/create_account"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_42"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:background="@color/blue_button"
+        android:text="@string/creat"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/other_login_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimens_40"
+            android:text="@string/other_login"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_13"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/dimens_200"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/other_login_txt"
+            android:layout_centerHorizontal="true">
+
+            <ImageView
+                android:id="@+id/go_weixin_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/dimens_20"
+                android:src="@mipmap/login_weixin"/>
+
+            <ImageView
+                android:id="@+id/go_qq_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/dimens_20"
+                android:src="@mipmap/login_qq"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

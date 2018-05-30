@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.blackbox.blackboxaccount.BlackBoxCreatAccountActivity">
+
+    <include layout="@layout/title_project_blackbox"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dimens_20"
+        android:text="@string/account_name"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_13"/>
+
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/account_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_40"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/input_account_name"
+        android:textColorHint="@color/white"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="@dimen/dimens_16"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        android:layout_margin="@dimen/dimens_10"
+        android:background="@color/blackbox_line"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/dimens_10"
+        android:padding="@dimen/dimens_20"
+        android:text="@string/creat_account_toast"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_13"/>
+
+
+    <Button
+        android:id="@+id/create_account"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_46"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_40"
+        android:background="@color/blue_button"
+        android:text="创建"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/check_box"
+            style="@style/CustomCheckBoxTheme"
+            android:layout_width="@dimen/dimens_17"
+            android:layout_height="@dimen/dimens_17"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:checked="true"
+            android:gravity="center_vertical"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_17"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/read_agreement"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_12"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/go_import_account"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="@dimen/dimens_20"
+        android:text="@string/alerady_account"
+        android:textColor="@color/theme_color"
+        android:textSize="@dimen/dimens_13"
+        android:visibility="gone"/>
+</LinearLayout>

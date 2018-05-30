@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/item_color__style"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.leftdrawer.appupdate.AppUpdateActivity">
+
+
+    <TextView
+        android:id="@+id/title"
+        style="?attr/text_one_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_50"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:drawableLeft="@mipmap/back"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxEms="10"
+        android:paddingLeft="@dimen/dimens_20"
+        android:singleLine="true"
+        android:text="@string/app_update"
+        android:textSize="@dimen/dimens_17"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dimens_100"
+            android:layout_height="@dimen/dimens_100"
+            android:layout_marginTop="@dimen/dimens_40"
+            android:src="@mipmap/updata_app_img"/>
+
+        <TextView
+            style="?attr/text_one_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dimens_15"/>
+
+        <TextView
+            android:id="@+id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_6"
+            android:textColor="#999999"
+            android:textSize="@dimen/dimens_13"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/version_intro"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_46"
+        android:background="?attr/color_bg_main"
+        android:layout_marginTop="@dimen/dimens_30"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            style="?attr/text_one_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/version_intro"
+            android:textSize="@dimen/dimens_15"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@mipmap/more"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/check_new_version"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_46"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="?attr/color_bg_main"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            style="?attr/item_color__style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/is_new_version"
+            android:text="@string/check_new_version"
+            android:textSize="@dimen/dimens_15"/>
+
+        <TextView
+            android:id="@+id/is_new_version"
+            style="?attr/text_one_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/no_new_version"
+            android:textSize="@dimen/dimens_14"/>
+    </RelativeLayout>
+</LinearLayout>

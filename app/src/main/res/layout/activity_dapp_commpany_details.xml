@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.dapp.dappcommpany.DappCommpanyDetailsActivity">
+
+    <include
+        layout="@layout/title_project"/>
+
+    <com.oraclechain.pocketeos.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/commpany_img"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_150"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/commpany_desc"
+                style="?attr/text_one_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_100"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:padding="@dimen/dimens_20"
+                android:text="@string/app_name"
+                android:textSize="@dimen/dimens_15"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_10"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimens_58"
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:drawablePadding="@dimen/dimens_10"
+                android:drawableRight="@mipmap/hot"
+                android:gravity="center_vertical"
+                android:text="@string/hot_application"
+                style="?attr/text_one_style"
+                android:textSize="@dimen/dimens_16"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_line_cash"
+                android:background="@color/line"/>
+
+            <RelativeLayout
+                android:id="@+id/hot_application"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimens_20">
+
+                <ImageView
+                    android:id="@+id/hot_application_img"
+                    android:layout_width="@dimen/dimens_75"
+                    android:layout_height="@dimen/dimens_75"
+                    android:layout_marginRight="@dimen/dimens_20"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/hot_application_img"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/hot_application_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        style="?attr/text_one_style"
+                        android:textSize="@dimen/dimens_16"/>
+
+                    <TextView
+                        android:id="@+id/hot_application_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_10"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="@string/app_name"
+                        style="?attr/text_two_style"
+                        android:textSize="@dimen/dimens_14"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_10"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimens_58"
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:gravity="center_vertical"
+                android:text="@string/bussiness_application"
+                style="?attr/text_one_style"
+                android:textSize="@dimen/dimens_15"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_bussiness_application"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </com.oraclechain.pocketeos.view.MyScrollview>
+</LinearLayout>

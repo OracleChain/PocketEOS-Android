@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/news_header_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical">
+
+    <com.oraclechain.pocketeos.view.convenientbanner.ConvenientBanner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_150"
+        android:focusableInTouchMode="true"
+        app:canLoop="true"/>
+
+    <RelativeLayout
+        android:id="@+id/choose_type"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_48"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+
+        <TextView
+            android:id="@+id/choose_type_title"
+            android:layout_width="@dimen/dimens_70"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/choose_type_title"
+            style="?attr/text_one_style"
+            android:textSize="@dimen/dimens_13"/>
+
+        <ImageView
+            android:id="@+id/look_more"
+            android:layout_width="@dimen/dimens_20"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/choose_type_title"
+            android:scaleType="centerInside"
+            android:src="@mipmap/drop_down"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        style="?attr/line_style"/>
+</LinearLayout>

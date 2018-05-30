@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oraclechain.pocketeos.modules.scancode.ScanCodeActivity">
+
+    <RelativeLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_50"
+        android:layout_alignParentTop="true"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/dimens_50"
+            android:layout_height="@dimen/dimens_50"
+            android:scaleType="center"
+            android:src="@mipmap/back"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/scan_code_title"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_17"/>
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="@dimen/dimens_40"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimens_20"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="相册"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_17"/>
+    </RelativeLayout>
+
+    <com.mylhyl.zxing.scanner.ScannerView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll"/>
+
+
+</RelativeLayout>

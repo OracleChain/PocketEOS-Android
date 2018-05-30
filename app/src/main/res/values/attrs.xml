@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SrcollMessageView">
+        <attr name="gap" format="integer"/>
+        <attr name="animDuration" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="DoubleScrollViewWrapper">
+        <attr name="doublescrollviewwrapper_padding" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="Page">
+        <attr name="pageone_padding" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        <attr name="civ_border_overlay" format="boolean"/>
+        <attr name="civ_fill_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="RatingBar" tools:ignore="ResourceName">
+        <attr name="starImageSize" format="dimension"/>
+        <attr name="starImageWidth" format="dimension"/>
+        <attr name="starImageHeight" format="dimension"/>
+        <attr name="starImagePadding" format="dimension"/>
+        <attr name="starCount" format="integer"/>
+        <attr name="starNum" format="integer"/>
+        <attr name="starEmpty" format="reference"/>
+        <attr name="starFill" format="reference"/>
+        <attr name="starHalf" format="reference"/>
+        <attr name="clickable" format="boolean"/>
+        <attr name="halfstart" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="SideBarView">
+        <attr name="sidebar_nor_background" format="color"/>
+        <attr name="sidebar_press_background" format="color"/>
+        <attr name="sidebar_text_size" format="dimension"/>
+        <attr name="sidebar_text_color_nor" format="color"/>
+        <attr name="sidebar_text_color_press" format="color"/>
+    </declare-styleable>
+
+    <attr name="arcHeight" format="dimension"/>
+
+    <declare-styleable name="ArcView">
+        <attr name="arcHeight"/>
+        <attr name="bgColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SwipeLayout">
+        <attr name="preview" format="enum">
+            <enum name="noPreview" value="-1"/>
+            <enum name="openLeft" value="0"/>
+            <enum name="openRight" value="1"/>
+        </attr>
+    </declare-styleable>
+
+
+    <!-- 滑动解锁控件 xml配置属性 -->
+    <declare-styleable name="SlideToUnlockView">
+        <attr name="slideImageViewWidth" format="dimension"/><!-- 滑块宽度 -->
+        <attr name="slideImageViewResId" format="reference"/><!-- 滑块资源id -->
+        <attr name="slideImageViewResIdAfter" format="reference"/><!-- 滑动到右边时,滑块资源id -->
+        <attr name="viewBackgroundResId" format="reference"/><!-- 背景资源id -->
+        <attr name="textHint" format="string"/><!-- 文本内容 -->
+        <attr name="textColorResId" format="color"/><!-- 文本字色 -->
+        <attr name="slideThreshold" format="float"/><!-- 滑动阈值,默认是0.5,当右滑距离不满整个控件宽度的0.5,就会回弹至左边 -->
+    </declare-styleable>
+    <declare-styleable name="ConvenientBanner">
+        <attr name="canLoop" format="boolean" />
+    </declare-styleable>
+
+
+
+    <attr name="color_bg_main" format="color"/>
+    <attr name="text_one_style" format="color"/>
+    <attr name="text_two_style" format="color"/>
+    <attr name="line_style" format="color"/>
+    <attr name="item_bg" format="color"/>
+    <attr name="empty_style" format="reference"/>
+    <attr name="item_color__style" format="color"/>
+
+
+    <declare-styleable name="RoundImageView">
+        <attr name="type" format="enum">
+            <enum name="circle" value="1"/>
+            <enum name="round" value="2"/>
+        </attr>
+        <attr name="radius" format="dimension"/>ssss
+    </declare-styleable>
+</resources>

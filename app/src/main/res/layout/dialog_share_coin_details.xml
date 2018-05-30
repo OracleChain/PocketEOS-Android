@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:padding="@dimen/dimens_20">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="参考价格："
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/coin_one_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/app_name"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_13"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="24h涨跌："
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/coin_ups_and_downs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/app_name"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_13"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="总市值："
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/coin_maket_total_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/app_name"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_13"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/other_login_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:gravity="center"
+            android:text="@string/from_pocketeos"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_13"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_1"
+            android:layout_marginBottom="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:background="@color/line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_50"
+            android:layout_margin="@dimen/dimens_10"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/go_weixin_friend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dimens_10"
+                android:drawableTop="@mipmap/share_weixin"
+                android:gravity="center"
+                android:text="@string/go_weixin_friend"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_12"/>
+
+            <TextView
+                android:id="@+id/go_weixin_circle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dimens_10"
+                android:drawableTop="@mipmap/share_weixin_circle"
+                android:gravity="center"
+                android:text="@string/go_weixin_circle"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_12"/>
+
+            <TextView
+                android:id="@+id/go_qq_friend"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dimens_10"
+                android:drawableTop="@mipmap/share_qq_friend"
+                android:gravity="center"
+                android:text="@string/go_qq_friend"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_12"/>
+
+            <TextView
+                android:id="@+id/go_qzone"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dimens_10"
+                android:drawableTop="@mipmap/share_qzone"
+                android:gravity="center"
+                android:text="@string/go_qzone"
+                android:textColor="@color/txt_color"
+                android:textSize="@dimen/dimens_12"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_40"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:background="@null"
+            android:text="@string/seach_cancel"
+            android:textSize="@dimen/dimens_16"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+

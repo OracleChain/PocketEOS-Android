@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical"
+    tools:context=".modules.transaction.transferaccounts.TransferAccountsActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/spring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.oraclechain.pocketeos.view.MyScrollview
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimens_10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="horizontal"
+                        android:paddingRight="@dimen/dimens_10">
+
+                        <TextView
+                            android:id="@+id/switch_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="right|center_vertical"
+                            android:text="@string/all_number"
+                            style="?attr/text_two_style"
+                            android:textSize="@dimen/dimens_13"/>
+
+                        <ImageView
+                            android:id="@+id/look_number"
+                            android:layout_width="@dimen/dimens_20"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/drop_down"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dimens_10">
+
+                        <TextView
+                            android:id="@+id/switch_property"
+                            android:layout_width="@dimen/dimens_50"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:text="@string/all_property"
+                            style="?attr/text_two_style"
+                            android:textSize="@dimen/dimens_13"/>
+
+                        <ImageView
+                            android:id="@+id/look_property"
+                            android:layout_width="@dimen/dimens_20"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerInside"
+                            android:src="@mipmap/drop_down"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    style="?attr/line_style"/>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_66"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20">
+
+                    <TextView
+                        android:id="@+id/txt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="@dimen/dimens_10"
+                        android:gravity="center_vertical"
+                        android:text="@string/get_property_number"
+                        style="?attr/text_two_style"
+                        android:textSize="@dimen/dimens_16"/>
+
+                    <com.oraclechain.pocketeos.view.ClearEditText
+                        android:id="@+id/get_property_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@+id/txt1"
+                        android:background="@null"
+                        android:hint="@string/input_property_number"
+                        android:inputType="numberDecimal"
+                        style="?attr/text_two_style"
+                        android:textColorHint="@color/gray_color"
+                        android:textCursorDrawable="@drawable/edittext_cursor"
+                        android:textSize="@dimen/dimens_16"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    style="?attr/line_style"/>
+
+                <TextView
+                    android:id="@+id/take_rmb_property"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_28"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20"
+                    android:text="≈****CNY"
+                    style="?attr/text_one_style"
+                    android:textSize="@dimen/dimens_24"/>
+
+                <Button
+                    android:id="@+id/get_make_collections_code"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_40"
+                    android:layout_margin="@dimen/dimens_20"
+                    android:background="@color/gray_color"
+                    android:text="@string/get_make_collections_code"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimens_16"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_10"
+                    style="?attr/line_style"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_58"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimens_20"
+                    android:text="@string/make_collections_history"
+                    style="?attr/text_one_style"
+                    android:textSize="@dimen/dimens_15"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1px"
+                    android:background="@color/line"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/dimens_10">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycle_make_collections_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="none"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </com.oraclechain.pocketeos.view.MyScrollview>
+    </com.liaoinstan.springview.widget.SpringView>
+</LinearLayout>

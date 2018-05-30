@@ -1,0 +1,89 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    tools:context="com.oraclechain.pocketeos.modules.account.backupaccount.fragment.BackUpAccountFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimens_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/backup_title"
+            style="?attr/text_two_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="@dimen/dimens_14"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:background="@color/black_box_coin_backgroud"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dimens_20"
+            android:paddingRight="@dimen/dimens_20">
+
+            <TextView
+                android:id="@+id/backup_desc"
+                style="?attr/text_two_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginBottom="@dimen/dimens_20"
+                android:layout_marginRight="@dimen/dimens_10"
+                android:layout_marginTop="@dimen/dimens_20"
+                android:layout_toLeftOf="@+id/switch_view"
+                android:drawableLeft="@mipmap/home_title1"
+                android:drawablePadding="@dimen/dimens_20"
+                android:text="@string/backup_pra_desc"
+                android:textSize="@dimen/dimens_13"/>
+
+            <Switch
+                android:id="@+id/switch_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/details"
+                style="?attr/text_one_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/dimens_20"
+                android:layout_marginTop="@dimen/dimens_20"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/backup_toast"
+                android:textSize="@dimen/dimens_13"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <TextView
+            style="?attr/text_two_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/backup_toast"
+            android:textSize="@dimen/dimens_13"/>
+
+        <Button
+            android:id="@+id/go_home"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_46"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:background="@color/blue_button"
+            android:text="@string/backup_tohome"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_14"/>
+    </LinearLayout>
+</FrameLayout>

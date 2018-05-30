@@ -1,0 +1,77 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.news.NewsFragment">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_64"
+        android:gravity="center"
+        android:text="@string/friends_text"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_17"/>
+
+    <RelativeLayout
+        android:id="@+id/go_seach"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_44"
+        android:background="@color/line">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dimens_8"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:background="@drawable/bg_dialog_confirm"
+            android:gravity="center"
+            android:text="@string/seach_friend"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dimens_13"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:divider="@null"
+            android:dividerHeight="0px"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:visibility="visible"/>
+
+
+        <com.oraclechain.pocketeos.view.contact.SideBarView
+            android:id="@+id/sidebarview"
+            android:layout_width="@dimen/dimens_25"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="@dimen/dimens_40"
+            android:layout_height="@dimen/dimens_33"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/sidebarview"
+            android:background="@mipmap/friends_tip"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_20"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>
+
+

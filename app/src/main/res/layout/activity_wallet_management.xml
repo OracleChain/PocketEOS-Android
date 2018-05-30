@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical"
+    tools:context=".modules.wallet.walletmanagement.WalletManagementActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <com.oraclechain.pocketeos.view.swiperecycle.SwipeMenuRecyclerView
+        android:id="@+id/user_account_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"/>
+</LinearLayout>
