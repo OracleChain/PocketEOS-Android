@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".modules.leftdrawer.usercenter.UserCenterActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <RelativeLayout
+        android:id="@+id/go_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_70"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_70"
+            android:gravity="center_vertical|left"
+            android:text="@string/photo"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+
+        <com.oraclechain.pocketeos.view.CircleImageView
+            android:id="@+id/user_img"
+            android:layout_width="@dimen/dimens_52"
+            android:layout_height="@dimen/dimens_52"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/more"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="@dimen/dimens_7"
+            android:layout_height="@dimen/dimens_14"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:src="@mipmap/more"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@color/line"/>
+
+    <RelativeLayout
+        android:id="@+id/go_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_58"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_70"
+            android:gravity="center_vertical|left"
+            android:text="@string/user_name"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical|right"
+            android:src="@mipmap/ic_launcher_round"
+            android:text="@string/app_name"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_10"
+        android:background="@color/bg_color"/>
+
+    <RelativeLayout
+        android:id="@+id/go_weixin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_58"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_70"
+            android:gravity="center_vertical|left"
+            android:text="@string/user_weixin"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+
+        <TextView
+            android:id="@+id/user_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical|right"
+            android:src="@mipmap/ic_launcher_round"
+            android:text="@string/app_name"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@color/line"/>
+
+    <RelativeLayout
+        android:id="@+id/go_qq"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_58"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_70"
+            android:gravity="center_vertical|left"
+            android:text="@string/user_qq"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_15"/>
+
+        <TextView
+            android:id="@+id/user_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableRight="@mipmap/more"
+            android:gravity="center_vertical|right"
+            android:src="@mipmap/ic_launcher_round"
+            android:text="@string/app_name"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_15"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_30"
+        android:background="@color/bg_color"/>
+
+    <Button
+        android:id="@+id/create_a_wallet"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_58"
+        android:background="@color/white"
+        android:text="@string/create_a_wallet"
+        android:textColor="@color/red_packet_buutton"
+        android:textSize="@dimen/dimens_16"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20">
+
+        <RelativeLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <com.oraclechain.pocketeos.view.CustomSlideToUnlockView
+                android:id="@+id/slide_to_unlock"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:slideImageViewResId="@mipmap/start_lock_icon"
+                app:slideImageViewResIdAfter="@mipmap/lock_icon"
+                app:slideImageViewWidth="50dp"
+                app:slideThreshold="0.5"
+                app:textColorResId="@color/white"
+                app:textHint="@string/slide_to_unlock"
+                app:viewBackgroundResId="@drawable/bg_slide_lock"/>
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_slide_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:scaleType="fitXY"
+            android:src="@mipmap/lock_icon"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:gravity="center_horizontal"
+        android:text="@string/slide_to_unlock_notice"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_13"/>
+
+</LinearLayout>

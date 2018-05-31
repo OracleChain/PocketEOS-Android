@@ -1,0 +1,249 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_400"
+        android:background="@drawable/black_box_gradual_change"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_60"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:id="@+id/home_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/home_title1"
+                    android:layout_width="@dimen/dimens_50"
+                    android:layout_height="@dimen/dimens_50"
+                    android:scaleType="center"
+                    android:src="@mipmap/home_title1"/>
+
+                <ImageView
+                    android:id="@+id/home_title2"
+                    android:layout_width="@dimen/dimens_50"
+                    android:layout_height="@dimen/dimens_50"
+                    android:scaleType="center"
+                    android:src="@mipmap/home_title2"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_seting"
+                android:layout_width="@dimen/dimens_50"
+                android:layout_height="@dimen/dimens_50"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@mipmap/home_seting"/>
+
+            <RelativeLayout
+                android:id="@+id/choose_type"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+               android:gravity="center">
+
+                <TextView
+                    android:id="@+id/choose_account"
+                    android:layout_width="@dimen/dimens_70"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimens_17"/>
+                <ImageView
+                    android:id="@+id/look_more"
+                    android:layout_width="@dimen/dimens_20"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@+id/choose_type_title"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/drop_down"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <com.oraclechain.pocketeos.view.ScrollText
+            android:id="@+id/notice"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_30"
+            android:background="#FF474747"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="left|center_vertical"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:paddingLeft="@dimen/dimens_20"
+            android:paddingRight="@dimen/dimens_20"
+            android:singleLine="true"
+            android:text="@string/home_notice"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_12"/>
+        <com.liaoinstan.springview.widget.SpringView
+            android:id="@+id/spring"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.oraclechain.pocketeos.view.MyScrollview
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdge="none"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_122"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/all_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/user_img"
+                            android:layout_marginLeft="@dimen/dimens_30"
+                            android:layout_marginTop="@dimen/dimens_30"
+                            android:clickable="true"
+                            android:drawablePadding="@dimen/dimens_17"
+                            android:drawableRight="@mipmap/open_eye"
+                            android:text="@string/all_money"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/dimens_15"/>
+
+                        <TextView
+                            android:id="@+id/user_all_property"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@+id/all_money"
+                            android:layout_marginBottom="@dimen/dimens_10"
+                            android:layout_marginLeft="@dimen/dimens_30"
+                            android:layout_marginTop="@dimen/dimens_5"
+                            android:layout_toLeftOf="@+id/property_tendency"
+                            android:ellipsize="end"
+                            android:gravity="bottom"
+                            android:singleLine="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/dimens_36"/>
+
+
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_100"
+                        android:layout_below="@+id/img">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimens_50"
+                            android:layout_gravity="bottom"
+                            android:background="@color/white"/>
+
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cardview"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimens_96"
+                            android:layout_gravity="top"
+                            android:layout_marginBottom="@dimen/dimens_5"
+                            android:layout_marginLeft="@dimen/dimens_15"
+                            android:layout_marginRight="@dimen/dimens_15"
+                            android:elevation="@dimen/dimens_10"
+                            app:cardCornerRadius="@dimen/dimens_6">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimens_20">
+
+                                <TextView
+                                    android:id="@+id/transfer_accounts"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:drawableTop="@mipmap/transfer_accounts"
+                                    android:gravity="center"
+                                    android:paddingTop="@dimen/dimens_20"
+                                    android:text="@string/transfer_accounts"
+                                    android:textColor="@color/title_color"
+                                    android:textSize="@dimen/dimens_14"/>
+
+                                <TextView
+                                    android:id="@+id/make_collections"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:drawableTop="@mipmap/make_collections"
+                                    android:gravity="center"
+                                    android:paddingTop="@dimen/dimens_20"
+                                    android:text="@string/make_collections"
+                                    android:textColor="@color/title_color"
+                                    android:textSize="@dimen/dimens_14"/>
+
+                            </LinearLayout>
+                        </android.support.v7.widget.CardView>
+                    </FrameLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:paddingTop="@dimen/dimens_5">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/black_box_recycle_icon"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/dimens_15"
+                            android:paddingRight="@dimen/dimens_15"
+                            android:scrollbars="none"/>
+
+                        <TextView
+                            android:id="@+id/no_more"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimens_40"
+                            android:layout_below="@+id/black_box_recycle_icon"
+                            android:layout_marginTop="@dimen/dimens_10"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:text="@string/no_more"
+                            android:textColor="@color/gray_color"
+                            android:textSize="@dimen/dimens_12"/>
+                    </RelativeLayout>
+                </LinearLayout>
+            </com.oraclechain.pocketeos.view.MyScrollview>
+        </com.liaoinstan.springview.widget.SpringView>
+    </LinearLayout>
+</FrameLayout>

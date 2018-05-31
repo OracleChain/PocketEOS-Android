@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".modules.wallet.createwallet.bindphone.BindPhoneActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/password"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/input_password"
+        android:inputType="textPassword"
+        android:textColor="@color/title_color"
+        android:textColorHint="@color/gray_color"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/confirm_password"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/input_confirm_password"
+        android:inputType="textPassword"
+        android:textColor="@color/title_color"
+        android:textColorHint="@color/gray_color"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/line"/>
+
+    <Button
+        android:id="@+id/create_wallet"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_42"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:background="@color/blue_button"
+        android:text="@string/creat1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimens_20"
+        android:text="@string/creat_wallet_drsc"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_12"/>
+
+    <TextView
+        android:id="@+id/go_import_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="@dimen/dimens_20"
+        android:text="@string/alerady_wallet"
+        android:textColor="@color/theme_color"
+        android:textSize="@dimen/dimens_13"
+        android:visibility="gone"/>
+
+</LinearLayout>

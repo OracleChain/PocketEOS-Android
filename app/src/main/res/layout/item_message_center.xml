@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimens_20"
+    android:layout_marginRight="@dimen/dimens_20"
+    android:layout_marginTop="@dimen/dimens_20"
+    android:background="?attr/item_bg"
+    android:padding="@dimen/dimens_20">
+
+    <TextView
+        android:id="@+id/message_title"
+        style="?attr/text_one_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/dimens_10"
+        android:layout_toLeftOf="@+id/message_time"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="@dimen/dimens_15"/>
+
+    <TextView
+        android:id="@+id/message_time"
+        style="?attr/text_one_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textSize="@dimen/dimens_12"/>
+
+    <TextView
+        android:id="@+id/message_desc"
+        style="?attr/text_two_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_title"
+        android:layout_marginTop="@dimen/dimens_15"
+        android:textSize="@dimen/dimens_13"/>
+
+</RelativeLayout>

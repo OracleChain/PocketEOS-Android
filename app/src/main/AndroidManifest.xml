@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.oraclechain.pocketeos">
+
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <application
+        android:name=".app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="design_width"
+            android:value="375">
+        </meta-data>
+        <meta-data
+            android:name="design_height"
+            android:value="667">
+        </meta-data>
+
+        <activity
+            android:name=".modules.welcome.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ThemeSplash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".modules.main.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.scancode.ScanCodeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".modules.transaction.transferaccounts.TransferAccountsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.transaction.redpacket.makeredpacket.RedPacketActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.transaction.makecollections.MakeCollectionsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.coindetails.CoinDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.transaction.redpacket.continueredpacket.ContinueRdPacketActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.switchusernumber.SwitchUserNumberActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.leftdrawer.usercenter.UserCenterActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 通知系统图库更新了 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.oraclechain.pocketeos.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/> <!--  -->
+        </provider>
+
+        <activity
+            android:name=".modules.wallet.walletmanagement.WalletManagementActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.account.createaccount.CreateAccounntActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.account.importaccount.ImportAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.account.accountdetails.AccountDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.leftdrawer.transactionhistory.TransactionHistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.leftdrawer.usercenter.otherlogintype.OtherLoginTypeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.leftdrawer.usercenter.changename.ChangeNameActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.friendslist.friendsdetails.FriendsDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.friendslist.pelist.PelistActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.wallet.createwallet.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <activity
+            android:name=".modules.wallet.createwallet.bindphone.BindPhoneActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.wallet.createwallet.CreateWalletActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.wallet.importwallet.ImportWalletActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.dapp.paidanswer.paidanswerhome.activity.PaidAnswerActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.dapp.paidanswer.makequestion.MakeQuestionActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.news.newsdetails.WebNewsDetailsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.leftdrawer.messagecenter.MessageCenterActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.leftdrawer.systemsetting.SystemSettingActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.leftdrawer.appupdate.AppUpdateActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.seach.SeachActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity
+            android:name=".modules.dapp.paidanswer.chooseaccountwithcoin.ChooseAccountWithCoinActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent"/>
+        <activity
+            android:name=".modules.dapp.dappcommpany.DappCommpanyDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.leftdrawer.systemsetting.RichTextActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.transaction.transferaccounts.switchfriend.SwitchFriendActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.empty.EmptyActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.leftdrawer.appupdate.AppIntroActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <service android:name=".utils.DownLoadServerice"/>
+
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1106779320"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!-- 微信登录 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent">
+        </activity>
+        <activity android:name=".modules.transaction.redpacket.anticipationredpacket.AnticipationRedPacketActivity">
+        </activity>
+        <activity android:name=".modules.transaction.redpacket.getredpacketdetails.GetRedPacketDetailsActivity">
+        </activity>
+        <activity android:name=".modules.dapp.dappdetails.DappDetailsActivity">
+        </activity>
+        <activity android:name=".modules.dapp.paidanswer.questiondetails.QuestionDetailsActivity"/>
+        <activity android:name=".modules.blackbox.nowalletlogin.BlackBoxLoginActivity">
+        </activity>
+        <activity android:name=".modules.blackbox.existwalletlogin.ExistBlackBoxLoginActivity">
+        </activity>
+        <activity android:name=".modules.blackbox.existwalletlogin.BlackBoxCreatWalletActivity">
+        </activity>
+        <activity android:name=".modules.blackbox.BlackBoxMainActivity">
+        </activity>
+        <activity android:name=".modules.blackbox.blackboxcoindetails.BlackBoxCoinDetailsActivity">
+        </activity>
+        <activity android:name=".modules.blackbox.blackboxaccount.BlackBoxCreatAccountActivity">
+        </activity>
+        <activity android:name=".modules.account.backupaccount.activity.BackUpAccountActivity">
+        </activity>
+        <activity android:name=".modules.leftdrawer.candyintegral.CandyIntegralActivity">
+        </activity>
+
+        <service
+            android:name=".service.KillSelfService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
+        <activity android:name=".modules.leftdrawer.systemsetting.LanguageActivity">
+        </activity>
+        <activity android:name=".modules.account.mapaccount.MapAccountActivity">
+        </activity>
+        <activity android:name=".modules.account.backupaccount.BackUpKeyActivity">
+        </activity>
+    </application>
+
+</manifest>

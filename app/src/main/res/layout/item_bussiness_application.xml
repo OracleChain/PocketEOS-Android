@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/bussiness_application_img"
+        android:layout_width="@dimen/dimens_34"
+        android:layout_height="@dimen/dimens_34"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/dimens_20"
+        android:src="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_toRightOf="@+id/bussiness_application_img"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bussiness_application_name"
+            style="?attr/text_one_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/hot_application_desc"
+            android:textSize="@dimen/dimens_13"/>
+
+        <TextView
+            android:id="@+id/bussiness_application_desc"
+            style="?attr/text_two_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textSize="@dimen/dimens_12"/>
+    </LinearLayout>
+
+</RelativeLayout>
+

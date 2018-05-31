@@ -1,0 +1,148 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="color_bg_main">@color/white</item>
+        <item name="text_one_style">@style/Text_two_light_style</item>
+        <item name="text_two_style">@style/Text_two_light_style</item>
+        <item name="item_bg">@style/item_light_bg</item>
+        <item name="line_style">@style/line_light_style</item>
+        <item name="empty_style">@style/empty_light_style</item>
+        <item name="item_color__style">@color/bg_color</item>
+    </style>
+
+    <style name="ThemeLight" parent="AppTheme">
+    </style>
+
+    <style name="ThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="color_bg_main">@color/black_box_color</item>
+        <item name="text_one_style">@style/Text_one_dark_style</item>
+        <item name="text_two_style">@style/Text_one_dark_style</item>
+        <item name="line_style">@style/line_dark_style</item>
+        <item name="item_bg">@style/item_dark_bg</item>
+        <item name="empty_style">@style/empty_darkt_style</item>
+        <item name="item_color__style">@color/black_box_color</item>
+    </style>
+    <style name="Text_one_light_style">
+        <item name="android:textColor">@color/title_color</item>
+    </style>
+    <style name="empty_light_style">
+        <item name="android:background">@mipmap/empty_data</item>
+    </style>
+
+    <style name="Text_one_dark_style">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Text_two_light_style">
+        <item name="android:textColor">@color/title_color</item>
+    </style>
+
+    <style name="Text_two_dark_style">
+        <item name="android:textColor">@color/gray_color</item>
+    </style>
+    <style name="empty_darkt_style">
+        <item name="android:background">@mipmap/empty_data_black_box</item>
+    </style>
+    <style name="line_light_style">
+        <item name="android:background">@color/line</item>
+    </style>
+
+    <style name="line_dark_style">
+        <item name="android:background">@color/blackbox_line</item>
+    </style>
+    <style name="item_light_bg">
+        <item name="android:background">@color/bg_color</item>
+    </style>
+
+    <style name="item_dark_bg">
+        <item name="android:background">@color/black_box_coin_backgroud</item>
+    </style>
+
+    <style name="HomeTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
+    <style name="ThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@mipmap/welcome</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Custom_Progress" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog的windowFrame框为无 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置dialog的背景 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否显示title -->
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_confirm</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+    <style name="PhotoDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/PhotoAnimDown</item>
+    </style>
+    <!--上到下弹出-->
+    <style name="AnimDown" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/push_scale_out</item>
+    </style>
+    <!--全屏从底部弹出-->
+    <style name="PhotoAnimDown" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="CustomCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+    <style name="BlackBoxCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/black_box_checkbox_style</item>
+    </style>
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/text_15</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>//此对话框的背景
+        <item name="android:windowBackground">@android:color/transparent</item>//对话框是否透明
+        <item name="android:windowContentOverlay">@null</item>//对话框是否有遮盖
+        <item name="android:windowNoTitle">true</item>//对话框无标题
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:backgroundDimEnabled">true</item>//是否允许对话框的背景变暗
+        <item name="android:windowAnimationStyle">@style/seachAnimation</item>//添加进入进出动画
+    </style>
+
+    <style name="seachAnimation">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+
+</resources>

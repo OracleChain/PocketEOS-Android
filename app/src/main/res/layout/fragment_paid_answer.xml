@@ -1,0 +1,15 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.dapp.paidanswer.paidanswerhome.fragment.PaidAnswerFragment">
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="@dimen/dimens_20"
+        android:scrollbars="none"/>
+</RelativeLayout>

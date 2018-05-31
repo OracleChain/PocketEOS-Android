@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_box_color"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.blackbox.existwalletlogin.BlackBoxCreatWalletActivity">
+
+    <include layout="@layout/title_project_blackbox"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/input_wallet_name"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/black_box_wallet_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/name"
+        android:maxLength="11"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textCursorDrawable="@drawable/black_box_edittext_cursor"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/blackbox_line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/input_wallet_pwd"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/black_box_wallet_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/pwd"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textCursorDrawable="@drawable/black_box_edittext_cursor"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/blackbox_line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimens_20"
+        android:gravity="center_vertical"
+        android:text="@string/black_box_wallet_two_pwd"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_14"/>
+
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/black_box_two_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/pwd"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textCursorDrawable="@drawable/black_box_edittext_cursor"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@color/blackbox_line"/>
+
+    <Button
+        android:id="@+id/black_box_create_wallet"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_42"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_30"
+        android:background="@color/blue_button"
+        android:text="@string/next_step"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+</LinearLayout>

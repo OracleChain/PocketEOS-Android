@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical"
+    tools:context=".modules.account.importaccount.ImportAccountActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_187">
+
+                <TextView
+                    android:id="@+id/go_scan_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:clickable="true"
+                    android:drawablePadding="@dimen/dimens_20"
+                    android:drawableTop="@mipmap/import_go_scan_code"
+                    android:text="@string/import_account_toast"
+                    style="?attr/text_one_style"
+                    android:textSize="@dimen/dimens_13"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_10"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimens_20"
+                android:text="输入账号"
+
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimens_13"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimens_40"
+                    android:gravity="center_vertical"
+                    android:text="@string/account"
+                    style="?attr/text_one_style"
+                    android:textSize="@dimen/dimens_16"/>
+
+                <com.oraclechain.pocketeos.view.ClearEditText
+                    android:id="@+id/account_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_40"
+                    android:layout_marginLeft="@dimen/dimens_20"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/iniput_account_name"
+                    android:textColor="@color/title_color"
+                    android:textCursorDrawable="@drawable/edittext_cursor"
+                    android:textSize="@dimen/dimens_17"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_line_cash"
+                style="?attr/line_style"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimens_20"
+                android:text="输入OWNKEY"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimens_13"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimens_40"
+                    android:gravity="center_vertical"
+                    android:text="@string/private_key"
+                    style="?attr/text_one_style"
+                    android:textSize="@dimen/dimens_16"/>
+
+                <com.oraclechain.pocketeos.view.ClearEditText
+                    android:id="@+id/owner_private_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_40"
+                    android:layout_marginLeft="@dimen/dimens_20"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input_private_key"
+                    android:inputType="textImeMultiLine"
+                    android:textColor="@color/title_color"
+                    android:textCursorDrawable="@drawable/edittext_cursor"
+                    android:textSize="@dimen/dimens_17"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_line_cash"
+                style="?attr/line_style"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimens_20"
+                android:text="输入ACTIVEKEY"
+                android:textColor="@color/gray_color"
+                android:textSize="@dimen/dimens_13"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimens_40"
+                    android:gravity="center_vertical"
+                    android:text="@string/private_key"
+                    style="?attr/text_one_style"
+                    android:textSize="@dimen/dimens_16"/>
+
+                <com.oraclechain.pocketeos.view.ClearEditText
+                    android:id="@+id/active_private_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_40"
+                    android:layout_marginLeft="@dimen/dimens_20"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="@string/input_private_key"
+                    android:inputType="textImeMultiLine"
+                    android:textColor="@color/title_color"
+                    android:textCursorDrawable="@drawable/edittext_cursor"
+                    android:textSize="@dimen/dimens_17"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_line_cash"
+                style="?attr/line_style"/>
+
+            <Button
+                android:id="@+id/import_number"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_42"
+                android:layout_marginBottom="@dimen/dimens_20"
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:layout_marginRight="@dimen/dimens_20"
+                android:layout_marginTop="@dimen/dimens_40"
+                android:background="#FF4D7BFE"
+                android:text="@string/import_account_button"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_14"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

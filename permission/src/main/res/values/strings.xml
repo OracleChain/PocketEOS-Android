@@ -1,0 +1,15 @@
+<resources>
+    <string name="permission_storage">Storage</string>
+    <string name="permission_location">Location</string>
+    <string name="permission_camera">Camera</string>
+    <string name="permission_dialog_title">Start %s</string>
+    <string name="permission_dialog_msg">For your normal use %s, you need the following permissions</string>
+    <string name="permission_title">Please allow access to %s</string>
+    <string name="permission_denied">We need access to %1$s,otherwise, you will not be able to use %2$s</string>
+    <string name="permission_denied_with_naac">"Because %1$s cannot use %2$s,Can not run normally,Please open permissions before using.\n\nSetup path: Apps->%3$s->Permissions"</string>
+    <string name="permission_cancel">Cancel</string>
+    <string name="permission_ensure">Enter</string>
+    <string name="permission_reject">Deny</string>
+    <string name="permission_btn_next">Next</string>
+    <string name="permission_go_to_setting">Go to Setting</string>
+</resources>

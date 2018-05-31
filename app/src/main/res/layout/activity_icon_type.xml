@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".modules.transaction.transferaccounts.TransferAccountsActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <com.liaoinstan.springview.widget.SpringView
+        android:id="@+id/spring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.oraclechain.pocketeos.view.MyScrollview
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_58"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20">
+
+                    <TextView
+                        android:id="@+id/icon_total_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_toLeftOf="@+id/coin_uoanddown"
+                        android:singleLine="true"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_24"/>
+
+
+                    <TextView
+                        android:id="@+id/coin_uoanddown"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="@dimen/dimens_10"
+                        android:text="@string/_2_06"
+                        android:textColor="@color/money_color"
+                        android:textSize="@dimen/dimens_14"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/coin_maket_cap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimens_20"
+                    android:layout_marginRight="@dimen/dimens_20"
+                    android:layout_marginTop="@dimen/dimens_10"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/dimens_14"/>
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_100"
+                    android:visibility="gone"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_1"
+                    android:layout_marginTop="@dimen/dimens_20"
+                    android:background="@color/line"/>
+
+                <ImageView
+                    android:id="@+id/coin_upanddown_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_80"
+                    android:layout_marginBottom="@dimen/dimens_10"
+                    android:layout_marginLeft="@dimen/dimens_20"
+                    android:layout_marginRight="@dimen/dimens_20"
+                    android:layout_marginTop="@dimen/dimens_10"
+                    android:scaleType="fitXY"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_10"
+                    android:background="@color/bg_color"/>
+
+                <TextView
+                    android:id="@+id/coin_user_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_64"
+                    android:drawableLeft="@mipmap/coin_user_number"
+                    android:drawablePadding="@dimen/dimens_10"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_15"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_line_cash"
+                    android:layout_marginTop="@dimen/dimens_10"
+                    android:background="@color/line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_98"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20">
+
+                    <TextView
+                        android:id="@+id/icon_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_32"/>
+
+                    <TextView
+                        android:id="@+id/icon_rmb_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimens_10"
+                        android:singleLine="true"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dimens_14"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_line_cash"
+                    android:background="@color/line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.oraclechain.pocketeos.view.DrawableCenterTextView
+                        android:id="@+id/go_transfer_accounts"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/go_transfer_accounts"
+                        android:drawablePadding="@dimen/dimens_10"
+                        android:gravity="center_vertical"
+                        android:text="@string/transfer_accounts"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dimens_14"/>
+
+                    <com.oraclechain.pocketeos.view.DrawableCenterTextView
+                        android:id="@+id/go_make_collections"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/go_make_collections"
+                        android:drawablePadding="@dimen/dimens_10"
+                        android:gravity="center_vertical"
+                        android:text="@string/make_collections"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dimens_14"/>
+
+                    <com.oraclechain.pocketeos.view.DrawableCenterTextView
+                        android:id="@+id/go_red_packet"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/go_red_packet"
+                        android:drawablePadding="@dimen/dimens_10"
+                        android:gravity="center_vertical"
+                        android:text="@string/red_packet"
+                        android:textColor="@color/txt_color"
+                        android:textSize="@dimen/dimens_14"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_10"
+                    android:background="#FFF9F9F9"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_58"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:paddingRight="@dimen/dimens_20"
+                    android:text="@string/recycle_coin_history"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/dimens_15"
+                    android:visibility="visible"/>
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimens_line_cash"
+                    android:background="@color/line"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimens_10"
+                    android:visibility="visible">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycle_coin_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none"/>
+                </RelativeLayout>
+            </LinearLayout>
+        </com.oraclechain.pocketeos.view.MyScrollview>
+    </com.liaoinstan.springview.widget.SpringView>
+</LinearLayout>

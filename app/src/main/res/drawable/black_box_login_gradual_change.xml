@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--angle代表从上至下颜色渐变；45代表从左至右颜色渐变；90代表从下至上颜色渐变… -->
+    <gradient
+        android:angle="90"
+        android:startColor="@color/black_box_login_end"
+        android:endColor="@color/black_box_login_start"/>
+</shape>

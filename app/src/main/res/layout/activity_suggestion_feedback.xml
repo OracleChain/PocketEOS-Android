@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical"
+    tools:context=".modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity">
+
+    <include layout="@layout/title_project"/>
+    <View
+        style="?attr/line_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"/>
+    <com.oraclechain.pocketeos.view.ClearEditText
+        android:id="@+id/suggestion_details"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_160"
+        android:background="@null"
+        android:gravity="top|left"
+        android:hint="@string/hint_suggestion_details"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/dimens_20"
+        android:textColor="@color/txt_color"
+        android:textColorHint="@color/gray_color"
+        android:textCursorDrawable="@drawable/edittext_cursor"
+        android:textSize="@dimen/dimens_14"/>
+    <View
+        style="?attr/item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_10"/>
+    <TextView
+        style="?attr/text_one_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_50"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dimens_20"
+        android:text="@string/suggertion_history"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        style="?attr/line_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"/>
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/recycle_suggertion_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"/>
+</LinearLayout>

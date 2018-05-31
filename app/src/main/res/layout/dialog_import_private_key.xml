@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dialog_confirm"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_yello_title_top_bg"
+        android:gravity="left|center_vertical"
+        android:paddingBottom="@dimen/dimens_10"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_10"
+        android:text="@string/import_private_key_toast"
+        android:textColor="#FFFFB540"
+        android:textSize="@dimen/dimens_13"/>
+
+
+    <com.oraclechain.pocketeos.view.ScrollText
+        android:id="@+id/owner_private_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="left|center_vertical"
+        android:marqueeRepeatLimit="1"
+        android:paddingBottom="@dimen/dimens_10"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_10"
+        android:singleLine="true"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <com.oraclechain.pocketeos.view.ScrollText
+        android:id="@+id/active_private_key"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="left|center_vertical"
+        android:marqueeRepeatLimit="1"
+        android:paddingBottom="@dimen/dimens_10"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_10"
+        android:singleLine="true"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <ImageView
+        android:id="@+id/private_key_code"
+        android:layout_width="@dimen/dimens_120"
+        android:layout_height="@dimen/dimens_120"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dimens_10"
+        android:scaleType="fitXY"
+        android:visibility="gone"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimens_20">
+
+        <TextView
+            android:id="@+id/go_weixin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableTop="@mipmap/backup_weixin"
+            android:gravity="center"
+            android:text="微信好友"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/go_qq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableTop="@mipmap/backup_qq"
+            android:gravity="center"
+            android:text="QQ"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/go_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_20"
+            android:drawableTop="@mipmap/make_scode"
+            android:gravity="center"
+            android:text="@string/make_code"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"/>
+
+        <TextView
+            android:id="@+id/go_copy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_20"
+            android:drawableTop="@mipmap/copy"
+            android:gravity="center"
+            android:text="复制"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+

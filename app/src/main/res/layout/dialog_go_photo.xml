@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_110"
+        android:layout_marginLeft="@dimen/dimens_10"
+        android:layout_marginRight="@dimen/dimens_10"
+        android:background="@drawable/bg_dialog_confirm"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/go_system_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_54"
+            android:gravity="center"
+            android:text="我的相册"
+            android:textColor="#FF007AFF"
+            android:textSize="@dimen/dimens_20"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_line_cash"
+            android:background="@color/line"/>
+
+        <TextView
+            android:id="@+id/go_take_photo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_54"
+            android:gravity="center"
+            android:text="拍照"
+            android:textColor="#FF007AFF"
+            android:textSize="@dimen/dimens_20"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cancel"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_54"
+        android:layout_marginBottom="@dimen/dimens_20"
+        android:layout_marginLeft="@dimen/dimens_10"
+        android:layout_marginRight="@dimen/dimens_10"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:background="@drawable/bg_dialog_confirm"
+        android:text="取消"
+        android:textColor="#FF007AFF"
+        android:textSize="@dimen/dimens_20"/>
+</LinearLayout>
+
+
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_bg_main"
+    android:orientation="vertical"
+    tools:context=".modules.leftdrawer.transactionhistory.TransactionHistoryActivity">
+
+    <TextView
+        android:id="@+id/title"
+        style="?attr/text_one_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_64"
+        android:gravity="center"
+        android:text="@string/news_text"
+        android:textSize="@dimen/dimens_17"/>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recycle_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"/>
+</LinearLayout>

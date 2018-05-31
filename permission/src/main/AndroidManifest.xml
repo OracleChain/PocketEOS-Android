@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="me.ljp.permission">
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        >
+        <activity
+            android:name="me.ljp.permission.PermissionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomTheme_Dialog"/>
+
+    </application>
+
+</manifest>

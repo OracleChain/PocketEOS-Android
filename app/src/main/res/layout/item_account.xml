@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/account_img"
+        android:layout_width="@dimen/dimens_50"
+        android:layout_height="@dimen/dimens_50"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/account_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/account_img"
+        android:gravity="center_vertical"
+        android:text="item"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_15"/>
+
+</RelativeLayout>

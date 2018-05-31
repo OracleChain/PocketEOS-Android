@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+   android:layout_marginLeft="@dimen/dimens_20"
+    android:layout_marginRight="@dimen/dimens_20"
+    android:layout_marginTop="@dimen/dimens_10"
+    android:layout_marginBottom="@dimen/dimens_10">
+
+
+    <TextView
+        android:id="@+id/suggestion_title"
+        style="?attr/text_one_style"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/suggestion"
+        android:drawablePadding="@dimen/dimens_20"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textSize="@dimen/dimens_15"/>
+
+    <View
+        style="?attr/line_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+      />
+
+    <TextView
+        android:id="@+id/suggestion_answer"
+        style="?attr/text_two_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:textSize="@dimen/dimens_14"/>
+
+</LinearLayout>
+

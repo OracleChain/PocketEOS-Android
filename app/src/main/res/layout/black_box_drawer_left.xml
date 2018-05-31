@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigation_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/black_box_color"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_name"
+                    android:layout_marginTop="@dimen/dimens_170"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/wallet_management"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimens_40"
+                        android:clickable="true"
+                        android:drawablePadding="@dimen/dimens_10"
+                        android:drawableTop="@mipmap/black_box_wallet_management"
+                        android:gravity="center"
+                        android:text="@string/wallet_management"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_14"/>
+
+
+                    <TextView
+                        android:id="@+id/transaction_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimens_40"
+                        android:clickable="true"
+                        android:drawablePadding="@dimen/dimens_10"
+                        android:drawableTop="@mipmap/black_box_transaction_history"
+                        android:gravity="center"
+                        android:text="@string/transaction_history"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_14"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ll"
+                    android:layout_marginTop="@dimen/dimens_40"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dimens_30">
+
+                    <TextView
+                        android:id="@+id/message_center"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_40"
+                        android:layout_marginBottom="@dimen/dimens_10"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/black_box_message_center"
+                        android:drawablePadding="@dimen/dimens_20"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/message_center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_14"/>
+
+                    <TextView
+                        android:id="@+id/suggestion_feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_40"
+                        android:layout_marginBottom="@dimen/dimens_10"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/black_box_suggestion_feedback"
+                        android:drawablePadding="@dimen/dimens_20"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/suggestion_feedback"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_14"/>
+
+                    <TextView
+                        android:id="@+id/system_settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_40"
+                        android:layout_marginBottom="@dimen/dimens_10"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/black_box_system_settings"
+                        android:drawablePadding="@dimen/dimens_20"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/system_settings"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_14"/>
+
+                    <TextView
+                        android:id="@+id/app_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_40"
+                        android:layout_marginBottom="@dimen/dimens_10"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/black_boxapp_update"
+                        android:drawablePadding="@dimen/dimens_20"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/app_update"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/dimens_14"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/logout_wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_40"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dimens_20"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="@string/logout_wallet"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/dimens_14"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

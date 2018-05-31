@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/CollapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <FrameLayout
+                android:id="@+id/frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="parallax"
+                app:layout_scrollFlags="scroll|enterAlways">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/paid_answer"/>
+                <ImageView
+                    android:id="@+id/go_back"
+                    android:layout_width="@dimen/dimens_40"
+                    android:layout_height="@dimen/dimens_40"
+                    android:scaleType="center"
+                    android:src="@mipmap/white_back"/>
+            </FrameLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/dimens_5"
+            app:tabGravity="center"
+            app:tabMinWidth="@dimen/dimens_50"
+            app:tabIndicatorColor="@color/theme_color"
+            app:tabIndicatorHeight="@dimen/dimens_5"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/theme_color"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@color/title_color"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_10"
+            android:background="@color/bg_color"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/dimens_30"
+        android:background="@color/theme_color"
+        android:backgroundTint="@color/theme_color"
+        android:src="@mipmap/paid_answer_tab"
+        app:borderWidth="@dimen/dimens_0"
+        app:elevation="@dimen/dimens_0"
+        app:fabSize="auto"/>
+</android.support.design.widget.CoordinatorLayout>

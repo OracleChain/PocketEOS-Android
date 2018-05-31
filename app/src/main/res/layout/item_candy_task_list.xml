@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dimens_10"
+                android:paddingBottom="@dimen/dimens_10">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_70"
+        android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/task_img"
+        android:layout_width="@dimen/dimens_25"
+        android:layout_height="@dimen/dimens_25"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/go_friend_list"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimens_10"
+        android:layout_marginRight="@dimen/dimens_10"
+        android:layout_toLeftOf="@+id/do_status"
+        android:layout_toRightOf="@+id/task_img"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/do_status"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/dimens_14"/>
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/do_status"
+            android:ellipsize="end"
+            android:gravity="bottom"
+            android:layout_marginTop="@dimen/dimens_5"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_13"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/do_status"
+        android:layout_width="@dimen/dimens_70"
+        android:layout_height="@dimen/dimens_30"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/gray_line_broder"
+        android:gravity="center"
+        android:text="@string/done"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    </RelativeLayout>
+</LinearLayout>
+
+

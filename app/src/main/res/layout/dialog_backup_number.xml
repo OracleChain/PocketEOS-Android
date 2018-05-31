@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_dialog_confirm"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dimens_20">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_yello_title_top_bg"
+        android:gravity="center"
+        android:paddingBottom="@dimen/dimens_10"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_10"
+        android:text="@string/wallet_backup_title"
+        android:textColor="#FFFFB540"
+        android:textSize="@dimen/dimens_13"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:src="@mipmap/backup_title"/>
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_15"/>
+
+    <TextView
+        android:id="@+id/private_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:gravity="center"
+        android:text="@string/back_up_wallet_toast"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <TextView
+        android:id="@+id/path_backup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:gravity="center"
+        android:text="@string/back_up_wallet_toast"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimens_20"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/go_weixin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableTop="@mipmap/backup_weixin"
+            android:gravity="center"
+            android:text="微信好友"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"/>
+
+        <TextView
+            android:id="@+id/go_qq"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimens_10"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableTop="@mipmap/backup_qq"
+            android:gravity="center"
+            android:text="QQ"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"/>
+
+        <TextView
+            android:id="@+id/go_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableTop="@mipmap/backup_email"
+            android:gravity="center"
+            android:text="邮箱"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/dimens_10"/>
+    </LinearLayout>
+</LinearLayout>
+
+
+

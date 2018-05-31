@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.empty.EmptyActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/dimens_240"
+            android:layout_height="@dimen/dimens_240"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/empty_img"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:text="该功能暂未开放,敬请期待~"
+            android:textColor="@color/gray_color"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,348 @@
+<p style="text-align:center;line-height:204%">
+    <strong><span style="font-size:32px;line-height:204%">Pocket EOS</span></strong><strong><span style="font-size:32px;line-height:204%;font-family:宋体">用户协议</span></strong>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">1</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、总则</span></strong>
+</p>
+<p style="line-height:204%">
+    1.1<span style="font-family:宋体">、本协议是在您（以下称作</span>“<span style="font-family:宋体">您</span>”<span style="font-family:宋体">或者</span>“<span style="font-family:宋体">用户</span>”<span style="font-family:宋体">）在自觉自愿的基础上，为规范</span>Pocket EOS<span style="font-family:宋体">的使用及可能出现的问题，与北京易口袋科技有限公司（以下称作</span>“<span style="font-family:宋体">易口袋</span>”<span style="font-family:宋体">或</span>“<span style="font-family:宋体">我们</span>”<span style="font-family:宋体">）达成的一致性意见。</span>Pocket EOS<span style="font-family:宋体">（以下称作</span>“Pocket EOS”<span style="font-family:宋体">或</span>“<span style="font-family:宋体">本软件</span>”<span style="font-family:宋体">）是易口袋开发并提供的一款基于</span>EOS<span style="font-family: 宋体">区块链的移动端应用程序，包括区块链钱包工具和基于区块链的去中心化应用（简称</span>“Dapp”<span style="font-family:宋体">，但不包括第三方在本软件中提供的</span>Dapp<span style="font-family:宋体">）。以任何方式使用</span>Pocket EOS<span style="font-family:宋体">都代表您同意本协议。</span>
+</p>
+<p style="line-height:204%">
+    1.2<span style="font-family:宋体">、在开始使用</span>Pocket EOS<span style="font-family:宋体">之前，您有义务仔细阅读本协议，并在使用过程中接受其中条款的约束。当您下载</span>Pocket EOS<span style="font-family:宋体">并成功创</span> <span style="font-family:宋体">建钱包时，即视为您已经充分阅读并接受本协议全部条款，本协议立即生效，对双方具有约束力。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">2</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、服务内容</span></strong>
+</p>
+<p style="line-height:204%">
+    2.1 Pocket EOS<span style="font-family:宋体">允许用户管理</span>EOS<span style="font-family:宋体">区块链网络中的一些加密资产，包括但不仅限于</span>EOS<span style="font-family:宋体">和</span>OCT<span style="font-family:宋体">，并在</span>EOS<span style="font-family:宋体">网络中使用或转移这些资产。只有在具备相关知识、熟悉区块链技术及加密资产的性质的前提下，您才被允许使用</span>Pocket EOS<span style="font-family:宋体">。如果您符合上述条件，并准备使用</span>Pocket EOS<span style="font-family:宋体">，易口袋强烈建议您首先了解相关加密资产的应用场景和价值基础。您必须理解的信息包括（但不仅限于）以下内容：</span>
+</p>
+<p style="line-height:204%">
+    <strong>2.1.1</strong><strong><span style="font-family:宋体">、您的</span>EOS</strong><strong><span style="font-family:宋体">账户存在于区块链网络中，而不是</span>Pocket EOS</strong><strong><span style="font-family:宋体">的服务器上</span></strong>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">由于区块链网络的去中心化性质，您的账户和账户中的资产都存在于区块链网络中。</span>Pocket EOS<span style="font-family:宋体">仅提供与区块链网络进行交互的工具，您对账户的所有操作都在区块链网络而非</span>Pocket EOS<span style="font-family:宋体">的服务器上完成并被记录。</span>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">另一方面，您在本软件中的账户权限信息（包括账户私钥、钱包文件及钱包密码）都保存在本地，并只在本地进行验证和运算。其中，账户私钥是您在区块链网络中拥有某一账户的身份证明，钱包文件和钱包密码是在本地（您的移动设备上）保存账户私钥并进行加密的手段。</span>Pocket EOS<span style="font-family:宋体">不会将这些信息上传到任何网络中，无论是易口袋控制的服务器或第三方服务器。</span>
+</p>
+<p style="line-height:204%">
+    Pocket EOS<span style="font-family:宋体">要求用户进行手机验证，这仅是标识用户身份、方便用户使用的一种方式，与您</span> <span style="font-family:宋体">的</span>EOS<span style="font-family:宋体">账户完全无关。您可以随时变更用户身份和</span>EOS<span style="font-family:宋体">账户之间的对应关系，或者使用销毁钱包功能彻底删除用户身份信息。但由于区块链网络的去中心化特质，您无法删除</span>EOS<span style="font-family:宋体">账户。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:16px;line-height:204%">2.1.2</span></strong><strong><span style="font-size:16px;line-height:204%;font-family:宋体">、</span></strong><strong> </strong><strong><span style="font-size:16px;line-height: 204%;font-family:宋体">您独立保管自己的账户权限信息</span></strong>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">易口袋不储存用户的账户权限信息，包括账户私钥、钱包文件、钱包密码和其他任何能够在区块链网络中对账户进行控制的信息。因此，恰当地备份并保存账户权限信息对您而言至关重要。如果您的隐私信息丢失或被盗，您将永远失去与之相应的加密资产。易口袋无法为您恢复隐私信息或加密资产。</span>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">易口袋严正告知您，如果您不能完全理解上述文字，请不要使用</span>Pocket EOS<span style="font-family:宋体">。您应该参考更多资料，直到充分理解加密资产的性质及加密账户的运作方式。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:16px;line-height:204%">2.1.3</span></strong><strong><span style="font-size:16px;line-height:204%;font-family:宋体">、交易</span></strong>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">只有</span>EOS<span style="font-family:宋体">区块链网络能提供权威的加密资产交易记录。</span>Pocket EOS<span style="font-family:宋体">只是提供了一组功能界面，并允许您通过这些界面向</span>EOS<span style="font-family:宋体">网络中发送交易指令。您必须保证，您的交易符合</span>EOS<span style="font-family:宋体">网络的现行规则，否则您将自行承担由此而造成的损失。即使您严格遵守这些规则，易口袋也无法保证，您通过</span>Pocket EOS<span style="font-family:宋体">执行的交易操作一定会被</span>EOS<span style="font-family:宋体">网络记录。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:16px;line-height:204%">2.1.4</span></strong><strong><span style="font-size:16px;line-height:204%;font-family:宋体">、无法控制区块链网络</span></strong><strong> </strong>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">尽管</span>Pocket EOS<span style="font-family:宋体">允许您管理一些加密资产，但易口袋对这些资产及它们所依赖的</span>EOS<span style="font-family:宋体">区块链网络都不具有控制权。</span>
+</p>
+<p style="line-height:204%">
+    2.2 Pocket EOS<span style="font-family:宋体">提供以下功能。您应该在充分理解某一功能并接受易口袋设置的功能逻辑和功能限制的基础上使用这些功能。易口袋不承当任何因您对这些功能的误解而造成的损失，并有权要求您对误用这些功能而引起的不当后果进行赔偿。您在</span>Pocket EOS<span style="font-family:宋体">中进行相关操作即视为您同意与该功能相关的条款，接受该功能中的限制，并已经在可预见的范围内知悉使用该功能将带来的后果。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">创建钱包</span> </strong><strong><span style="font-family:宋体">。</span></strong><span style="font-family:宋体">您可以使用您的手机号、微信账号、</span>QQ<span style="font-family:宋体">账号或其他</span>Pocket EOS<span style="font-family: 宋体">支持的第三方账号来创建钱包。每一账号只能创建一个的钱包。如果您希望用该账号创建新的钱包，您应该首先<strong>销毁原有钱包</strong>。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">创建或导入</span>EOS</strong><strong><span style="font-family:宋体">账户。</span></strong><span style="font-family:宋体">您在本软件中可以使用生成新的</span>EOS<span style="font-family:宋体">账户或导入相关区块链系统的其它钱包工具生成的</span>EOS<span style="font-family:宋体">账户。这些账户将与您的钱包关联。每一钱包可以关联多个</span>EOS<span style="font-family:宋体">账户。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">绑定或解绑第三方账号。</span></strong><span style="font-family:宋体">本软件允许您将您的钱包和微信账号、</span>QQ<span style="font-family:宋体">账号及其他支持的第三方账号进行绑定，以方便您的使用。每一个钱包只能绑定一个同种类的第三方账号，每一第三方账号也只能对应唯一的钱包。绑定过的账号无法用于创建新钱包。除了</span>Pocket EOS<span style="font-family:宋体">的相关条款，绑定第三方账号后您也需要遵守该第三方有关账号授权和信息管理的条款。您可以随时解除这种绑定关系。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">转账、收款。</span></strong><span style="font-family:宋体">您可以使用的转账、收款功能进行数字资产的使用和转移，即运用私钥进行电子签名，从而对相关区块链上的账本状态进行修改。实际的转账、收款行为均在相关区块链系统（而非本软件中）发生。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;<strong><span style="font-family:宋体">查询交易记录。</span></strong><span style="font-family:宋体">我们将通过与区块链网络同步的账本信息，为您呈现全部或部分的交易记录。但交易记录以区块链系统的记载为准。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">价格估算。</span></strong><span style="font-family:宋体">本软件提供相关数字资产的估算价格。但您应理解，</span>Pocket EOS<span style="font-family:宋体">只是抓取了相应的外部数据并进行展示。这些数字资产的真实价格并不由易口袋所决定，本软件中展示的价格也不代表您出卖该资产能够获得的实际价格。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">浏览并使用</span>Dapp</strong><strong><span style="font-family:宋体">。</span></strong>Pocket EOS<span style="font-family:宋体">将为用户提供一些</span>Dapp<span style="font-family:宋体">（包括易口袋自研和第三方开发的</span>DApp<span style="font-family:宋体">），支持用户更方便、更有效地使用数字资产。在使用任何</span>Dapp<span style="font-family:宋体">前，您都应该阅读相关文档，充分理解该</span>Dapp<span style="font-family:宋体">的功能和运作方式。您可以使用本软件创建或导入到钱包中的</span>EOS<span style="font-family:宋体">账户来使用这些</span>Dapp<span style="font-family:宋体">，但由于</span>EOS<span style="font-family:宋体">账户是独立于本软件中的，在</span>Dapp<span style="font-family:宋体">中对这些账户及账户中资产的操作也本软件无关。某些第三方</span>Dapp<span style="font-family:宋体">可能要求在其他应用程序中完成操作。</span>Pocket EOS<span style="font-family:宋体">只提供相关的链接，不对这些</span>Dapp<span style="font-family:宋体">的功能、技术完备性或安全性做任何担保。您应该根据自己的需求和判断，选择并使用合适的</span>Dapp<span style="font-family:宋体">。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><strong><span style="font-family:宋体">销毁钱包。</span></strong><span style="font-family:宋体">您可以随时销毁您的钱包。销毁钱包后，您的用户信息及第三方账号的绑定信息都将被从</span>Pocket EOS<span style="font-family:宋体">的服务器上删除。这一操作是不可逆的。您可以重新用您的手机号或其他账号创建钱包，但该新钱包与被销毁的旧钱包之间不存在任何关系。另外，您应了解，由于区块链网络的性质，您无法删除您的</span>EOS<span style="font-family:宋体">账户。销毁钱包并不能将与该钱包关联的</span>EOS<span style="font-family:宋体">账户关闭或销毁。这些账户将依然存在于区块链网络中，只是不与任何</span>Pocket EOS<span style="font-family:宋体">钱包相关联。您可以将这些账户重新导入其他钱包，从而建立新的关联。</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>&nbsp;<span style="font-family:宋体">其他易口袋认为有必要提供的服务。</span>
+</p>
+<p style="line-height:204%">
+    2.3 Pocket EOS<span style="font-family:宋体">不提供以下功能：</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">找回用户的钱包密码、钱包文件、账户私钥；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">冻结、挂失或恢复</span>EOS<span style="font-family:宋体">账户；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">交易回滚；当您使用本软件进行转账或收款时功能时，您必须自行承担因您操作失误而导致的后果。</span>
+</p>
+<p style="margin-bottom:11px">
+    <strong><span style="font-size:24px;line-height:115%">3</span></strong><strong><span style="font-size:24px;line-height:115%;font-family:宋体">、用户责任</span></strong>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    3.1<span style="font-family:宋体">、您应该：</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">遵守中华人民共和国相关法律法规及您所居住的国家或地区的法律法规；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">达到您当地法律所规定的成年年龄，并是具有完全民事行为能力的自然人；无民事行为能力人使用本软件、或限制民事行为能力人超过其民事权利或行为能力范围使用本软的，我们有权要求监护人承担一切后果；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">为您的加密资产负全部责任；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">恰当地备份</span>/<span style="font-family:宋体">抄下您的账户权限信息，并恰当地保存它们；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">确保您的账户私钥和钱包文件不泄露给其他人；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">确保您的设备和</span>Pocket EOS<span style="font-family:宋体">都升级到最新版本，且没有病毒、木马或其他恶意软件；易口袋，不保证本软件能在旧版设备上运行，也不保证旧版软件的安全性、继续可用性及提供相应的客户服务；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">确保您使用的是恰当版本的</span>Pocket EOS<span style="font-family:宋体">；易口袋</span><span style="font-size:13px;line-height:205%;font-family:宋体;background:white">可能为不同的终端设备开发不同的软件版本</span><span style="font-family:宋体">您应该根据实际需要选择下载合适的版本进行安装。如果您从未经合法授权的第三方获取本软件或与本软件名称相同的安装程序，易口袋将无法保证该软件能否正常使用，也无法保证其安全性，因此造成的损失由您自行承担；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">按时缴纳服务费用（如有），否则易口袋有权暂停或中止对您提供的服务</span>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    3.2<span style="font-family:宋体">、您不应该：</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">使用本软件从事中华人民共和国法律或您当地法律所禁止的活动，或用非法的方式使用本软件；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">将加密资产转移到您所控制的、但</span>Pocket EOS<span style="font-family:宋体">不支持的区块链地址；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">以可能会影响其他用户正常使用或区块链节点正常工作的方式使用本软件（例如过于频繁地操作或制造垃圾信息）。</span>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    3.3<span style="font-family:宋体">、如果您对</span>Pocket EOS<span style="font-family: 宋体">的使用（或误用）使易口袋的权益受到损害，您同意赔偿易口袋因为而受到的各类损失，并承担相关的法律费用。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">4</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、知识产权</span></strong>
+</p>
+<p style="line-height:204%">
+    4.1<span style="font-family:宋体">、</span>Pocket EOS<span style="font-family:宋体">系易口袋开发并拥有知识产权的应用程序。</span> <span style="font-family: 宋体">本软件中显示的任何内容（包括本协议、公告、文章、视频、音频、图片、档案、资讯、资料、商标或标识）的知识产权归易口袋或第三方权利人所有。</span>
+</p>
+<p style="line-height:204%">
+    4.2<span style="font-family:宋体">、本协议允许您个人在全球范围内，以非独占、免版税、不可转让的方式使用易口袋服务，且相关服务只能被来管理您的虚拟资产。任何人不得对</span>Pocket EOS<span style="font-family:宋体">服务的进行修改、反向编译或二次分发，您也不能使用本软件上的任何内容作为任何其他软件或项目中的一部分，包括图片和文本。如果您希望在本协议范围之外与易口袋展开进一步合作，请联系我们。</span>
+</p>
+<p style="line-height:204%">
+    4.3<span style="font-family:宋体">、易口袋方面的任何行为都不应被视为放弃对</span>Pocket EOS<span style="font-family:宋体">所享有的权益。</span>
+</p>
+<p style="margin-bottom:11px">
+    <strong><span style="font-size:24px;line-height:115%">5</span></strong><strong><span style="font-size:24px;line-height:115%;font-family:宋体">、风险提示</span></strong>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    <span style="font-family:宋体">使用加密资产工具可能会面临许多风险。易口袋特别提示您注意以下风险。易口袋无法为您避免这些风险，且不会为由此造成的损失承担责任。但这并不涵盖您将面临的全部风险：</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">操作系统崩溃；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">您的硬件、软件及</span>Pocket EOS<span style="font-family:宋体">之间的不兼容；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">云备份软件</span> <span style="font-family:宋体">（如一些安卓定制系统）可能会将您的账户权限信息和其他隐私信息上传到第三方服务器；</span>,
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">您设备上的木马、病毒或其他恶意软件可能会控制</span>Pocket EOS<span style="font-family:宋体">，或通过</span>Pocket EOS<span style="font-family:宋体">执行某些操作；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Pocket EOS<span style="font-family:宋体">与区块链网络节点或加密资产相关服务之间的通信延迟；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因未备份账户权限信息或账户权限信息丢失而造成资产丢失；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">不安全的网络环境导致的信息泄露；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">区块链技术不成熟带来的重大技术风险；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">由于数字资产领域的相关法律法规尚未健全，各国的监管标准也存在差异，您可能会面临法律或政策变动而带来的风险；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">各类诈骗行为；您在交易过程中应当自行判断对方是否为完全民事行为能力人并自行决定是否与对方进行交易，且您自行承担与此相关的所有风险。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">6</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、非担保性使用</span></strong>
+</p>
+<p style="line-height:204%">
+    <span style="font-family:宋体">本协议允许您以免费的、预先设定的的方式使用</span>Pocket EOS<span style="font-family:宋体">，且在法律允许最大限度之内不提供任何条件下的任何保证。您需要特别注意以下内容：</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">即使在您事先声明过预期用途，本协议也不保证</span>Pocket EOS<span style="font-family:宋体">能符合您的使用目的；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">本协议不保证</span>Pocket EOS<span style="font-family:宋体">不存在任何</span>Bug<span style="font-family:宋体">；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">本协议不保证本软件从第三方交易所抓取的数字代币市场交易行情等信息的及时性、准确性、完整性、可靠性做出保证；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">本协议不保证与您在</span>Pocket EOS<span style="font-family:宋体">上进行交易的各方会及时履行其在与您达成的交易协议中各项义务。</span>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    <strong><span style="font-size:24px;line-height:205%">7</span></strong><strong><span style="font-size:24px;line-height:205%;font-family:宋体">、隐私条款</span></strong>
+</p>
+<p style="line-height:140%">
+    <span style="font-family:宋体">易口袋重视对用户隐私的保护，有关隐私信息的收集和使用请参考《</span>Pocket EOS<span style="font-family:宋体">隐私政策》。</span>
+</p>
+<p style="line-height:140%">
+    <strong><span style="font-size:13px;line-height:140%;font-family:STHeiti;background:white">&nbsp;</span></strong>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    <strong><span style="font-size:24px;line-height:205%">8</span></strong><strong><span style="font-size:24px;line-height:205%;font-family:宋体">、服务的变更、中断、终止</span></strong>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    8.1<span style="font-family:宋体">、您同意易口袋为保证自主业务经营权可以暂时提供部分服务功能，或于将来暂停部分服务功能或开通新的服务功能，并根据服务内容的变化更新或修改本协议。当任何功能减少或者增加或者变化时，只要您仍然使用本软件提供的服务，表示您仍然同意本协议或者本协议修正后的条款。</span><br/> 8.2<span style="font-family:宋体">、您理解存在如下情形时，易口袋将暂停提供服务：</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因设备、区块链系统维修、升级、故障和通信中断等技术原因而中断业务；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因台风、地震、海啸、洪水、停电、战争或恐怖袭击等不可抗力因素，以及因病毒、木马、黑客攻击、系统不稳定或政府行为等原因，造成</span>Pocket EOS<span style="font-family:宋体">系统不能提供服务或易口袋合理认为继续提供服务会有较大风险的；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">发生易口袋无法控制或合理预见的其他情形。</span>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    8.3<span style="font-family:宋体">、当您出现如下情况时，易口袋可单方面中止或终止您使用</span>Pocket EOS<span style="font-family:宋体">的部分或全部功能</span>:
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">用户死亡；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">盗用他人的钱包信息或移动设备；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">填写个人信息时提供虚假信息、在回答能力测评问卷时非本人操作；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">拒绝易口袋为提升</span>Pocket EOS<span style="font-family:宋体">功能而发起的强制更新操作；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">将</span>Pocket EOS<span style="font-family:宋体">用于违法或犯罪活动；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">妨碍其他用户正常使用；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">伪称易口袋的工作人员或管理人员；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">攻击、侵入、更改或以任何其他方式威胁易口袋计算机系统的正常运作；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">利用</span>Pocket EOS<span style="font-family:宋体">宣传垃圾广告；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">散布谣言，损害易口袋和本软件商誉；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">违法、违反本协议的行为；</span>
+</p>
+<p style="margin-left:48px;line-height: 205%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">其他易口袋合理认为应当暂停功能的情形。</span>
+</p>
+<p style="margin-bottom:11px;line-height:205%">
+    8.4<span style="font-family:宋体">、当您与易口袋之间的服务关系变更、中断、终止时，您仍有权在合理时间内导出您钱包等信息。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">9</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、免责及责任限制</span></strong>
+</p>
+<p style="line-height:204%">
+    9.1<span style="font-family:宋体">、易口袋仅对本协议中所列明的义务承担责任。</span><br/> 9.2<span style="font-family:宋体">、您理解和同意，在法律所允许的范围内，易口袋只能按照现有的技术水平和条件提供服务。因下列原因导致</span>Pocket EOS<span style="font-family:宋体">无法正常提供服务，易口袋不承担责任：</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Pocket EOS<span style="font-family:宋体">系统停机维护或升级；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因台风、地震、洪水、雷电或恐怖袭击等不可抗力原因；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">您的移动设备软硬件和通信线路、供电线路出现故障的；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">您操作不当或未通过易口袋授权或认可的方式使用本软件的；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因病毒、木马、恶意程序攻击、网络拥堵、系统不稳定、系统或设备故障、通讯故障、电力故障、银行等原因或政府行为等原因；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">其他非因易口袋方面而引起的原因。</span>
+</p>
+<p style="line-height:204%">
+    9.3<span style="font-family:宋体">、</span> <span style="font-family:宋体">易口袋对以下情形不承担责任：</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因用户遗失移动设备、删除且未备份</span>Pocket EOS<span style="font-family:宋体">、删除且未备份钱包、钱包被盗或遗忘钱包密码、账户私钥等而导致的损失；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因用户自行泄露钱包文件、钱包密码、账户私钥，或借用、转让或授权他人使用自己的移动设备或钱包，或未通过官方渠道下载本软件，以及通过其他不安全的方式使用本软件而导致的损失；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因用户误操作导致的损失；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因用户不理解区块链技术的性质而导致的算是；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">因时间滞后、区块链系统不稳定等原因导致本软件用户在区块链上的交易记录发生偏差；</span>
+</p>
+<p style="margin-left:48px;line-height: 204%">
+    ●<span style="font:9px &#39;Times New Roman&#39;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family:宋体">用户在第三方</span>DApp<span style="font-family:宋体">上操作产生的风险和后果。</span>
+</p>
+<p style="line-height:204%">
+    9.4<span style="font-family:宋体">、您理解</span>Pocket EOS<span style="font-family:宋体">仅作为您加入和使用区块链网络的工具。易口袋不能控制第三方提供的信息是真实准确的，也无法控制第三方提供的产品及服务的质量、安全性和合法性，以及相对方履行其在与您签订的协议项下的各项义务的能力。所有您在第三方</span>DApp<span style="font-family:宋体">进行的交易行为系您的个人行为，有约束力的合同关系在您和您的相对方之间建立，与易口袋无关。您与任何第三方交易所产生的风险亦应由您自行承担。</span><br/> 9.5<span style="font-family:宋体">、本软件可能同时为您及您的交易对手方提供服务，您同意对易口袋可能存在的该等行为予以明确豁免任何实际或潜在的利益冲突，并不得以此来主张易口袋在提供服务时存在法律上的瑕疵，也不因此而加重易口袋的责任或注意义务。</span><br/> 9.6<span style="font-family:宋体">、您理解根据中国法律的有关要求，我们可能不时更改我们的用户准入标准，限定向某一特定群体提供服务的范围和方式等。</span>
+</p>
+<p style="line-height:204%">
+    9.7<span style="font-family:宋体">、在任何情况下，易口袋对本协议所承担的违约赔偿责任总额不超过人民币</span>500<span style="font-family:宋体">元。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">10</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、协议的修改与转让</span></strong>
+</p>
+<p style="line-height:204%">
+    10.1<span style="font-family:宋体">、易口袋可能修改本协议，并在距新协议生效</span>30<span style="font-family:宋体">日以前向您提示所有改动。如果您不同意修改后的协议，您可以停止使用</span>Pocket EOS<span style="font-family:宋体">，并单方面中止本协议。</span>
+</p>
+<p style="line-height:204%">
+    10.2<span style="font-family:宋体">、您无权转让本协议。易口袋可以转让本协议，但应提前</span>11<span style="font-family:宋体">日通知您。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">12</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、法律适用及争议解决</span></strong>
+</p>
+<p style="line-height:204%">
+    12.1<span style="font-family:宋体">、本协议及其修订版之效力、解释、变更、执行与争议解决均适用中华人民共和国法律，如无相关法律规定，则应当适用国际商业惯例和（或）行业惯例。</span><br/> 12.2<span style="font-family:宋体">、若您和易口袋之间发生任何纠纷或争议，首先应友好协商解决，协商不成的，任何一方可提交易口袋所在地人民法院管辖。</span>
+</p>
+<p style="line-height:204%">
+    <strong><span style="font-size:24px;line-height:204%">13</span></strong><strong><span style="font-size:24px;line-height:204%;font-family:宋体">、完整性声明</span></strong>
+</p>
+<p style="line-height:204%">
+    13.1<span style="font-family:宋体">、上述内容是双方之间的完整协议，具有高于其他任何协议的效力。</span>
+</p>
+<p style="line-height:204%">
+    13.2<span style="font-family:宋体">、本协议部分内容被有管辖权的法院认定为违反或无效的，不因此影响其他内容的效力。</span><br/> 13.3<span style="font-family:宋体">、本协议的任何译文版本仅为方便用户而提供，无意对本协议的条款进行修改。如果本协议的中文版本与非中文版本之间存在冲突，应以中文版本为准。</span><br/> <strong><span style="font-size:13px;line-height:204%;font-family:宋体">本协议未尽事宜，以易口袋公布的公告及相关规则为准。</span></strong>
+</p>
+<p>
+    <br/>
+</p>

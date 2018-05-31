@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".modules.leftdrawer.usercenter.otherlogintype.OtherLoginTypeActivity">
+
+    <include layout="@layout/title_project"/>
+
+    <ImageView
+        android:id="@+id/other_login_img"
+        android:layout_width="@dimen/dimens_70"
+        android:layout_height="@dimen/dimens_80"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimens_70"
+        android:src="@mipmap/bind_qq"/>
+
+    <TextView
+        android:id="@+id/unbind_one_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimens_30"
+        android:text="@string/unbind_one_qq"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_15"/>
+
+    <TextView
+        android:id="@+id/unbind_two_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:text="@string/unbind_two_qq"
+        android:textColor="@color/gray_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <TextView
+        android:id="@+id/bind_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/dimens_15"
+        android:layout_marginRight="@dimen/dimens_15"
+        android:layout_marginTop="@dimen/dimens_30"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/bind_text"
+        android:textColor="@color/title_color"
+        android:textSize="@dimen/dimens_15"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/go_bind_unbind"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_42"
+        android:layout_margin="@dimen/dimens_26"
+        android:background="@color/button_blue"
+        android:text="@string/go_unbind"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+</LinearLayout>

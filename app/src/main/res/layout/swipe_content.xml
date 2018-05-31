@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/color_bg_main">
+
+    <FrameLayout
+        android:id="@+id/fm"
+        android:layout_width="@dimen/dimens_60"
+        android:layout_height="@dimen/dimens_60"
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_10">
+
+        <ImageView
+            android:id="@+id/account_img"
+            android:layout_width="@dimen/dimens_50"
+            android:layout_height="@dimen/dimens_50"
+            android:src="@mipmap/ic_launcher"/>
+
+        <ImageView
+            android:id="@+id/account_lock"
+            android:layout_width="@dimen/dimens_20"
+            android:layout_height="@dimen/dimens_20"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="@dimen/dimens_10"
+            android:layout_marginLeft="@dimen/dimens_10"
+            android:src="@mipmap/lock"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/account_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/fm"
+        android:drawablePadding="@dimen/dimens_10"
+        android:gravity="center_vertical"
+        android:text="item"
+        style="?attr/text_one_style"
+        android:textSize="@dimen/dimens_15"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"
+        style="?attr/line_style"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
