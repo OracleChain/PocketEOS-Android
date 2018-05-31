@@ -13,7 +13,7 @@ import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
-import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccounntActivity;
+import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.RichTextActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
@@ -88,6 +88,7 @@ public class BlackBoxLoginActivity extends BaseAcitvity<NormalView, NormalPresen
                         if (MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_name.eq(mBlackBoxWalletName.getText().toString().trim())).build().unique() == null) {//检测本地存在的钱包不包含该名称
                             //数据库存储数据
                             UserBean userBean = new UserBean();
+                            userBean.setWallet_uid("6f1a8e0eb24afb7ddc829f96f9f74e9d");
                             userBean.setWallet_name(mBlackBoxWalletName.getText().toString().trim());
                             String randomString = EncryptUtil.getRandomString(32);
                             userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString+mBlackBoxWalletPwd.getText().toString().trim()));
@@ -97,7 +98,7 @@ public class BlackBoxLoginActivity extends BaseAcitvity<NormalView, NormalPresen
                             Utils.getSpUtils().put("loginmode", "blackbox");//保存当前登录模式
                             Bundle bundle = new Bundle();
                             bundle.putInt("type", 1);
-                            ActivityUtils.next(BlackBoxLoginActivity.this, CreateAccounntActivity.class);
+                            ActivityUtils.next(BlackBoxLoginActivity.this, CreateAccountActivity.class);
                         } else {
                             toast(getString(R.string.wallet_name_exist));
                         }

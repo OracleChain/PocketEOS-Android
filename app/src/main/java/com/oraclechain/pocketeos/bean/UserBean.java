@@ -1,9 +1,8 @@
 package com.oraclechain.pocketeos.bean;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Unique;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by pocketEos on 2017/12/27.
@@ -20,7 +19,6 @@ import org.greenrobot.greendao.annotation.Generated;
 public class UserBean {
     @Id(autoincrement = true)
     private Long id;
-    @Unique
     private String wallet_uid;
     private String wallet_name;
     private String wallet_img;
