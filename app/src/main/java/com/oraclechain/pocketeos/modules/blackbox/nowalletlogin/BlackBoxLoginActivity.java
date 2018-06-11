@@ -13,7 +13,7 @@ import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
-import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActivity;
+import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccounntActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.RichTextActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
@@ -98,7 +98,7 @@ public class BlackBoxLoginActivity extends BaseAcitvity<NormalView, NormalPresen
                             Utils.getSpUtils().put("loginmode", "blackbox");//保存当前登录模式
                             Bundle bundle = new Bundle();
                             bundle.putInt("type", 1);
-                            ActivityUtils.next(BlackBoxLoginActivity.this, CreateAccountActivity.class);
+                            ActivityUtils.next(BlackBoxLoginActivity.this, CreateAccounntActivity.class);
                         } else {
                             toast(getString(R.string.wallet_name_exist));
                         }
