@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
-import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccounntActivity;
+import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 
@@ -59,7 +59,7 @@ public class ImportWalletActivity extends BaseAcitvity<NormalView, NormalPresent
             case R.id.import_wallet:
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", 1);
-                ActivityUtils.next(ImportWalletActivity.this, CreateAccounntActivity.class, bundle);
+                ActivityUtils.next(ImportWalletActivity.this, CreateAccountActivity.class, bundle);
                 break;
         }
     }

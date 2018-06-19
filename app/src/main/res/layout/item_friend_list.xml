@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:gravity="center_vertical"
               android:orientation="vertical">
 
@@ -22,10 +23,12 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
+        <com.oraclechain.pocketeos.view.RoundImageView
             android:id="@+id/friends_img"
             android:layout_width="@dimen/dimens_40"
             android:layout_height="@dimen/dimens_40"
+            app:radius="@dimen/dimens_4"
+            app:shape_type="rectangle"
             android:layout_gravity="center_vertical"
             android:src="@mipmap/ic_launcher"/>
 
@@ -58,10 +61,4 @@
         </LinearLayout>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginLeft="@dimen/dimens_20"
-        android:layout_marginRight="@dimen/dimens_20"
-        android:background="@color/line"/>
 </LinearLayout>

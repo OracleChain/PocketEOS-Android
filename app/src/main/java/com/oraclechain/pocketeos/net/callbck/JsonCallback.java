@@ -15,6 +15,7 @@
  */
 package com.oraclechain.pocketeos.net.callbck;
 
+import com.google.gson.JsonSyntaxException;
 import com.lzy.okgo.callback.AbsCallback;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.utils.ShowDialog;
@@ -36,7 +37,7 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
     private Class<T> clazz;
 
 
-    public JsonCallback( ) {
+    public JsonCallback() {
 
     }
 
@@ -86,6 +87,8 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
             ToastUtils.showLongToast(R.string.socket_time_out);
         } else if (response.getException() instanceof SocketException) {
             ToastUtils.showLongToast(R.string.socket_exception);
+        } else if (response.getException() instanceof JsonSyntaxException) {
+            ToastUtils.showLongToast(R.string.chain_error);
         }
     }
 }

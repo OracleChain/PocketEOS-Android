@@ -164,7 +164,7 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
                             MyApplication.getInstance().getTencent().publishToQzone(AccountDetailsActivity.this, params, new BaseUIListener(AccountDetailsActivity.this, true));
                         }
                     });
-                    dialog.setContent("将二维码分享到");
+                    dialog.setContent(getString(R.string.share_code_title));
                     dialog.setCancelable(true);
                     dialog.show();
                 } else {
@@ -197,8 +197,8 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
                                         QrCodeAccountPrivateKeyBean qrCodeAccountPrivateKeyBean = new QrCodeAccountPrivateKeyBean();
                                         qrCodeAccountPrivateKeyBean.setAccount_name(mAccountInfoBean.getAccount_name());
                                         try {
-                                            qrCodeAccountPrivateKeyBean.setOwner_private_key( EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(),password));
-                                            qrCodeAccountPrivateKeyBean.setActive_private_key( EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(),password));
+                                            qrCodeAccountPrivateKeyBean.setOwner_private_key(EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(), password));
+                                            qrCodeAccountPrivateKeyBean.setActive_private_key(EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(), password));
                                         } catch (NoSuchAlgorithmException e) {
                                             e.printStackTrace();
                                         } catch (InvalidKeySpecException e) {
@@ -225,7 +225,7 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
                                         try {
                                             ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                                             // 将文本内容放到系统剪贴板里。
-                                            cm.setText("OWNKEY:" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(),password)+ "\nACTIVEKEY:" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(),password));
+                                            cm.setText("OWNKEY:" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(), password) + "\nACTIVEKEY:" + EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(), password));
                                             ToastUtils.showShortToast(R.string.copy_success);
                                         } catch (NoSuchAlgorithmException e) {
                                             e.printStackTrace();
@@ -236,7 +236,7 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
                                     }
                                 });
                                 try {
-                                    mImportPrivateKeyDialog.setContent( EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(),password),  EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(),password));
+                                    mImportPrivateKeyDialog.setContent(EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_owner_private_key(), password), EncryptUtil.getDecryptString(mAccountInfoBean.getAccount_active_private_key(), password));
                                 } catch (NoSuchAlgorithmException e) {
                                     e.printStackTrace();
                                 } catch (InvalidKeySpecException e) {
@@ -274,14 +274,18 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
         mIvSlideEnd = getId(R.id.iv_slide_end);
         mSlideToUnlock = getId(R.id.slide_to_unlock);
 
 
         mAccountInfoBean = getIntent().getParcelableExtra("bean");
         setCenterTitle(mAccountInfoBean.getAccount_name());
-        setRightImg(true);
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            setRightImg(true);
+        } else {
+            setRightImg(false);
+        }
         mImgRight.setImageDrawable(getResources().getDrawable(R.mipmap.makecollectionshare));
         if (mAccountInfoBean.getIs_main_account().equals("1")) {
             mSetMainNumber.setBackgroundColor(getResources().getColor(R.color.gray_color));

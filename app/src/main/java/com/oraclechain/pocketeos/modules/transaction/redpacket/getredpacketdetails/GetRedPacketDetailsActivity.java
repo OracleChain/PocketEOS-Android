@@ -15,7 +15,7 @@ import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.RedPacketDetailsBean;
 import com.oraclechain.pocketeos.bean.RedPacketHistoryBean;
 import com.oraclechain.pocketeos.utils.RegexUtil;
-import com.oraclechain.pocketeos.view.CircleImageView;
+import com.oraclechain.pocketeos.view.RoundImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class GetRedPacketDetailsActivity extends BaseAcitvity<GetRedPacketDetail
     @BindView(R.id.iv_back)
     ImageView mIvBack;
     @BindView(R.id.user_img)
-    CircleImageView mUserImg;
+    RoundImageView mUserImg;
     @BindView(R.id.user_number)
     TextView mUserNumber;
     @BindView(R.id.user_leave_message)

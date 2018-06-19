@@ -125,7 +125,7 @@ public class RegexUtil {
      * @return boolean
      */
     public static boolean isEosName(String eosName) {
-        String strPattern = "^[a-z1-5]{7,13}$";
+        String strPattern = "^[a-z]{1}[1-5a-z]{11}$";
         Pattern p = Pattern.compile(strPattern);
         Matcher m = p.matcher(eosName);
         return m.matches();

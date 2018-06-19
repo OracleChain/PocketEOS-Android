@@ -49,7 +49,7 @@
             android:layout_marginTop="@dimen/dimens_5"
             android:singleLine="true"
             android:text="@string/app_name"
-            android:textColor="@color/txt_color"
+            android:textColor="@color/gray_color"
             android:textSize="@dimen/dimens_13"
             android:visibility="visible"/>
     </LinearLayout>

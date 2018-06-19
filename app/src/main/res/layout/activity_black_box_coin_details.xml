@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/titlt"
-        layout="@layout/title_project_blackbox"/>
+        layout="@layout/title_project_black"/>
 
     <com.liaoinstan.springview.widget.SpringView
         android:id="@+id/spring"

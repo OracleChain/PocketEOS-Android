@@ -4,6 +4,7 @@ package com.oraclechain.pocketeos.modules.blackbox.blackhome;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,8 +30,10 @@ import com.oraclechain.pocketeos.base.BaseFragment;
 import com.oraclechain.pocketeos.bean.AccountInfoBean;
 import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
 import com.oraclechain.pocketeos.modules.blackbox.blackboxcoindetails.BlackBoxCoinDetailsActivity;
+import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.transaction.makecollections.MakeCollectionsActivity;
 import com.oraclechain.pocketeos.modules.transaction.transferaccounts.TransferAccountsActivity;
+import com.oraclechain.pocketeos.modules.unstake.UnStakeActivity;
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.DensityUtil;
 import com.oraclechain.pocketeos.utils.JsonUtil;
@@ -40,6 +43,9 @@ import com.oraclechain.pocketeos.utils.StringUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.AppDefeatHeadView;
 import com.oraclechain.pocketeos.view.MyScrollview;
+import com.oraclechain.pocketeos.view.ScrollText;
+import com.oraclechain.pocketeos.view.dialog.advertisingdialog.AdvertisingCallback;
+import com.oraclechain.pocketeos.view.dialog.advertisingdialog.AdvertisingDialog;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 
 import java.math.BigDecimal;
@@ -47,7 +53,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 /**
  * 黑匣子模式首页
@@ -86,6 +94,11 @@ public class BlackHomeFragment extends BaseFragment<BlackBoxHomeView, BlackBoxHo
     ImageView mLookMore;
     @BindView(R.id.choose_type)
     RelativeLayout mChooseType;
+    @BindView(R.id.notice)
+    ScrollText mNotice;
+    @BindView(R.id.fab)
+    FloatingActionButton mFab;
+    Unbinder unbinder;
 
 
     private Openleft mOpenleft = null;
@@ -141,6 +154,16 @@ public class BlackHomeFragment extends BaseFragment<BlackBoxHomeView, BlackBoxHo
         mHiddenAction.setDuration(300);
         topToCardView = DensityUtil.dip2px(getActivity(), 260);
         mHomeTitle.setVisibility(View.GONE);
+
+        //开启广告位
+        AdvertisingDialog advertisingDialog = new AdvertisingDialog(getActivity(), new AdvertisingCallback() {
+            @Override
+            public void callback() {
+                ActivityUtils.next(getActivity(), NodeVoteActivity.class);
+            }
+        });
+        advertisingDialog.setImg("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528435930664&di=ac9ecd64a769ee194efea7034b1223db&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb58f8c5494eef01f2fe05953ecfe9925bd317dab.jpg");
+        advertisingDialog.show();
     }
 
     @Override
@@ -207,6 +230,15 @@ public class BlackHomeFragment extends BaseFragment<BlackBoxHomeView, BlackBoxHo
                     });
 
                 }
+            }
+        });
+
+        mFab.setOnClickListener(new View.OnClickListener() {//解除质押
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("account", mChooseAccount.getText().toString().trim().toString());
+                ActivityUtils.next(getActivity(), UnStakeActivity.class ,bundle);
             }
         });
     }
@@ -381,6 +413,20 @@ public class BlackHomeFragment extends BaseFragment<BlackBoxHomeView, BlackBoxHo
         hideProgress();
         mSpring.onFinishFreshAndLoad();
         toast(msg);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     public interface Openleft {

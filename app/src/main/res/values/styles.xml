@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="color_bg_main">@color/white</item>
-        <item name="text_one_style">@style/Text_two_light_style</item>
+        <item name="text_one_style">@style/Text_one_light_style</item>
         <item name="text_two_style">@style/Text_two_light_style</item>
         <item name="item_bg">@style/item_light_bg</item>
         <item name="line_style">@style/line_light_style</item>
@@ -24,9 +24,11 @@
         <item name="empty_style">@style/empty_darkt_style</item>
         <item name="item_color__style">@color/black_box_color</item>
     </style>
+
     <style name="Text_one_light_style">
         <item name="android:textColor">@color/title_color</item>
     </style>
+
     <style name="empty_light_style">
         <item name="android:background">@mipmap/empty_data</item>
     </style>
@@ -36,15 +38,17 @@
     </style>
 
     <style name="Text_two_light_style">
-        <item name="android:textColor">@color/title_color</item>
+        <item name="android:textColor">#999999</item>
     </style>
 
     <style name="Text_two_dark_style">
         <item name="android:textColor">@color/gray_color</item>
     </style>
+
     <style name="empty_darkt_style">
         <item name="android:background">@mipmap/empty_data_black_box</item>
     </style>
+
     <style name="line_light_style">
         <item name="android:background">@color/line</item>
     </style>
@@ -52,6 +56,7 @@
     <style name="line_dark_style">
         <item name="android:background">@color/blackbox_line</item>
     </style>
+
     <style name="item_light_bg">
         <item name="android:background">@color/bg_color</item>
     </style>
@@ -92,7 +97,7 @@
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:fitsSystemWindows">true</item>
-        <item name="android:windowBackground">@drawable/bg_dialog_confirm</item>
+        <item name="android:windowBackground">@color/transparent</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
@@ -120,9 +125,11 @@
     <style name="CustomCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/checkbox_style</item>
     </style>
+
     <style name="BlackBoxCheckBoxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/black_box_checkbox_style</item>
     </style>
+
     <style name="TabLayoutTextStyle">
         <item name="android:textSize">@dimen/text_15</item>
     </style>

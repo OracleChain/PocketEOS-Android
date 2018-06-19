@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/black_box_gradual_change"
     android:focusableInTouchMode="true">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_400"
-        android:background="@drawable/black_box_gradual_change"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-               android:gravity="center">
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/choose_account"
@@ -72,11 +67,12 @@
                     android:text="@string/app_name"
                     android:textColor="@color/white"
                     android:textSize="@dimen/dimens_17"/>
+
                 <ImageView
                     android:id="@+id/look_more"
                     android:layout_width="@dimen/dimens_20"
                     android:layout_height="match_parent"
-                    android:layout_toRightOf="@+id/choose_type_title"
+                    android:layout_toRightOf="@+id/choose_account"
                     android:scaleType="centerInside"
                     android:src="@mipmap/drop_down"/>
             </RelativeLayout>
@@ -98,7 +94,9 @@
             android:singleLine="true"
             android:text="@string/home_notice"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12"
+            android:visibility="gone"/>
+
         <com.liaoinstan.springview.widget.SpringView
             android:id="@+id/spring"
             android:layout_width="match_parent"
@@ -107,7 +105,7 @@
             <com.oraclechain.pocketeos.view.MyScrollview
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fadingEdge="none"
                 android:fillViewport="true"
                 android:overScrollMode="never"
@@ -173,7 +171,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimens_96"
                             android:layout_gravity="top"
-                            android:layout_marginBottom="@dimen/dimens_5"
+
                             android:layout_marginLeft="@dimen/dimens_15"
                             android:layout_marginRight="@dimen/dimens_15"
                             android:elevation="@dimen/dimens_10"
@@ -184,17 +182,16 @@
                                 android:layout_height="match_parent"
                                 android:background="@color/white"
                                 android:gravity="center_vertical"
-                                android:orientation="horizontal"
-                                android:padding="@dimen/dimens_20">
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:id="@+id/transfer_accounts"
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/dimens_58"
                                     android:layout_weight="1"
+                                    android:drawablePadding="@dimen/dimens_12"
                                     android:drawableTop="@mipmap/transfer_accounts"
                                     android:gravity="center"
-                                    android:paddingTop="@dimen/dimens_20"
                                     android:text="@string/transfer_accounts"
                                     android:textColor="@color/title_color"
                                     android:textSize="@dimen/dimens_14"/>
@@ -202,11 +199,11 @@
                                 <TextView
                                     android:id="@+id/make_collections"
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/dimens_58"
                                     android:layout_weight="1"
+                                    android:drawablePadding="@dimen/dimens_12"
                                     android:drawableTop="@mipmap/make_collections"
                                     android:gravity="center"
-                                    android:paddingTop="@dimen/dimens_20"
                                     android:text="@string/make_collections"
                                     android:textColor="@color/title_color"
                                     android:textSize="@dimen/dimens_14"/>
@@ -217,7 +214,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@color/white"
                         android:paddingTop="@dimen/dimens_5">
 
@@ -225,6 +222,7 @@
                             android:id="@+id/black_box_recycle_icon"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:paddingLeft="@dimen/dimens_15"
                             android:paddingRight="@dimen/dimens_15"
                             android:scrollbars="none"/>
@@ -234,8 +232,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimens_40"
                             android:layout_below="@+id/black_box_recycle_icon"
-                            android:layout_marginTop="@dimen/dimens_10"
                             android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/dimens_10"
                             android:background="@color/white"
                             android:gravity="center"
                             android:text="@string/no_more"
@@ -246,4 +244,17 @@
             </com.oraclechain.pocketeos.view.MyScrollview>
         </com.liaoinstan.springview.widget.SpringView>
     </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/dimens_20"
+        android:background="@color/black_box_color"
+        android:src="@mipmap/unstark"
+        app:backgroundTint="@color/black_box_color"
+        app:borderWidth="@dimen/dimens_5"
+        app:elevation="@dimen/dimens_5"
+        app:fabSize="auto"
+        app:pressedTranslationZ="@dimen/dimens_5"/>
 </FrameLayout>

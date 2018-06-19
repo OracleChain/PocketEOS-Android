@@ -10,13 +10,13 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="235dp"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/CollapsingToolbarLayout"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="190dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -27,11 +27,6 @@
                 android:layout_height="match_parent"
                 app:layout_collapseMode="parallax"
                 app:layout_scrollFlags="scroll|enterAlways">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/paid_answer"/>
                 <ImageView
                     android:id="@+id/go_back"
                     android:layout_width="@dimen/dimens_40"
@@ -45,11 +40,9 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:background="@color/white"
-            android:paddingBottom="@dimen/dimens_5"
             app:tabGravity="center"
-            app:tabMinWidth="@dimen/dimens_50"
             app:tabIndicatorColor="@color/theme_color"
             app:tabIndicatorHeight="@dimen/dimens_5"
             app:tabMode="fixed"
@@ -57,10 +50,6 @@
             app:tabTextAppearance="@style/TabLayoutTextStyle"
             app:tabTextColor="@color/title_color"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimens_10"
-            android:background="@color/bg_color"/>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -76,11 +65,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/dimens_30"
+        android:layout_margin="30dp"
         android:background="@color/theme_color"
-        android:backgroundTint="@color/theme_color"
+        app:backgroundTint="@color/theme_color"
         android:src="@mipmap/paid_answer_tab"
-        app:borderWidth="@dimen/dimens_0"
-        app:elevation="@dimen/dimens_0"
+        app:borderWidth="@dimen/dimens_1"
+        app:elevation="@dimen/dimens_1"
         app:fabSize="auto"/>
 </android.support.design.widget.CoordinatorLayout>

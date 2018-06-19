@@ -13,12 +13,4 @@ public class ResponseBean<T> implements Serializable {
     public String message;
     public T data = null;
 
-    @Override
-    public String toString() {
-        return "ResponseBean{" +
-                "code=" + code +
-                ", message='" + message + '\'' +
-                ", data=" + data +
-                '}';
-    }
 }

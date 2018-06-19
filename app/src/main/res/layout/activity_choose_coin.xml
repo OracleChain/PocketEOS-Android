@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:background="@drawable/bg_dialog_confirm">
 
         <TextView
@@ -25,12 +23,12 @@
             android:paddingRight="20dp"
             android:text="@string/dapp_choose_coin_toast"
             android:textColor="#FFFFB540"
-            android:textSize="@dimen/text_12"/>
+            android:textSize="@dimen/text_13"/>
 
         <TextView
             android:id="@+id/choose_account"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_below="@+id/tv_hint"
             android:layout_margin="20dp"
             android:background="@drawable/gray_line_broder"
@@ -41,7 +39,7 @@
             android:paddingRight="10dp"
             android:text="@string/choose_account"
             android:textColor="@color/txt_color"
-            android:textSize="@dimen/text_12"/>
+            android:textSize="@dimen/text_13"/>
 
         <View
             android:layout_width="match_parent"
@@ -58,7 +56,7 @@
             android:gravity="center"
             android:text="@string/i_got_it"
             android:textColor="@color/blue_button"
-            android:textSize="@dimen/text_13"/>
+            android:textSize="@dimen/text_15"/>
     </RelativeLayout>
 
     <View

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
+import com.oraclechain.pocketeos.app.AppManager;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.UserBean;
@@ -17,6 +18,7 @@ import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActi
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.RichTextActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
+import com.oraclechain.pocketeos.modules.wallet.createwallet.login.LoginActivity;
 import com.oraclechain.pocketeos.utils.AndroidBug5497Workaround;
 import com.oraclechain.pocketeos.utils.EncryptUtil;
 import com.oraclechain.pocketeos.utils.FilesUtils;
@@ -80,7 +82,8 @@ public class BlackBoxLoginActivity extends BaseAcitvity<NormalView, NormalPresen
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.social_contact:
-                finish();
+                AppManager.getAppManager().finishAllActivity();
+                ActivityUtils.next(BlackBoxLoginActivity.this, LoginActivity.class, true);
                 break;
             case R.id.black_box_create_wallet:
                 if (!TextUtils.isEmpty(mBlackBoxWalletName.getText().toString()) && !TextUtils.isEmpty(mBlackBoxWalletPwd.getText().toString().trim()) && !TextUtils.isEmpty(mBlackBoxTwoPwd.getText().toString().trim())) {
@@ -91,7 +94,7 @@ public class BlackBoxLoginActivity extends BaseAcitvity<NormalView, NormalPresen
                             userBean.setWallet_uid("6f1a8e0eb24afb7ddc829f96f9f74e9d");
                             userBean.setWallet_name(mBlackBoxWalletName.getText().toString().trim());
                             String randomString = EncryptUtil.getRandomString(32);
-                            userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString+mBlackBoxWalletPwd.getText().toString().trim()));
+                            userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString + mBlackBoxWalletPwd.getText().toString().trim()));
                             MyApplication.getDaoInstant().getUserBeanDao().insert(userBean);
                             MyApplication.getInstance().setUserBean(userBean);
                             Utils.getSpUtils().put("firstUser", mBlackBoxWalletName.getText().toString().trim());//保存上次登陆钱包
@@ -111,7 +114,7 @@ public class BlackBoxLoginActivity extends BaseAcitvity<NormalView, NormalPresen
                 break;
             case R.id.black_box_info:
                 Bundle bundle = new Bundle();
-                bundle.putString("details", FilesUtils.readAssetsTxt(this,"black_box_intro"));
+                bundle.putString("details", FilesUtils.readAssetsTxt(this, "black_box_intro"));
                 bundle.putString("title", getString(R.string.black_box));
                 ActivityUtils.next(BlackBoxLoginActivity.this, RichTextActivity.class, bundle);
                 break;

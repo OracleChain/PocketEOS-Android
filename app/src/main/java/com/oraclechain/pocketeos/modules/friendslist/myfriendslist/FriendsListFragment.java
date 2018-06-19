@@ -8,7 +8,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gyf.barlibrary.ImmersionBar;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.base.BaseFragment;
@@ -20,7 +19,6 @@ import com.oraclechain.pocketeos.view.contact.UserAdapter;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 /**
  * 富豪榜
@@ -34,9 +32,7 @@ public class FriendsListFragment extends BaseFragment<FriendsListView, FriendsLi
     TextView mTip;
     @BindView(R.id.go_seach)
     RelativeLayout mGoSeach;
-    @BindView(R.id.title)
-    TextView mTitle;
-    Unbinder unbinder;
+
 
 
     private UserAdapter mAdapter;
@@ -90,8 +86,7 @@ public class FriendsListFragment extends BaseFragment<FriendsListView, FriendsLi
     @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
-        mImmersionBar.statusBarDarkFont(true, 0.2f).init();
-        ImmersionBar.setTitleBar(getActivity(), mTitle);
+        mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
     }
 
     @Override
@@ -110,7 +105,7 @@ public class FriendsListFragment extends BaseFragment<FriendsListView, FriendsLi
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!hidden && mImmersionBar != null) {
-            mImmersionBar.statusBarDarkFont(true, 0.2f).init();
+            mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         }
     }
 
@@ -160,9 +155,4 @@ public class FriendsListFragment extends BaseFragment<FriendsListView, FriendsLi
     }
 
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
 }

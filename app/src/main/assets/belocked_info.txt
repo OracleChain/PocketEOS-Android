@@ -1,0 +1,15 @@
+<p>
+    <strong><span style="font-family:宋体">锁定</span>EOS</strong><strong><span style="font-family:宋体">是确认您拥有投票权，且完成投票的方式。</span></strong>
+</p>
+<p>
+    &nbsp;
+</p>
+<p>
+    <span style="font-family:宋体">被锁定的</span>EOS<span style="font-family:宋体">越多，您的投票权重越大，即您投给每个节点的票数越多。</span>
+</p>
+<p>
+    <strong><span style="font-family:宋体">您不会失去被锁定的</span>EOS</strong><strong><span style="font-family:宋体">，它们也不会被消耗。</span></strong><span style="font-family:宋体">待主网稳定后，您可以通过降低投票数量或完全撤销投票的方式取回被锁定的</span>EOS<span style="font-family:宋体">。</span>
+</p>
+<p>
+    <br/>
+</p>

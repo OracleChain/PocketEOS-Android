@@ -30,8 +30,8 @@ import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.DensityUtil;
 import com.oraclechain.pocketeos.utils.StringUtils;
 import com.oraclechain.pocketeos.view.AppDefeatHeadView;
-import com.oraclechain.pocketeos.view.CircleImageView;
 import com.oraclechain.pocketeos.view.MyScrollview;
+import com.oraclechain.pocketeos.view.RoundImageView;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class FriendsDetailsActivity extends BaseAcitvity<FriendsDetailsView, Fri
     @BindView(R.id.title)
     RelativeLayout mTitle;
     @BindView(R.id.friends_img)
-    CircleImageView mFriendsImg;
+    RoundImageView mFriendsImg;
     @BindView(R.id.friends_name)
     TextView mFriendsName;
     @BindView(R.id.friends_account_number)
@@ -93,7 +93,7 @@ public class FriendsDetailsActivity extends BaseAcitvity<FriendsDetailsView, Fri
     private List<AccountWithCoinBean> mAccountWithCoinBeen = new ArrayList<>();
     private CommonAdapter mCoinAdapter;
 
-    private Boolean isFollow;//是否关注
+    private Boolean isFollow = false;//是否关注
 
     private List<AccountInfoBean> mAccountInfoBeanList = new ArrayList<>();
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.oraclechain.pocketeos.modules.nodevote.surevote.SureNodeVoteActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title_project_black"/>
+
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/vote_details_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/sure_vote"
+        android:layout_below="@+id/title"
+        android:scrollbars="none"/>
+
+    <TextView
+        android:id="@+id/sure_vote"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_52"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blue_button"
+        android:gravity="center"
+        android:text="@string/sure_vote"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimens_14"/>
+
+</RelativeLayout>

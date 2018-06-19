@@ -11,10 +11,11 @@ import android.webkit.WebSettings;
 public class BaseWebSetting {
     BaseWebView mBaseWebView;
     Context mContext;
-
-    public BaseWebSetting(BaseWebView baseWebView, Context context) {
+    boolean isCache =true;
+    public BaseWebSetting(BaseWebView baseWebView, Context context,boolean isCache) {
         mBaseWebView = baseWebView;
         mContext = context;
+        this.isCache = isCache;
         initWebSettings();
     }
 
@@ -31,17 +32,22 @@ public class BaseWebSetting {
         webSettings.setDatabaseEnabled(true);
         // 支持自动加载图片
         webSettings.setLoadsImagesAutomatically(hasKitkat());
-        // 设置 WebView 的缓存模式
-        webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        // 支持启用缓存模式
-        webSettings.setAppCacheEnabled(true);
-        // 设置 AppCache 最大缓存值(现在官方已经不提倡使用，已废弃)
-        webSettings.setAppCacheMaxSize(8 * 1024 * 1024);
-        // Android 私有缓存存储，如果你不调用setAppCachePath方法，WebView将不会产生这个目录
-        webSettings.setAppCachePath(mContext.getCacheDir().getAbsolutePath());
+        if (isCache) {
+            // 设置 WebView 的缓存模式
+            webSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+            // 支持启用缓存模式
+            webSettings.setAppCacheEnabled(true);
+            // 设置 AppCache 最大缓存值(现在官方已经不提倡使用，已废弃)
+            webSettings.setAppCacheMaxSize(8 * 1024 * 1024);
+            // Android 私有缓存存储，如果你不调用setAppCachePath方法，WebView将不会产生这个目录
+            webSettings.setAppCachePath(mContext.getCacheDir().getAbsolutePath());
+        }
         // 数据库路径
         if (!hasKitkat()) {
             webSettings.setDatabasePath(mContext.getDatabasePath("html").getPath());
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
         // 关闭密码保存提醒功能
         webSettings.setSavePassword(false);

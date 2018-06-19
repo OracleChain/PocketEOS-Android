@@ -38,6 +38,7 @@ import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.KeyBoardUtil;
 import com.oraclechain.pocketeos.utils.RotateUtils;
 import com.oraclechain.pocketeos.utils.StringUtils;
+import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.dialog.makecollectiondialog.MakeCollectionCallBack;
@@ -122,7 +123,11 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
         LinearLayoutManager layoutManager = new LinearLayoutManager(MakeCollectionsActivity.this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleMakeCollectionsHistory.setLayoutManager(layoutManager);
-        mRecycleMakeCollectionsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+            mRecycleMakeCollectionsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        }else {
+            mRecycleMakeCollectionsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
+        }
 
         //系统刷新
         mSpring.setFooter(new AliFooter(getContext()));
@@ -158,7 +163,7 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
         mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
         mPostChainHistoryBean.setSkip_seq(0);
         mPostChainHistoryBean.setNum_seq(size);
-        presenter.getTransferHistoryData(mPostChainHistoryBean);
+//        presenter.getTransferHistoryData(mPostChainHistoryBean);
 
 
         mHistoryAdapter = new EmptyWrapper(AdapterManger.getMakeCollectionHistoryAdapter(this, mDataBeanList));
@@ -179,6 +184,8 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
 
     @Override
     public void getCoinRateDataHttp(CoinRateBean.DataBean coinRateBean) {
+        mSpring.onFinishFreshAndLoad();
+        hideProgress();
         coinRate = coinRateBean.getPrice_cny();
         mGetPropertyNumber.addTextChangedListener(new MakeCollectionMoneyTextWatcher(mGetPropertyNumber, mTakeRmbProperty, coinRate, mGetMakeCollectionsCode));//限制金额最多为小数点后面四位
         if (mGetPropertyNumber.getText().toString().trim().length() != 0) {

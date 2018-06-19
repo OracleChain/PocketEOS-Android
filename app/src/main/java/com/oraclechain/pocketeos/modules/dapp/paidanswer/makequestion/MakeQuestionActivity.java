@@ -221,9 +221,9 @@ public class MakeQuestionActivity extends BaseAcitvity<NormalView, NormalPresent
                     }).setSubmitText(getString(R.string.sure))//确定按钮文字
                             .setCancelText(getString(R.string.seach_cancel))//取消按钮文字
 //                            .setSubCalSize(DensityUtil.dip2px(MakeQuestionActivity.this, 10))//确定和取消文字大小
-                            .setSubmitColor(R.color.theme_color)//确定按钮文字颜色
-                            .setCancelColor(R.color.theme_color)//取消按钮文字颜色
-                            .setTitleColor(R.color.theme_color)
+                            .setSubmitColor(getResources().getColor(R.color.blue_button))//确定按钮文字颜色
+                            .setCancelColor(getResources().getColor(R.color.blue_button))//取消按钮文字颜色
+                            .setTitleBgColor(getResources().getColor(R.color.white))
                             .setType(new boolean[]{true, true, true, true, true, true})//年月日时分秒 的显示与否，不设置则默认全部显示
                             .setLabel("", "", "", "", "", "")//默认设置为年月日时分秒
                             .build();

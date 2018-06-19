@@ -21,7 +21,7 @@ import com.oraclechain.pocketeos.modules.blackbox.blackhome.BlackHomeFragment;
 import com.oraclechain.pocketeos.modules.dapp.DappFragment;
 import com.oraclechain.pocketeos.modules.leftdrawer.appupdate.AppUpdateActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.messagecenter.MessageCenterActivity;
-import com.oraclechain.pocketeos.modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity;
+import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.SystemSettingActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.transactionhistory.TransactionHistoryActivity;
 import com.oraclechain.pocketeos.modules.news.NewsFragment;
@@ -56,8 +56,8 @@ public class BlackBoxMainActivity extends BaseAcitvity<NormalView, NormalPresent
     LinearLayout mLl;
     @BindView(R.id.message_center)
     TextView mMessageCenter;
-    @BindView(R.id.suggestion_feedback)
-    TextView mSuggestionFeedback;
+    @BindView(R.id.node_vote)
+    TextView mNodeVote;
     @BindView(R.id.system_settings)
     TextView mSystemSettings;
     @BindView(R.id.app_update)
@@ -164,7 +164,7 @@ public class BlackBoxMainActivity extends BaseAcitvity<NormalView, NormalPresent
         }
     }
 
-    @OnClick({R.id.wallet_management, R.id.transaction_history, R.id.message_center, R.id.suggestion_feedback, R.id.system_settings, R.id.app_update})
+    @OnClick({R.id.wallet_management, R.id.transaction_history, R.id.message_center, R.id.node_vote, R.id.system_settings, R.id.app_update})
     public void onViewClicked(View view) {
         //  mDrawer.closeDrawers();
         switch (view.getId()) {
@@ -177,8 +177,8 @@ public class BlackBoxMainActivity extends BaseAcitvity<NormalView, NormalPresent
             case R.id.message_center:
                 ActivityUtils.next(BlackBoxMainActivity.this, MessageCenterActivity.class);
                 break;
-            case R.id.suggestion_feedback:
-                ActivityUtils.next(BlackBoxMainActivity.this, SuggestionFeedbackActivity.class);
+            case R.id.node_vote:
+                ActivityUtils.next(BlackBoxMainActivity.this, NodeVoteActivity.class);
                 break;
             case R.id.system_settings:
                 ActivityUtils.next(BlackBoxMainActivity.this, SystemSettingActivity.class);

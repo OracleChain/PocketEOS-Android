@@ -37,19 +37,19 @@ public class AppDefeatHeadView extends BaseHeader {
     private View frame;
 
     public AppDefeatHeadView(Context context){
-        this(context, 0, R.drawable.arrow,0,false);
+        this(context, 0, R.mipmap.whitearrow,0,false);
     }
 
     public AppDefeatHeadView(Context context,boolean isShowText){
-        this(context, 0,R.drawable.arrow,0,isShowText);
+        this(context, 0,R.mipmap.whitearrow,0,isShowText);
     }
 
     public AppDefeatHeadView(Context context,int logoSrc){
-        this(context, 0,R.drawable.arrow,logoSrc,false);
+        this(context, 0,R.mipmap.whitearrow,logoSrc,false);
     }
 
     public AppDefeatHeadView(Context context,int logoSrc,boolean isShowText){
-        this(context, 0,R.drawable.arrow,logoSrc,isShowText);
+        this(context, 0,R.mipmap.whitearrow,logoSrc,isShowText);
     }
 
     public AppDefeatHeadView(Context context,int rotationSrc,int arrowSrc,int logoSrc,boolean isShowText){

@@ -31,13 +31,10 @@ import com.oraclechain.pocketeos.utils.AndroidBug5497Workaround;
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.KeyBoardUtil;
-import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
 import com.oraclechain.pocketeos.utils.RotateUtils;
 import com.oraclechain.pocketeos.utils.StringUtils;
 import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
-import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
-import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 import com.oraclechain.pocketeos.view.textwatcher.MakeRedPacketMoneyTextWatcher;
 import com.oraclechain.pocketeos.view.textwatcher.MakeRedPacketNumberTextWatcher;
@@ -163,7 +160,7 @@ public class RedPacketActivity extends BaseAcitvity<RedPacketView, RedPacketPres
     protected void onResume() {
         super.onResume();
         mDataBeanList.clear();
-        presenter.getRedPacketHistoryData(mSwitchNumber.getText().toString().trim(), mSwitchProperty.getText().toString().trim());
+//        presenter.getRedPacketHistoryData(mSwitchNumber.getText().toString().trim(), mSwitchProperty.getText().toString().trim());
     }
 
     @Override
@@ -306,7 +303,7 @@ public class RedPacketActivity extends BaseAcitvity<RedPacketView, RedPacketPres
                 }
                 break;
             case R.id.go_transfer_accounts:
-                if (!TextUtils.isEmpty(mRedPacketMoney.getText().toString().trim()) && !TextUtils.isEmpty(mRedPacketNumber.getText().toString().trim())) {
+               /* if (!TextUtils.isEmpty(mRedPacketMoney.getText().toString().trim()) && !TextUtils.isEmpty(mRedPacketNumber.getText().toString().trim())) {
                     PasswordDialog mPasswordDialog = new PasswordDialog(RedPacketActivity.this, new PasswordCallback() {
                         @Override
                         public void sure(final String password) {
@@ -331,7 +328,9 @@ public class RedPacketActivity extends BaseAcitvity<RedPacketView, RedPacketPres
                     toast(getString(R.string.input_redpacket_money));
                 } else {
                     toast(getString(R.string.input_all_redpacket_info));
-                }
+                }*/
+
+               toast(getString(R.string.red_packet_toast));
                 break;
         }
     }

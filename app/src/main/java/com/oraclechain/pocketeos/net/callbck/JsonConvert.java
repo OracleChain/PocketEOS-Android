@@ -134,9 +134,6 @@ public class JsonConvert<T> implements Converter<T> {
                 // 泛型格式如下： new JsonCallback<ResponseBean<内层JavaBean>>(this)
                 ResponseBean responseBean = Convert.fromJson(jsonReader, type);
                 response.close();
-               /* int code = responseBean.code;
-                String msg = responseBean.message;*/
-
                 return (T) responseBean;
             }
         }

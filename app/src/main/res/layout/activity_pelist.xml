@@ -16,7 +16,6 @@
         android:id="@+id/recycle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/dimens_20"
-        android:layout_marginRight="@dimen/dimens_20"
+
         android:scrollbars="none"/>
 </LinearLayout>

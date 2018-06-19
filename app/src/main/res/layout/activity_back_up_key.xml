@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            style="?attr/text_two_style"
+            style="?attr/text_one_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/backup_title_pra_key"
@@ -26,26 +26,25 @@
 
         <RelativeLayout
 
+            style="?attr/item_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimens_20"
-           style="?attr/item_bg"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/dimens_20"
             android:paddingRight="@dimen/dimens_20">
 
             <TextView
                 android:id="@+id/desc"
-                style="?attr/text_two_style"
+                android:textColor="#999999"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginBottom="@dimen/dimens_20"
-                android:layout_marginRight="@dimen/dimens_10"
+                android:layout_marginRight="@dimen/dimens_20"
                 android:layout_marginTop="@dimen/dimens_20"
-
                 android:layout_toLeftOf="@+id/switch_view"
-                android:drawableLeft="@mipmap/left_backup"
+                android:drawableLeft="@mipmap/phone_left_backup"
                 android:drawablePadding="@dimen/dimens_20"
                 android:text="@string/backup_pra_desc"
                 android:textSize="@dimen/dimens_13"/>
@@ -55,7 +54,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:thumb="@null"
+                android:track="@null"
+                android:background="@drawable/switch_view_selected"/>
 
             <TextView
                 android:id="@+id/details"
@@ -72,7 +74,7 @@
         </RelativeLayout>
 
         <TextView
-            style="?attr/text_two_style"
+            android:textColor="#999999"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dimens_10"

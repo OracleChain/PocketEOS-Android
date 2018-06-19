@@ -22,8 +22,9 @@
             style="?attr/text_one_style"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="right|center_vertical"
+            android:gravity="center"
             android:text="全部账号"
+            android:layout_marginLeft="@dimen/dimens_20"
             android:textSize="@dimen/dimens_13"/>
 
         <ImageView

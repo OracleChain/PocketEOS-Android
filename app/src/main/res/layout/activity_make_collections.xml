@@ -42,11 +42,11 @@
 
                         <TextView
                             android:id="@+id/switch_number"
+                            style="?attr/text_one_style"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="right|center_vertical"
                             android:text="@string/all_number"
-                            style="?attr/text_two_style"
                             android:textSize="@dimen/dimens_13"/>
 
                         <ImageView
@@ -66,11 +66,11 @@
 
                         <TextView
                             android:id="@+id/switch_property"
-                            android:layout_width="@dimen/dimens_50"
+                            style="?attr/text_one_style"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
                             android:text="@string/all_property"
-                            style="?attr/text_two_style"
                             android:textSize="@dimen/dimens_13"/>
 
                         <ImageView
@@ -83,31 +83,32 @@
                 </LinearLayout>
 
                 <View
+                    style="?attr/line_style"
                     android:layout_width="wrap_content"
-                    android:layout_height="1px"
-                    style="?attr/line_style"/>
+                    android:layout_height="1px"/>
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_66"
+                    android:layout_height="@dimen/dimens_56"
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/dimens_20"
                     android:paddingRight="@dimen/dimens_20">
 
                     <TextView
                         android:id="@+id/txt1"
+                        style="?attr/text_one_style"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentLeft="true"
                         android:layout_marginRight="@dimen/dimens_10"
                         android:gravity="center_vertical"
                         android:text="@string/get_property_number"
-                        style="?attr/text_two_style"
-                        android:textSize="@dimen/dimens_16"/>
+                        android:textSize="@dimen/dimens_15"/>
 
                     <com.oraclechain.pocketeos.view.ClearEditText
                         android:id="@+id/get_property_number"
+                        style="?attr/text_two_style"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
@@ -115,28 +116,27 @@
                         android:background="@null"
                         android:hint="@string/input_property_number"
                         android:inputType="numberDecimal"
-                        style="?attr/text_two_style"
                         android:textColorHint="@color/gray_color"
                         android:textCursorDrawable="@drawable/edittext_cursor"
-                        android:textSize="@dimen/dimens_16"/>
+                        android:textSize="@dimen/dimens_15"/>
 
                 </RelativeLayout>
 
                 <View
+                    style="?attr/line_style"
                     android:layout_width="wrap_content"
-                    android:layout_height="1px"
-                    style="?attr/line_style"/>
+                    android:layout_height="1px"/>
 
                 <TextView
                     android:id="@+id/take_rmb_property"
+                    style="?attr/text_one_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimens_28"
                     android:gravity="center"
-                    android:paddingLeft="@dimen/dimens_20"
-                    android:paddingRight="@dimen/dimens_20"
+                    android:paddingLeft="@dimen/dimens_40"
+                    android:paddingRight="@dimen/dimens_40"
                     android:text="≈****CNY"
-                    style="?attr/text_one_style"
                     android:textSize="@dimen/dimens_24"/>
 
                 <Button
@@ -151,23 +151,23 @@
                     android:textSize="@dimen/dimens_16"/>
 
                 <View
+                    style="?attr/line_style"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_10"
-                    style="?attr/line_style"/>
+                    android:layout_height="@dimen/dimens_10"/>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_58"
-                    android:gravity="center_vertical"
-                    android:padding="@dimen/dimens_20"
-                    android:text="@string/make_collections_history"
                     style="?attr/text_one_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/dimens_20"
+                    android:text="@string/make_collections_history"
                     android:textSize="@dimen/dimens_15"/>
 
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1px"
-                    android:background="@color/line"/>
+                    style="?attr/line_style"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

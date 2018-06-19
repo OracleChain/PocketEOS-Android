@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.oraclechain.pocketeos.view.CircleImageView
+    <com.oraclechain.pocketeos.view.RoundImageView
         android:id="@+id/application_img"
         android:layout_width="@dimen/dimens_45"
         android:layout_height="@dimen/dimens_45"
+        app:shape_type="round"
         android:src="@mipmap/ic_launcher_round"/>
 
     <TextView

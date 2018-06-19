@@ -30,6 +30,7 @@ import com.oraclechain.pocketeos.modules.transaction.transferaccounts.TransferAc
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.ChartUtil;
 import com.oraclechain.pocketeos.utils.StringUtils;
+import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.dialog.sharecoindetailsdialog.ShareCoinDetailsCallBack;
 import com.oraclechain.pocketeos.view.dialog.sharecoindetailsdialog.ShareCoinDetailsDialog;
@@ -112,7 +113,11 @@ public class CoinDetailsActivity extends BaseAcitvity<CoinDetailsView, CoinDetai
             cointype = "oct";
         }
         setCenterTitle(accountWithCoinBean.getCoinName());
-        setRightImg(true);
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            setRightImg(true);
+        } else {
+            setRightImg(false);
+        }
         mImgRight.setImageDrawable(getResources().getDrawable(R.mipmap.makecollectionshare));
         mIconTotalNumber.setText(StringUtils.addComma(accountWithCoinBean.getCoinForCny()) + " CNY");
         mCoinUoanddown.setText(accountWithCoinBean.getCoinUpsAndDowns() + getString(R.string.today));
@@ -160,7 +165,7 @@ public class CoinDetailsActivity extends BaseAcitvity<CoinDetailsView, CoinDetai
         mPostChainHistoryBean.setAccount_name(mCoinUserNumber.getText().toString());
         mPostChainHistoryBean.setSkip_seq(0);
         mPostChainHistoryBean.setNum_seq(size);
-        presenter.getTransferHistoryData(mPostChainHistoryBean);
+//        presenter.getTransferHistoryData(mPostChainHistoryBean);
 
 
         mHistoryAdapter = new EmptyWrapper(AdapterManger.getCoinDetailsHistoryAdapter(this, mDataBeanList, mCoinUserNumber.getText().toString()));
@@ -199,6 +204,8 @@ public class CoinDetailsActivity extends BaseAcitvity<CoinDetailsView, CoinDetai
 
     @Override
     public void getSparklinesData(SparkLinesBean.DataBean dataBean) {
+        mSpring.onFinishFreshAndLoad();
+        hideProgress();
         if (accountWithCoinBean.getCoinName().equals("EOS")) {
             MyApplication.getInstance().showImage(dataBean.getSparkline_eos_png(), mCoinUpanddownImg);
         } else {

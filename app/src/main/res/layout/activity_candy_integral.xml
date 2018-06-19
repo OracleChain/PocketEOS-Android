@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.oraclechain.pocketeos.modules.leftdrawer.candyintegral.CandyIntegralActivity">
 
@@ -12,30 +13,39 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_184"
         android:background="@mipmap/candy_bg"
-        android:padding="@dimen/dimens_16">
+       android:paddingTop="@dimen/dimens_16"
+        android:paddingBottom="@dimen/dimens_16">
 
         <ImageView
             android:id="@+id/back"
-            android:layout_width="@dimen/dimens_40"
-            android:layout_height="@dimen/dimens_40"
+            android:layout_width="@dimen/dimens_50"
+            android:layout_height="@dimen/dimens_50"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/textView"
             android:scaleType="center"
             android:src="@mipmap/white_back"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/dimens_40"
+            android:layout_height="@dimen/dimens_50"
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:text="@string/candy_integral"
             android:textColor="@color/white"
-            android:textSize="@dimen/dimens_17"/>
+            android:textSize="@dimen/dimens_17"
+            android:id="@+id/textView"/>
 
-        <com.oraclechain.pocketeos.view.CircleImageView
+        <com.oraclechain.pocketeos.view.RoundImageView
             android:id="@+id/wallet_photo"
             android:layout_width="@dimen/dimens_60"
             android:layout_height="@dimen/dimens_60"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimens_14"
             android:layout_marginRight="@dimen/dimens_15"
+            android:layout_marginLeft="@dimen/dimens_26"
+            app:shape_type="round"
+            app:border_color="@color/white"
+            app:border_width="@dimen/dimens_2"
             android:src="@mipmap/defeat_person_img"/>
 
         <TextView
@@ -43,9 +53,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dimens_10"
+            android:layout_marginBottom="@dimen/dimens_20"
             android:layout_toRightOf="@+id/wallet_photo"
             android:drawableLeft="@mipmap/candy_img"
+
             android:drawablePadding="@dimen/dimens_10"
             android:text="@string/app_name"
             android:textColor="@color/white"
@@ -74,39 +85,46 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimens_50"
                 android:gravity="center_vertical"
-                android:padding="@dimen/dimens_20"
                 android:text="@string/popular_rights"
+                android:paddingLeft="@dimen/dimens_20"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_15"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_1"
                 android:background="@color/line"/>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/popular_rights"
-                android:layout_marginTop="@dimen/dimens_20"
-                android:layout_marginBottom="@dimen/dimens_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/dimens_20"/>
+                android:layout_marginBottom="@dimen/dimens_20"
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:layout_marginTop="@dimen/dimens_20"
+               />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_10"
                 android:background="@color/bg_color"/>
+
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimens_50"
                 android:gravity="center_vertical"
-                android:padding="@dimen/dimens_20"
+               android:paddingLeft="@dimen/dimens_20"
                 android:text="@string/candy_task"
                 android:textColor="@color/title_color"
                 android:textSize="@dimen/dimens_15"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_1"
                 android:background="@color/line"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

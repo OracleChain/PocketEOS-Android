@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context="com.oraclechain.pocketeos.modules.blackbox.blackboxaccount.BlackBoxCreatAccountActivity">
 
-    <include layout="@layout/title_project_blackbox"/>
+    <include layout="@layout/title_project_black"/>
 
     <TextView
         android:layout_width="match_parent"

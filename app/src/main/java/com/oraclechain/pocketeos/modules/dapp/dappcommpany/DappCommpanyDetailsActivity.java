@@ -11,10 +11,13 @@ import android.widget.TextView;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
 import com.oraclechain.pocketeos.adapter.baseadapter.wrapper.EmptyWrapper;
+import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.DappBean;
 import com.oraclechain.pocketeos.bean.DappCommpanyBean;
+import com.oraclechain.pocketeos.modules.dapp.dappdetails.DappDetailsActivity;
+import com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.activity.PaidAnswerActivity;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
@@ -47,7 +50,7 @@ public class DappCommpanyDetailsActivity extends BaseAcitvity<DappCommpanyDetail
     private List<DappBean.DataBean> mBussinessDappList = new ArrayList<>(); //企业应用列表
     private EmptyWrapper mBussinessDappAdapter;
     private DappCommpanyBean.DataBean commpany;
-
+    private DappBean.DataBean hotapplication;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_dapp_commpany_details;
@@ -98,6 +101,7 @@ public class DappCommpanyDetailsActivity extends BaseAcitvity<DappCommpanyDetail
     public void getDappCommpanyDataHttp(List<DappBean.DataBean> dappBean) {
         hideProgress();
         if (dappBean.size() != 0) {
+            hotapplication = dappBean.get(0);
             mHotApplicationDesc.setText(dappBean.get(0).getApplyDetails());
             mHotApplicationName.setText(dappBean.get(0).getApplyName());
             MyApplication.getInstance().showImage(dappBean.get(0).getApplyIcon(), mHotApplicationImg);
@@ -116,6 +120,16 @@ public class DappCommpanyDetailsActivity extends BaseAcitvity<DappCommpanyDetail
 
     @OnClick(R.id.hot_application)
     public void onViewClicked() {
+        if (mHotApplicationName.getText().toString().equals("有问币答")) {
+            ActivityUtils.next(this, PaidAnswerActivity.class);
+        } else {
+            if (hotapplication!=null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("title", hotapplication.getApplyName());
+                bundle.putString("url", hotapplication.getUrl());
+                ActivityUtils.next(this, DappDetailsActivity.class, bundle);
+            }
+        }
     }
 
 }

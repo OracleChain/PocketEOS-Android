@@ -26,17 +26,19 @@
         android:textSize="@dimen/dimens_13"/>
 
     <TextView
-        style="?attr/text_two_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:padding="@dimen/dimens_20"
+        android:paddingBottom="@dimen/dimens_5"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_20"
         android:text="@string/account_name"
+        android:textColor="#999999"
         android:textSize="@dimen/dimens_13"/>
 
     <com.oraclechain.pocketeos.view.ClearEditText
         android:id="@+id/account_name"
-        style="?attr/text_two_style"
+        style="?attr/text_one_style"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_40"
         android:layout_marginLeft="@dimen/dimens_20"
@@ -44,24 +46,30 @@
         android:background="@null"
         android:gravity="center_vertical"
         android:hint="@string/input_account_name"
+        android:maxLength="12"
         android:singleLine="true"
-        android:textColorHint="@color/txt_color"
+        android:textColorHint="#d9d9d9"
         android:textCursorDrawable="@drawable/edittext_cursor"
-        android:textSize="@dimen/dimens_16"/>
+        android:textSize="@dimen/dimens_15"/>
 
 
     <View
         style="?attr/line_style"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_line_cash"
-        android:layout_margin="@dimen/dimens_10"/>
+        android:layout_marginBottom="@dimen/dimens_10"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginRight="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_5"/>
 
     <TextView
         style="?attr/text_two_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="@dimen/dimens_10"
-        android:padding="@dimen/dimens_20"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_5"
         android:text="@string/creat_account_toast"
         android:textSize="@dimen/dimens_13"/>
 
@@ -75,7 +83,7 @@
         android:layout_marginRight="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_20"
         android:background="@color/blue_button"
-        android:text="创建"
+        android:text="@string/create_number"
         android:textColor="@color/white"
         android:textSize="@dimen/dimens_14"/>
 
@@ -83,9 +91,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimens_15"
+        android:layout_marginTop="@dimen/dimens_10"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <CheckBox
             android:id="@+id/check_box"

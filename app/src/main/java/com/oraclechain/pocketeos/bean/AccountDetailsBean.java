@@ -46,6 +46,24 @@ public class AccountDetailsBean {
     private String oct_price_change_in_24h;
     private String oct_market_cap_usd;
     private String oct_market_cap_cny;
+    private String eos_net_weight;
+    private String eos_cpu_weight;
+
+    public String getEos_net_weight() {
+        return eos_net_weight == null ? "" : eos_net_weight;
+    }
+
+    public void setEos_net_weight(String eos_net_weight) {
+        this.eos_net_weight = eos_net_weight;
+    }
+
+    public String getEos_cpu_weight() {
+        return eos_cpu_weight == null ? "" : eos_cpu_weight;
+    }
+
+    public void setEos_cpu_weight(String eos_cpu_weight) {
+        this.eos_cpu_weight = eos_cpu_weight;
+    }
 
     public String getAccount_name() {
         return account_name == null ? "" : account_name;

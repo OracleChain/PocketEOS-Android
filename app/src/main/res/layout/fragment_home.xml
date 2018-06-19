@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:src="@mipmap/person_bg">
 
     <ImageView
         android:layout_width="match_parent"
@@ -107,7 +107,8 @@
             android:singleLine="true"
             android:text="@string/home_notice"
             android:textColor="@color/sandybrown"
-            android:textSize="@dimen/dimens_12"/>
+            android:textSize="@dimen/dimens_12"
+            android:visibility="gone"/>
 
         <com.liaoinstan.springview.widget.SpringView
             android:id="@+id/spring"
@@ -134,7 +135,7 @@
                         android:background="@mipmap/home_top">
 
 
-                        <com.oraclechain.pocketeos.view.CircleImageView
+                        <com.oraclechain.pocketeos.view.RoundImageView
                             android:id="@+id/user_img"
                             android:layout_width="@dimen/dimens_46"
                             android:layout_height="@dimen/dimens_46"
@@ -142,7 +143,8 @@
                             android:layout_marginRight="@dimen/dimens_10"
                             android:layout_marginTop="@dimen/dimens_15"
                             android:scaleType="centerCrop"
-                            android:src="@mipmap/ic_launcher_round"/>
+                            android:src="@mipmap/ic_launcher_round"
+                            app:shape_type="round"/>
 
                         <TextView
                             android:id="@+id/user_name"
@@ -286,9 +288,9 @@
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/dimens_58"
                                     android:layout_weight="1"
+                                    android:drawablePadding="@dimen/dimens_12"
                                     android:drawableTop="@mipmap/make_collections"
                                     android:gravity="center"
-                                    android:drawablePadding="@dimen/dimens_12"
                                     android:text="@string/make_collections"
                                     android:textColor="@color/title_color"
                                     android:textSize="@dimen/dimens_14"/>
@@ -298,9 +300,9 @@
                                     android:layout_width="0dp"
                                     android:layout_height="@dimen/dimens_58"
                                     android:layout_weight="1"
+                                    android:drawablePadding="@dimen/dimens_12"
                                     android:drawableTop="@mipmap/red_packet"
                                     android:gravity="center"
-                                    android:drawablePadding="@dimen/dimens_12"
                                     android:text="@string/red_packet"
                                     android:textColor="@color/title_color"
                                     android:textSize="@dimen/dimens_14"/>
@@ -339,4 +341,18 @@
             </com.oraclechain.pocketeos.view.MyScrollview>
         </com.liaoinstan.springview.widget.SpringView>
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/dimens_20"
+        android:background="@color/theme_color"
+        android:src="@mipmap/unstark"
+        app:backgroundTint="@color/theme_color"
+        app:borderWidth="@dimen/dimens_5"
+        app:elevation="@dimen/dimens_5"
+        app:fabSize="auto"
+        app:pressedTranslationZ="@dimen/dimens_5"/>
 </FrameLayout>

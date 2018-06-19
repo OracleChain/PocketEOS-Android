@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,6 +15,7 @@ import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.bean.User;
 import com.oraclechain.pocketeos.modules.friendslist.friendsdetails.FriendsDetailsActivity;
 import com.oraclechain.pocketeos.modules.friendslist.pelist.PelistActivity;
+import com.oraclechain.pocketeos.view.RoundImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +62,7 @@ public class UserAdapter extends BaseAdapter {
             viewHolder.tvTitle = (TextView) convertView.findViewById(R.id.title);
             viewHolder.tvName = (TextView) convertView.findViewById(R.id.name);
             viewHolder.tvItem = (LinearLayout) convertView.findViewById(R.id.item);
-            viewHolder.friends_img = (ImageView) convertView.findViewById(R.id.friends_img);
+            viewHolder.friends_img = (RoundImageView) convertView.findViewById(R.id.friends_img);
             viewHolder.tvAllMoney = (TextView) convertView.findViewById(R.id.all_money);
             convertView.setTag(viewHolder);
         } else {
@@ -77,6 +77,7 @@ public class UserAdapter extends BaseAdapter {
                 viewHolder.friends_img.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.friends_group));
             }
         } else if (!users.get(position).getLetter().equals("@")) {
+//            MyApplication.getInstance().showImage(users.get(position).getAvatar(),viewHolder.friends_img);
             viewHolder.friends_img.setImageDrawable(mContext.getResources().getDrawable(R.mipmap.ic_launcher));
         }
         viewHolder.tvItem.setOnClickListener(new View.OnClickListener() {
@@ -148,7 +149,7 @@ public class UserAdapter extends BaseAdapter {
         TextView tvName;
         TextView tvTitle;
         TextView tvAllMoney;
-        ImageView friends_img;
+        RoundImageView friends_img;
         LinearLayout tvItem;
     }
 

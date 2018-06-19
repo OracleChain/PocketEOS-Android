@@ -91,7 +91,7 @@
             android:name=".modules.wallet.walletmanagement.WalletManagementActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".modules.account.createaccount.CreateAccounntActivity"
+            android:name=".modules.account.createaccount.CreateAccountActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".modules.account.importaccount.ImportAccountActivity"
@@ -209,28 +209,52 @@
             android:exported="true"
             android:theme="@android:style/Theme.Translucent">
         </activity>
-        <activity android:name=".modules.transaction.redpacket.anticipationredpacket.AnticipationRedPacketActivity">
+        <activity
+            android:name=".modules.transaction.redpacket.anticipationredpacket.AnticipationRedPacketActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.transaction.redpacket.getredpacketdetails.GetRedPacketDetailsActivity">
+        <activity
+            android:name=".modules.transaction.redpacket.getredpacketdetails.GetRedPacketDetailsActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.dapp.dappdetails.DappDetailsActivity">
+        <activity
+            android:name=".modules.dapp.dappdetails.DappDetailsActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.dapp.paidanswer.questiondetails.QuestionDetailsActivity"/>
-        <activity android:name=".modules.blackbox.nowalletlogin.BlackBoxLoginActivity">
+        <activity
+            android:name=".modules.dapp.paidanswer.questiondetails.QuestionDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".modules.blackbox.nowalletlogin.BlackBoxLoginActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.blackbox.existwalletlogin.ExistBlackBoxLoginActivity">
+        <activity
+            android:name=".modules.blackbox.existwalletlogin.ExistBlackBoxLoginActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.blackbox.existwalletlogin.BlackBoxCreatWalletActivity">
+        <activity
+            android:name=".modules.blackbox.existwalletlogin.BlackBoxCreatWalletActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.blackbox.BlackBoxMainActivity">
+        <activity
+            android:name=".modules.blackbox.BlackBoxMainActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.blackbox.blackboxcoindetails.BlackBoxCoinDetailsActivity">
+        <activity
+            android:name=".modules.blackbox.blackboxcoindetails.BlackBoxCoinDetailsActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.blackbox.blackboxaccount.BlackBoxCreatAccountActivity">
+        <activity
+            android:name=".modules.blackbox.blackboxaccount.BlackBoxCreatAccountActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.account.backupaccount.activity.BackUpAccountActivity">
+        <activity
+            android:name=".modules.account.backupaccount.activity.BackUpAccountActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.leftdrawer.candyintegral.CandyIntegralActivity">
+        <activity
+            android:name=".modules.leftdrawer.candyintegral.CandyIntegralActivity"
+            android:screenOrientation="portrait">
         </activity>
 
         <service
@@ -239,11 +263,41 @@
             android:exported="true">
         </service>
 
-        <activity android:name=".modules.leftdrawer.systemsetting.LanguageActivity">
+        <activity
+            android:name=".modules.leftdrawer.systemsetting.LanguageActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.account.mapaccount.MapAccountActivity">
+        <activity
+            android:name=".modules.account.mapaccount.MapAccountActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".modules.account.backupaccount.BackUpKeyActivity">
+        <activity
+            android:name=".modules.account.backupaccount.BackUpKeyActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.nodevote.NodeVoteActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.nodevote.agencyvote.AgencyVoteActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.nodevote.gonodevote.GoNodeVoteActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.nodevote.surevote.SureNodeVoteActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.nodevote.NodeVoteDetailsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".modules.unstake.UnStakeActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

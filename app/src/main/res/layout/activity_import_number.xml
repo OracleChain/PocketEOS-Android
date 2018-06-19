@@ -21,33 +21,46 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/go_scan_code"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_187">
 
+                <ImageView
+                    android:id="@+id/scan_code_img"
+                    android:layout_width="@dimen/dimens_100"
+                    android:layout_height="@dimen/dimens_100"
+                    android:layout_marginTop="@dimen/dimens_33"
+                   android:layout_centerHorizontal="true"
+                    android:src="@mipmap/import_go_scan_code"/>
+
                 <TextView
-                    android:id="@+id/go_scan_code"
+
+                    style="?attr/text_two_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/scan_code_img"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/dimens_20"
+                    android:layout_marginTop="@dimen/dimens_16"
                     android:clickable="true"
-                    android:drawablePadding="@dimen/dimens_20"
-                    android:drawableTop="@mipmap/import_go_scan_code"
                     android:text="@string/import_account_toast"
-                    style="?attr/text_one_style"
                     android:textSize="@dimen/dimens_13"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimens_10"/>
+                android:layout_height="@dimen/dimens_10"
+                style="?attr/item_bg"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:padding="@dimen/dimens_20"
-                android:text="输入账号"
-
+                android:paddingBottom="@dimen/dimens_5"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:paddingTop="@dimen/dimens_20"
+                android:text="@string/input_account"
                 android:textColor="@color/gray_color"
                 android:textSize="@dimen/dimens_13"/>
 
@@ -60,12 +73,12 @@
                 android:paddingRight="@dimen/dimens_20">
 
                 <TextView
+                    style="?attr/text_one_style"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dimens_40"
                     android:gravity="center_vertical"
                     android:text="@string/account"
-                    style="?attr/text_one_style"
-                    android:textSize="@dimen/dimens_16"/>
+                    android:textSize="@dimen/dimens_15"/>
 
                 <com.oraclechain.pocketeos.view.ClearEditText
                     android:id="@+id/account_name"
@@ -75,22 +88,28 @@
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/iniput_account_name"
+                    android:textColorHint="#d9d9d9"
                     android:textColor="@color/title_color"
                     android:textCursorDrawable="@drawable/edittext_cursor"
-                    android:textSize="@dimen/dimens_17"/>
+                    android:textSize="@dimen/dimens_15"/>
             </LinearLayout>
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_line_cash"
-                style="?attr/line_style"/>
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:layout_marginTop="@dimen/dimens_5"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:padding="@dimen/dimens_20"
-                android:text="输入OWNKEY"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:paddingTop="@dimen/dimens_20"
+                android:paddingBottom="@dimen/dimens_5"
+                android:text="@string/input_OWNKEY"
                 android:textColor="@color/gray_color"
                 android:textSize="@dimen/dimens_13"/>
 
@@ -103,12 +122,12 @@
                 android:paddingRight="@dimen/dimens_20">
 
                 <TextView
+                    style="?attr/text_one_style"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dimens_40"
                     android:gravity="center_vertical"
                     android:text="@string/private_key"
-                    style="?attr/text_one_style"
-                    android:textSize="@dimen/dimens_16"/>
+                    android:textSize="@dimen/dimens_15"/>
 
                 <com.oraclechain.pocketeos.view.ClearEditText
                     android:id="@+id/owner_private_key"
@@ -118,23 +137,29 @@
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/input_private_key"
+                    android:textColorHint="#d9d9d9"
                     android:inputType="textImeMultiLine"
                     android:textColor="@color/title_color"
                     android:textCursorDrawable="@drawable/edittext_cursor"
-                    android:textSize="@dimen/dimens_17"/>
+                    android:textSize="@dimen/dimens_15"/>
             </LinearLayout>
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_line_cash"
-                style="?attr/line_style"/>
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:layout_marginTop="@dimen/dimens_5"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:padding="@dimen/dimens_20"
-                android:text="输入ACTIVEKEY"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:paddingTop="@dimen/dimens_20"
+                android:paddingBottom="@dimen/dimens_5"
+                android:text="@string/input_ACTIVEKEY"
                 android:textColor="@color/gray_color"
                 android:textSize="@dimen/dimens_13"/>
 
@@ -147,12 +172,12 @@
                 android:paddingRight="@dimen/dimens_20">
 
                 <TextView
+                    style="?attr/text_one_style"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dimens_40"
                     android:gravity="center_vertical"
                     android:text="@string/private_key"
-                    style="?attr/text_one_style"
-                    android:textSize="@dimen/dimens_16"/>
+                    android:textSize="@dimen/dimens_15"/>
 
                 <com.oraclechain.pocketeos.view.ClearEditText
                     android:id="@+id/active_private_key"
@@ -162,16 +187,19 @@
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:hint="@string/input_private_key"
+                    android:textColorHint="#d9d9d9"
                     android:inputType="textImeMultiLine"
                     android:textColor="@color/title_color"
                     android:textCursorDrawable="@drawable/edittext_cursor"
-                    android:textSize="@dimen/dimens_17"/>
+                    android:textSize="@dimen/dimens_15"/>
             </LinearLayout>
 
             <View
+                style="?attr/line_style"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimens_line_cash"
-                style="?attr/line_style"/>
+                android:layout_marginLeft="@dimen/dimens_20"
+                android:layout_marginTop="@dimen/dimens_5"/>
 
             <Button
                 android:id="@+id/import_number"
@@ -181,11 +209,11 @@
                 android:layout_marginBottom="@dimen/dimens_20"
                 android:layout_marginLeft="@dimen/dimens_20"
                 android:layout_marginRight="@dimen/dimens_20"
-                android:layout_marginTop="@dimen/dimens_40"
+                android:layout_marginTop="@dimen/dimens_32"
                 android:background="#FF4D7BFE"
                 android:text="@string/import_account_button"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_15"/>
 
         </LinearLayout>
     </ScrollView>

@@ -142,14 +142,22 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
         }
 
         setCenterTitle(getString(R.string.title_transfer_accounts));
-        setRightImg(true);
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            setRightImg(true);
+        } else {
+            setRightImg(false);
+        }
         mImgRight.setImageDrawable(getResources().getDrawable(R.mipmap.scan));
 
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(TransferAccountsActivity.this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleTransferaccountsHistory.setLayoutManager(layoutManager);
-        mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+            mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        }else {
+            mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
+        }
 
         //系统刷新
         mSpring.setFooter(new AliFooter(getContext()));
@@ -188,7 +196,7 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
         mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
         mPostChainHistoryBean.setSkip_seq(0);
         mPostChainHistoryBean.setNum_seq(size);
-        presenter.getTransferHistoryData(mPostChainHistoryBean);
+//        presenter.getTransferHistoryData(mPostChainHistoryBean);
 
 
         mHistoryAdapter = new EmptyWrapper(AdapterManger.getTransferHistoryAdapter(this, mDataBeanList));
@@ -229,6 +237,8 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
 
     @Override
     public void getAccountDetailsDataHttp(AccountDetailsBean accountDetailsBean) {
+        mSpring.onFinishFreshAndLoad();
+        hideProgress();
         if (mSwitchProperty.getText().toString().equals("OCT")) {
             mCanUseProperty.setText(StringUtils.addComma(accountDetailsBean.getOct_balance()) + " OCT");
             mRmbProperty.setText("≈" + StringUtils.addComma(accountDetailsBean.getOct_balance_cny()) + " CNY");

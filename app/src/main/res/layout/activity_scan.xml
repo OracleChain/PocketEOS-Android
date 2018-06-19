@@ -33,14 +33,14 @@
 
         <TextView
             android:id="@+id/tv_right"
-            android:layout_width="@dimen/dimens_40"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimens_20"
             android:clickable="true"
             android:gravity="center"
-            android:text="相册"
+            android:text="@string/photos"
             android:textColor="@color/title_color"
             android:textSize="@dimen/dimens_17"/>
     </RelativeLayout>

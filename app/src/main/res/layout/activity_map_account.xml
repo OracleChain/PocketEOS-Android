@@ -11,44 +11,6 @@
 
     <include layout="@layout/title_project"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:padding="@dimen/dimens_20"
-        android:text="输入账户名称"
-        android:textColor="@color/gray_color"
-        android:textSize="@dimen/dimens_13"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/dimens_20"
-        android:paddingRight="@dimen/dimens_20">
-
-        <TextView
-            style="?attr/text_one_style"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/dimens_40"
-            android:gravity="center_vertical"
-            android:text="@string/account"
-            android:textSize="@dimen/dimens_16"/>
-
-        <com.oraclechain.pocketeos.view.ClearEditText
-            android:id="@+id/account_name"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimens_40"
-            android:layout_marginLeft="@dimen/dimens_20"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:hint="@string/iniput_account_name"
-            android:textColor="@color/title_color"
-            android:textColorHint="@color/txt_color"
-            android:textCursorDrawable="@drawable/edittext_cursor"
-            android:textSize="@dimen/dimens_17"/>
-    </LinearLayout>
 
     <View
         style="?attr/line_style"
@@ -60,7 +22,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:padding="@dimen/dimens_20"
-        android:text="输入ACTIVEKEY"
+        android:text="输入映射的EOS私钥"
         android:textColor="@color/gray_color"
         android:textSize="@dimen/dimens_13"/>
 
@@ -106,7 +68,7 @@
         android:layout_marginRight="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_40"
         android:background="#FF4D7BFE"
-        android:text="确认录入"
+        android:text="@string/map_sure"
         android:textColor="@color/white"
         android:textSize="@dimen/dimens_14"/>
 
@@ -114,6 +76,7 @@
         style="?attr/text_two_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/dimens_5"
         android:paddingLeft="@dimen/dimens_20"
         android:paddingRight="@dimen/dimens_20"
         android:text="@string/map_account_toast"

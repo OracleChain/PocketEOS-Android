@@ -9,6 +9,7 @@ import com.oraclechain.pocketeos.adapter.AdapterManger;
 import com.oraclechain.pocketeos.adapter.baseadapter.wrapper.EmptyWrapper;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.FriendsListInfoBean;
+import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
 import java.util.ArrayList;
@@ -43,7 +44,11 @@ public class SwitchFriendActivity extends BaseAcitvity<SwitchFriendView, SwitchF
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycle.setLayoutManager(layoutManager);
         mRecycle.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-
+        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+            mRecycle.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        }else {
+            mRecycle.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
+        }
         mCommonAdapter = new EmptyWrapper(AdapterManger.getFriendListAdapter(this, mDataBeanList, getIntent().getStringExtra("account")));
         mCommonAdapter.setEmptyView(R.layout.empty_project);
         mRecycle.setAdapter(mCommonAdapter);

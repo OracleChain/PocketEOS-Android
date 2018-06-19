@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -44,7 +44,7 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
 
 
     @BindView(R.id.go_scan_code)
-    TextView mGoScanCode;
+    RelativeLayout mGoScanCode;
     @BindView(R.id.import_number)
     Button mImportNumber;
     @BindView(R.id.iv_back)
@@ -73,6 +73,11 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
     }
 
     @Override
+    public ImportAccountPresenter initPresenter() {
+        return new ImportAccountPresenter(ImportAccountActivity.this);
+    }
+
+    @Override
     protected void initViews(Bundle savedInstanceState) {
         setCenterTitle(getString(R.string.import_account));
         if (getIntent().getStringExtra("account_name") != null) {
@@ -90,11 +95,6 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
 
     @Override
     public void initEvent() {
-    }
-
-    @Override
-    public ImportAccountPresenter initPresenter() {
-        return new ImportAccountPresenter(ImportAccountActivity.this);
     }
 
     @Override
@@ -120,8 +120,8 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
             accountInfoBean.setAccount_name(mAccountName.getText().toString().trim());
             accountInfoBean.setAccount_img("");
             try {
-                accountInfoBean.setAccount_active_private_key(EncryptUtil.getEncryptString(mAccount_active_private_key,userPassword));
-                accountInfoBean.setAccount_owner_private_key(EncryptUtil.getEncryptString(mAccount_owner_private_key,userPassword));
+                accountInfoBean.setAccount_active_private_key(EncryptUtil.getEncryptString(mAccount_active_private_key, userPassword));
+                accountInfoBean.setAccount_owner_private_key(EncryptUtil.getEncryptString(mAccount_owner_private_key, userPassword));
             } catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             } catch (InvalidKeySpecException e) {
@@ -188,16 +188,17 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
                 if (mAccountName.getText().toString().length() != 0 && mActivePrivateKey.getText().toString().length() != 0 && mOwnerPrivateKey.getText().toString().length() != 0) {
                     mAccount_owner_private_key = mOwnerPrivateKey.getText().toString();
                     mAccount_active_private_key = mActivePrivateKey.getText().toString();
-                    mActiveKey = new EosPrivateKey(mAccount_active_private_key);
-                    mOwnerKey = new EosPrivateKey(mAccount_owner_private_key);
-                    if (userBean != null && MyApplication.getInstance().getUserBean().getAccount_info() != null) {
-                        mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
-                        for (AccountInfoBean accountInfoBean : mAccountInfoBeanList) {
-                            if (accountInfoBean.getAccount_name().equals(mAccountName.getText().toString())) {
-                                toast(getString(R.string.import_two_account));
-                                return;
-                            }
-                        }
+                    try {
+                        mActiveKey = new EosPrivateKey(mAccount_active_private_key);
+                        mOwnerKey = new EosPrivateKey(mAccount_owner_private_key);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        toast("私钥格式错误");
+                        return;
+                    }
+                    if (userBean != null && MyApplication.getInstance().getUserBean().getAccount_info() != null && MyApplication.getInstance().getUserBean().getAccount_info().contains(mAccountName.getText().toString())) {
+                        toast(getString(R.string.import_two_account));
+                        return;
                     }
                     PasswordDialog mPasswordDialog = new PasswordDialog(ImportAccountActivity.this, new PasswordCallback() {
                         @Override

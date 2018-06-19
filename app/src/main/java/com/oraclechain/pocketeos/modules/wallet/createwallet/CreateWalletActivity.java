@@ -13,7 +13,7 @@ import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
-import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccounntActivity;
+import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.modules.wallet.importwallet.ImportWalletActivity;
@@ -85,7 +85,7 @@ public class CreateWalletActivity extends BaseAcitvity<NormalView, NormalPresent
             }
             Bundle bundle = new Bundle();
             bundle.putInt("type", 1);
-            ActivityUtils.next(CreateWalletActivity.this, CreateAccounntActivity.class, bundle);
+            ActivityUtils.next(CreateWalletActivity.this, CreateAccountActivity.class, bundle);
         } else {
             toast(getString(R.string.two_pwd));
         }

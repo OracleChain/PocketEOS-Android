@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:background="@color/two_black_color"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/dimens_30"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_30">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vote_amount"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/vote_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:layout_marginBottom="@dimen/dimens_10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_10"
+            android:text="@string/vote_eos_amount"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_14"/>
+
+        <SeekBar
+            android:id="@+id/mseekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20"
+            android:max="100"
+            android:maxHeight="@dimen/dimens_6"
+            android:minHeight="@dimen/dimens_6"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_seekbar_progress_drawable"
+            android:thumb="@drawable/shape_point_circular"
+            android:thumbOffset="0dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_20">
+
+            <EditText
+                android:id="@+id/vote_eos_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textCursorDrawable="@drawable/edittext_cursor"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/input_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/vote_eos_amount"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="  EOS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_14"/>
+
+            <TextView
+                android:id="@+id/be_locked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:drawablePadding="@dimen/dimens_5"
+                android:drawableRight="@mipmap/toast_img"
+                android:gravity="center"
+                android:text="@string/be_locked_intro"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimens_14"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_44"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="left"
+            android:text="@string/node_vote_details"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:text="@string/poll_number"
+            android:textColor="@color/txt_color"
+            android:textSize="@dimen/dimens_14"/>
+    </RelativeLayout>
+</LinearLayout>

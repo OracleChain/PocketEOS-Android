@@ -1,16 +1,20 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.Find_tab_Adapter;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -20,11 +24,15 @@ import com.oraclechain.pocketeos.modules.dapp.paidanswer.makequestion.MakeQuesti
 import com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.fragment.PaidAnswerFragment;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
+import com.oraclechain.pocketeos.utils.DensityUtil;
+import com.oraclechain.pocketeos.utils.Utils;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 //有问币答
 public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
@@ -46,7 +54,17 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
     String account = null;
     @BindView(R.id.appbar)
     AppBarLayout mAppbar;
+    @BindView(R.id.CollapsingToolbarLayout)
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    @BindView(R.id.main_content)
+    CoordinatorLayout mMainContent;
 
+    @Override
+    protected void initImmersionBar() {
+        super.initImmersionBar();
+        mImmersionBar.statusBarDarkFont(false, 0.2f).init();
+        ImmersionBar.setTitleBar(PaidAnswerActivity.this, mCollapsingToolbarLayout);
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -58,6 +76,8 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
     }
 
     public void init(String account) {
+
+
         mTitles.add(getResources().getString(R.string.existing_problem));
         mTitles.add(getResources().getString(R.string.past_problems));
         mFragments = new ArrayList<>();
@@ -72,6 +92,46 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
         Find_tab_Adapter adapter = new Find_tab_Adapter(getSupportFragmentManager(), mFragments, mTitles);
         mViewpager.setAdapter(adapter);
         mTabs.setupWithViewPager(mViewpager);
+
+
+        mTabs.post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    //拿到tabLayout的mTabStrip属性
+                    Field mTabStripField = mTabs.getClass().getDeclaredField("mTabStrip");
+                    mTabStripField.setAccessible(true);
+                    LinearLayout mTabStrip = (LinearLayout) mTabStripField.get(mTabs);
+                    int dp10 = DensityUtil.dip2px(mTabs.getContext(), 10);
+                    for (int i = 0; i < mTabStrip.getChildCount(); i++) {
+                        View tabView = mTabStrip.getChildAt(i);
+                        //拿到tabView的mTextView属性
+                        Field mTextViewField = tabView.getClass().getDeclaredField("mTextView");
+                        mTextViewField.setAccessible(true);
+                        TextView mTextView = (TextView) mTextViewField.get(tabView);
+                        tabView.setPadding(0, 0, 0, 0);
+                        //因为我想要的效果是   字多宽线就多宽，所以测量mTextView的宽度
+                        int width = 0;
+                        width = mTextView.getWidth();
+                        if (width == 0) {
+                            mTextView.measure(0, 0);
+                            width = mTextView.getMeasuredWidth();
+                        }
+                        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tabView.getLayoutParams();
+                        params.width = width;
+                        params.leftMargin = dp10;
+                        params.rightMargin = dp10;
+                        tabView.setLayoutParams(params);
+                        tabView.invalidate();
+                    }
+                } catch (NoSuchFieldException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -81,6 +141,11 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
+        if (!Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+            mCollapsingToolbarLayout.setBackgroundDrawable(this.getResources().getDrawable(R.mipmap.black_box_answer_top));
+        }else {
+            mCollapsingToolbarLayout.setBackgroundDrawable(this.getResources().getDrawable(R.mipmap.paid_answer));
+        }
         ActivityUtils.next(PaidAnswerActivity.this, ChooseAccountWithCoinActivity.class, 100);
     }
 
@@ -88,7 +153,6 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
     protected void initData() {
     }
 
-    @SuppressLint("NewApi")
     @Override
     public void initEvent() {
         mGoBack.setOnClickListener(new View.OnClickListener() {
@@ -116,5 +180,12 @@ public class PaidAnswerActivity extends BaseAcitvity<NormalView, NormalPresenter
     @Override
     public NormalPresenter initPresenter() {
         return new NormalPresenter();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

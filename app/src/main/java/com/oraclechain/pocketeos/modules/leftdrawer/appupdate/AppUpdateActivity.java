@@ -2,6 +2,7 @@ package com.oraclechain.pocketeos.modules.leftdrawer.appupdate;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,12 +18,14 @@ import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 import com.oraclechain.pocketeos.utils.AppUtil;
+import com.oraclechain.pocketeos.utils.TextDrawUtil;
 import com.oraclechain.pocketeos.utils.UpdateUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 
 import java.util.HashMap;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AppUpdateActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
@@ -38,6 +41,8 @@ public class AppUpdateActivity extends BaseAcitvity<NormalView, NormalPresenter>
 
     @BindView(R.id.title)
     TextView mTitle;
+    @BindView(R.id.more)
+    ImageView mMore;
 
     @OnClick({R.id.version_intro, R.id.check_new_version})
     public void onViewClicked(View view) {
@@ -49,6 +54,7 @@ public class AppUpdateActivity extends BaseAcitvity<NormalView, NormalPresenter>
                 break;
         }
     }
+
     @Override
     protected void initImmersionBar() {
         super.initImmersionBar();
@@ -74,6 +80,18 @@ public class AppUpdateActivity extends BaseAcitvity<NormalView, NormalPresenter>
     protected void initViews(Bundle savedInstanceState) {
 
         mAppVersion.setText(getString(R.string.appversion) + AppUtil.getAppVersionName(AppUpdateActivity.this));
+
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            mVersionIntro.setBackgroundColor(AppUpdateActivity.this.getResources().getColor(R.color.white));
+            mCheckNewVersion.setBackgroundColor(AppUpdateActivity.this.getResources().getColor(R.color.white));
+            mTitle.setBackgroundColor(AppUpdateActivity.this.getResources().getColor(R.color.white));
+        } else {
+            mMore.setImageDrawable(this.getResources().getDrawable(R.mipmap.white_more));
+            mVersionIntro.setBackgroundColor(AppUpdateActivity.this.getResources().getColor(R.color.black_box_coin_backgroud));
+            mCheckNewVersion.setBackgroundColor(AppUpdateActivity.this.getResources().getColor(R.color.black_box_coin_backgroud));
+            mTitle.setBackgroundColor(AppUpdateActivity.this.getResources().getColor(R.color.black_box_color));
+            TextDrawUtil.setDrawableLeft(this, mTitle, R.mipmap.white_back);
+        }
     }
 
     @Override
@@ -105,4 +123,10 @@ public class AppUpdateActivity extends BaseAcitvity<NormalView, NormalPresenter>
         });
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

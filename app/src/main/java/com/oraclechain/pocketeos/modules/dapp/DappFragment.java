@@ -6,11 +6,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gyf.barlibrary.ImmersionBar;
 import com.liaoinstan.springview.widget.SpringView;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.adapter.AdapterManger;
@@ -22,10 +20,12 @@ import com.oraclechain.pocketeos.base.BaseFragment;
 import com.oraclechain.pocketeos.bean.DappBean;
 import com.oraclechain.pocketeos.bean.DappCommpanyBean;
 import com.oraclechain.pocketeos.modules.dapp.dappcommpany.DappCommpanyDetailsActivity;
+import com.oraclechain.pocketeos.modules.dapp.dappdetails.DappDetailsActivity;
 import com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.activity.PaidAnswerActivity;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.AppDefeatHeadView;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
+import com.oraclechain.pocketeos.view.RoundImageView;
 import com.oraclechain.pocketeos.view.convenientbanner.ConvenientBanner;
 import com.oraclechain.pocketeos.view.convenientbanner.adapter.LocalImageHolderView;
 import com.oraclechain.pocketeos.view.convenientbanner.holder.CBViewHolderCreator;
@@ -43,14 +43,12 @@ import butterknife.OnClick;
 public class DappFragment extends BaseFragment<DappView, DappPresenter> implements DappView {
 
 
-    @BindView(R.id.title)
-    TextView mTitle;
     @BindView(R.id.banner)
     ConvenientBanner mBanner;
     @BindView(R.id.recycle_application)
     RecyclerView mRecycleApplication;
     @BindView(R.id.hot_application_img)
-    ImageView mHotApplicationImg;
+    RoundImageView mHotApplicationImg;
     @BindView(R.id.hot_application_name)
     TextView mHotApplicationName;
     @BindView(R.id.hot_application_desc)
@@ -65,85 +63,22 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
 
     private List<DappCommpanyBean.DataBean> mHeaderList = new ArrayList<>(); //头部四个icon
     private List<DappBean.DataBean> mBussinessDappList = new ArrayList<>(); //企业应用列表
+    private DappBean.DataBean hotapplication;
     private List<String> ivLsit = new ArrayList<>();//banner图片地址
 
     private CommonAdapter mHeaderAdapter;
     private EmptyWrapper mBussinessDappAdapter;
 
     @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_application;
-    }
-
-    @Override
-    protected void initImmersionBar() {
-        super.initImmersionBar();
-        if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
-            mImmersionBar.statusBarDarkFont(true, 0.2f).init();
-        }else {
-            mImmersionBar.statusBarDarkFont(false, 0.2f).init();
-        }
-        ImmersionBar.setTitleBar(getActivity(), mTitle);
-    }
-
-    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!hidden && mImmersionBar != null) {
             if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
-                mImmersionBar.statusBarDarkFont(true, 0.2f).init();
-            }else {
-                mImmersionBar.statusBarDarkFont(false, 0.2f).init();
+                mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+            } else {
+                mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
             }
         }
-    }
-
-    @Override
-    protected void initViews(Bundle savedInstanceState) {
-        //系统刷新
-        mSpring.setHeader(new AppDefeatHeadView(getContext()));
-        mSpring.setGive(SpringView.Give.BOTH);
-        mSpring.setType(SpringView.Type.FOLLOW);
-        mSpring.setListener(new SpringView.OnFreshListener() {
-            @Override
-            public void onRefresh() {
-                mBussinessDappList.clear();
-                mHeaderList.clear();
-                ivLsit.clear();
-                presenter.getData(); // 获取服务器数据
-            }
-
-            @Override
-            public void onLoadmore() {
-                mSpring.onFinishFreshAndLoad();
-            }
-        });
-        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 4);
-        layoutManager.setOrientation(GridLayoutManager.VERTICAL);
-        layoutManager.setSmoothScrollbarEnabled(true);
-        mRecycleApplication.setLayoutManager(layoutManager);
-        mHeaderAdapter = AdapterManger.getDappHeadAdapter(getActivity(), mHeaderList);
-        mRecycleApplication.setAdapter(mHeaderAdapter);
-
-        GridLayoutManager layoutManager1 = new GridLayoutManager(getActivity(), 2);
-        layoutManager1.setOrientation(GridLayoutManager.VERTICAL);
-        layoutManager1.setSmoothScrollbarEnabled(true);
-        if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
-            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.VERTICAL, 1, getResources().getColor(R.color.line)));
-        }else {
-            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
-            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.VERTICAL, 1, getResources().getColor(R.color.blackbox_line)));
-        }
-        mRecycleBussinessApplication.setLayoutManager(layoutManager1);
-        mBussinessDappAdapter = new EmptyWrapper(AdapterManger.getDappBussnessAdapter(getActivity(), mBussinessDappList));
-        mBussinessDappAdapter.setEmptyView(R.layout.empty_project);
-        mRecycleBussinessApplication.setAdapter(mBussinessDappAdapter);
-    }
-
-    @Override
-    protected void initData() {
-        presenter.getData(); // 获取服务器数据
     }
 
     @Override
@@ -206,7 +141,8 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
     public void getDappDataHttp(List<DappBean.DataBean> dappBean) {
         mSpring.onFinishFreshAndLoad();
         if (dappBean.size() != 0) {
-            mHotApplicationDesc.setText(dappBean.get(0).getIntroReason());
+            hotapplication = dappBean.get(0);
+            mHotApplicationDesc.setText(dappBean.get(0).getApplyDetails());
             mHotApplicationName.setText(dappBean.get(0).getApplyName());
             MyApplication.getInstance().showImage(dappBean.get(0).getApplyIcon(), mHotApplicationImg);
             for (int i = 1; i < dappBean.size(); i++) {
@@ -223,19 +159,90 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
     }
 
     @Override
+    public DappPresenter initPresenter() {
+        return new DappPresenter(getActivity());
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+        //系统刷新
+        mSpring.setHeader(new AppDefeatHeadView(getContext()));
+        mSpring.setGive(SpringView.Give.BOTH);
+        mSpring.setType(SpringView.Type.FOLLOW);
+        mSpring.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                mBussinessDappList.clear();
+                mHeaderList.clear();
+                ivLsit.clear();
+                presenter.getData(); // 获取服务器数据
+            }
+
+            @Override
+            public void onLoadmore() {
+                mSpring.onFinishFreshAndLoad();
+            }
+        });
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 4);
+        layoutManager.setOrientation(GridLayoutManager.VERTICAL);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        mRecycleApplication.setLayoutManager(layoutManager);
+        mHeaderAdapter = AdapterManger.getDappHeadAdapter(getActivity(), mHeaderList);
+        mRecycleApplication.setAdapter(mHeaderAdapter);
+
+        GridLayoutManager layoutManager1 = new GridLayoutManager(getActivity(), 2);
+        layoutManager1.setOrientation(GridLayoutManager.VERTICAL);
+        layoutManager1.setSmoothScrollbarEnabled(true);
+        if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
+            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.VERTICAL, 1, getResources().getColor(R.color.line)));
+        } else {
+            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
+            mRecycleBussinessApplication.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.VERTICAL, 1, getResources().getColor(R.color.blackbox_line)));
+        }
+        mRecycleBussinessApplication.setLayoutManager(layoutManager1);
+        mBussinessDappAdapter = new EmptyWrapper(AdapterManger.getDappBussnessAdapter(getActivity(), mBussinessDappList));
+        mBussinessDappAdapter.setEmptyView(R.layout.empty_project);
+        mRecycleBussinessApplication.setAdapter(mBussinessDappAdapter);
+    }
+
+    @Override
+    protected void initData() {
+        presenter.getData(); // 获取服务器数据
+    }
+
+    @Override
     public void initEvent() {
 
     }
 
     @Override
-    public DappPresenter initPresenter() {
-        return new DappPresenter(getActivity());
+    protected void initImmersionBar() {
+        super.initImmersionBar();
+        if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
+            mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
+        } else {
+            mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
+        }
     }
 
+    @Override
+    protected int getContentViewLayoutID() {
+        return R.layout.fragment_application;
+    }
 
     @OnClick(R.id.hot_application)
     public void onViewClicked() {
-        ActivityUtils.next(getActivity(), PaidAnswerActivity.class);
+        if (mHotApplicationName.getText().toString().equals("有问币答")) {
+            ActivityUtils.next(getActivity(), PaidAnswerActivity.class);
+        } else {
+            if (hotapplication!=null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("title", hotapplication.getApplyName());
+                bundle.putString("url", hotapplication.getUrl());
+                ActivityUtils.next(getActivity(), DappDetailsActivity.class, bundle);
+            }
+        }
     }
 
 }

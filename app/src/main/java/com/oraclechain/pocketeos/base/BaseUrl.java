@@ -8,10 +8,31 @@ public class BaseUrl {
     /**
      * 生产环境服务器地址
      */
-    public final static String HTTP_PACKETADDRESS = "http://59.110.162.106:9999/api_oc_business/";
+   /* public final static String HTTP_PACKETADDRESS = "http://59.110.162.106:9999/api_oc_business/";
     public final static String HTTP_ADDRESS = "http://59.110.162.106:9999/api_oc_personal/v1.0.0/";
-    public final static String HTTP_CHAIN_ADDRESS = "http://59.110.162.106:8080/api_oc_blockchain-v1.3.0/";
-    public final static String HTTP_CANDY_ADDRESS = "http://59.110.162.106:9999/api_oc_pe_candy_system/";
+    public final static String HTTP_CHAIN_VOTE_ADDRESS = "http://192.168.3.205:8080/voteoraclechain/";
+    public final static String HTTP_CHAIN_ADDRESS = "http://192.168.3.205:8888/v1/chain/";
+    //    public final static String HTTP_CHAIN_ADDRESS = "http://59.110.162.106:8080/api_oc_blockchain-v1.3.0/";
+    public final static String HTTP_ANSWER_ADDRESS = "http://59.110.162.106:8080/";
+    public final static String HTTP_CANDY_ADDRESS = "http://59.110.162.106:9999/api_oc_pe_candy_system/";*/
+    /**
+     * 服务器地址
+     */
+  /*  public final static String HTTP_PACKETADDRESS = "http://47.105.50.198/api_oc_business/";
+    public final static String HTTP_ADDRESS = "http://47.105.50.198/api_oc_personal/v1.0.0/";
+    public final static String HTTP_CHAIN_VOTE_ADDRESS = "http://47.105.50.198/voteoraclechain/";
+    public final static String HTTP_CHAIN_ADDRESS = "http://47.105.50.198/api_oc_blockchain-v1.3.0/";
+    public final static String HTTP_ANSWER_ADDRESS = "http://47.105.50.198/";
+    public final static String HTTP_CANDY_ADDRESS = "http://47.105.50.198/api_oc_pe_candy_system/";*/
+    /**
+     * 正式环境服务器地址
+     */
+    public final static String HTTP_PACKETADDRESS = "https://api.pocketeos.top/api_oc_business/";
+    public final static String HTTP_ADDRESS = "https://api.pocketeos.top/api_oc_personal/v1.0.0/";
+     public final static String HTTP_CHAIN_VOTE_ADDRESS = "https://api.pocketeos.top/voteoraclechain/";
+    public final static String HTTP_CHAIN_ADDRESS = "https://api.pocketeos.top/api_oc_blockchain-v1.3.0/";
+    public final static String HTTP_ANSWER_ADDRESS = "https://api.pocketeos.top/eosaskanswer30/";
+    public final static String HTTP_CANDY_ADDRESS = "https://api.pocketeos.top/api_oc_pe_candy_system/";
     // 获取关注列表
     public final static String HTTP_Getfollow_list = HTTP_ADDRESS + "follow_list";
     // 获取新闻列表
@@ -91,7 +112,7 @@ public class BaseUrl {
     // app更新
     public final static String HTTP_get_app_info = HTTP_ADDRESS + "get_last_info";
     // 获取有问必答问题列表
-    public final static String HTTP_GetAsks = "http://47.95.195.151:8080/eosaskanswer30/GetAsksJson";
+    public final static String HTTP_GetAsks = HTTP_ANSWER_ADDRESS + "eosaskanswer30/GetAsksJson";
     // 新建红包
     public final static String HTTP_send_red_packet = HTTP_PACKETADDRESS + "send_red_packet";
     // 获取用户的红包历史
@@ -106,4 +127,14 @@ public class BaseUrl {
     public final static String getHTTP_get_all_exchange = HTTP_CANDY_ADDRESS + "get_all_exchange";
     // 获取任务列表
     public final static String getHTTP_get_user_task = HTTP_CANDY_ADDRESS + "get_user_task";
+    // 通过公钥获取账号
+    public final static String getHTTP_GetAccounts = HTTP_CHAIN_VOTE_ADDRESS + "GetAccounts";
+    // 获取BP节点列表
+    public final static String getHTTP_GetBpJson = HTTP_CHAIN_VOTE_ADDRESS + "GetBpJson";
+    // 获取账号投票信息
+    public final static String getHTTP_GetMyVoteInfo = HTTP_CHAIN_VOTE_ADDRESS + "GetMyVoteInfo";
+    // 获取权重
+    public final static String getHTTP_GetNowVoteWeight = HTTP_CHAIN_VOTE_ADDRESS + "GetNowVoteWeight";
+    // 通知完成投票
+    public final static String getHTTP_complete_task = HTTP_CANDY_ADDRESS + "complete_task";
 }

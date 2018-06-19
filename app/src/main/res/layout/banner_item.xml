@@ -7,6 +7,5 @@
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_150"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"/>
+        android:scaleType="centerCrop"/>
 </FrameLayout>

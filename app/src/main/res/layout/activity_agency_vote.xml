@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context="com.oraclechain.pocketeos.modules.nodevote.agencyvote.AgencyVoteActivity">
+
+    <include layout="@layout/title_project_black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/dimens_5"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_20"
+        android:text="@string/agency_account"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_40"
+            android:gravity="center_vertical"
+            android:text="@string/account"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_15"/>
+
+        <com.oraclechain.pocketeos.view.ClearEditText
+            android:id="@+id/account_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_40"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/iniput_account_name"
+            android:textColor="@color/white"
+            android:textColorHint="#d9d9d9"
+            android:textCursorDrawable="@drawable/edittext_cursor"
+            android:textSize="@dimen/dimens_15"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_5"
+        android:background="@color/blackbox_line"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/dimens_5"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_20"
+        android:text="@string/agency_amount"
+        android:textColor="@color/txt_color"
+        android:textSize="@dimen/dimens_13"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimens_40"
+            android:gravity="center_vertical"
+            android:text="@string/eos_number"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_15"/>
+
+        <com.oraclechain.pocketeos.view.ClearEditText
+            android:id="@+id/agency_amount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_40"
+            android:layout_marginLeft="@dimen/dimens_20"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/iniput_account_name"
+            android:textColor="@color/white"
+            android:textColorHint="#d9d9d9"
+            android:textCursorDrawable="@drawable/edittext_cursor"
+            android:textSize="@dimen/dimens_15"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_line_cash"
+        android:layout_marginLeft="@dimen/dimens_20"
+        android:layout_marginTop="@dimen/dimens_5"
+        android:background="@color/blackbox_line"/>
+
+    <TextView
+        android:id="@+id/can_user_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_5"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_13"/>
+
+    <TextView
+        android:id="@+id/go_agency"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_46"
+        android:layout_margin="@dimen/dimens_20"
+        android:background="@color/blue_button"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/sure_agency"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/go_about_agency"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="@dimen/dimens_20"
+        android:text="@string/what_about_agency"
+        android:textColor="@color/txt_color"/>
+</LinearLayout>

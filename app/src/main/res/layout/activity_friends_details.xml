@@ -116,7 +116,7 @@
                         android:layout_height="@dimen/dimens_204"
                         android:background="@mipmap/friend_top">
 
-                        <com.oraclechain.pocketeos.view.CircleImageView
+                        <com.oraclechain.pocketeos.view.RoundImageView
                             android:id="@+id/friends_img"
                             android:layout_width="@dimen/dimens_46"
                             android:layout_height="@dimen/dimens_46"
@@ -124,6 +124,7 @@
                             android:layout_marginRight="@dimen/dimens_10"
                             android:layout_marginTop="@dimen/dimens_40"
                             android:scaleType="centerCrop"
+                            app:shape_type="round"
                             android:src="@mipmap/ic_launcher_round"/>
 
                         <TextView

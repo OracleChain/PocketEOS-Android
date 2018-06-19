@@ -10,8 +10,6 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.oraclechain.pocketeos.utils.ToastUtils;
-
 /**
  * Created by pocketEos on 2018/4/11.
  */
@@ -94,7 +92,7 @@ public class BaseWebViewClient extends WebViewClient {
     @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
         super.onReceivedError(view, request, error);
-        ToastUtils.showLongToast("页面加载错误~");
+//        ToastUtils.showLongToast("页面加载错误~");
     }
 
     /**

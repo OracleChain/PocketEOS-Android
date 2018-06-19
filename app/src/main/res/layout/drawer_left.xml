@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,12 +34,13 @@
                     android:layout_marginTop="@dimen/dimens_15"
                     android:src="@mipmap/user_wallet_code"/>
 
-                <com.oraclechain.pocketeos.view.CircleImageView
+                <com.oraclechain.pocketeos.view.RoundImageView
                     android:id="@+id/user_img"
                     android:layout_width="@dimen/dimens_60"
                     android:layout_height="@dimen/dimens_60"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dimens_80"
+                    app:shape_type="round"
                     android:src="@mipmap/ic_launcher_round"/>
 
                 <TextView
@@ -67,7 +69,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/dimens_40"
                         android:clickable="true"
-                        android:drawablePadding="@dimen/dimens_10"
                         android:drawableTop="@mipmap/wallet_management"
                         android:gravity="center"
                         android:text="@string/wallet_management"
@@ -85,7 +86,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimens_40"
                         android:clickable="true"
-                        android:drawablePadding="@dimen/dimens_10"
                         android:drawableTop="@mipmap/transaction_history"
                         android:gravity="center"
                         android:text="@string/transaction_history"
@@ -99,20 +99,35 @@
                     android:layout_below="@+id/ll"
                     android:layout_marginTop="@dimen/dimens_40"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/dimens_30">
+                    android:paddingLeft="@dimen/dimens_35">
+
                     <TextView
                         android:id="@+id/candy_integral"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/dimens_40"
                         android:layout_marginBottom="@dimen/dimens_10"
                         android:clickable="true"
-                        android:drawableRight="@mipmap/black_box_hot"
                         android:drawableLeft="@mipmap/message_center"
                         android:drawablePadding="@dimen/dimens_20"
+                        android:drawableRight="@mipmap/black_box_hot"
                         android:gravity="left|center_vertical"
                         android:text="@string/candy_integral"
                         android:textColor="@color/title_color"
                         android:textSize="@dimen/dimens_14"/>
+
+                    <TextView
+                        android:id="@+id/node_vote"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimens_40"
+                        android:layout_marginBottom="@dimen/dimens_10"
+                        android:clickable="true"
+                        android:drawableLeft="@mipmap/node_vote"
+                        android:drawablePadding="@dimen/dimens_20"
+                        android:gravity="left|center_vertical"
+                        android:text="@string/node_vote"
+                        android:textColor="@color/title_color"
+                        android:textSize="@dimen/dimens_14"/>
+
                     <TextView
                         android:id="@+id/message_center"
                         android:layout_width="match_parent"
@@ -126,18 +141,6 @@
                         android:textColor="@color/title_color"
                         android:textSize="@dimen/dimens_14"/>
 
-                    <TextView
-                        android:id="@+id/suggestion_feedback"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimens_40"
-                        android:layout_marginBottom="@dimen/dimens_10"
-                        android:clickable="true"
-                        android:drawableLeft="@mipmap/suggestion_feedback"
-                        android:drawablePadding="@dimen/dimens_20"
-                        android:gravity="left|center_vertical"
-                        android:text="@string/suggestion_feedback"
-                        android:textColor="@color/title_color"
-                        android:textSize="@dimen/dimens_14"/>
 
                     <TextView
                         android:id="@+id/system_settings"
@@ -171,7 +174,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_40"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/dimens_20"
+                    android:layout_marginBottom="@dimen/dimens_15"
                     android:clickable="true"
                     android:gravity="center"
                     android:text="@string/logout_wallet"

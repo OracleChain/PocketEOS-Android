@@ -22,12 +22,13 @@ import com.oraclechain.pocketeos.bean.AccountInfoBean;
 import com.oraclechain.pocketeos.bean.BaseBean;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.modules.account.accountdetails.AccountDetailsActivity;
-import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccounntActivity;
+import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActivity;
 import com.oraclechain.pocketeos.modules.account.importaccount.ImportAccountActivity;
 import com.oraclechain.pocketeos.utils.EncryptUtil;
 import com.oraclechain.pocketeos.utils.FilesUtils;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
+import com.oraclechain.pocketeos.utils.TextDrawUtil;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.dialog.backupnumberdialog.BackUpNumberCallBack;
 import com.oraclechain.pocketeos.view.dialog.backupnumberdialog.BackUpNumberDialog;
@@ -51,7 +52,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
     @BindView(R.id.user_account_number)
     SwipeMenuRecyclerView mUserAccountNumber;
 
-    TextView create_number, import_number, backup_number, reset_password, main_account;
+    TextView desc ,create_number, import_number, backup_number, reset_password, main_account;
     ImageView main_account_img;
     private CommonAdapter mCommonAdapter;
     private BackUpNumberDialog dialog;
@@ -66,8 +67,14 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
     }
 
     @Override
+    public WalletManagementPresenter initPresenter() {
+        return new WalletManagementPresenter();
+    }
+
+    @Override
     protected void initViews(Bundle savedInstanceState) {
         setCenterTitle(getString(R.string.wallet_manget_title));
+
     }
 
     @Override
@@ -120,6 +127,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
         LayoutInflater mInflater = LayoutInflater.from(this);
         View contentView = mInflater.inflate(R.layout.wallet_management_header, null);
         LinearLayout linearLayout = (LinearLayout) contentView.findViewById(R.id.wallet_management_header_ll);
+        desc = (TextView) contentView.findViewById(R.id.desc);
         create_number = (TextView) contentView.findViewById(R.id.create_number);
         import_number = (TextView) contentView.findViewById(R.id.import_number);
         backup_number = (TextView) contentView.findViewById(R.id.backup_number);
@@ -132,6 +140,16 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
         MyApplication.getInstance().showImage(MyApplication.getInstance().getUserBean().getWallet_main_account_img(), main_account_img);
 //        mUserAccountNumber.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
         mUserAccountNumber.setAdapter(headerAndFooterWrapper);
+
+
+        if (!Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            desc.setBackgroundColor(getResources().getColor(R.color.black_box_coin_backgroud));
+            desc.setTextColor(getResources().getColor(R.color.blackbox_desc_text));
+            TextDrawUtil.setDrawableTop(this,create_number, R.mipmap.black_box_creat_account);
+            TextDrawUtil.setDrawableTop(this,import_number, R.mipmap.black_box_import_account);
+            TextDrawUtil.setDrawableTop(this,backup_number, R.mipmap.black_box_back_up_wallet);
+            TextDrawUtil.setDrawableTop(this,reset_password, R.mipmap.black_box_chang_pwd);
+        }
     }
 
     @Override
@@ -141,7 +159,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", 2);
-                ActivityUtils.next(WalletManagementActivity.this, CreateAccounntActivity.class, bundle);
+                ActivityUtils.next(WalletManagementActivity.this, CreateAccountActivity.class, bundle);
             }
         });
         import_number.setOnClickListener(new View.OnClickListener() {
@@ -184,7 +202,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
                         if (MyApplication.getInstance().getUserBean().getWallet_shapwd().equals(PasswordToKeyUtils.shaCheck(oldPassword))) {
                             if (userBean != null) {
                                 String randomString = EncryptUtil.getRandomString(32);
-                                userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString+newPassword));
+                                userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString + newPassword));
                                 ArrayList<AccountInfoBean> mAccountInfoBeanList1 = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
                                 for (int i = 0; i < mAccountInfoBeanList1.size(); i++) {
                                     byte[] bytes = new byte[32];
@@ -205,7 +223,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
                                 userBean.setAccount_info(new Gson().toJson(mAccountInfoBeanList1));
 
                                 MyApplication.getDaoInstant().getUserBeanDao().update(userBean);
-                                MyApplication.getInstance().getUserBean().setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString+newPassword));
+                                MyApplication.getInstance().getUserBean().setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString + newPassword));
                                 MyApplication.getInstance().getUserBean().setAccount_info(new Gson().toJson(mAccountInfoBeanList1));
                                 toast(getString(R.string.change_password_success));
 
@@ -243,10 +261,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
         initEvent();
     }
 
-    @Override
-    public WalletManagementPresenter initPresenter() {
-        return new WalletManagementPresenter();
-    }
+
 
     @Override
     public void setPolicyAccountHttp(BaseBean baseBean, int position) {
@@ -277,6 +292,4 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
     public void getDataHttpFail(String msg) {
 
     }
-
-
 }

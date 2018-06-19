@@ -1,0 +1,51 @@
+<p>
+    <span style="font-size:16px;line-height:115%">1</span><span style="font-size:16px;line-height:115%;font-family:宋体">、节点投票是</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">治理中的重要一环。只有获得了足够数量的投票，</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">网络才能够启动并稳定运行。且选择高性能、高安全级别的超级节点对</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">区块链网络具有重要意义。<strong>请投好您的神圣一票！</strong></span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">2</span><span style="font-size:16px;line-height:115%;font-family:宋体">、每个</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">账号在首次投票之前，都需要在投票系统中进行注册。使用投票功能即代表您授权</span><span style="font-size:16px;line-height:115%">Pocket EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">为您完成注册流程。</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">3</span><span style="font-size:16px;line-height:115%;font-family:宋体">、您可以为若干个候选节点投票，但最多不超过</span><span style="font-size:16px;line-height:115%">30</span><span style="font-size:16px;line-height:115%;font-family:宋体">个。</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">4</span><span style="font-size:16px;line-height:115%;font-family:宋体">、参与投票需要锁定一定数量的</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">。锁定的</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">越多，您的投票权重（投给每个节点的票数）也越高。但无论您锁定多少</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">，您都只能为最多</span><span style="font-size:16px;line-height:115%">30</span><span style="font-size:16px;line-height:115%;font-family:宋体">个节点投票。</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">5</span><span style="font-size:16px;line-height:115%;font-family:宋体">、您的投票权重（投给每个节点的票数）由用于投票的</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">数量唯一决定，而与您支持的节点数量无关。无论您支持多少个节点，您投给每一节点的票数都是不变的。</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">6</span><span style="font-size:16px;line-height:115%;font-family:宋体">、被锁定的</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">不会被消耗，但您将将无法使用它们进行交易。待主网稳定后，您可以通过降低投票数量或完全撤销投票的方式解锁用于投票的</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">。</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">7</span><span style="font-size:16px;line-height:115%;font-family:宋体">、在主网冻结期间，您必须锁定账户中的全部</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">才能参与投票。待主网解冻后，您可以自主设定用于投票的</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">数量，并进行追加或降低投票数量的操作。</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">&nbsp;</span>
+</p>
+<p>
+    <span style="font-size:16px;line-height:115%">8</span><span style="font-size:16px;line-height:115%;font-family:宋体">、</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">节点投票将长期进行，没有截止时间。这允许您随时修改支持的节点，以获取更优质的网络和计算资源，保证您能高效、稳定地接入</span><span style="font-size:16px;line-height:115%">EOS</span><span style="font-size:16px;line-height:115%;font-family:宋体">区块链。</span>
+</p>
+<p>
+    &nbsp;
+</p>
+<p>
+    <br/>
+</p>

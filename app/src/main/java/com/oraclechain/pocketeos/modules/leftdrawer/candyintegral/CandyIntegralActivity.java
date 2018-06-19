@@ -15,8 +15,8 @@ import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.CandyScoreBean;
 import com.oraclechain.pocketeos.bean.CandyUserTaskBean;
 import com.oraclechain.pocketeos.bean.HotEquitiesBean;
-import com.oraclechain.pocketeos.view.CircleImageView;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
+import com.oraclechain.pocketeos.view.RoundImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class CandyIntegralActivity extends BaseAcitvity<CandyIntegralView, Candy
     @BindView(R.id.back)
     ImageView mBack;
     @BindView(R.id.wallet_photo)
-    CircleImageView mWalletPhoto;
+    RoundImageView mWalletPhoto;
     @BindView(R.id.my_candy_integral)
     TextView mMyCandyIntegral;
     @BindView(R.id.popular_rights)

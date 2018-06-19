@@ -1,21 +1,20 @@
 package com.oraclechain.pocketeos.modules.news.newsdetails;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
-import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.view.webview.BaseWebChromeClient;
 import com.oraclechain.pocketeos.view.webview.BaseWebSetting;
 import com.oraclechain.pocketeos.view.webview.BaseWebView;
 import com.oraclechain.pocketeos.view.webview.BaseWebViewClient;
-import com.zzhoujay.richtext.ImageHolder;
-import com.zzhoujay.richtext.RichText;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,10 +29,44 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
     TextView mRichTest;
     @BindView(R.id.iv_back)
     ImageView mIvBack;
+    @BindView(R.id.progressBar)
+    ProgressBar mProgressBar;
+
+    @OnClick(R.id.iv_back)
+    public void onViewClicked() {
+        if(mWebNewsDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+            mWebNewsDetails.goBack();
+        }
+        else {//当webview处于第一页面时,直接退出程序
+            finish();
+        }
+    }
+
+    //设置返回键动作（防止按返回键直接退出程序)
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK) {
+            if(mWebNewsDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+                mWebNewsDetails.goBack();
+                return true;
+            }
+            else {//当webview处于第一页面时,直接退出程序
+                finish();
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_web_news_details;
+    }
+
+    @Override
+    public NormalPresenter initPresenter() {
+        return new NormalPresenter();
     }
 
     @Override
@@ -42,15 +75,18 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
         details = getIntent().getStringExtra("details");
         // 开启辅助功能崩溃
         mWebNewsDetails.disableAccessibility(this);
-        new BaseWebSetting(mWebNewsDetails, WebNewsDetailsActivity.this);//设置webseeting
+        new BaseWebSetting(mWebNewsDetails, WebNewsDetailsActivity.this, true);//设置webseeting
         mWebNewsDetails.setWebViewClient(new BaseWebViewClient(WebNewsDetailsActivity.this));
-        mWebNewsDetails.setWebChromeClient(new BaseWebChromeClient(WebNewsDetailsActivity.this));
+        mWebNewsDetails.setWebChromeClient(new BaseWebChromeClient(WebNewsDetailsActivity.this, mProgressBar));
 
     }
 
     @Override
     protected void initData() {
-        if (RegexUtil.checkURL(details)) {
+        mWebNewsDetails.setVisibility(View.VISIBLE);
+        mRichTest.setVisibility(View.GONE);
+        mWebNewsDetails.loadUrl(details);
+     /*   if (RegexUtil.checkURL(details)) {
             mWebNewsDetails.setVisibility(View.VISIBLE);
             mRichTest.setVisibility(View.GONE);
             mWebNewsDetails.loadUrl(details);
@@ -58,7 +94,7 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
             mWebNewsDetails.setVisibility(View.GONE);
             mRichTest.setVisibility(View.VISIBLE);
             RichText
-                    .fromMarkdown(details) // 数据源
+                    .fromHtml(details) // 数据源
                     .autoFix(true) // 是否自动修复，默认true
                     .autoPlay(true) // gif图片是否自动播放
                     .scaleType(ImageHolder.ScaleType.CENTER_CROP) // 图片缩放方式
@@ -66,44 +102,13 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
                     .error(R.mipmap.ic_launcher) // 设置加载失败的错误图
                     .bind(WebNewsDetailsActivity.this) // 绑定richText对象到某个object上，方便后面的清理
                     .into(mRichTest); // 设置目标TextView
-        }
+        }*/
     }
-
 
     @Override
     public void initEvent() {
 
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // activity onDestory时
-        RichText.clear(activity);
-    }
 
-    @Override
-    public NormalPresenter initPresenter() {
-        return new NormalPresenter();
-    }
-
-    @OnClick(R.id.iv_back)
-    public void onViewClicked() {
-        if(mWebNewsDetails.canGoBack()){
-            mWebNewsDetails.goBack();
-        }else {
-            finish();
-        }
-    }
-    /**
-     * 返回键返回上一网页
-     */
-    @Override
-    public void onBackPressed() {
-        if(mWebNewsDetails.canGoBack()){
-            mWebNewsDetails.goBack();
-        }else {
-            finish();
-        }
-    }
 }

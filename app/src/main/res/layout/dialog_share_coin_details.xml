@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="参考价格："
+                android:text="@string/reference_price_cny_share"
                 android:textColor="@color/txt_color"
                 android:textSize="@dimen/dimens_13"/>
 
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="24h涨跌："
+                android:text="@string/toast_down_up"
                 android:textColor="@color/txt_color"
                 android:textSize="@dimen/dimens_13"/>
 
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:text="总市值："
+                android:text="@string/all_market_price_share"
                 android:textColor="@color/txt_color"
                 android:textSize="@dimen/dimens_13"/>
 

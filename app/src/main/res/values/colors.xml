@@ -154,12 +154,14 @@
     <color name="login_theme">#91bdd1</color>
 
     <!-- 边框灰色 -->
-    <color name="line">#FFF5F5F5</color>
-    <color name="blackbox_line">#1AEEEEEE</color>
+    <color name="line">#eeeeee</color>
+    <color name="blackbox_line">#0DFFFFFF</color>
+    <color name="white_line">#33EEEEEE</color>
     <color name="blackbox_item_bg">#FF282A34</color>
-    <color name="bg_color">#FFF5F5F5</color>
+    <color name="blackbox_desc_text">#99ffffff</color>
+    <color name="bg_color">#FFF0F3F5</color>
     <color name="theme_color">#4D7BFE</color>
-    <color name="title_color">#333333</color>
+    <color name="title_color">#FF2A2A2A</color>
     <color name="two_black_color">#FF2A2A2A</color>
     <color name="txt_color">#FF666666</color>
     <color name="gray_color">#b0b0b0</color>

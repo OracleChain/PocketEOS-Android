@@ -24,6 +24,7 @@ import com.oraclechain.pocketeos.blockchain.bean.RequreKeyResult;
 import com.oraclechain.pocketeos.blockchain.chain.Action;
 import com.oraclechain.pocketeos.blockchain.chain.PackedTransaction;
 import com.oraclechain.pocketeos.blockchain.chain.SignedTransaction;
+import com.oraclechain.pocketeos.blockchain.cypto.ec.EosEcUtil;
 import com.oraclechain.pocketeos.blockchain.cypto.ec.EosPrivateKey;
 import com.oraclechain.pocketeos.blockchain.types.TypeChainId;
 import com.oraclechain.pocketeos.blockchain.util.GsonEosTypeAdapterFactory;
@@ -78,6 +79,34 @@ public class EosDataManger {
         }
 
         return retKeys;
+    }
+
+    /**
+     * 校验私钥的合法性
+     * @param base58Str
+     * @return
+     */
+    public static boolean checkPrivateKey(String base58Str) {
+        Boolean isTrue = true;
+        String[] split = EosEcUtil.safeSplitEosCryptoString( base58Str );
+        byte[] keyBytes;
+        if ( split.length == 1 ){
+            keyBytes = EosEcUtil.getBytesIfMatchedSha256( base58Str, null);
+        }
+        else {
+            if ( split.length < 3 ) {
+                isTrue =false;
+                throw new IllegalArgumentException("Invalid private key format: " + base58Str);
+            }
+            keyBytes = EosEcUtil.getBytesIfMatchedRipemd160( split[2], split[1], null);
+        }
+
+
+        if ( ( null == keyBytes) || (keyBytes.length < 5 )) {
+            isTrue =false;
+            throw new IllegalArgumentException("Invalid private key length");
+        }
+        return isTrue;
     }
 
     public void pushAction(String message, String permissionAccount) {

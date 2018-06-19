@@ -3,10 +3,12 @@ package com.oraclechain.pocketeos.modules.dapp.paidanswer.questiondetails;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.oraclechain.pocketeos.R;
@@ -18,7 +20,6 @@ import com.oraclechain.pocketeos.blockchain.AskansDatamanger;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
-import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordDialog;
 
@@ -29,7 +30,9 @@ public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPres
 
     @BindView(R.id.webview)
     WebView mWebview;
-    String url = "http://59.110.162.106:8002/#/answer";
+    String url = "https://static.pocketeos.top:3000/#/answer";
+    @BindView(R.id.progressBar)
+    ProgressBar mProgressBar;
     private QuestionListBean mDataBean;
 
     private String userPassword = null;
@@ -54,7 +57,6 @@ public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPres
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     @Override
     protected void initData() {
-        ShowDialog.showDialog(QuestionDetailsActivity.this, "", true, null).show();
         mWebview.setVerticalScrollbarOverlay(true);
         //设置WebView支持JavaScript
         mWebview.getSettings().setJavaScriptEnabled(true);
@@ -74,8 +76,13 @@ public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPres
             @Override
             public void onProgressChanged(WebView view, int progress) {
                 if (progress == 100) {
-                    ShowDialog.dissmiss();
-                    mWebview.loadUrl("javascript:getquestion('" + mDataBean.getId() + "','" + mDataBean.getReleasedLable() + "')");
+                    if (progress == 100) {
+                        mProgressBar.setVisibility(View.GONE);//加载完网页进度条消失
+                        mWebview.loadUrl("javascript:getquestion('" + mDataBean.getId() + "','" + mDataBean.getReleasedLable() + "')");
+                    }else {
+                        mProgressBar.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
+                        mProgressBar.setProgress(progress);//设置进度值
+                    }
                 }
             }
         });
@@ -87,6 +94,8 @@ public class QuestionDetailsActivity extends BaseAcitvity<NormalView, NormalPres
     public void initEvent() {
 
     }
+
+
 
     private class JsInterface {
         private Context mContext;

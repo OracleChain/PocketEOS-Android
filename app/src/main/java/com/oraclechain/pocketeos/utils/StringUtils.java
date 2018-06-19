@@ -1,6 +1,9 @@
 package com.oraclechain.pocketeos.utils;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by pocketEos on 2017/12/5.
@@ -76,15 +79,18 @@ public class StringUtils {
     }
 
     /**
-     * <b>Summary: 忽略大小写比较两个字符串</b>
-     * ignoreCaseEquals()
+     * String sort string [ ].
+     * 字符串数组排序按照字母进行
      *
-     * @param str1 the str 1
-     * @param str2 the str 2
-     * @return boolean
+     * @param s the s
+     * @return the string [ ]
      */
-    public static boolean ignoreCaseEquals(String str1, String str2) {
-        return str1 == null ? str2 == null : str1.equalsIgnoreCase(str2);
+    public static String[] stringSort(String[] s) {
+        List<String> list = new ArrayList<String>(s.length);
+        for (int i = 0; i < s.length; i++) {
+            list.add(s[i]);
+        }
+        Collections.sort(list);
+        return list.toArray(s);
     }
-
 }

@@ -3,6 +3,7 @@ package com.oraclechain.pocketeos.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -14,6 +15,7 @@ import com.oraclechain.pocketeos.adapter.baseadapter.base.ViewHolder;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.bean.AccountInfoBean;
+import com.oraclechain.pocketeos.bean.AccountVoteHistoryBean;
 import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
 import com.oraclechain.pocketeos.bean.CandyUserTaskBean;
 import com.oraclechain.pocketeos.bean.CoinBean;
@@ -32,16 +34,20 @@ import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.modules.dapp.dappcommpany.DappCommpanyDetailsActivity;
 import com.oraclechain.pocketeos.modules.dapp.dappdetails.DappDetailsActivity;
+import com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.activity.PaidAnswerActivity;
 import com.oraclechain.pocketeos.modules.dapp.paidanswer.questiondetails.QuestionDetailsActivity;
 import com.oraclechain.pocketeos.modules.friendslist.friendsdetails.FriendsDetailsActivity;
 import com.oraclechain.pocketeos.modules.news.newsdetails.WebNewsDetailsActivity;
 import com.oraclechain.pocketeos.modules.transaction.redpacket.continueredpacket.ContinueRdPacketActivity;
 import com.oraclechain.pocketeos.modules.transaction.redpacket.getredpacketdetails.GetRedPacketDetailsActivity;
+import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.DateUtils;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.utils.StringUtils;
-import com.oraclechain.pocketeos.view.CircleImageView;
+import com.oraclechain.pocketeos.utils.ToastUtils;
+import com.oraclechain.pocketeos.view.RoundImageView;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.List;
 
@@ -221,7 +227,7 @@ public class AdapterManger {
             @Override
             protected void convert(ViewHolder holder, final DappCommpanyBean.DataBean dataBean, final int position) {
                 holder.setText(R.id.application_name, dataBean.getEnterpriseName());
-                MyApplication.getInstance().showCirImage(dataBean.getEnterpriseIcon(), (CircleImageView) holder.getView(R.id.application_img));
+                MyApplication.getInstance().showCirImage(dataBean.getEnterpriseIcon(), (RoundImageView) holder.getView(R.id.application_img));
                 holder.getConvertView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -248,14 +254,18 @@ public class AdapterManger {
             protected void convert(ViewHolder holder, final DappBean.DataBean dataBean, final int position) {
                 holder.setText(R.id.bussiness_application_name, dataBean.getApplyName());
                 holder.setText(R.id.bussiness_application_desc, dataBean.getApplyDetails());
-                MyApplication.getInstance().showImage(dataBean.getApplyIcon(), (ImageView) holder.getView(R.id.bussiness_application_img));
+                MyApplication.getInstance().showImage(dataBean.getApplyIcon(), (RoundImageView) holder.getView(R.id.bussiness_application_img));
                 holder.getConvertView().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("title", dataBean.getApplyName());
-                        bundle.putString("url", dataBean.getUrl());
-                        ActivityUtils.next((Activity) context, DappDetailsActivity.class, bundle);
+                        if (dataBean.getApplyName().equals("有问币答")) {
+                            ActivityUtils.next((Activity) context, PaidAnswerActivity.class);
+                        } else {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("title", dataBean.getApplyName());
+                            bundle.putString("url", dataBean.getUrl());
+                            ActivityUtils.next((Activity) context, DappDetailsActivity.class, bundle);
+                        }
                     }
                 });
             }
@@ -571,7 +581,7 @@ public class AdapterManger {
                 if (item.getComment() != null) {
                     holder.setText(R.id.suggestion_answer, item.getComment());
                 } else {
-                    holder.setText(R.id.suggestion_answer, "暂无回复~");
+                    holder.setText(R.id.suggestion_answer, mContext.getString(R.string.answer_for_suggestion));
                 }
             }
         };
@@ -591,6 +601,12 @@ public class AdapterManger {
             protected void convert(final ViewHolder holder, HotEquitiesBean.DataBean item, int position) {
                 holder.setText(R.id.equities_name, item.getTitle());
                 MyApplication.getInstance().showImage(item.getAvatar(), holder.getConvertView().findViewById(R.id.img));
+                holder.getConvertView().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ToastUtils.showLongToast(R.string.hot_equities_toast);
+                    }
+                });
             }
         };
         return mCommonAdapter;
@@ -610,11 +626,11 @@ public class AdapterManger {
                 holder.setText(R.id.name, item.getCandyTask().getTitle());
                 holder.setText(R.id.desc, item.getCandyTask().getDescription());
                 TextView textView = holder.getView(R.id.do_status);
-               if (item.isCompleted()){
-                   textView.setText(R.string.done);
-               }else {
-                   textView.setText(R.string.no_done);
-               }
+                if (item.isCompleted()) {
+                    textView.setText(R.string.done);
+                } else {
+                    textView.setText(R.string.no_done);
+                }
                 MyApplication.getInstance().showImage(item.getCandyTask().getAvatar(), holder.getConvertView().findViewById(R.id.task_img));
             }
         };
@@ -659,9 +675,31 @@ public class AdapterManger {
      * Gets selected pos.
      *
      * @return the selected pos
+     * 提供给外部Activity来获取当前checkBox选中的item，这样就不用去遍历了 重点！
      */
-//提供给外部Activity来获取当前checkBox选中的item，这样就不用去遍历了 重点！
     public static int getSelectedPos() {
         return mSelectedPos;
     }
+
+    public static CommonAdapter getAccountVoteAdapter(final Context context, List<AccountVoteHistoryBean> mDataBeans) {
+        mCommonAdapter = new CommonAdapter<AccountVoteHistoryBean>(context, R.layout.item_account_vote, mDataBeans) {
+            @Override
+            protected void convert(final ViewHolder holder, AccountVoteHistoryBean item, int position) {
+                holder.setText(R.id.producter_name, item.getProducers());
+                if (!TextUtils.isEmpty(item.getNumber())) {
+                    String str = item.getNumber().substring(0, item.getNumber().indexOf("."));
+                    String number = "";
+                    if (str.equals("0")) {
+                        number = "0";
+                    } else {
+                        number = BigDecimalUtil.divide(new BigDecimal(str.substring(0, str.length() - 4)), new BigDecimal(100000000), 4) + "";
+
+                    }
+                    holder.setText(R.id.vote_amount, number + mContext.getString(R.string.million_tickets));
+                }
+            }
+        };
+        return mCommonAdapter;
+    }
+
 }

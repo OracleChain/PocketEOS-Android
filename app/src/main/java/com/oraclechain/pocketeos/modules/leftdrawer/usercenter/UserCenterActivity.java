@@ -34,8 +34,8 @@ import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
 import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.utils.Utils;
-import com.oraclechain.pocketeos.view.CircleImageView;
 import com.oraclechain.pocketeos.view.CustomSlideToUnlockView;
+import com.oraclechain.pocketeos.view.RoundImageView;
 import com.oraclechain.pocketeos.view.dialog.gophotodialog.GoPhotoCallBack;
 import com.oraclechain.pocketeos.view.dialog.gophotodialog.GoPhotoDialog;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
@@ -59,7 +59,7 @@ public class UserCenterActivity extends BaseAcitvity<UserCenterView, UserCenterP
     private static final int CHANGE_NAME = 3;
     private static Uri tempUri;
     @BindView(R.id.user_img)
-    CircleImageView mUserImg;
+    RoundImageView mUserImg;
     @BindView(R.id.go_photo)
     RelativeLayout mGoPhoto;
     @BindView(R.id.user_name)

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context="com.oraclechain.pocketeos.modules.nodevote.NodeVoteDetailsActivity">
+
+    <include layout="@layout/title_project_black"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_2"
+        android:progressDrawable="@drawable/progressbay_bg"
+        android:visibility="gone"/>
+    <com.oraclechain.pocketeos.view.webview.BaseWebView
+        android:id="@+id/web_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

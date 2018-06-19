@@ -1,9 +1,5 @@
 package com.oraclechain.pocketeos.bean;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,11 +8,10 @@ import java.util.List;
 
 public class PaidAnswerBean {
 
-
     /**
      * code : 0
      * msg : SUCCESS
-     * data : {"currentPage":0,"rowsPerPage":10,"totalPages":0,"totalRows":35,"data":[{"id":1,"endtime":1517561797,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551797,"optionanswerscnt":3,"asktitle":"what is you name","optionanswers":"{\"A\":\"成吉思汗\",\"B\":\"毛泽东\",\"C\":\"拿破仑\"}"},{"id":2,"endtime":1517561797,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551797,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":3,"endtime":1517561797,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551797,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":5,"endtime":1517561798,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551798,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":6,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"what is you name","optionanswers":"{\"A\":\"成吉思汗\",\"B\":\"毛泽东\",\"C\":\"拿破仑\"}"},{"id":7,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":8,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":9,"endtime":1517552542,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":10,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":11,"endtime":1517562443,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552443,"optionanswerscnt":3,"asktitle":"what is you name","optionanswers":"{\"A\":\"成吉思汗\",\"B\":\"毛泽东\",\"C\":\"拿破仑\"}"}]}
+     * data : {"currentPage":0,"rowsPerPage":10,"totalPages":0,"totalRows":3,"data":[{"id":3,"endtime":1527953025,"from":"qwer111","quantity":"10.0000 OCT","releasedLable":0,"createtime":1527945829,"optionanswerscnt":2,"asktitle":"{\"content\":\"test\",\"title\":\"test5\"}","optionanswers":"{\"A\":\"q\",\"B\":\"a\"}"},{"id":2,"endtime":3058318778,"from":"websocket1","quantity":"10.0000 OCT","releasedLable":0,"createtime":1527944378,"optionanswerscnt":2,"asktitle":"{\"content\":\"Mishap\",\"title\":\"Danica\\t\\t\"}","optionanswers":"{\"A\":\"1\",\"B\":\"2\"}"},{"id":1,"endtime":1528041609,"from":"qwer111","quantity":"10.0000 OCT","releasedLable":0,"createtime":1527944296,"optionanswerscnt":2,"asktitle":"{\"content\":\"test\",\"title\":\"test\"}","optionanswers":"{\"A\":\"a\",\"B\":\"b\"}"}]}
      */
 
     private String code;
@@ -24,7 +19,7 @@ public class PaidAnswerBean {
     private DataBeanX data;
 
     public String getCode() {
-        return code == null ? "" : code;
+        return code;
     }
 
     public void setCode(String code) {
@@ -32,7 +27,7 @@ public class PaidAnswerBean {
     }
 
     public String getMsg() {
-        return msg == null ? "" : msg;
+        return msg;
     }
 
     public void setMsg(String msg) {
@@ -52,8 +47,8 @@ public class PaidAnswerBean {
          * currentPage : 0
          * rowsPerPage : 10
          * totalPages : 0
-         * totalRows : 35
-         * data : [{"id":1,"endtime":1517561797,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551797,"optionanswerscnt":3,"asktitle":"what is you name","optionanswers":"{\"A\":\"成吉思汗\",\"B\":\"毛泽东\",\"C\":\"拿破仑\"}"},{"id":2,"endtime":1517561797,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551797,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":3,"endtime":1517561797,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551797,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":5,"endtime":1517561798,"from":"oct","oct":100,"releasedLable":0,"createtime":1517551798,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":6,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"what is you name","optionanswers":"{\"A\":\"成吉思汗\",\"B\":\"毛泽东\",\"C\":\"拿破仑\"}"},{"id":7,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":8,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":9,"endtime":1517552542,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":10,"endtime":1517562442,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552442,"optionanswerscnt":3,"asktitle":"欧联公司福利好","optionanswers":"{\"A\":\"是的\",\"B\":\"不是一般的好\",\"C\":\"非常好\"}"},{"id":11,"endtime":1517562443,"from":"oct","oct":100,"releasedLable":0,"createtime":1517552443,"optionanswerscnt":3,"asktitle":"what is you name","optionanswers":"{\"A\":\"成吉思汗\",\"B\":\"毛泽东\",\"C\":\"拿破仑\"}"}]
+         * totalRows : 3
+         * data : [{"id":3,"endtime":1527953025,"from":"qwer111","quantity":"10.0000 OCT","releasedLable":0,"createtime":1527945829,"optionanswerscnt":2,"asktitle":"{\"content\":\"test\",\"title\":\"test5\"}","optionanswers":"{\"A\":\"q\",\"B\":\"a\"}"},{"id":2,"endtime":3058318778,"from":"websocket1","quantity":"10.0000 OCT","releasedLable":0,"createtime":1527944378,"optionanswerscnt":2,"asktitle":"{\"content\":\"Mishap\",\"title\":\"Danica\\t\\t\"}","optionanswers":"{\"A\":\"1\",\"B\":\"2\"}"},{"id":1,"endtime":1528041609,"from":"qwer111","quantity":"10.0000 OCT","releasedLable":0,"createtime":1527944296,"optionanswerscnt":2,"asktitle":"{\"content\":\"test\",\"title\":\"test\"}","optionanswers":"{\"A\":\"a\",\"B\":\"b\"}"}]
          */
 
         private int currentPage;
@@ -95,9 +90,6 @@ public class PaidAnswerBean {
         }
 
         public List<DataBean> getData() {
-            if (data == null) {
-                return new ArrayList<>();
-            }
             return data;
         }
 
@@ -105,29 +97,28 @@ public class PaidAnswerBean {
             this.data = data;
         }
 
-        public static class DataBean implements Parcelable {
+        public static class DataBean {
             /**
-             * id : 1
-             * endtime : 1517561797
-             * from : oct
-             * oct : 100
+             * id : 3
+             * endtime : 1527953025
+             * from : qwer111
+             * quantity : 10.0000 OCT
              * releasedLable : 0
-             * createtime : 1517551797
-             * optionanswerscnt : 3
-             * asktitle : what is you name
-             * optionanswers : {"A":"成吉思汗","B":"毛泽东","C":"拿破仑"}
+             * createtime : 1527945829
+             * optionanswerscnt : 2
+             * asktitle : {"content":"test","title":"test5"}
+             * optionanswers : {"A":"q","B":"a"}
              */
 
             private int id;
-            private int endtime;
+            private String endtime;
             private String from;
-            private int oct;
+            private String quantity;
             private int releasedLable;
-            private int createtime;
+            private String createtime;
             private int optionanswerscnt;
             private String asktitle;
             private String optionanswers;
-            private String img = "";
 
             public int getId() {
                 return id;
@@ -137,28 +128,28 @@ public class PaidAnswerBean {
                 this.id = id;
             }
 
-            public int getEndtime() {
-                return endtime;
+            public String getEndtime() {
+                return endtime == null ? "" : endtime;
             }
 
-            public void setEndtime(int endtime) {
+            public void setEndtime(String endtime) {
                 this.endtime = endtime;
             }
 
             public String getFrom() {
-                return from == null ? "" : from;
+                return from;
             }
 
             public void setFrom(String from) {
                 this.from = from;
             }
 
-            public int getOct() {
-                return oct;
+            public String getQuantity() {
+                return quantity;
             }
 
-            public void setOct(int oct) {
-                this.oct = oct;
+            public void setQuantity(String quantity) {
+                this.quantity = quantity;
             }
 
             public int getReleasedLable() {
@@ -169,11 +160,11 @@ public class PaidAnswerBean {
                 this.releasedLable = releasedLable;
             }
 
-            public int getCreatetime() {
-                return createtime;
+            public String getCreatetime() {
+                return createtime == null ? "" : createtime;
             }
 
-            public void setCreatetime(int createtime) {
+            public void setCreatetime(String createtime) {
                 this.createtime = createtime;
             }
 
@@ -186,7 +177,7 @@ public class PaidAnswerBean {
             }
 
             public String getAsktitle() {
-                return asktitle == null ? "" : asktitle;
+                return asktitle;
             }
 
             public void setAsktitle(String asktitle) {
@@ -194,67 +185,12 @@ public class PaidAnswerBean {
             }
 
             public String getOptionanswers() {
-                return optionanswers == null ? "" : optionanswers;
+                return optionanswers;
             }
 
             public void setOptionanswers(String optionanswers) {
                 this.optionanswers = optionanswers;
             }
-
-            public String getImg() {
-                return img == null ? "" : img;
-            }
-
-            public void setImg(String img) {
-                this.img = img;
-            }
-
-            @Override
-            public int describeContents() {
-                return 0;
-            }
-
-            @Override
-            public void writeToParcel(Parcel dest, int flags) {
-                dest.writeInt(this.id);
-                dest.writeInt(this.endtime);
-                dest.writeString(this.from);
-                dest.writeInt(this.oct);
-                dest.writeInt(this.releasedLable);
-                dest.writeInt(this.createtime);
-                dest.writeInt(this.optionanswerscnt);
-                dest.writeString(this.asktitle);
-                dest.writeString(this.optionanswers);
-                dest.writeString(this.img);
-            }
-
-            public DataBean() {
-            }
-
-            protected DataBean(Parcel in) {
-                this.id = in.readInt();
-                this.endtime = in.readInt();
-                this.from = in.readString();
-                this.oct = in.readInt();
-                this.releasedLable = in.readInt();
-                this.createtime = in.readInt();
-                this.optionanswerscnt = in.readInt();
-                this.asktitle = in.readString();
-                this.optionanswers = in.readString();
-                this.img = in.readString();
-            }
-
-            public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
-                @Override
-                public DataBean createFromParcel(Parcel source) {
-                    return new DataBean(source);
-                }
-
-                @Override
-                public DataBean[] newArray(int size) {
-                    return new DataBean[size];
-                }
-            };
         }
     }
 }

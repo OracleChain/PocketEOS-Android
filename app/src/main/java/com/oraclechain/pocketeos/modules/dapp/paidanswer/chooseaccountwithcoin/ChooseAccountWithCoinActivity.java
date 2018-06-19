@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
@@ -29,6 +30,8 @@ public class ChooseAccountWithCoinActivity extends Activity {
     TextView mChooseAccount;
     @BindView(R.id.go_on)
     TextView mGoOn;
+    @BindView(R.id.ll)
+    RelativeLayout mLl;
     private OptionsPickerView pvCustomOptions;
     private List<AccountInfoBean> mAccountInfoBeanList = new ArrayList<>();
     private List<String> mStr = new ArrayList<>();
@@ -43,6 +46,9 @@ public class ChooseAccountWithCoinActivity extends Activity {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.width = (int) d.getWidth() * 1;
         getWindow().setAttributes(lp);//减少边距，宽度全屏
+        RelativeLayout.LayoutParams Params = (RelativeLayout.LayoutParams) mLl.getLayoutParams();
+        Params.width = (int) ((int) d.getWidth() * 0.75);
+        mLl.setLayoutParams(Params);
         mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
         for (int i = 0; i < mAccountInfoBeanList.size(); i++) {
             mStr.add(mAccountInfoBeanList.get(i).getAccount_name());
@@ -61,11 +67,11 @@ public class ChooseAccountWithCoinActivity extends Activity {
                             mChooseAccount.setText(tx);
                         }
                     })
+                            .setTitleBgColor(getResources().getColor(R.color.white))
                             .setSubmitText(getString(R.string.sure))//确定按钮文字
                             .setCancelText(getString(R.string.seach_cancel))//取消按钮文字
-                            .setSubmitColor(R.color.theme_color)//确定按钮文字颜色
-                            .setCancelColor(R.color.theme_color)//取消按钮文字颜色
-                            .setTitleColor(R.color.theme_color)
+                            .setSubmitColor(getResources().getColor(R.color.blue_button))//确定按钮文字颜色
+                            .setCancelColor(getResources().getColor(R.color.blue_button))//取消按钮文字颜色
                             .build();
                     pvCustomOptions.setPicker(mStr);//添加数据
                     pvCustomOptions.show();

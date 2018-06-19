@@ -52,7 +52,7 @@ public class UserBeanDao extends AbstractDao<UserBean, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"USER_BEAN\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"WALLET_UID\" TEXT UNIQUE ," + // 1: wallet_uid
+                "\"WALLET_UID\" TEXT," + // 1: wallet_uid
                 "\"WALLET_NAME\" TEXT," + // 2: wallet_name
                 "\"WALLET_IMG\" TEXT," + // 3: wallet_img
                 "\"WALLET_WEIXIN\" TEXT," + // 4: wallet_weixin

@@ -41,15 +41,16 @@
             <TextView
                 android:id="@+id/black_box"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimens_40"
                 android:layout_gravity="right"
+                android:layout_marginTop="@dimen/dimens_10"
                 android:clickable="true"
                 android:drawablePadding="@dimen/dimens_10"
-                android:layout_marginTop="@dimen/dimens_20"
-                android:drawableRight="@mipmap/more"
+                android:gravity="center"
+                android:drawableRight="@mipmap/white_more"
                 android:text="@string/black_box"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_15"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -141,6 +142,7 @@
         android:layout_marginLeft="@dimen/dimens_20"
         android:layout_marginTop="@dimen/dimens_10"
         android:background="@color/line"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -159,17 +161,18 @@
             android:gravity="center_vertical"/>
 
         <TextView
+            android:id="@+id/go_pocketeos_user"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimens_17"
             android:layout_marginLeft="@dimen/dimens_10"
+            android:clickable="true"
             android:gravity="center_vertical"
             android:singleLine="true"
-            android:id="@+id/go_pocketeos_user"
-            android:clickable="true"
             android:text="@string/read_agreement"
-            android:textColor="@color/title_color"
+            android:textColor="@color/gray_color"
             android:textSize="@dimen/dimens_12"/>
     </LinearLayout>
+
     <Button
         android:id="@+id/create_account"
         style="?android:attr/borderlessButtonStyle"
@@ -191,9 +194,12 @@
             android:id="@+id/other_login_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dimens_40"
             android:text="@string/other_login"
+            android:drawablePadding="@dimen/dimens_10"
+            android:drawableLeft="@mipmap/line"
+            android:drawableRight="@mipmap/line"
             android:textColor="@color/gray_color"
             android:textSize="@dimen/dimens_13"/>
 

@@ -9,6 +9,8 @@ import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.SystemInfoBean;
+import com.oraclechain.pocketeos.modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity;
+import com.oraclechain.pocketeos.modules.main.MainActivity;
 import com.oraclechain.pocketeos.utils.CacheDataManager;
 import com.oraclechain.pocketeos.utils.FilesUtils;
 
@@ -31,6 +33,8 @@ public class SystemSettingActivity extends BaseAcitvity<SystemSettingView, Syste
     TextView mCacheSize;
     @BindView(R.id.select_language)
     RelativeLayout mSelectLanguage;
+    @BindView(R.id.suggestion_feedback)
+    RelativeLayout mSuggestionFeedback;
 
     @Override
     protected int getLayoutId() {
@@ -50,7 +54,12 @@ public class SystemSettingActivity extends BaseAcitvity<SystemSettingView, Syste
 
     @Override
     public void initEvent() {
-
+        mSuggestionFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityUtils.next(SystemSettingActivity.this, SuggestionFeedbackActivity.class);
+            }
+        });
     }
 
     @Override
@@ -75,7 +84,7 @@ public class SystemSettingActivity extends BaseAcitvity<SystemSettingView, Syste
         toast(msg);
     }
 
-    @OnClick({R.id.select_language,R.id.system_settings_one, R.id.system_settings_two, R.id.system_settings_three})
+    @OnClick({R.id.select_language, R.id.system_settings_one, R.id.system_settings_two, R.id.system_settings_three})
     public void onViewClicked(View view) {
         Bundle bundle = new Bundle();
         switch (view.getId()) {
@@ -84,13 +93,13 @@ public class SystemSettingActivity extends BaseAcitvity<SystemSettingView, Syste
                 break;
             case R.id.system_settings_one:
 //                presenter.getSystemInfo("1");
-                bundle.putString("details",FilesUtils.readAssetsTxt(this,"policy_pocketeos"));
+                bundle.putString("details", FilesUtils.readAssetsTxt(this, "policy_pocketeos"));
                 bundle.putString("title", getString(R.string.setting_one));
                 ActivityUtils.next(SystemSettingActivity.this, RichTextActivity.class, bundle);
                 break;
             case R.id.system_settings_two:
 //                presenter.getSystemInfo("2");
-                bundle.putString("details", FilesUtils.readAssetsTxt(this,"about_pocketeos"));
+                bundle.putString("details", FilesUtils.readAssetsTxt(this, "about_pocketeos"));
                 bundle.putString("title", getString(R.string.setting_two));
                 ActivityUtils.next(SystemSettingActivity.this, RichTextActivity.class, bundle);
                 break;

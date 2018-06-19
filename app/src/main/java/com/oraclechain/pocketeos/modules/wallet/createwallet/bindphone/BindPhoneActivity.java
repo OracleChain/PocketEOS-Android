@@ -26,7 +26,6 @@ import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.countdowntimer.CountDownTimerUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class BindPhoneActivity extends BaseAcitvity<BindPhoneView, BindPhonePresenter> implements BindPhoneView {
@@ -142,7 +141,18 @@ public class BindPhoneActivity extends BaseAcitvity<BindPhoneView, BindPhonePres
         hideProgress();
         UserBean userBean0 = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(mMobilePhone.getText().toString().trim())).build().unique();
         if (userBean0 != null) {
-            toast("检测到您本地有" + mMobilePhone.getText().toString().trim() + "的钱包，请进入个人中心进行三方账号的绑定~");
+            if (type.equals("1")) {
+                userBean0.setWallet_qq(openid);
+                userBean0.setWallet_name(qqUserInfoBean.getNickname());
+                userBean0.setWallet_img(qqUserInfoBean.getFigureurl());
+            }
+            if (type.equals("2")) {
+                userBean0.setWallet_weixin(openid);
+                userBean0.setWallet_name(wechatInfoBean.getNickname());
+                userBean0.setWallet_img(wechatInfoBean.getHeadimgurl());
+            }
+            MyApplication.getDaoInstant().update(userBean0);
+            MyApplication.getInstance().setUserBean(userBean0);
             Utils.getSpUtils().put("firstUser", mMobilePhone.getText().toString().trim());//保存场上次登陆钱包
             Utils.getSpUtils().put("loginmode", "phone");//保存当前登录模式
             ActivityUtils.next(BindPhoneActivity.this, MainActivity.class, true);
@@ -175,10 +185,4 @@ public class BindPhoneActivity extends BaseAcitvity<BindPhoneView, BindPhonePres
         toast(msg);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

@@ -8,18 +8,14 @@
     android:orientation="vertical"
     tools:context="com.oraclechain.pocketeos.modules.leftdrawer.appupdate.AppUpdateActivity">
 
-
     <TextView
         android:id="@+id/title"
         style="?attr/text_one_style"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_50"
-        android:layout_centerInParent="true"
+        android:layout_height="@dimen/dimens_60"
         android:clickable="true"
         android:drawableLeft="@mipmap/back"
-        android:ellipsize="end"
         android:gravity="center"
-        android:maxEms="10"
         android:paddingLeft="@dimen/dimens_20"
         android:singleLine="true"
         android:text="@string/app_update"
@@ -59,8 +55,8 @@
         android:id="@+id/version_intro"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_46"
-        android:background="?attr/color_bg_main"
         android:layout_marginTop="@dimen/dimens_30"
+        android:background="@color/white"
         android:paddingLeft="@dimen/dimens_20"
         android:paddingRight="@dimen/dimens_20">
 
@@ -73,6 +69,7 @@
             android:textSize="@dimen/dimens_15"/>
 
         <ImageView
+            android:id="@+id/more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -86,12 +83,12 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_46"
         android:layout_marginTop="@dimen/dimens_10"
-        android:background="?attr/color_bg_main"
+        android:background="@color/white"
         android:paddingLeft="@dimen/dimens_20"
         android:paddingRight="@dimen/dimens_20">
 
         <TextView
-            style="?attr/item_color__style"
+            style="?attr/text_one_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -102,7 +99,7 @@
 
         <TextView
             android:id="@+id/is_new_version"
-            style="?attr/text_one_style"
+            style="?attr/text_two_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

@@ -14,6 +14,13 @@
 
     <include layout="@layout/title_project"/>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_2"
+        android:progressDrawable="@drawable/progressbay_bg"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/rich_test"
         android:layout_width="match_parent"

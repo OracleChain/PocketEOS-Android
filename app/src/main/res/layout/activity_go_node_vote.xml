@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.oraclechain.pocketeos.modules.nodevote.gonodevote.GoNodeVoteActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title_project_black"/>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/node_list_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/go_node_vote"
+        android:layout_below="@+id/title"
+        android:overScrollMode="never"
+        android:scrollbars="none"/>
+
+    <LinearLayout
+        android:id="@+id/go_node_vote"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_52"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blue_button"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/dimens_10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sure_choose"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_14"/>
+
+        <TextView
+            android:id="@+id/choose_node_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sure_choose"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_12"/>
+    </LinearLayout>
+</RelativeLayout>

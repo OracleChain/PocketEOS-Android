@@ -71,7 +71,6 @@ public class EosPrivateKey {
     }
 
     public EosPrivateKey( String base58Str ) {
-
         String[] split = EosEcUtil.safeSplitEosCryptoString( base58Str );
         byte[] keyBytes;
 

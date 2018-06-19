@@ -24,6 +24,7 @@ import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.RotateUtils;
 import com.oraclechain.pocketeos.utils.ShowDialog;
+import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
 
@@ -75,7 +76,11 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
         LinearLayoutManager layoutManager = new LinearLayoutManager(TransactionHistoryActivity.this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleTransferaccountsHistory.setLayoutManager(layoutManager);
-        mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+            mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        }else {
+            mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
+        }
         mRecycleTransferaccountsHistory.setRefreshProgressStyle(ProgressStyle.LineSpinFadeLoader);
         mRecycleTransferaccountsHistory.setLoadingMoreProgressStyle(ProgressStyle.CubeTransition);
         mRecycleTransferaccountsHistory.setLoadingMoreEnabled(true);

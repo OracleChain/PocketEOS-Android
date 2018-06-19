@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_64"
+        android:layout_height="50dp"
         android:gravity="center"
         android:text="@string/friends_text"
         android:textColor="@color/title_color"

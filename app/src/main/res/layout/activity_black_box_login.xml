@@ -41,15 +41,16 @@
             <TextView
                 android:id="@+id/social_contact"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimens_40"
                 android:layout_gravity="right"
+                android:layout_marginTop="@dimen/dimens_10"
                 android:clickable="true"
-                android:layout_marginTop="@dimen/dimens_20"
                 android:drawablePadding="@dimen/dimens_10"
-                android:drawableRight="@mipmap/more"
+                android:gravity="center"
+                android:drawableRight="@mipmap/white_more"
                 android:text="@string/social_contact"
                 android:textColor="@color/white"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_15"/>
 
             <ImageView
                 android:layout_width="match_parent"

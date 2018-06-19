@@ -30,7 +30,7 @@ import com.oraclechain.pocketeos.modules.home.HomeFragment;
 import com.oraclechain.pocketeos.modules.leftdrawer.appupdate.AppUpdateActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.candyintegral.CandyIntegralActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.messagecenter.MessageCenterActivity;
-import com.oraclechain.pocketeos.modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity;
+import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.SystemSettingActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.transactionhistory.TransactionHistoryActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.usercenter.UserCenterActivity;
@@ -45,7 +45,7 @@ import com.oraclechain.pocketeos.utils.FilesUtils;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.utils.UpdateUtils;
 import com.oraclechain.pocketeos.utils.Utils;
-import com.oraclechain.pocketeos.view.CircleImageView;
+import com.oraclechain.pocketeos.view.RoundImageView;
 import com.oraclechain.pocketeos.view.dialog.walletcodedialog.WalletCodeCallBack;
 import com.oraclechain.pocketeos.view.dialog.walletcodedialog.WalletCodeDialog;
 import com.tencent.connect.common.Constants;
@@ -73,7 +73,7 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
     @BindView(drawer)
     DrawerLayout mDrawer;
     @BindView(R.id.user_img)
-    CircleImageView mUserImg;
+    RoundImageView mUserImg;
     @BindView(R.id.user_name)
     TextView mUserName;
     @BindView(R.id.wallet_management)
@@ -82,8 +82,8 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
     TextView mTransactionHistory;
     @BindView(R.id.message_center)
     TextView mMessageCenter;
-    @BindView(R.id.suggestion_feedback)
-    TextView mSuggestionFeedback;
+    @BindView(R.id.node_vote)
+    TextView mNodeVote;
     @BindView(R.id.system_settings)
     TextView mSystemSettings;
     @BindView(R.id.app_update)
@@ -108,7 +108,7 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
         mDrawer.openDrawer(Gravity.START);
     }
 
-    @OnClick({R.id.user_img, R.id.wallet_management, R.id.transaction_history, R.id.candy_integral, R.id.message_center, R.id.suggestion_feedback, R.id.system_settings, R.id.app_update})
+    @OnClick({R.id.user_img, R.id.wallet_management, R.id.transaction_history, R.id.candy_integral, R.id.message_center, R.id.node_vote, R.id.system_settings, R.id.app_update})
     public void onViewClicked(View view) {
         //  mDrawer.closeDrawers();
         switch (view.getId()) {
@@ -127,8 +127,8 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
             case R.id.message_center:
                 ActivityUtils.next(MainActivity.this, MessageCenterActivity.class);
                 break;
-            case R.id.suggestion_feedback:
-                ActivityUtils.next(MainActivity.this, SuggestionFeedbackActivity.class);
+            case R.id.node_vote:
+                ActivityUtils.next(MainActivity.this, NodeVoteActivity.class);
                 break;
             case R.id.system_settings:
                 ActivityUtils.next(MainActivity.this, SystemSettingActivity.class);
@@ -335,7 +335,8 @@ public class MainActivity extends BaseAcitvity<NormalView, NormalPresenter> impl
         mLlNews.setSelected(false);
         mLlApplication.setSelected(false);
         linearLayout.setSelected(true);
-    }    @Override
+    }
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_home:

@@ -6,10 +6,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
@@ -31,11 +34,13 @@ import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
 import com.oraclechain.pocketeos.modules.account.accountdetails.AccountDetailsActivity;
 import com.oraclechain.pocketeos.modules.coindetails.CoinDetailsActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.usercenter.UserCenterActivity;
+import com.oraclechain.pocketeos.modules.nodevote.NodeVoteActivity;
 import com.oraclechain.pocketeos.modules.scancode.ScanCodeActivity;
 import com.oraclechain.pocketeos.modules.switchusernumber.SwitchUserNumberActivity;
 import com.oraclechain.pocketeos.modules.transaction.makecollections.MakeCollectionsActivity;
 import com.oraclechain.pocketeos.modules.transaction.redpacket.makeredpacket.RedPacketActivity;
 import com.oraclechain.pocketeos.modules.transaction.transferaccounts.TransferAccountsActivity;
+import com.oraclechain.pocketeos.modules.unstake.UnStakeActivity;
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.DensityUtil;
 import com.oraclechain.pocketeos.utils.JsonUtil;
@@ -43,15 +48,20 @@ import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.StringUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.AppDefeatHeadView;
-import com.oraclechain.pocketeos.view.CircleImageView;
 import com.oraclechain.pocketeos.view.MyScrollview;
+import com.oraclechain.pocketeos.view.RoundImageView;
+import com.oraclechain.pocketeos.view.ScrollText;
+import com.oraclechain.pocketeos.view.dialog.advertisingdialog.AdvertisingCallback;
+import com.oraclechain.pocketeos.view.dialog.advertisingdialog.AdvertisingDialog;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 import me.ljp.permission.PermissionItem;
 
 import static com.oraclechain.pocketeos.R.id.spring;
@@ -92,7 +102,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     @BindView(R.id.name)
     TextView mName;
     @BindView(R.id.user_img)
-    CircleImageView mUserImg;
+    RoundImageView mUserImg;
     @BindView(R.id.user_name)
     TextView mUserName;
     @BindView(R.id.user_account_number)
@@ -109,6 +119,11 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     RecyclerView mRecycleIcon;
     @BindView(spring)
     SpringView mSpring;
+    @BindView(R.id.notice)
+    ScrollText mNotice;
+    @BindView(R.id.fab)
+    FloatingActionButton mFab;
+    Unbinder unbinder;
 
     private Openleft mOpenleft = null;
     private TranslateAnimation mShowAction, mHiddenAction;
@@ -122,183 +137,6 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     private String openMoney = null;
     private Boolean isOpen;
     private Boolean isfromWithData = false;
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mUserName.setText(MyApplication.getInstance().getUserBean().getWallet_name() + getString(R.string.wallet));
-        MyApplication.getInstance().showCirImage(MyApplication.getInstance().getUserBean().getWallet_img(), mUserImg);
-        if (!isfromWithData) {
-            presenter.getAccountDetailsData(mUserAccountNumber.getText().toString().trim());
-        }
-    }
-
-    @Override
-    public HomePresenter initPresenter() {
-        return new HomePresenter(getActivity());
-    }
-
-    @Override
-    protected void initViews(Bundle savedInstanceState) {
-        //系统刷新
-        mSpring.setHeader(new AppDefeatHeadView(getContext()));
-        mSpring.setGive(SpringView.Give.TOP);
-        mSpring.setType(SpringView.Type.FOLLOW);
-        mSpring.setListener(new SpringView.OnFreshListener() {
-            @Override
-            public void onRefresh() {
-                presenter.getAccountDetailsData(mUserAccountNumber.getText().toString().trim().toString());
-            }
-
-            @Override
-            public void onLoadmore() {
-                mSpring.onFinishFreshAndLoad();
-            }
-        });
-
-
-        mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-        mShowAction.setDuration(300);
-
-        mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                -1.0f);
-        mHiddenAction.setDuration(300);
-        topToCardView = DensityUtil.dip2px(getActivity(), 260);
-        mHomeTitle.setVisibility(View.GONE);
-
-        mUserName.setText(MyApplication.getInstance().getUserBean().getWallet_name() + "的钱包");
-        mUserAccountNumber.setText(MyApplication.getInstance().getUserBean().getWallet_main_account());
-        MyApplication.getInstance().showCirImage(MyApplication.getInstance().getUserBean().getWallet_img(), mUserImg);
-
-
-    }
-
-    @Override
-    protected void initData() {
-        ShowDialog.showDialog(getActivity(), "", true, null);
-
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        layoutManager.setSmoothScrollbarEnabled(true);
-        mRecycleIcon.setLayoutManager(layoutManager);
-        mCoinAdapter = AdapterManger.getCoinAdapter(getActivity(), mAccountWithCoinBeen);
-        mCoinAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("coin", mAccountWithCoinBeen.get(position));
-                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
-                ActivityUtils.next(getActivity(), CoinDetailsActivity.class, bundle);
-            }
-
-            @Override
-            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-                return false;
-            }
-        });
-        mRecycleIcon.setAdapter(mCoinAdapter);
-    }
-
-    @Override
-    public void initEvent() {
-        mIvSeting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mOpenleft.open(1);
-            }
-        });
-        mScrollView.setScrollViewListener(this);
-        Bundle bundle = new Bundle();
-        mSwitchNumber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
-                bundle.putString("from", "home");
-                ActivityUtils.next(getActivity(), SwitchUserNumberActivity.class, bundle, 100);
-            }
-        });
-        mHomeTitle1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
-                bundle.putString("coin", "EOS");
-                bundle.putString("from", "home");
-                ActivityUtils.next(getActivity(), TransferAccountsActivity.class, bundle);
-            }
-        });
-        mHomeTitle2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
-                bundle.putString("coin", "EOS");
-                ActivityUtils.next(getActivity(), MakeCollectionsActivity.class, bundle);
-            }
-        });
-        mHomeTitle3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
-                bundle.putString("coin", "EOS");
-                ActivityUtils.next(getActivity(), RedPacketActivity.class);
-            }
-        });
-        mUserImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityUtils.next(getActivity(), UserCenterActivity.class);
-            }
-        });
-        mUserAccountNumber.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<AccountInfoBean> mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
-                for (AccountInfoBean accountInfoBean : mAccountInfoBeanList) {
-                    if (accountInfoBean.getAccount_name().equals(mUserAccountNumber.getText().toString())) {
-                        bundle.putParcelable("bean", accountInfoBean);
-                        ActivityUtils.next(getActivity(), AccountDetailsActivity.class, bundle);
-                    }
-                }
-            }
-        });
-        mAllMoney.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isOpen) {
-                    isOpen = true;
-                    Utils.getSpUtils().put("isOpenMoney", false);
-                    mUserAllProperty.setText("******");
-                    Drawable drawable = getResources().getDrawable(R.mipmap.close_eye);
-                    // 这一步必须要做,否则不会显示.
-                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    mAllMoney.setCompoundDrawables(null, null, drawable, null);
-                } else {
-                    isOpen = false;
-                    Utils.getSpUtils().put("isOpenMoney", true);
-                    mUserAllProperty.setText(openMoney);
-                    Drawable drawable = getResources().getDrawable(R.mipmap.open_eye);
-                    // 这一步必须要做,否则不会显示.
-                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    mAllMoney.setCompoundDrawables(null, null, drawable, null);
-                }
-            }
-        });
-    }
-
-    @Override
-    protected void initImmersionBar() {
-        super.initImmersionBar();
-        mImmersionBar.statusBarDarkFont(false, 0f).init();
-        ImmersionBar.setTitleBar(getActivity(), mTitle);
-    }
-
-    @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_home;
-    }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -328,6 +166,12 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
     public void onAttach(Activity activity) {
         mOpenleft = (Openleft) activity;
         super.onAttach(activity);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     @Override
@@ -464,6 +308,213 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
                 ActivityUtils.next(getActivity(), RedPacketActivity.class, bundle);
                 break;
         }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder = ButterKnife.bind(this, rootView);
+        return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mUserName.setText(MyApplication.getInstance().getUserBean().getWallet_name() + getString(R.string.wallet));
+        MyApplication.getInstance().showCirImage(MyApplication.getInstance().getUserBean().getWallet_img(), mUserImg);
+        if (!isfromWithData) {
+            presenter.getAccountDetailsData(mUserAccountNumber.getText().toString().trim());
+        }
+    }
+
+    @Override
+    public HomePresenter initPresenter() {
+        return new HomePresenter(getActivity());
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+        //系统刷新
+        mSpring.setHeader(new AppDefeatHeadView(getContext()));
+        mSpring.setGive(SpringView.Give.TOP);
+        mSpring.setType(SpringView.Type.FOLLOW);
+        mSpring.setListener(new SpringView.OnFreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.getAccountDetailsData(mUserAccountNumber.getText().toString().trim().toString());
+            }
+
+            @Override
+            public void onLoadmore() {
+                mSpring.onFinishFreshAndLoad();
+            }
+        });
+
+
+        mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+        mShowAction.setDuration(300);
+
+        mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
+                0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
+                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                -1.0f);
+        mHiddenAction.setDuration(300);
+        topToCardView = DensityUtil.dip2px(getActivity(), 260);
+        mHomeTitle.setVisibility(View.GONE);
+
+        mUserName.setText(MyApplication.getInstance().getUserBean().getWallet_name() + "的钱包");
+        mUserAccountNumber.setText(MyApplication.getInstance().getUserBean().getWallet_main_account());
+        MyApplication.getInstance().showCirImage(MyApplication.getInstance().getUserBean().getWallet_img(), mUserImg);
+        //开启广告位
+        AdvertisingDialog advertisingDialog = new AdvertisingDialog(getActivity(), new AdvertisingCallback() {
+            @Override
+            public void callback() {
+                ActivityUtils.next(getActivity(), NodeVoteActivity.class);
+            }
+        });
+        advertisingDialog.setImg("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528435930664&di=ac9ecd64a769ee194efea7034b1223db&imgtype=0&src=http%3A%2F%2Ff.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fb58f8c5494eef01f2fe05953ecfe9925bd317dab.jpg");
+        advertisingDialog.show();
+    }
+
+    @Override
+    protected void initData() {
+        ShowDialog.showDialog(getActivity(), "", true, null);
+
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        layoutManager.setSmoothScrollbarEnabled(true);
+        mRecycleIcon.setLayoutManager(layoutManager);
+        mCoinAdapter = AdapterManger.getCoinAdapter(getActivity(), mAccountWithCoinBeen);
+        mCoinAdapter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("coin", mAccountWithCoinBeen.get(position));
+                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
+                ActivityUtils.next(getActivity(), CoinDetailsActivity.class, bundle);
+            }
+
+            @Override
+            public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+                return false;
+            }
+        });
+        mRecycleIcon.setAdapter(mCoinAdapter);
+    }
+
+    @Override
+    public void initEvent() {
+        mIvSeting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOpenleft.open(1);
+            }
+        });
+        mScrollView.setScrollViewListener(this);
+        Bundle bundle = new Bundle();
+        mSwitchNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
+                bundle.putString("from", "home");
+                ActivityUtils.next(getActivity(), SwitchUserNumberActivity.class, bundle, 100);
+             /*   StringBuilder sb = new StringBuilder();
+                byte[] entropy = new byte[Words.TWELVE.byteLength()];
+                new SecureRandom().nextBytes(entropy);
+                new MnemonicGenerator(English.INSTANCE)
+                        .createMnemonic(entropy, sb::append);
+                System.out.println(sb.toString());
+                byte[] seed = new SeedCalculator().calculateSeed(sb.toString(), "");//种子*/
+            }
+        });
+        mHomeTitle1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
+                bundle.putString("coin", "EOS");
+                bundle.putString("from", "home");
+                ActivityUtils.next(getActivity(), TransferAccountsActivity.class, bundle);
+            }
+        });
+        mHomeTitle2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
+                bundle.putString("coin", "EOS");
+                ActivityUtils.next(getActivity(), MakeCollectionsActivity.class, bundle);
+            }
+        });
+        mHomeTitle3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
+                bundle.putString("coin", "EOS");
+                ActivityUtils.next(getActivity(), RedPacketActivity.class);
+            }
+        });
+        mUserImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityUtils.next(getActivity(), UserCenterActivity.class);
+            }
+        });
+        mUserAccountNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<AccountInfoBean> mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
+                for (AccountInfoBean accountInfoBean : mAccountInfoBeanList) {
+                    if (accountInfoBean.getAccount_name().equals(mUserAccountNumber.getText().toString())) {
+                        bundle.putParcelable("bean", accountInfoBean);
+                        ActivityUtils.next(getActivity(), AccountDetailsActivity.class, bundle);
+                    }
+                }
+            }
+        });
+        mAllMoney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isOpen) {
+                    isOpen = true;
+                    Utils.getSpUtils().put("isOpenMoney", false);
+                    mUserAllProperty.setText("******");
+                    Drawable drawable = getResources().getDrawable(R.mipmap.close_eye);
+                    // 这一步必须要做,否则不会显示.
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                    mAllMoney.setCompoundDrawables(null, null, drawable, null);
+                } else {
+                    isOpen = false;
+                    Utils.getSpUtils().put("isOpenMoney", true);
+                    mUserAllProperty.setText(openMoney);
+                    Drawable drawable = getResources().getDrawable(R.mipmap.open_eye);
+                    // 这一步必须要做,否则不会显示.
+                    drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+                    mAllMoney.setCompoundDrawables(null, null, drawable, null);
+                }
+            }
+        });
+
+        mFab.setOnClickListener(new View.OnClickListener() {//解除质押
+            @Override
+            public void onClick(View v) {
+                bundle.putString("account", mUserAccountNumber.getText().toString().trim().toString());
+                ActivityUtils.next(getActivity(), UnStakeActivity.class ,bundle);
+            }
+        });
+    }
+
+    @Override
+    protected void initImmersionBar() {
+        super.initImmersionBar();
+        mImmersionBar.statusBarDarkFont(false, 0f).init();
+        ImmersionBar.setTitleBar(getActivity(), mTitle);
+    }
+
+    @Override
+    protected int getContentViewLayoutID() {
+        return R.layout.fragment_home;
     }
 
     public interface Openleft {

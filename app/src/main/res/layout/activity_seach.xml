@@ -5,15 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/dimens_30"
     android:background="@color/white"
     tools:context="com.oraclechain.pocketeos.modules.seach.SeachActivity">
-
-    <RelativeLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"/>
+    <RelativeLayout
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dimens_5"
         android:layout_height="@dimen/dimens_40"
         android:layout_marginLeft="@dimen/dimens_20"
-        android:layout_marginRight="@dimen/dimens_20">
+        android:layout_marginRight="@dimen/dimens_20"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/dimens_20"
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20"
+        android:paddingTop="@dimen/dimens_20">
+
+        <TextView
+            android:id="@+id/producter_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/vote_amount"
+            android:gravity="center_vertical|left"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_14"/>
+
+
+        <TextView
+            android:id="@+id/vote_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical|right"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimens_14"/>
+    </RelativeLayout>
+</RelativeLayout>

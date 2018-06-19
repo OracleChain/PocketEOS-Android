@@ -33,4 +33,20 @@ public class BaseResponseBean implements Serializable {
         responseBean.message = message;
         return responseBean;
     }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message == null ? "" : message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

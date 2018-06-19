@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gyf.barlibrary.ImmersionBar;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.oraclechain.pocketeos.R;
@@ -44,8 +43,6 @@ import butterknife.BindView;
 public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implements NewsView {
 
 
-    @BindView(R.id.title)
-    TextView mTitle;
     @BindView(R.id.recycle_news)
     XRecyclerView mRecycleNews;
 
@@ -78,8 +75,11 @@ public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implemen
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleNews.setLayoutManager(layoutManager);
-
-        mRecycleNews.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+            mRecycleNews.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
+        }else {
+            mRecycleNews.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
+        }
         mRecycleNews.setRefreshProgressStyle(ProgressStyle.LineSpinFadeLoader);
         mRecycleNews.setLoadingMoreProgressStyle(ProgressStyle.CubeTransition);
         LayoutInflater mInflater = LayoutInflater.from(getActivity());
@@ -163,11 +163,10 @@ public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implemen
     protected void initImmersionBar() {
         super.initImmersionBar();
         if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
-            mImmersionBar.statusBarDarkFont(true, 0.2f).init();
+            mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
         } else {
-            mImmersionBar.statusBarDarkFont(false, 0.2f).init();
+            mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
         }
-        ImmersionBar.setTitleBar(getActivity(), mTitle);
     }
 
     @Override
@@ -180,10 +179,13 @@ public class NewsFragment extends BaseFragment<NewsView, NewsPresenter> implemen
         super.onHiddenChanged(hidden);
         if (!hidden && mImmersionBar != null) {
             if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
-                mImmersionBar.statusBarDarkFont(true, 0.2f).init();
+                mImmersionBar.statusBarDarkFont(true, 0.2f).fitsSystemWindows(true).statusBarColor(R.color.white).init();
             } else {
-                mImmersionBar.statusBarDarkFont(false, 0.2f).init();
+                mImmersionBar.statusBarDarkFont(false, 0.2f) .fitsSystemWindows(true).statusBarColor(R.color.black_box_color).init();
             }
+        }
+        if (basePopupWindow!=null){
+            basePopupWindow.dismiss();
         }
     }
 

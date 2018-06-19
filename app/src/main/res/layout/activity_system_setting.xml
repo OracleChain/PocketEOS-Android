@@ -70,6 +70,34 @@
             android:src="@mipmap/more"/>
     </RelativeLayout>
     <View
+        style="?attr/line_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_1"/>
+    <RelativeLayout
+        android:id="@+id/suggestion_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_46"
+
+        android:paddingLeft="@dimen/dimens_20"
+        android:paddingRight="@dimen/dimens_20">
+
+        <TextView
+            style="?attr/text_one_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/suggestion_feedback"
+            android:textSize="@dimen/dimens_15"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@mipmap/more"/>
+    </RelativeLayout>
+    <View
         style="?attr/item_bg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimens_20"/>
@@ -126,4 +154,8 @@
             android:scaleType="center"
             android:src="@mipmap/more"/>
     </RelativeLayout>
+    <View
+        style="?attr/item_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

@@ -9,7 +9,13 @@
     tools:context="com.oraclechain.pocketeos.modules.dapp.paidanswer.questiondetails.QuestionDetailsActivity">
 
     <include layout="@layout/title_project"/>
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_2"
+        android:progressDrawable="@drawable/progressbay_bg"
+        android:visibility="gone"/>
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"

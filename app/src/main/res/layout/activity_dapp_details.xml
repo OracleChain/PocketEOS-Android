@@ -14,7 +14,13 @@
 
     <include layout="@layout/title_project"/>
 
-
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimens_2"
+        android:progressDrawable="@drawable/progressbay_bg"
+        android:visibility="gone"/>
     <com.oraclechain.pocketeos.view.webview.BaseWebView
         android:id="@+id/web_dapp_details"
         android:layout_width="match_parent"

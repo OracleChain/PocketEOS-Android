@@ -89,14 +89,19 @@ public abstract class BaseAcitvity<V, P extends BasePresent<V>> extends AutoLayo
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
         TextView textView = getId(R.id.tv_title);
-        if (textView != null) {
-            if (textView.getCurrentTextColor() == -1) {
-                mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.black_box_color);
-                mImmersionBar.statusBarDarkFont(false, 0.2f);
-            } else {
-                mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.white);
-                mImmersionBar.statusBarDarkFont(true, 0.2f);
+        if (!activity.getLocalClassName().contains("Vote")) {
+            if (textView != null) {
+                if (textView.getCurrentTextColor() == -1) {
+                    mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.black_box_color);
+                    mImmersionBar.statusBarDarkFont(false, 0.2f);
+                } else {
+                    mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.white);
+                    mImmersionBar.statusBarDarkFont(true, 0.2f);
+                }
             }
+        }else {
+            mImmersionBar.fitsSystemWindows(true).statusBarColor(R.color.black);
+            mImmersionBar.statusBarDarkFont(false, 0.2f);
         }
 
         mImmersionBar.keyboardEnable(true); //解决软键盘与底部输入框冲突问题;
@@ -169,6 +174,7 @@ public abstract class BaseAcitvity<V, P extends BasePresent<V>> extends AutoLayo
         // getId(R.id.error_text).setVisibility(View.GONE);
     }
 
+
     /**
      * 设置左侧返回按钮
      */
@@ -185,11 +191,13 @@ public abstract class BaseAcitvity<V, P extends BasePresent<V>> extends AutoLayo
         tvTitle.setVisibility(View.VISIBLE);
         tvTitle.setText(title);
         goBack();
-        if( Utils.getSpUtils().getString("loginmode","").equals("blackbox")){
-            tvTitle1.setImageResource(R.mipmap.white_back);
-            setRightImg(false);
-        }else {
-            tvTitle1.setImageResource(R.mipmap.back);
+        if (!activity.getLocalClassName().contains("Vote")) {
+            if (Utils.getSpUtils().getString("loginmode", "").equals("blackbox")) {
+                tvTitle1.setImageResource(R.mipmap.white_back);
+                setRightImg(false);
+            } else {
+                tvTitle1.setImageResource(R.mipmap.back);
+            }
         }
 
     }

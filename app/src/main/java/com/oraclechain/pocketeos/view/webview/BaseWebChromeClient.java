@@ -2,13 +2,13 @@ package com.oraclechain.pocketeos.view.webview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-
-import com.oraclechain.pocketeos.utils.ShowDialog;
+import android.widget.ProgressBar;
 
 /**
  * Created by pocketEos on 2018/4/11.
@@ -16,9 +16,11 @@ import com.oraclechain.pocketeos.utils.ShowDialog;
 
 public class BaseWebChromeClient extends WebChromeClient {
     Context mContext;
+    ProgressBar mProgressBar;
 
-    public BaseWebChromeClient(Context context) {
+    public BaseWebChromeClient(Context context, ProgressBar progress) {
         mContext = context;
+        mProgressBar = progress;
     }
 
     /**
@@ -31,7 +33,10 @@ public class BaseWebChromeClient extends WebChromeClient {
     public void onProgressChanged(WebView view, int newProgress) {
         super.onProgressChanged(view, newProgress);
         if (newProgress == 100) {
-            ShowDialog.dissmiss();
+            mProgressBar.setVisibility(View.GONE);
+        }else {
+            mProgressBar.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
+            mProgressBar.setProgress(newProgress);//设置进度值
         }
     }
 

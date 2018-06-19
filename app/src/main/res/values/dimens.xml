@@ -60,6 +60,7 @@
     <dimen name="dimens_53">53px</dimen>
     <dimen name="dimens_54">54px</dimen>
     <dimen name="dimens_55">55px</dimen>
+    <dimen name="dimens_56">56px</dimen>
     <dimen name="dimens_58">58px</dimen>
     <dimen name="dimens_60">60px</dimen>
     <dimen name="dimens_62">62px</dimen>
@@ -67,6 +68,7 @@
     <dimen name="dimens_65">65px</dimen>
     <dimen name="dimens_66">66px</dimen>
     <dimen name="dimens_67">67px</dimen>
+    <dimen name="dimens_68">68px</dimen>
     <dimen name="dimens_70">70px</dimen>
     <dimen name="dimens_72">72px</dimen>
     <dimen name="dimens_75">75px</dimen>
@@ -100,6 +102,7 @@
     <dimen name="dimens_140">140px</dimen>
     <dimen name="dimens_145">145px</dimen>
     <dimen name="dimens_150">150px</dimen>
+    <dimen name="dimens_152">152px</dimen>
     <dimen name="dimens_160">160px</dimen>
     <dimen name="dimens_162">162px</dimen>
     <dimen name="dimens_166">166px</dimen>
@@ -113,6 +116,7 @@
     <dimen name="dimens_187">187px</dimen>
     <dimen name="dimens_192">192px</dimen>
     <dimen name="dimens_200">200px</dimen>
+    <dimen name="dimens_202">202px</dimen>
     <dimen name="dimens_204">204px</dimen>
     <dimen name="dimens_210">210px</dimen>
     <dimen name="dimens_220">220px</dimen>

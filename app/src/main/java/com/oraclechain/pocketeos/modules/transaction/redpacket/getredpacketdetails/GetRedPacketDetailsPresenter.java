@@ -3,6 +3,7 @@ package com.oraclechain.pocketeos.modules.transaction.redpacket.getredpacketdeta
 import android.content.Context;
 
 import com.lzy.okgo.model.Response;
+import com.lzy.okgo.utils.OkLogger;
 import com.oraclechain.pocketeos.base.BasePresent;
 import com.oraclechain.pocketeos.base.BaseUrl;
 import com.oraclechain.pocketeos.bean.RedPacketDetailsBean;
@@ -30,6 +31,7 @@ public class GetRedPacketDetailsPresenter extends BasePresent<GetRedPacketDetail
         HttpUtils.postRequest(BaseUrl.getHTTP_get_red_packet_details_history, mContext, hashMap, new JsonCallback<ResponseBean<RedPacketDetailsBean.DataBean>>() {
             @Override
             public void onSuccess(Response<ResponseBean<RedPacketDetailsBean.DataBean>> response) {
+
                 if (response.body().code == 0) {
                     view.getRedPacketDetailsDataHttp(response.body().data);
                 } else {

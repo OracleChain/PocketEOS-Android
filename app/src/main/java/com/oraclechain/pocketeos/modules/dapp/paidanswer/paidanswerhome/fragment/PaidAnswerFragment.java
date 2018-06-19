@@ -1,7 +1,6 @@
 package com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.fragment;
 
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 
@@ -13,7 +12,6 @@ import com.oraclechain.pocketeos.adapter.baseadapter.wrapper.EmptyWrapper;
 import com.oraclechain.pocketeos.base.BaseFragment;
 import com.oraclechain.pocketeos.bean.PaidAnswerBean;
 import com.oraclechain.pocketeos.bean.QuestionListBean;
-import com.oraclechain.pocketeos.view.RecycleViewDivider;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -42,8 +40,16 @@ public class PaidAnswerFragment extends BaseFragment<PaidAnswerView, PaidAnswerP
     private String account = "";
 
     @Override
-    protected int getContentViewLayoutID() {
-        return R.layout.fragment_paid_answer;
+    public void onDestroy() {
+        super.onDestroy();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
+
+    @Override
+    public PaidAnswerPresenter initPresenter() {
+        return new PaidAnswerPresenter(getActivity());
     }
 
     @Override
@@ -56,7 +62,6 @@ public class PaidAnswerFragment extends BaseFragment<PaidAnswerView, PaidAnswerP
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.LineSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.CubeTransition);
         mRecyclerView.setLoadingMoreEnabled(true);
@@ -87,7 +92,6 @@ public class PaidAnswerFragment extends BaseFragment<PaidAnswerView, PaidAnswerP
 
     }
 
-    @SuppressLint("NewApi")
     @Override
     public void initEvent() {
 
@@ -99,16 +103,8 @@ public class PaidAnswerFragment extends BaseFragment<PaidAnswerView, PaidAnswerP
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (EventBus.getDefault().isRegistered(this)) {
-            EventBus.getDefault().unregister(this);
-        }
-    }
-
-    @Override
-    public PaidAnswerPresenter initPresenter() {
-        return new PaidAnswerPresenter(getActivity());
+    protected int getContentViewLayoutID() {
+        return R.layout.fragment_paid_answer;
     }
 
     @Override

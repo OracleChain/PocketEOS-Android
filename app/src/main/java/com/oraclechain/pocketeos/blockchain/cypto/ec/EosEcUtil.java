@@ -147,9 +147,9 @@ public class EosEcUtil {
             }
 
             return Arrays.copyOfRange(data, 1, data.length - 4);
+        }else {
+            throw new IllegalArgumentException("Invalid format, checksum mismatch");
         }
-
-        throw new IllegalArgumentException("Invalid format, checksum mismatch");
     }
 
 //    public static String encodeEosCrypto(byte[] data, CurveParam curveParam ) {

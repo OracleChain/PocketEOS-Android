@@ -8,10 +8,12 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFF7EA"
         android:gravity="center_vertical"
+        android:lineSpacingExtra="@dimen/dimens_10"
         android:padding="@dimen/dimens_20"
         android:text="@string/wallect_intro"
         android:textColor="#FFFFB540"
@@ -76,11 +78,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_10"/>
+        android:layout_height="@dimen/dimens_10"
+        style="?attr/item_bg"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_80"
+        android:layout_height="@dimen/dimens_68"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingLeft="@dimen/dimens_20"
@@ -90,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/main_number"
-            android:textColor="@color/title_color"
+            style="?attr/text_one_style"
             android:textSize="@dimen/dimens_13"/>
 
         <TextView
@@ -98,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimens_10"
             android:text="@string/main_number_notice"
-            style="?attr/text_one_style"
+            android:textColor="@color/gray_color"
             android:textSize="@dimen/dimens_12"/>
     </LinearLayout>
 
@@ -108,11 +111,11 @@
         style="?attr/line_style"/>
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_80">
+        android:layout_height="@dimen/dimens_66">
         <ImageView
             android:id="@+id/main_account_img"
-            android:layout_width="@dimen/dimens_50"
-            android:layout_height="@dimen/dimens_50"
+            android:layout_width="@dimen/dimens_36"
+            android:layout_height="@dimen/dimens_36"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimens_20"
@@ -134,11 +137,12 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_10"/>
+        android:layout_height="@dimen/dimens_10"
+        style="?attr/item_bg"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimens_60"
+        android:layout_height="@dimen/dimens_48"
         android:gravity="center_vertical"
         android:layout_marginLeft="@dimen/dimens_20"
         android:text="@string/other_number"

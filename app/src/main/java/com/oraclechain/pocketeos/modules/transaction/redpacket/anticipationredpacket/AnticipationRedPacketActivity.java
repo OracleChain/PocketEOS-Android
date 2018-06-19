@@ -15,7 +15,7 @@ import com.oraclechain.pocketeos.bean.AuthRedPacketBean;
 import com.oraclechain.pocketeos.bean.SendRedPacketBean;
 import com.oraclechain.pocketeos.modules.otherloginorshare.BaseUIListener;
 import com.oraclechain.pocketeos.modules.otherloginorshare.WxShareAndLoginUtils;
-import com.oraclechain.pocketeos.view.CircleImageView;
+import com.oraclechain.pocketeos.view.RoundImageView;
 import com.tencent.connect.common.Constants;
 import com.tencent.connect.share.QQShare;
 import com.tencent.connect.share.QzonePublish;
@@ -37,7 +37,7 @@ public class AnticipationRedPacketActivity extends BaseAcitvity<AnticipationRedP
     @BindView(R.id.iv_back)
     ImageView mIvBack;
     @BindView(R.id.user_img)
-    CircleImageView mUserImg;
+    RoundImageView mUserImg;
     @BindView(R.id.packet_info)
     TextView mPacketInfo;
     @BindView(R.id.user_leave_message)

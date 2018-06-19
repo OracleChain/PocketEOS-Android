@@ -16,6 +16,7 @@ import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.CodeAuthBean;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
+import com.oraclechain.pocketeos.modules.account.createaccount.CreateAccountActivity;
 import com.oraclechain.pocketeos.modules.blackbox.existwalletlogin.ExistBlackBoxLoginActivity;
 import com.oraclechain.pocketeos.modules.blackbox.nowalletlogin.BlackBoxLoginActivity;
 import com.oraclechain.pocketeos.modules.leftdrawer.systemsetting.RichTextActivity;
@@ -35,7 +36,6 @@ import com.oraclechain.pocketeos.view.countdowntimer.CountDownTimerUtils;
 import com.tencent.tauth.Tencent;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //登录页面
@@ -65,6 +65,11 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
+    }
+
+    @Override
+    public LoginPresenter initPresenter() {
+        return new LoginPresenter(LoginActivity.this);
     }
 
     @Override
@@ -109,7 +114,7 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("details", FilesUtils.readAssetsTxt(LoginActivity.this,"pocketeos_user"));
+                bundle.putString("details", FilesUtils.readAssetsTxt(LoginActivity.this, "pocketeos_user"));
                 bundle.putString("title", getString(R.string.setting_one));
                 ActivityUtils.next(LoginActivity.this, RichTextActivity.class, bundle);
             }
@@ -129,11 +134,6 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
     }
 
     @Override
-    public LoginPresenter initPresenter() {
-        return new LoginPresenter(LoginActivity.this);
-    }
-
-    @Override
     public void getCodeDataHttp(String msg) {
         toast(msg);
         mSmsPassword.setFocusable(true);
@@ -143,13 +143,26 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
 
     @Override
     public void getCodeAuthDataHttp(CodeAuthBean.DataBean codeAuthBean) {
+        Utils.getSpUtils().put("firstUser", mMobilePhone.getText().toString().trim());//保存场上次登陆钱包
+        Utils.getSpUtils().put("loginmode", "phone");//保存当前登录模式
         hideProgress();
         UserBean userBean0 = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(mMobilePhone.getText().toString().trim())).build().unique();
         if (userBean0 != null) {
-            toast("检测到您本地有" + mMobilePhone.getText().toString().trim() + "钱包");
-            Utils.getSpUtils().put("firstUser", mMobilePhone.getText().toString().trim());//保存场上次登陆钱包
-            Utils.getSpUtils().put("loginmode", "phone");//保存当前登录模式
-            ActivityUtils.next(LoginActivity.this, MainActivity.class, true);
+            MyApplication.getInstance().notificationCookie();//更新网络配置
+            toast(getString(R.string.local_wallet_exit) + mMobilePhone.getText().toString().trim() + getString(R.string.wallet));
+            if (TextUtils.isEmpty(userBean0.getAccount_info())) {
+                if (TextUtils.isEmpty(userBean0.getWallet_shapwd())) {
+                    MyApplication.getInstance().setUserBean(userBean0);
+                    ActivityUtils.next(LoginActivity.this, CreateWalletActivity.class);
+                } else {
+                    MyApplication.getInstance().setUserBean(userBean0);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("type", 1);
+                    ActivityUtils.next(LoginActivity.this, CreateAccountActivity.class, bundle);
+                }
+            } else {
+                ActivityUtils.next(LoginActivity.this, MainActivity.class, true);
+            }
         } else {
             //数据库存储数据
             UserBean userBean = new UserBean();
@@ -158,11 +171,8 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
             userBean.setWallet_name(mMobilePhone.getText().toString().trim().substring(7, 11).toString());
             MyApplication.getDaoInstant().getUserBeanDao().insert(userBean);
             MyApplication.getInstance().setUserBean(userBean);
-            Utils.getSpUtils().put("firstUser", mMobilePhone.getText().toString().trim());//保存上次登陆钱包
-            Utils.getSpUtils().put("loginmode", "phone");//保存当前登录模式
             ActivityUtils.next(LoginActivity.this, CreateWalletActivity.class);
         }
-
     }
 
     @Override
@@ -223,10 +233,5 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
         hideProgress();
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }

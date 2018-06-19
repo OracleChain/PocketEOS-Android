@@ -7,6 +7,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
@@ -29,6 +30,8 @@ public class SeachActivity extends BaseAcitvity<SeachView, SeachPresenter> imple
     ClearEditText mEdtSeach;
     @BindView(R.id.seach_cancel)
     TextView mSeachCancel;
+    @BindView(R.id.title)
+    TextView mTitle;
 
     @Override
     protected int getLayoutId() {
@@ -49,6 +52,13 @@ public class SeachActivity extends BaseAcitvity<SeachView, SeachPresenter> imple
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    protected void initImmersionBar() {
+        super.initImmersionBar();
+        mImmersionBar.statusBarDarkFont(true, 0.2f).init();
+        ImmersionBar.setTitleBar(SeachActivity.this, mTitle);
     }
 
     @Override
@@ -100,6 +110,4 @@ public class SeachActivity extends BaseAcitvity<SeachView, SeachPresenter> imple
         finish();
         KeyBoardUtil.getInstance(SeachActivity.this).hide();
     }
-
-
 }

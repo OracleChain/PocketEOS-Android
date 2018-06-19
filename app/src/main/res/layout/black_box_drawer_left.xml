@@ -39,7 +39,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/dimens_40"
                         android:clickable="true"
-                        android:drawablePadding="@dimen/dimens_10"
+                        android:drawablePadding="@dimen/dimens_13"
                         android:drawableTop="@mipmap/black_box_wallet_management"
                         android:gravity="center"
                         android:text="@string/wallet_management"
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimens_40"
                         android:clickable="true"
-                        android:drawablePadding="@dimen/dimens_10"
+                        android:drawablePadding="@dimen/dimens_13"
                         android:drawableTop="@mipmap/black_box_transaction_history"
                         android:gravity="center"
                         android:text="@string/transaction_history"
@@ -67,7 +67,7 @@
                     android:layout_below="@+id/ll"
                     android:layout_marginTop="@dimen/dimens_40"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/dimens_30">
+                    android:paddingLeft="@dimen/dimens_35">
 
                     <TextView
                         android:id="@+id/message_center"
@@ -81,17 +81,16 @@
                         android:text="@string/message_center"
                         android:textColor="@color/white"
                         android:textSize="@dimen/dimens_14"/>
-
                     <TextView
-                        android:id="@+id/suggestion_feedback"
+                        android:id="@+id/node_vote"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimens_40"
                         android:layout_marginBottom="@dimen/dimens_10"
                         android:clickable="true"
-                        android:drawableLeft="@mipmap/black_box_suggestion_feedback"
+                        android:drawableLeft="@mipmap/node_vote_black_box"
                         android:drawablePadding="@dimen/dimens_20"
                         android:gravity="left|center_vertical"
-                        android:text="@string/suggestion_feedback"
+                        android:text="@string/node_vote"
                         android:textColor="@color/white"
                         android:textSize="@dimen/dimens_14"/>
 
@@ -127,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimens_40"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/dimens_20"
+                    android:layout_marginBottom="@dimen/dimens_15"
                     android:clickable="true"
                     android:gravity="center"
                     android:text="@string/logout_wallet"

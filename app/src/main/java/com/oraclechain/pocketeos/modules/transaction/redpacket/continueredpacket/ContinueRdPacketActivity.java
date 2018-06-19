@@ -23,7 +23,7 @@ import com.oraclechain.pocketeos.modules.otherloginorshare.WxShareAndLoginUtils;
 import com.oraclechain.pocketeos.utils.BigDecimalUtil;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.utils.StringUtils;
-import com.oraclechain.pocketeos.view.CircleImageView;
+import com.oraclechain.pocketeos.view.RoundImageView;
 import com.oraclechain.pocketeos.view.dialog.sharedialog.ShareCallBack;
 import com.oraclechain.pocketeos.view.dialog.sharedialog.ShareDialog;
 import com.tencent.connect.common.Constants;
@@ -47,7 +47,7 @@ public class ContinueRdPacketActivity extends BaseAcitvity<ContinueRedPacketView
     @BindView(R.id.title)
     RelativeLayout mTitle;
     @BindView(R.id.user_img)
-    CircleImageView mUserImg;
+    RoundImageView mUserImg;
     @BindView(R.id.user_number)
     TextView mUserNumber;
     @BindView(R.id.user_leave_message)
