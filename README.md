@@ -55,10 +55,6 @@
 &emsp;2. download our git repository.
 >`git clone --recurse-submodules https://github.com/OracleChain/PocketEOS-Android.git`
 
-&emsp;3. xxx
-
-&emsp;4. xxx
-
 
 **DOWNLOAD & TRY/下载试用**
 
