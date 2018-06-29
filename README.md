@@ -55,7 +55,6 @@
 &emsp;2. download our git repository.
 >`git clone --recurse-submodules https://github.com/OracleChain/PocketEOS-Android.git`
 
-
 **DOWNLOAD & TRY/下载试用**
 
 [PocketEOS](https://pocketeos.com/)
@@ -63,17 +62,9 @@
 
 **DEPENDENCYS/依赖库:**
 
-&emsp;1.our ECDSA is based on micro-ecc
+&emsp;1.our ECDSA is based on the source code of [EOSCommander](https://github.com/plactal/EosCommander),thx for the PLACTAL.io team
 
-&emsp;&emsp;椭圆曲线算法实现来自micro-ecc
-
-&emsp;&emsp;https://github.com/kmackay/micro-ecc
-
-&emsp;2.We build a Publicly Verifiable Secret Sharing on secp256k1 which is published by Schoenmakers on crypto99 conference.
-
-&emsp;&emsp;我们在椭圆曲线secp256k1上实现了Schoenmakers在crypto99上提出的Publicly Verifiable Secret Sharing
-
-&emsp;&emsp;https://github.com/songgeng87/PubliclyVerifiableSecretSharing
+&emsp;&emsp;椭圆曲线算法实现来自EOSCommander
 
 
 **Any questions pls join our official Telegram Group below/相关问题反馈，请加欧链官方Telegram群组:**
