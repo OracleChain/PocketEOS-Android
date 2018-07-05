@@ -5,7 +5,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.annotations.Expose;
 
 /**
- * Created by pocketEos on 2018/4/26.
+ * Created by swapnibble on 2017-09-12.
  */
 
 public class JsonToBinRequest {

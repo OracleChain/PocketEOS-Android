@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Created by pocketEos on 2018/4/26.
+ * Created by swapnibble on 2017-09-12.
  */
 
 public class EosChainInfo {
@@ -36,6 +36,9 @@ public class EosChainInfo {
     private String chain_id;
 
     @Expose
+    private String last_irreversible_block_id;
+
+    @Expose
     private long virtual_block_cpu_limit;
 
     @Expose
@@ -58,6 +61,14 @@ public class EosChainInfo {
 
     public Integer getLastIrreversibleBlockNum() {
         return last_irreversible_block_num;
+    }
+
+    public String getLast_irreversible_block_id() {
+        return last_irreversible_block_id == null ? "" : last_irreversible_block_id;
+    }
+
+    public void setLast_irreversible_block_id(String last_irreversible_block_id) {
+        this.last_irreversible_block_id = last_irreversible_block_id;
     }
 
     public void setLastIrreversibleBlockNum(Integer lastIrreversibleBlockNum) {

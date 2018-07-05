@@ -22,6 +22,7 @@ import com.oraclechain.pocketeos.blockchain.types.TypeChainId;
 import com.oraclechain.pocketeos.blockchain.util.GsonEosTypeAdapterFactory;
 import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
+import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.PublicAndPrivateKeyUtils;
 import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
@@ -70,11 +71,11 @@ public class AskansDatamanger {
     }
 
     public void getChainInfo() {
-        HttpUtils.getRequets(BaseUrl.HTTP_get_chain_info, this, new HashMap<String, String>(), new JsonCallback<ResponseBean<EosChainInfo>>() {
+        HttpUtils.getRequets(BaseUrl.HTTP_get_chain_info, this, new HashMap<String, String>(), new JsonCallback<ResponseBean>() {
             @Override
-            public void onSuccess(Response<ResponseBean<EosChainInfo>> response) {
+            public void onSuccess(Response<ResponseBean> response) {
                 if (response.body().code == 0) {
-                    mChainInfoBean = response.body().data;
+                    mChainInfoBean = (EosChainInfo) JsonUtil.parseStringToBean(mGson.toJson(response.body().data), EosChainInfo.class);
                     getabi_json_to_bin();
                 } else {
                     if (ShowDialog.dialog != null) {
@@ -88,11 +89,11 @@ public class AskansDatamanger {
 
     public void getabi_json_to_bin() {
         JsonToBinRequest jsonToBinRequest = new JsonToBinRequest(contract, action, message.replaceAll("\\r|\\n", ""));
-        HttpUtils.postRequest(BaseUrl.HTTP_get_abi_json_to_bin, this, mGson.toJson(jsonToBinRequest), new JsonCallback<ResponseBean<JsonToBeanResultBean>>() {
+        HttpUtils.postRequest(BaseUrl.HTTP_get_abi_json_to_bin, this, mGson.toJson(jsonToBinRequest), new JsonCallback<ResponseBean>() {
             @Override
-            public void onSuccess(Response<ResponseBean<JsonToBeanResultBean>> response) {
+            public void onSuccess(Response<ResponseBean> response) {
                 if (response.body().code == 0) {
-                    mJsonToBeanResultBean = response.body().data;
+                    mJsonToBeanResultBean = (JsonToBeanResultBean) JsonUtil.parseStringToBean(mGson.toJson(response.body().data), JsonToBeanResultBean.class);
                     txnBeforeSign = createTransaction(contract, action, mJsonToBeanResultBean.getBinargs(), permissions, mChainInfoBean);
                     //扫描钱包列出所有可用账号的公钥
                     List<String> pubKey = PublicAndPrivateKeyUtils.getActivePublicKey();
@@ -129,11 +130,12 @@ public class AskansDatamanger {
     }
 
     public void getRequreKey(GetRequiredKeys getRequiredKeys) {
-        HttpUtils.postRequest(BaseUrl.HTTP_get_required_keys, this, mGson.toJson(getRequiredKeys), new JsonCallback<ResponseBean<RequreKeyResult>>() {
+        HttpUtils.postRequest(BaseUrl.HTTP_get_required_keys, this, mGson.toJson(getRequiredKeys), new JsonCallback<ResponseBean>() {
             @Override
-            public void onSuccess(Response<ResponseBean<RequreKeyResult>> response) {
+            public void onSuccess(Response<ResponseBean> response) {
                 if (response.body().code == 0) {
-                    EosPrivateKey eosPrivateKey = new EosPrivateKey(PublicAndPrivateKeyUtils.getPrivateKey(response.body().data.getRequired_keys().get(0), userpassword));
+                    RequreKeyResult requreKeyResult = (RequreKeyResult) JsonUtil.parseStringToBean(mGson.toJson(response.body().data), RequreKeyResult.class);
+                    EosPrivateKey eosPrivateKey = new EosPrivateKey(PublicAndPrivateKeyUtils.getPrivateKey(requreKeyResult.getRequired_keys().get(0), userpassword));
                     txnBeforeSign.sign(eosPrivateKey, new TypeChainId(mChainInfoBean.getChain_id()));
                     pushTransactionRetJson(new PackedTransaction(txnBeforeSign));
                 } else {
@@ -149,13 +151,14 @@ public class AskansDatamanger {
 
 
     public void pushTransactionRetJson(PackedTransaction body) {
-        HttpUtils.postRequest(BaseUrl.HTTP_push_transaction, this, mGson.toJson(body), new JsonCallback<ResponseBean<PushSuccessBean.DataBeanX>>() {
+        HttpUtils.postRequest(BaseUrl.HTTP_push_transaction, this, mGson.toJson(body), new JsonCallback<ResponseBean>() {
             @Override
-            public void onSuccess(final Response<ResponseBean<PushSuccessBean.DataBeanX>> response) {
+            public void onSuccess(final Response<ResponseBean> response) {
                 if (ShowDialog.dialog != null) {
                     ShowDialog.dissmiss();
                 }
                 if (response.body().code == 0) {
+                    PushSuccessBean.DataBeanX dataBeanX = (PushSuccessBean.DataBeanX) JsonUtil.parseStringToBean(mGson.toJson(response.body().data), PushSuccessBean.DataBeanX.class);
                     mCallback.isApprove(action);
                 } else {
                     ToastUtils.showLongToast(response.body().message);
