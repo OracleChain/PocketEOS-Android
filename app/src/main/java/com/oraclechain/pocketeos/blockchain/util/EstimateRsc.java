@@ -5,7 +5,7 @@ import com.oraclechain.pocketeos.blockchain.chain.PackedTransaction;
 import com.oraclechain.pocketeos.blockchain.chain.SignedTransaction;
 
 /**
- * Created by pocketEos on 2018/4/26.
+ * Created by swapnibble on 2017-09-12.
  */
 
 public class EstimateRsc {
