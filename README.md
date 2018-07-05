@@ -62,9 +62,9 @@
 
 **DEPENDENCYS/依赖库:**
 
-&emsp;our ECDSA is based on the source code of [EOSCommander](https://github.com/plactal/EosCommander),thx for the PLACTAL.io team
+&emsp;our ECDSA and blockchain utility are based on the source code of [EOSCommander](https://github.com/plactal/EosCommander),thx for the PLACTAL.io team
 
-&emsp;我们的椭圆曲线算法及其实现工具，来自于[EOSCommander](https://github.com/plactal/EosCommander)，感谢PLACTAL.io为社区的付出。
+&emsp;我们的椭圆曲线算法及blockchain工具类，来自于[EOSCommander](https://github.com/plactal/EosCommander)，感谢PLACTAL.io为社区的付出。
 
 
 **Any questions pls join our official Telegram Group below/相关问题反馈，请加欧链官方Telegram群组:**
