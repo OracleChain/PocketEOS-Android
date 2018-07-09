@@ -10,9 +10,9 @@ import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.SystemInfoBean;
 import com.oraclechain.pocketeos.modules.leftdrawer.suggestionfeedback.SuggestionFeedbackActivity;
-import com.oraclechain.pocketeos.modules.main.MainActivity;
 import com.oraclechain.pocketeos.utils.CacheDataManager;
 import com.oraclechain.pocketeos.utils.FilesUtils;
+import com.oraclechain.pocketeos.utils.Utils;
 
 import java.io.File;
 
@@ -35,37 +35,6 @@ public class SystemSettingActivity extends BaseAcitvity<SystemSettingView, Syste
     RelativeLayout mSelectLanguage;
     @BindView(R.id.suggestion_feedback)
     RelativeLayout mSuggestionFeedback;
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_system_setting;
-    }
-
-    @Override
-    protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle(getString(R.string.system_settings));
-        mCacheSize.setText(CacheDataManager.getCacheSize(new File("/data/data/" + this.getPackageName() + "/app_webview")));
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    public void initEvent() {
-        mSuggestionFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityUtils.next(SystemSettingActivity.this, SuggestionFeedbackActivity.class);
-            }
-        });
-    }
-
-    @Override
-    public SystemSettingPresenter initPresenter() {
-        return new SystemSettingPresenter(SystemSettingActivity.this);
-    }
 
     @Override
     public void getSystemInfoHttp(SystemInfoBean.DataBean systemInfoBean, String id) {
@@ -121,5 +90,41 @@ public class SystemSettingActivity extends BaseAcitvity<SystemSettingView, Syste
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_system_setting;
+    }
+
+    @Override
+    public SystemSettingPresenter initPresenter() {
+        return new SystemSettingPresenter(SystemSettingActivity.this);
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+        setCenterTitle(getString(R.string.system_settings));
+        mCacheSize.setText(CacheDataManager.getCacheSize(new File("/data/data/" + this.getPackageName() + "/app_webview")));
+        if (!Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            mSuggestionFeedback.setVisibility(View.GONE);
+        } else {
+            mSuggestionFeedback.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    public void initEvent() {
+        mSuggestionFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityUtils.next(SystemSettingActivity.this, SuggestionFeedbackActivity.class);
+            }
+        });
     }
 }

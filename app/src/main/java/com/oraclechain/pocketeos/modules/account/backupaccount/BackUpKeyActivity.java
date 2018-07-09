@@ -44,6 +44,13 @@ public class BackUpKeyActivity extends BaseAcitvity<NormalView, NormalPresenter>
     TextView mDesc;
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.activity_back_up_key;
     }
@@ -55,8 +62,8 @@ public class BackUpKeyActivity extends BaseAcitvity<NormalView, NormalPresenter>
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
-            setCenterTitle(getString(R.string.pra_backup));
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);//当前页面防截屏录屏
+        setCenterTitle(getString(R.string.pra_backup));
     }
 
     @Override
@@ -85,6 +92,8 @@ public class BackUpKeyActivity extends BaseAcitvity<NormalView, NormalPresenter>
                                 mDetails.setVisibility(View.VISIBLE);
                                 mSwitchView.setVisibility(View.GONE);
                                 mDesc.setVisibility(View.GONE);
+                            } else {
+                                toast(getResources().getString(R.string.password_error));
                             }
                         }
 
@@ -113,12 +122,5 @@ public class BackUpKeyActivity extends BaseAcitvity<NormalView, NormalPresenter>
                 AppManager.getAppManager().finishAllActivity();
             }
         });
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 }

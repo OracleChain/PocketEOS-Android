@@ -124,7 +124,7 @@ public class MyApplication extends MultiDexApplication {
         LocalManageUtil.onConfigurationChanged(getApplicationContext());
     }
     /**
-     * 配置数据库
+     * 重新配置okhttp
      */
     public void notificationCookie() {
         try {

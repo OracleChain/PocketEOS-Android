@@ -5,11 +5,13 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.oraclechain.pocketeos.R;
+import com.oraclechain.pocketeos.app.ActivityUtils;
+import com.oraclechain.pocketeos.app.AppManager;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
+import com.oraclechain.pocketeos.modules.main.MainActivity;
 import com.oraclechain.pocketeos.modules.normalvp.NormalPresenter;
 import com.oraclechain.pocketeos.modules.normalvp.NormalView;
 import com.oraclechain.pocketeos.utils.LocalManageUtil;
-import com.oraclechain.pocketeos.utils.Utils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -47,17 +49,18 @@ public class LanguageActivity extends BaseAcitvity<NormalView, NormalPresenter> 
     }
 
 
-
     @OnClick({R.id.language_cn, R.id.language_en})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.language_cn:
                 LocalManageUtil.saveSelectLanguage(this, 1);
-                Utils.restartAPP(10);
+                AppManager.getAppManager().finishAllActivity();
+                ActivityUtils.next(this, MainActivity.class);
                 break;
             case R.id.language_en:
                 LocalManageUtil.saveSelectLanguage(this, 2);
-                Utils.restartAPP(10);
+                AppManager.getAppManager().finishAllActivity();
+                ActivityUtils.next(this, MainActivity.class);
                 break;
         }
     }

@@ -6,9 +6,8 @@ import com.lzy.okgo.model.Response;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BasePresent;
 import com.oraclechain.pocketeos.base.BaseUrl;
-import com.oraclechain.pocketeos.bean.EosRegisterBean;
-import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.bean.ResponseBean;
+import com.oraclechain.pocketeos.net.HttpUtils;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
 import java.util.HashMap;
@@ -26,27 +25,14 @@ public class CreateAccountPresenter extends BasePresent<CreateAccountView> {
     }
 
 
-    public void getRegisterData(String username, String owner_key, String active_key) {
-        HashMap<String, String> hashMap = new HashMap<String, String>();
-        hashMap.put("account_name", username);
-        hashMap.put("owner_key", owner_key);
-        hashMap.put("active_key", active_key);
-        HttpUtils.postRequest(BaseUrl.HTTP_eos_register, mContext, hashMap, new JsonCallback<ResponseBean<EosRegisterBean.DataBeanX>>() {
-            @Override
-            public void onSuccess(Response<ResponseBean<EosRegisterBean.DataBeanX>> response) {
-                if (response.body().code == 0) {
-                    view.getEosRegisterhDataHttp(response.body().data);
-                } else {
-                    view.getDataHttpFail(response.body().message);
-                }
-            }
-        });
-    }
 
-    public void postEosAccountData(String eosAccountName) {
+
+    public void postEosAccountData(String eosAccountName ,String owner_key, String active_key) {
         HashMap<String, String> hashMap = new HashMap<String, String>();
         hashMap.put("uid", MyApplication.getInstance().getUserBean().getWallet_uid());
         hashMap.put("eosAccountName", eosAccountName);
+        hashMap.put("ownerKey", owner_key);
+        hashMap.put("activeKey", active_key);
         HttpUtils.postRequest(BaseUrl.HTTP_add_new_eos, mContext, hashMap, new JsonCallback<ResponseBean<String>>() {
             @Override
             public void onSuccess(Response<ResponseBean<String>> response) {

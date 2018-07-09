@@ -4,18 +4,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.oraclechain.pocketeos.modules.dapp.paidanswer.paidanswerhome.fragment.PaidAnswerFragment;
-
 import java.util.List;
 
 
 public class Find_tab_Adapter extends FragmentPagerAdapter {
 
-    private List<PaidAnswerFragment> list_fragment;                         //fragment列表
+    private List<Fragment> list_fragment;                         //fragment列表
     private List<String> list_Title;                              //tab名的列表
 
 
-    public Find_tab_Adapter(FragmentManager fm, List<PaidAnswerFragment> list_fragment, List<String> list_Title ) {
+    public Find_tab_Adapter(FragmentManager fm, List<Fragment> list_fragment, List<String> list_Title ) {
         super(fm);
         this.list_fragment = list_fragment;
         this.list_Title = list_Title;

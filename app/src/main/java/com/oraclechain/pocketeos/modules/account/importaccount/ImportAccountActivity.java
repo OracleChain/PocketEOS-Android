@@ -19,12 +19,12 @@ import com.oraclechain.pocketeos.bean.BlockChainAccountInfoBean;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.blockchain.cypto.ec.EosPrivateKey;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
+import com.oraclechain.pocketeos.modules.blackbox.BlackBoxMainActivity;
 import com.oraclechain.pocketeos.modules.main.MainActivity;
 import com.oraclechain.pocketeos.modules.scancode.ScanCodeActivity;
 import com.oraclechain.pocketeos.utils.EncryptUtil;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
-import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.ClearEditText;
 import com.oraclechain.pocketeos.view.dialog.passworddialog.PasswordCallback;
@@ -85,7 +85,11 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
             mOwnerPrivateKey.setText(getIntent().getStringExtra("owner_private_key"));
             mActivePrivateKey.setText(getIntent().getStringExtra("active_private_key"));
         }
-        userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
+        if (!Utils.getSpUtils().getString("loginmode").equals("blackbox")) {
+            userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
+        } else {
+            userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_name.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
+        }
     }
 
     @Override
@@ -132,7 +136,9 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
             accountInfoBean.setIs_privacy_policy("0");
             if (accountInfoBeanArrayList.size() == 0) {
                 accountInfoBean.setIs_main_account("1");
-                presenter.setMianAccountData(mAccountName.getText().toString().trim());//只是通知，不以服务端返回结果作为查询依据
+                if (Utils.getSpUtils().getString("loginmode").equals("phone")) {
+                    presenter.setMianAccountData(mAccountName.getText().toString().trim());//只是通知，不以服务端返回结果作为查询依据
+                }
             } else {
                 accountInfoBean.setIs_main_account("0");
             }
@@ -147,9 +153,13 @@ public class ImportAccountActivity extends BaseAcitvity<ImportAccountView, Impor
                 MyApplication.getDaoInstant().getUserBeanDao().update(userBean);
             }
 
-            ShowDialog.dissmiss();
+            hideProgress();
             AppManager.getAppManager().finishAllActivity();
-            ActivityUtils.next(ImportAccountActivity.this, MainActivity.class, true);
+            if (!Utils.getSpUtils().getString("loginmode").equals("blackbox")) {
+                ActivityUtils.next(ImportAccountActivity.this, MainActivity.class, true);
+            }else {
+                ActivityUtils.next(ImportAccountActivity.this, BlackBoxMainActivity.class, true);
+            }
         } else {
             toast(getString(R.string.account_key_error));
         }

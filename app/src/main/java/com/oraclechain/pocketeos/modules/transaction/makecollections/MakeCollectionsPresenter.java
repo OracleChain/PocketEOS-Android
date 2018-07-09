@@ -42,13 +42,13 @@ public class MakeCollectionsPresenter extends BasePresent<MakeCollectionsView> {
     }
 
     public void getTransferHistoryData(PostChainHistoryBean postChainHistoryBean) {
-        HttpUtils.postRequest(BaseUrl.HTTP_get_transaction_history, mContext, new Gson().toJson(postChainHistoryBean), new JsonCallback<ResponseBean<TransferHistoryBean.DataBeanX>>() {
+        HttpUtils.postRequest(BaseUrl.HTTP_get_transaction_history, mContext, new Gson().toJson(postChainHistoryBean), new JsonCallback<TransferHistoryBean>() {
             @Override
-            public void onSuccess(Response<ResponseBean<TransferHistoryBean.DataBeanX>> response) {
-                if (response.body().code == 0) {
-                    view.getTransferHistoryDataHttp(response.body().data);
+            public void onSuccess(Response<TransferHistoryBean> response) {
+                if (response.body().getCode().equals("0")) {
+                    view.getTransferHistoryDataHttp(response.body().getData());
                 } else {
-                    view.getDataHttpFail(response.body().message);
+                    view.getDataHttpFail(response.body().getMsg());
                 }
             }
         });

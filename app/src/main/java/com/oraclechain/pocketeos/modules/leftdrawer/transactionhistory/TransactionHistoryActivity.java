@@ -18,12 +18,12 @@ import com.oraclechain.pocketeos.adapter.baseadapter.MultiItemTypeAdapter;
 import com.oraclechain.pocketeos.adapter.baseadapter.wrapper.EmptyWrapper;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
+import com.oraclechain.pocketeos.base.Constants;
 import com.oraclechain.pocketeos.bean.AccountInfoBean;
 import com.oraclechain.pocketeos.bean.PostChainHistoryBean;
 import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.RotateUtils;
-import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.RecycleViewDivider;
 import com.oraclechain.pocketeos.view.popupwindow.BasePopupWindow;
@@ -50,9 +50,10 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
     BasePopupWindow basePopupWindow;
     private List<AccountInfoBean> mAccountInfoBeanList = new ArrayList<>();
 
-    private List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList = new ArrayList<>();//交易历史
+    private List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList = new ArrayList<>();//交易历史
     private EmptyWrapper mHistoryAdapter;
     private int size = 10; //每页加载的数量
+    private int page = 0; //起始页
 
     private PostChainHistoryBean mPostChainHistoryBean = new PostChainHistoryBean();
 
@@ -76,24 +77,29 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
         LinearLayoutManager layoutManager = new LinearLayoutManager(TransactionHistoryActivity.this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleTransferaccountsHistory.setLayoutManager(layoutManager);
-        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        }else {
+        } else {
             mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
         }
         mRecycleTransferaccountsHistory.setRefreshProgressStyle(ProgressStyle.LineSpinFadeLoader);
         mRecycleTransferaccountsHistory.setLoadingMoreProgressStyle(ProgressStyle.CubeTransition);
         mRecycleTransferaccountsHistory.setLoadingMoreEnabled(true);
-        mRecycleTransferaccountsHistory.setPullRefreshEnabled(false);
+        mRecycleTransferaccountsHistory.setPullRefreshEnabled(true);
         mRecycleTransferaccountsHistory.setArrowImageView(R.drawable.arrow);
         mRecycleTransferaccountsHistory.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
+                mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+                mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+                mPostChainHistoryBean.setPage(0);
+                mDataBeanList.clear();
+                presenter.getTransferHistoryData(mPostChainHistoryBean);
             }
 
             @Override
             public void onLoadMore() {
-                mPostChainHistoryBean.setSkip_seq(mDataBeanList.size());
+                mPostChainHistoryBean.setPage(page);
                 presenter.getTransferHistoryData(mPostChainHistoryBean);
             }
         });
@@ -102,9 +108,20 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
     @Override
     protected void initData() {
         showProgress();
-        mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-        mPostChainHistoryBean.setSkip_seq(0);
-        mPostChainHistoryBean.setNum_seq(size);
+        mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+        mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+        mPostChainHistoryBean.setPage(page);
+        mPostChainHistoryBean.setPageSize(size);
+        List<PostChainHistoryBean.SymbolsBean> symbolsBeans = new ArrayList<>();
+        PostChainHistoryBean.SymbolsBean symbolsBeanEos = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanEos.setSymbolName("EOS");
+        symbolsBeanEos.setContractName(Constants.EOSCONTRACT);
+        PostChainHistoryBean.SymbolsBean symbolsBeanOCT = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanOCT.setSymbolName("OCT");
+        symbolsBeanOCT.setContractName(Constants.OCTCONTRACT);
+        symbolsBeans.add(symbolsBeanEos);
+        symbolsBeans.add(symbolsBeanOCT);
+        mPostChainHistoryBean.setSymbols(symbolsBeans);
         presenter.getTransferHistoryData(mPostChainHistoryBean);
         mHistoryAdapter = new EmptyWrapper(AdapterManger.getCoinDetailsHistoryAdapter(this, mDataBeanList, mSwitchNumber.getText().toString().trim()));
         mHistoryAdapter.setEmptyView(R.layout.empty_project);
@@ -136,12 +153,15 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
                         public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                             basePopupWindow.dismiss();
                             mSwitchNumber.setText(mAccountInfoBeanList.get(position).getAccount_name());
-                            ShowDialog.showDialog(TransactionHistoryActivity.this, "", true, null).show();
-                            mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-                            mPostChainHistoryBean.setSkip_seq(0);
-                            mPostChainHistoryBean.setNum_seq(size);
+                            showProgress();
+                            mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setPage(0);
                             mDataBeanList.clear();
                             presenter.getTransferHistoryData(mPostChainHistoryBean);
+                            mHistoryAdapter = new EmptyWrapper(AdapterManger.getCoinDetailsHistoryAdapter(TransactionHistoryActivity.this, mDataBeanList, mSwitchNumber.getText().toString().trim()));
+                            mHistoryAdapter.setEmptyView(R.layout.empty_project);
+                            mRecycleTransferaccountsHistory.setAdapter(mHistoryAdapter);
                             isSHow = !isSHow;
                             RotateUtils.rotateArrow(mLookNumber, isSHow);
                         }
@@ -159,20 +179,28 @@ public class TransactionHistoryActivity extends BaseAcitvity<TransactionHistoryV
     @Override
     public void getTransferHistoryDataHttp(TransferHistoryBean.DataBeanX transferHistoryBean) {
         hideProgress();
+        mRecycleTransferaccountsHistory.refreshComplete();
         mRecycleTransferaccountsHistory.loadMoreComplete();
-        for (int i = 0; i < transferHistoryBean.getTransactions().size(); i++) {
-            if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getName().equals("transfer")) {
-                TransferHistoryBean.DataBeanX.TransactionsBean itemdata = transferHistoryBean.getTransactions().get(i);
+        if (!transferHistoryBean.isHasMore()){
+            mRecycleTransferaccountsHistory.setLoadingMoreEnabled(false);
+            return;
+        }else {
+            mRecycleTransferaccountsHistory.setLoadingMoreEnabled(true);
+        }
+        page += 1;
+        for (int i = 0; i < transferHistoryBean.getActions().size(); i++) {
+            if (transferHistoryBean.getActions().get(i).getDoc().getName().equals("transfer")) {
+                TransferHistoryBean.DataBeanX.ActionsBean itemdata = transferHistoryBean.getActions().get(i);
                 mDataBeanList.add(itemdata);
             }
         }
-
         mHistoryAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void getDataHttpFail(String msg) {
         hideProgress();
+        mRecycleTransferaccountsHistory.refreshComplete();
         mRecycleTransferaccountsHistory.loadMoreComplete();
         toast(msg);
     }

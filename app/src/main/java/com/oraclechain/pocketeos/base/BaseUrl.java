@@ -8,26 +8,26 @@ public class BaseUrl {
     /**
      * 生产环境服务器地址
      */
-   /* public final static String HTTP_PACKETADDRESS = "http://59.110.162.106:9999/api_oc_business/";
+   /* public final static String HTTP_PACKETADDRESS = "http://59.110.162.106:9999/api_oc_redpacket/";
     public final static String HTTP_ADDRESS = "http://59.110.162.106:9999/api_oc_personal/v1.0.0/";
-    public final static String HTTP_CHAIN_VOTE_ADDRESS = "http://192.168.3.205:8080/voteoraclechain/";
-    public final static String HTTP_CHAIN_ADDRESS = "http://192.168.3.205:8888/v1/chain/";
-    //    public final static String HTTP_CHAIN_ADDRESS = "http://59.110.162.106:8080/api_oc_blockchain-v1.3.0/";
+    public final static String HTTP_CHAIN_VOTE_ADDRESS = "http://59.110.162.106:8080/voteoraclechain/";
+    //    public final static String HTTP_CHAIN_ADDRESS = "http://192.168.3.205:8888/v1/chain/";
+    public final static String HTTP_CHAIN_ADDRESS = "http://59.110.162.106:8080/api_oc_blockchain-v1.3.0/";
     public final static String HTTP_ANSWER_ADDRESS = "http://59.110.162.106:8080/";
     public final static String HTTP_CANDY_ADDRESS = "http://59.110.162.106:9999/api_oc_pe_candy_system/";*/
     /**
      * 服务器地址
      */
-  /*  public final static String HTTP_PACKETADDRESS = "http://47.105.50.198/api_oc_business/";
-    public final static String HTTP_ADDRESS = "http://47.105.50.198/api_oc_personal/v1.0.0/";
-    public final static String HTTP_CHAIN_VOTE_ADDRESS = "http://47.105.50.198/voteoraclechain/";
-    public final static String HTTP_CHAIN_ADDRESS = "http://47.105.50.198/api_oc_blockchain-v1.3.0/";
-    public final static String HTTP_ANSWER_ADDRESS = "http://47.105.50.198/";
-    public final static String HTTP_CANDY_ADDRESS = "http://47.105.50.198/api_oc_pe_candy_system/";*/
+   /* public final static String HTTP_PACKETADDRESS = "http://192.168.3.185:8089/api_oc_redpacket/";
+    public final static String HTTP_ADDRESS = "http://47.105.99.78/api_oc_personal/v1.0.0/";
+    public final static String HTTP_CHAIN_VOTE_ADDRESS = "http://47.105.99.78/voteoraclechain/";
+    public final static String HTTP_CHAIN_ADDRESS = "http://47.105.99.78/api_oc_blockchain-v1.3.0/";
+    public final static String HTTP_ANSWER_ADDRESS = "http://47.105.99.78/";
+    public final static String HTTP_CANDY_ADDRESS = "http://47.105.99.78/api_oc_pe_candy_system/";*/
     /**
      * 正式环境服务器地址
      */
-    public final static String HTTP_PACKETADDRESS = "https://api.pocketeos.top/api_oc_business/";
+    public final static String HTTP_PACKETADDRESS = "http://192.168.3.185:8089/api_oc_redpacket/";
     public final static String HTTP_ADDRESS = "https://api.pocketeos.top/api_oc_personal/v1.0.0/";
      public final static String HTTP_CHAIN_VOTE_ADDRESS = "https://api.pocketeos.top/voteoraclechain/";
     public final static String HTTP_CHAIN_ADDRESS = "https://api.pocketeos.top/api_oc_blockchain-v1.3.0/";
@@ -65,6 +65,8 @@ public class BaseUrl {
     public final static String HTTP_add_new_eos = HTTP_ADDRESS + "user/add_new_eos";
     // 获取EOS账号信息
     public final static String HTTP_eos_get_account = HTTP_CHAIN_ADDRESS + "get_account_asset";
+    // 获取链上信息
+    public final static String HTTP_eos_get_table = HTTP_CHAIN_ADDRESS + "get_table_rows";
     // 获取资产汇率
     public final static String HTTP_eos_get_coin_rate = HTTP_CHAIN_ADDRESS + "get_rate";
     // 获取走势图
@@ -100,7 +102,7 @@ public class BaseUrl {
     // 发起交易
     public final static String HTTP_push_transaction = HTTP_CHAIN_ADDRESS + "push_transaction";
     // 获取交易历史
-    public final static String HTTP_get_transaction_history = HTTP_CHAIN_ADDRESS + "get_transactions";
+    public final static String HTTP_get_transaction_history ="http://history.pocketeos.top/VX/GetActions";
     // 获取区块链账号信息
     public final static String HTTP_get_chain_account_info = HTTP_CHAIN_ADDRESS + "get_account";
     // 设置主账号
@@ -112,7 +114,7 @@ public class BaseUrl {
     // app更新
     public final static String HTTP_get_app_info = HTTP_ADDRESS + "get_last_info";
     // 获取有问必答问题列表
-    public final static String HTTP_GetAsks = HTTP_ANSWER_ADDRESS + "eosaskanswer30/GetAsksJson";
+    public final static String HTTP_GetAsks = HTTP_ANSWER_ADDRESS + "GetAsksJson";
     // 新建红包
     public final static String HTTP_send_red_packet = HTTP_PACKETADDRESS + "send_red_packet";
     // 获取用户的红包历史

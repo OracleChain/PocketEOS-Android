@@ -135,7 +135,7 @@ public class HomeFragment extends BaseFragment<HomeView, HomePresenter> implemen
 
 
     private String openMoney = null;
-    private Boolean isOpen;
+    private Boolean isOpen = true;
     private Boolean isfromWithData = false;
 
     @Override

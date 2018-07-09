@@ -43,7 +43,7 @@ public class EncryptUtil {
 
     /**
      * Gets encrypt string.
-     *
+     *加密
      * @param content  the content
      * @param password the password
      * @return the encrypt string
@@ -63,7 +63,7 @@ public class EncryptUtil {
 
     /**
      * Gets decrypt string.
-     *
+     *解密
      * @param content  the content
      * @param password the password
      * @return the decrypt string

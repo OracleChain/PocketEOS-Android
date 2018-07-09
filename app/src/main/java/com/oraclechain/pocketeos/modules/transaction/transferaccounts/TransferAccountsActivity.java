@@ -107,9 +107,10 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
     private List<AccountInfoBean> mAccountInfoBeanList = new ArrayList<>();
     private List<String> mCoinList = new ArrayList<>();
 
-    private List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList = new ArrayList<>();//交易历史
+    private List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList = new ArrayList<>();//交易历史
     private EmptyWrapper mHistoryAdapter;
     private int size = 10; //每页加载的数量
+    private int page = 0; //页数
     private PostChainHistoryBean mPostChainHistoryBean = new PostChainHistoryBean();
 
 
@@ -120,6 +121,11 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
     @Override
     protected int getLayoutId() {
         return R.layout.activity_transfer_accounts;
+    }
+
+    @Override
+    public TransferAccountsPresenter initPresenter() {
+        return new TransferAccountsPresenter(TransferAccountsActivity.this);
     }
 
     @Override
@@ -153,9 +159,9 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
         LinearLayoutManager layoutManager = new LinearLayoutManager(TransferAccountsActivity.this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleTransferaccountsHistory.setLayoutManager(layoutManager);
-        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        }else {
+        } else {
             mRecycleTransferaccountsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
         }
 
@@ -171,7 +177,7 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
 
             @Override
             public void onLoadmore() {
-                mPostChainHistoryBean.setSkip_seq(mDataBeanList.size());
+                mPostChainHistoryBean.setPage(page);
                 presenter.getTransferHistoryData(mPostChainHistoryBean);
             }
         });
@@ -182,7 +188,7 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
     protected void initData() {
         mCoinList.add("EOS");
         mCoinList.add("OCT");
-
+        showProgress();
         mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
 
         presenter.getAccountDetailsData(getIntent().getStringExtra("account"));
@@ -193,10 +199,22 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
             presenter.getCoinRateData("eos");
         }
 
-        mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-        mPostChainHistoryBean.setSkip_seq(0);
-        mPostChainHistoryBean.setNum_seq(size);
-//        presenter.getTransferHistoryData(mPostChainHistoryBean);
+
+        mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+        mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+        mPostChainHistoryBean.setPage(page);
+        mPostChainHistoryBean.setPageSize(size);
+        List<PostChainHistoryBean.SymbolsBean> symbolsBeans = new ArrayList<>();
+        PostChainHistoryBean.SymbolsBean symbolsBeanEos = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanEos.setSymbolName("EOS");
+        symbolsBeanEos.setContractName(com.oraclechain.pocketeos.base.Constants.EOSCONTRACT);
+        PostChainHistoryBean.SymbolsBean symbolsBeanOCT = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanOCT.setSymbolName("OCT");
+        symbolsBeanOCT.setContractName(com.oraclechain.pocketeos.base.Constants.OCTCONTRACT);
+        symbolsBeans.add(symbolsBeanEos);
+        symbolsBeans.add(symbolsBeanOCT);
+        mPostChainHistoryBean.setSymbols(symbolsBeans);
+        presenter.getTransferHistoryData(mPostChainHistoryBean);
 
 
         mHistoryAdapter = new EmptyWrapper(AdapterManger.getTransferHistoryAdapter(this, mDataBeanList));
@@ -222,11 +240,6 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
     }
 
     @Override
-    public TransferAccountsPresenter initPresenter() {
-        return new TransferAccountsPresenter(TransferAccountsActivity.this);
-    }
-
-    @Override
     public void getCoinRateDataHttp(CoinRateBean.DataBean coinRateBean) {//获取资产汇率
         coinRate = coinRateBean.getPrice_cny();
         mTakePropertyNumber.addTextChangedListener(new TransferMoneyTextWatcher(mTakePropertyNumber, mTakeRmbProperty, coinRate, mPropertyPerson, mGoTransferAccounts));//限制金额最多为小数点后面四位
@@ -238,7 +251,6 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
     @Override
     public void getAccountDetailsDataHttp(AccountDetailsBean accountDetailsBean) {
         mSpring.onFinishFreshAndLoad();
-        hideProgress();
         if (mSwitchProperty.getText().toString().equals("OCT")) {
             mCanUseProperty.setText(StringUtils.addComma(accountDetailsBean.getOct_balance()) + " OCT");
             mRmbProperty.setText("≈" + StringUtils.addComma(accountDetailsBean.getOct_balance_cny()) + " CNY");
@@ -273,12 +285,13 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
     public void getTransferHistoryDataHttp(TransferHistoryBean.DataBeanX transferHistoryBean) {
         mSpring.onFinishFreshAndLoad();
         hideProgress();
-        for (int i = 0; i < transferHistoryBean.getTransactions().size(); i++) {
-            if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getName().equals("transfer")) {
-                if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getFrom().equals(mSwitchNumber.getText().toString().trim())
-                        && transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getQuantity().contains(mSwitchProperty.getText().toString().trim())) {
-                    if (!transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getTo().equals("oc.redpacket")) {
-                        TransferHistoryBean.DataBeanX.TransactionsBean itemdata = transferHistoryBean.getTransactions().get(i);
+        page += 1;
+        for (int i = 0; i < transferHistoryBean.getActions().size(); i++) {
+            if (transferHistoryBean.getActions().get(i).getDoc().getName().equals("transfer")) {
+                if (transferHistoryBean.getActions().get(i).getDoc().getData().getFrom().equals(mSwitchNumber.getText().toString().trim())
+                        && transferHistoryBean.getActions().get(i).getDoc().getData().getQuantity().contains(mSwitchProperty.getText().toString().trim())) {
+                    if (!transferHistoryBean.getActions().get(i).getDoc().getData().getTo().equals("oc.redpacket")) {
+                        TransferHistoryBean.DataBeanX.ActionsBean itemdata = transferHistoryBean.getActions().get(i);
                         mDataBeanList.add(itemdata);
                     }
                 }
@@ -330,12 +343,17 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
                             basePopupWindow.dismiss();
                             mSwitchNumber.setText(mAccountInfoBeanList.get(position).getAccount_name());
 
+                            showProgress();
                             presenter.getAccountDetailsData(mAccountInfoBeanList.get(position).getAccount_name());
-                            mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-                            mPostChainHistoryBean.setSkip_seq(0);
-                            mPostChainHistoryBean.setNum_seq(size);
+                            page = 0;
+                            mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setPage(page);
                             mDataBeanList.clear();
                             presenter.getTransferHistoryData(mPostChainHistoryBean);
+                            mHistoryAdapter = new EmptyWrapper(AdapterManger.getTransferHistoryAdapter(TransferAccountsActivity.this, mDataBeanList));
+                            mHistoryAdapter.setEmptyView(R.layout.empty_project);
+                            mRecycleTransferaccountsHistory.setAdapter(mHistoryAdapter);
                             isSHow = !isSHow;
                             RotateUtils.rotateArrow(mLookNumber, isSHow);
                         }
@@ -368,11 +386,16 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
                             basePopupWindow1.dismiss();
                             mSwitchProperty.setText(mCoinList.get(position));
 
-                            mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-                            mPostChainHistoryBean.setSkip_seq(0);
-                            mPostChainHistoryBean.setNum_seq(size);
+                            showProgress();
+                            page = 0;
+                            mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setPage(page);
                             mDataBeanList.clear();
                             presenter.getTransferHistoryData(mPostChainHistoryBean);
+                            mHistoryAdapter = new EmptyWrapper(AdapterManger.getTransferHistoryAdapter(TransferAccountsActivity.this, mDataBeanList));
+                            mHistoryAdapter.setEmptyView(R.layout.empty_project);
+                            mRecycleTransferaccountsHistory.setAdapter(mHistoryAdapter);
 
                             if (mSwitchProperty.getText().toString().equals("OCT")) {
                                 mCanUseProperty.setText(oct.getCoinNumber());
@@ -414,12 +437,7 @@ public class TransferAccountsActivity extends BaseAcitvity<TransferAccountsView,
                                                     StringUtils.addZero(mTakePropertyNumber.getText().toString().trim()) + " " + mSwitchProperty.getText().toString().trim(),
                                                     mSwitchNumber.getText().toString().trim())),
                                             mSwitchNumber.getText().toString().trim());
-                                   /* new EosDataManger(TransferAccountsActivity.this, userPassword).setCoinRate(coinRate).pushAction(
-                                            new Gson().toJson(new TransferEosMessageBean(mLeaveMessage.getText().toString().trim()
-                                                    , "eosio.token",
-                                                    StringUtils.addZero(mTakePropertyNumber.getText().toString().trim()) + " " + mSwitchProperty.getText().toString().trim(),
-                                                    "eosio")),
-                                            "eosio");*/
+
                                 } else {
                                     new EosDataManger(TransferAccountsActivity.this, userPassword).setCoinRate(coinRate).pushAction(
                                             new Gson().toJson(new TransferEosMessageBean(mLeaveMessage.getText().toString().trim()

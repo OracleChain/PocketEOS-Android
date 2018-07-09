@@ -240,6 +240,8 @@ public class DappFragment extends BaseFragment<DappView, DappPresenter> implemen
                 Bundle bundle = new Bundle();
                 bundle.putString("title", hotapplication.getApplyName());
                 bundle.putString("url", hotapplication.getUrl());
+//                bundle.putString("url", "http://47.74.145.111");
+//                bundle.putString("url", "http://www.cheerfifa.com");
                 ActivityUtils.next(getActivity(), DappDetailsActivity.class, bundle);
             }
         }

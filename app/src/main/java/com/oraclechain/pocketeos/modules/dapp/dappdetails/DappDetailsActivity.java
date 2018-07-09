@@ -11,6 +11,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
@@ -22,7 +23,6 @@ import com.oraclechain.pocketeos.view.webview.BaseWebSetting;
 import com.oraclechain.pocketeos.view.webview.BaseWebView;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
 
@@ -32,36 +32,12 @@ public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresente
     String account = null;
     @BindView(R.id.iv_back)
     ImageView mIvBack;
-    String url = null;
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
+    @BindView(R.id.close)
+    TextView mClose;
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_dapp_details;
-    }
-
-    @Override
-    public NormalPresenter initPresenter() {
-        return new NormalPresenter();
-    }
-
-    @Override
-    protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle(getIntent().getStringExtra("title"));
-        url = getIntent().getStringExtra("url");
-        ActivityUtils.next(this, ChooseAccountWithCoinActivity.class, 100);
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    public void initEvent() {
-
-    }
+    String url = null;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -76,7 +52,7 @@ public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresente
 
         // 开启辅助功能崩溃
         mWebDappDetails.disableAccessibility(this);
-        new BaseWebSetting(mWebDappDetails, DappDetailsActivity.this ,false);//设置webseeting
+        new BaseWebSetting(mWebDappDetails, DappDetailsActivity.this, false);//设置webseeting
         mWebDappDetails.getSettings().setUserAgentString("PocketEosAndroid");
         mWebDappDetails.setWebViewClient(new WebViewClient() {
             @Override
@@ -97,7 +73,7 @@ public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresente
                 if (progress == 100) {
                     mProgressBar.setVisibility(View.GONE);//加载完网页进度条消失
                     mWebDappDetails.loadUrl("javascript:getEosAccount('" + account + "')");
-                }else {
+                } else {
                     mProgressBar.setVisibility(View.VISIBLE);//开始加载网页时显示进度条
                     mProgressBar.setProgress(progress);//设置进度值
                 }
@@ -106,28 +82,62 @@ public class DappDetailsActivity extends BaseAcitvity<NormalView, NormalPresente
 
     }
 
-    @OnClick(R.id.iv_back)
-    public void onViewClicked() {
-        if(mWebDappDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
-            mWebDappDetails.goBack();
-        }
-        else {//当webview处于第一页面时,直接退出程序
-            finish();
-        }
-    }
     //设置返回键动作（防止按返回键直接退出程序)
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK) {
-            if(mWebDappDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mWebDappDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
                 mWebDappDetails.goBack();
                 return true;
-            }
-            else {//当webview处于第一页面时,直接退出程序
-               finish();
+            } else {//当webview处于第一页面时,直接退出程序
+                finish();
             }
         }
         return super.onKeyDown(keyCode, event);
     }
 
+
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_dapp_details;
+    }
+
+    @Override
+    public NormalPresenter initPresenter() {
+        return new NormalPresenter();
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+        setCenterTitle(getIntent().getStringExtra("title"));
+        mClose.setVisibility(View.VISIBLE);
+        url = getIntent().getStringExtra("url");
+        ActivityUtils.next(this, ChooseAccountWithCoinActivity.class, 100);
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    public void initEvent() {
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mWebDappDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+                    mWebDappDetails.goBack();
+                } else {//当webview处于第一页面时,直接退出程序
+                    finish();
+                }
+            }
+        });
+        mClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
 }

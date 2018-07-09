@@ -17,7 +17,6 @@ import com.oraclechain.pocketeos.view.webview.BaseWebView;
 import com.oraclechain.pocketeos.view.webview.BaseWebViewClient;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPresenter> implements NormalView {
 
@@ -31,32 +30,23 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
     ImageView mIvBack;
     @BindView(R.id.progressBar)
     ProgressBar mProgressBar;
+    @BindView(R.id.close)
+    TextView mClose;
 
-    @OnClick(R.id.iv_back)
-    public void onViewClicked() {
-        if(mWebNewsDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
-            mWebNewsDetails.goBack();
-        }
-        else {//当webview处于第一页面时,直接退出程序
-            finish();
-        }
-    }
 
     //设置返回键动作（防止按返回键直接退出程序)
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK) {
-            if(mWebNewsDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mWebNewsDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
                 mWebNewsDetails.goBack();
                 return true;
-            }
-            else {//当webview处于第一页面时,直接退出程序
+            } else {//当webview处于第一页面时,直接退出程序
                 finish();
             }
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
 
     @Override
@@ -72,6 +62,7 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
     @Override
     protected void initViews(Bundle savedInstanceState) {
         setCenterTitle(getString(R.string.wen_details));
+        mClose.setVisibility(View.VISIBLE);
         details = getIntent().getStringExtra("details");
         // 开启辅助功能崩溃
         mWebNewsDetails.disableAccessibility(this);
@@ -107,7 +98,22 @@ public class WebNewsDetailsActivity extends BaseAcitvity<NormalView, NormalPrese
 
     @Override
     public void initEvent() {
-
+        mIvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mWebNewsDetails.canGoBack()) {//当webview不是处于第一页面时，返回上一个页面
+                    mWebNewsDetails.goBack();
+                } else {//当webview处于第一页面时,直接退出程序
+                    finish();
+                }
+            }
+        });
+        mClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 

@@ -4,14 +4,13 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.lzy.okgo.model.Response;
-import com.lzy.okgo.utils.OkLogger;
 import com.oraclechain.pocketeos.base.BasePresent;
 import com.oraclechain.pocketeos.base.BaseUrl;
 import com.oraclechain.pocketeos.bean.PostChainHistoryBean;
+import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.bean.SparkLinesBean;
 import com.oraclechain.pocketeos.bean.TransferHistoryBean;
 import com.oraclechain.pocketeos.net.HttpUtils;
-import com.oraclechain.pocketeos.bean.ResponseBean;
 import com.oraclechain.pocketeos.net.callbck.JsonCallback;
 
 import java.util.HashMap;
@@ -28,14 +27,13 @@ public class CoinDetailsPresenter extends BasePresent<CoinDetailsView> {
     }
 
     public void getTransferHistoryData(PostChainHistoryBean postChainHistoryBean) {
-        HttpUtils.postRequest(BaseUrl.HTTP_get_transaction_history, mContext, new Gson().toJson(postChainHistoryBean), new JsonCallback<ResponseBean<TransferHistoryBean.DataBeanX>>() {
+        HttpUtils.postRequest(BaseUrl.HTTP_get_transaction_history, mContext, new Gson().toJson(postChainHistoryBean), new JsonCallback<TransferHistoryBean>() {
             @Override
-            public void onSuccess(Response<ResponseBean<TransferHistoryBean.DataBeanX>> response) {
-                OkLogger.i("===========>"+response.body().code);
-                if (response.body().code == 0) {
-                    view.getTransferHistoryDataHttp(response.body().data);
+            public void onSuccess(Response<TransferHistoryBean> response) {
+                if (response.body().getCode().equals("0")) {
+                    view.getTransferHistoryDataHttp(response.body().getData());
                 } else {
-                    view.getDataHttpFail(response.body().message);
+                    view.getDataHttpFail(response.body().getMsg());
                 }
             }
         });

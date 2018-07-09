@@ -88,7 +88,7 @@ public abstract class JsonCallback<T> extends AbsCallback<T> {
         } else if (response.getException() instanceof SocketException) {
             ToastUtils.showLongToast(R.string.socket_exception);
         } else if (response.getException() instanceof JsonSyntaxException) {
-            ToastUtils.showLongToast(R.string.chain_error);
+            ToastUtils.showLongToast(R.string.error_parse);
         }
     }
 }

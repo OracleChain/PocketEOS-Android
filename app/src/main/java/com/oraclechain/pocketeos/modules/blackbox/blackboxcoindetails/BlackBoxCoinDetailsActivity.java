@@ -67,12 +67,12 @@ public class BlackBoxCoinDetailsActivity extends BaseAcitvity<CoinDetailsView, C
 
     ShareCoinDetailsDialog dialog = null;
     private AccountWithCoinBean accountWithCoinBean = new AccountWithCoinBean();
-    private List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList = new ArrayList<>();//交易历史
+    private List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList = new ArrayList<>();//交易历史
     private EmptyWrapper mHistoryAdapter;
     private int size = 10; //每页加载的数量
     private PostChainHistoryBean mPostChainHistoryBean = new PostChainHistoryBean();
     private String cointype = "eos";
-    private int skip_seq = 0;
+    private int page = 0;
 
     @Override
     protected int getLayoutId() {
@@ -124,7 +124,7 @@ public class BlackBoxCoinDetailsActivity extends BaseAcitvity<CoinDetailsView, C
 
             @Override
             public void onLoadmore() {
-                mPostChainHistoryBean.setSkip_seq(skip_seq);
+                mPostChainHistoryBean.setPage(page);
                 presenter.getTransferHistoryData(mPostChainHistoryBean);
             }
         });
@@ -135,9 +135,20 @@ public class BlackBoxCoinDetailsActivity extends BaseAcitvity<CoinDetailsView, C
         showProgress();
         presenter.getSparklinesData();
 
-        mPostChainHistoryBean.setAccount_name(getIntent().getStringExtra("account"));
-        mPostChainHistoryBean.setSkip_seq(0);
-        mPostChainHistoryBean.setNum_seq(size);
+        mPostChainHistoryBean.setFrom(getIntent().getStringExtra("account"));
+        mPostChainHistoryBean.setTo(getIntent().getStringExtra("account"));
+        mPostChainHistoryBean.setPage(page);
+        mPostChainHistoryBean.setPageSize(size);
+        List<PostChainHistoryBean.SymbolsBean> symbolsBeans = new ArrayList<>();
+        PostChainHistoryBean.SymbolsBean symbolsBeanEos = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanEos.setSymbolName("EOS");
+        symbolsBeanEos.setContractName(com.oraclechain.pocketeos.base.Constants.EOSCONTRACT);
+        PostChainHistoryBean.SymbolsBean symbolsBeanOCT = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanOCT.setSymbolName("OCT");
+        symbolsBeanOCT.setContractName(com.oraclechain.pocketeos.base.Constants.OCTCONTRACT);
+        symbolsBeans.add(symbolsBeanEos);
+        symbolsBeans.add(symbolsBeanOCT);
+        mPostChainHistoryBean.setSymbols(symbolsBeans);
         presenter.getTransferHistoryData(mPostChainHistoryBean);
 
 
@@ -156,11 +167,11 @@ public class BlackBoxCoinDetailsActivity extends BaseAcitvity<CoinDetailsView, C
     public void getTransferHistoryDataHttp(TransferHistoryBean.DataBeanX transferHistoryBean) {
         hideProgress();
         mSpring.onFinishFreshAndLoad();
-        skip_seq += transferHistoryBean.getTransactions().size();
-        for (int i = 0; i < transferHistoryBean.getTransactions().size(); i++) {
-            if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getName().equals("transfer")) {
-                if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getQuantity().contains(cointype.toUpperCase())) {
-                    TransferHistoryBean.DataBeanX.TransactionsBean itemdata = transferHistoryBean.getTransactions().get(i);
+        page += 1;
+        for (int i = 0; i < transferHistoryBean.getActions().size(); i++) {
+            if (transferHistoryBean.getActions().get(i).getDoc().getName().equals("transfer")) {
+                if (transferHistoryBean.getActions().get(i).getDoc().getData().getQuantity().contains(cointype.toUpperCase())) {
+                    TransferHistoryBean.DataBeanX.ActionsBean itemdata = transferHistoryBean.getActions().get(i);
                     mDataBeanList.add(itemdata);
                 }
             }
@@ -194,10 +205,8 @@ public class BlackBoxCoinDetailsActivity extends BaseAcitvity<CoinDetailsView, C
         if (requestCode == 100 && resultCode == 300) {
             if (data.getExtras().getString("coin_type").equals(accountWithCoinBean.getCoinName())) {
                 mDataBeanList.clear();
-                skip_seq = 0;
-                mPostChainHistoryBean.setAccount_name(getIntent().getStringExtra("account"));
-                mPostChainHistoryBean.setSkip_seq(0);
-                mPostChainHistoryBean.setNum_seq(size);
+                page = 0;
+                mPostChainHistoryBean.setPage(0);
                 presenter.getTransferHistoryData(mPostChainHistoryBean);
             }
         }

@@ -1,5 +1,7 @@
 package com.oraclechain.pocketeos.bean;
 
+import java.util.List;
+
 /**
  * Created by pocketEos on 2018/2/1.
  * 获取json序列化 发送的json实体类
@@ -8,36 +10,82 @@ public class PostChainHistoryBean {
 
 
     /**
-     * account_name : inita
-     * skip_seq : 2
-     * num_seq : 1
+     * symbols : [{"symbolName":"EOS","contractName":"eosio.token"},{"symbolName":"AAA","contractName":"helloworldgo"}]
+     * from : oraclechain4
+     * to : oraclechain4
+     * page : 0
+     * pageSize : 10
      */
 
-    private String account_name;
-    private int skip_seq;
-    private int num_seq;
+    private String from;
+    private String to;
+    private int page;
+    private int pageSize;
+    private List<SymbolsBean> symbols;
 
-    public String getAccount_name() {
-        return account_name == null ? "" : account_name;
+    public String getFrom() {
+        return from;
     }
 
-    public void setAccount_name(String account_name) {
-        this.account_name = account_name;
+    public void setFrom(String from) {
+        this.from = from;
     }
 
-    public int getSkip_seq() {
-        return skip_seq;
+    public String getTo() {
+        return to;
     }
 
-    public void setSkip_seq(int skip_seq) {
-        this.skip_seq = skip_seq;
+    public void setTo(String to) {
+        this.to = to;
     }
 
-    public int getNum_seq() {
-        return num_seq;
+    public int getPage() {
+        return page;
     }
 
-    public void setNum_seq(int num_seq) {
-        this.num_seq = num_seq;
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public List<SymbolsBean> getSymbols() {
+        return symbols;
+    }
+
+    public void setSymbols(List<SymbolsBean> symbols) {
+        this.symbols = symbols;
+    }
+
+    public static class SymbolsBean {
+        /**
+         * symbolName : EOS
+         * contractName : eosio.token
+         */
+
+        private String symbolName;
+        private String contractName;
+
+        public String getSymbolName() {
+            return symbolName;
+        }
+
+        public void setSymbolName(String symbolName) {
+            this.symbolName = symbolName;
+        }
+
+        public String getContractName() {
+            return contractName;
+        }
+
+        public void setContractName(String contractName) {
+            this.contractName = contractName;
+        }
     }
 }

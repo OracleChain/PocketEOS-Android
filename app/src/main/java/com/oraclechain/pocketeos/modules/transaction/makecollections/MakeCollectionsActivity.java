@@ -97,15 +97,21 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
 
     private BigDecimal coinRate;//资产汇率
 
-    private List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList = new ArrayList<>();//交易历史
+    private List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList = new ArrayList<>();//交易历史
     private EmptyWrapper mHistoryAdapter;
     private int size = 10; //每页加载的数量
+    private int page = 0; //页数
 
     private PostChainHistoryBean mPostChainHistoryBean = new PostChainHistoryBean();
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_make_collections;
+    }
+
+    @Override
+    public MakeCollectionsPresenter initPresenter() {
+        return new MakeCollectionsPresenter(MakeCollectionsActivity.this);
     }
 
     @Override
@@ -123,9 +129,9 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
         LinearLayoutManager layoutManager = new LinearLayoutManager(MakeCollectionsActivity.this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
         mRecycleMakeCollectionsHistory.setLayoutManager(layoutManager);
-        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
+        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
             mRecycleMakeCollectionsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
-        }else {
+        } else {
             mRecycleMakeCollectionsHistory.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.blackbox_line)));
         }
 
@@ -141,7 +147,7 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
 
             @Override
             public void onLoadmore() {
-                mPostChainHistoryBean.setSkip_seq(mDataBeanList.size());
+                mPostChainHistoryBean.setPage(page);
                 presenter.getTransferHistoryData(mPostChainHistoryBean);
             }
         });
@@ -160,10 +166,22 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
         } else {
             presenter.getCoinRateData("eos");
         }
-        mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-        mPostChainHistoryBean.setSkip_seq(0);
-        mPostChainHistoryBean.setNum_seq(size);
-//        presenter.getTransferHistoryData(mPostChainHistoryBean);
+
+        mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+        mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+        mPostChainHistoryBean.setPage(page);
+        mPostChainHistoryBean.setPageSize(size);
+        List<PostChainHistoryBean.SymbolsBean> symbolsBeans = new ArrayList<>();
+        PostChainHistoryBean.SymbolsBean symbolsBeanEos = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanEos.setSymbolName("EOS");
+        symbolsBeanEos.setContractName(com.oraclechain.pocketeos.base.Constants.EOSCONTRACT);
+        PostChainHistoryBean.SymbolsBean symbolsBeanOCT = new PostChainHistoryBean.SymbolsBean();
+        symbolsBeanOCT.setSymbolName("OCT");
+        symbolsBeanOCT.setContractName(com.oraclechain.pocketeos.base.Constants.OCTCONTRACT);
+        symbolsBeans.add(symbolsBeanEos);
+        symbolsBeans.add(symbolsBeanOCT);
+        mPostChainHistoryBean.setSymbols(symbolsBeans);
+        presenter.getTransferHistoryData(mPostChainHistoryBean);
 
 
         mHistoryAdapter = new EmptyWrapper(AdapterManger.getMakeCollectionHistoryAdapter(this, mDataBeanList));
@@ -178,14 +196,9 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
     }
 
     @Override
-    public MakeCollectionsPresenter initPresenter() {
-        return new MakeCollectionsPresenter(MakeCollectionsActivity.this);
-    }
-
-    @Override
     public void getCoinRateDataHttp(CoinRateBean.DataBean coinRateBean) {
         mSpring.onFinishFreshAndLoad();
-        hideProgress();
+
         coinRate = coinRateBean.getPrice_cny();
         mGetPropertyNumber.addTextChangedListener(new MakeCollectionMoneyTextWatcher(mGetPropertyNumber, mTakeRmbProperty, coinRate, mGetMakeCollectionsCode));//限制金额最多为小数点后面四位
         if (mGetPropertyNumber.getText().toString().trim().length() != 0) {
@@ -197,12 +210,13 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
     public void getTransferHistoryDataHttp(TransferHistoryBean.DataBeanX transferHistoryBean) {
         mSpring.onFinishFreshAndLoad();
         hideProgress();
-        for (int i = 0; i < transferHistoryBean.getTransactions().size(); i++) {
-            if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getName().equals("transfer")) {
-                if (transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getTo().equals(mSwitchNumber.getText().toString().trim())
-                        && transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getQuantity().contains(mSwitchProperty.getText().toString().trim()) ) {
-                    if (!transferHistoryBean.getTransactions().get(i).getTransaction().getTransaction().getActions().get(0).getData().getFrom().equals("oc.redpacket")) {
-                        TransferHistoryBean.DataBeanX.TransactionsBean itemdata = transferHistoryBean.getTransactions().get(i);
+        page += 1;
+        for (int i = 0; i < transferHistoryBean.getActions().size(); i++) {
+            if (transferHistoryBean.getActions().get(i).getDoc().getName().equals("transfer")) {
+                if (transferHistoryBean.getActions().get(i).getDoc().getData().getTo().equals(mSwitchNumber.getText().toString().trim())
+                        && transferHistoryBean.getActions().get(i).getDoc().getData().getQuantity().contains(mSwitchProperty.getText().toString().trim())) {
+                    if (!transferHistoryBean.getActions().get(i).getDoc().getData().getFrom().equals("oc.redpacket")) {
+                        TransferHistoryBean.DataBeanX.ActionsBean itemdata = transferHistoryBean.getActions().get(i);
                         mDataBeanList.add(itemdata);
                     }
                 }
@@ -248,11 +262,17 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
                         public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                             basePopupWindow.dismiss();
                             mSwitchNumber.setText(mAccountInfoBeanList.get(position).getAccount_name());
-                            mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-                            mPostChainHistoryBean.setSkip_seq(0);
-                            mPostChainHistoryBean.setNum_seq(size);
+                            showProgress();
+                            page = 0;
+                            mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setPage(page);
+
                             mDataBeanList.clear();
                             presenter.getTransferHistoryData(mPostChainHistoryBean);
+                            mHistoryAdapter = new EmptyWrapper(AdapterManger.getMakeCollectionHistoryAdapter(MakeCollectionsActivity.this, mDataBeanList));
+                            mHistoryAdapter.setEmptyView(R.layout.empty_project);
+                            mRecycleMakeCollectionsHistory.setAdapter(mHistoryAdapter);
                             isSHow = !isSHow;
                             RotateUtils.rotateArrow(mLookNumber, isSHow);
                         }
@@ -285,11 +305,16 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
                             basePopupWindow1.dismiss();
                             mSwitchProperty.setText(mCoinList.get(position));
 
-                            mPostChainHistoryBean.setAccount_name(mSwitchNumber.getText().toString());
-                            mPostChainHistoryBean.setSkip_seq(0);
-                            mPostChainHistoryBean.setNum_seq(size);
+                            showProgress();
+                            page = 0;
+                            mPostChainHistoryBean.setFrom(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setTo(mSwitchNumber.getText().toString());
+                            mPostChainHistoryBean.setPage(page);
                             mDataBeanList.clear();
                             presenter.getTransferHistoryData(mPostChainHistoryBean);
+                            mHistoryAdapter = new EmptyWrapper(AdapterManger.getMakeCollectionHistoryAdapter(MakeCollectionsActivity.this, mDataBeanList));
+                            mHistoryAdapter.setEmptyView(R.layout.empty_project);
+                            mRecycleMakeCollectionsHistory.setAdapter(mHistoryAdapter);
 
                             if (mSwitchProperty.getText().toString().equals("OCT")) {
                                 presenter.getCoinRateData("oraclechain");
@@ -372,8 +397,8 @@ public class MakeCollectionsActivity extends BaseAcitvity<MakeCollectionsView, M
         super.onActivityResult(requestCode, resultCode, data);
         hideProgress();
 //        Tencent.onActivityResultData(requestCode, resultCode, data, new BaseUIListener(MakeCollectionsActivity.this, true));
-        if (requestCode == Constants.REQUEST_QQ_SHARE || requestCode == Constants.REQUEST_QZONE_SHARE|| requestCode == Constants.REQUEST_OLD_SHARE) {
-                Tencent.handleResultData(data, new BaseUIListener(MakeCollectionsActivity.this, true));
+        if (requestCode == Constants.REQUEST_QQ_SHARE || requestCode == Constants.REQUEST_QZONE_SHARE || requestCode == Constants.REQUEST_OLD_SHARE) {
+            Tencent.handleResultData(data, new BaseUIListener(MakeCollectionsActivity.this, true));
         }
     }
 }

@@ -10,9 +10,10 @@ import android.os.Environment;
 import android.text.ClipboardManager;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.zxing.client.result.ParsedResultType;
@@ -29,6 +30,7 @@ import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
 import com.oraclechain.pocketeos.modules.otherloginorshare.BaseUIListener;
 import com.oraclechain.pocketeos.modules.otherloginorshare.WxShareAndLoginUtils;
+import com.oraclechain.pocketeos.modules.resourcemanager.resourcehome.activity.ResourceManagerActivity;
 import com.oraclechain.pocketeos.modules.wallet.createwallet.login.LoginActivity;
 import com.oraclechain.pocketeos.utils.DensityUtil;
 import com.oraclechain.pocketeos.utils.EncryptUtil;
@@ -36,7 +38,6 @@ import com.oraclechain.pocketeos.utils.FilesUtils;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.KeyBoardUtil;
 import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
-import com.oraclechain.pocketeos.utils.ShowDialog;
 import com.oraclechain.pocketeos.utils.ToastUtils;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.utils.ViewToImageUtils;
@@ -69,9 +70,11 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
     @BindView(R.id.img_number_code)
     ImageView mImgNumberCode;
     @BindView(R.id.set_main_number)
-    Button mSetMainNumber;
+    TextView mSetMainNumber;
+    @BindView(R.id.resource_manager)
+    TextView mResourceManager;
     @BindView(R.id.import_private_key)
-    Button mImportPrivateKey;
+    TextView mImportPrivateKey;
 
     CustomSlideToUnlockView mSlideToUnlock;
     ImageView mIvSlideEnd;
@@ -79,6 +82,10 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
     @BindView(R.id.rel)
     RelativeLayout mRel;
     ShareDialog dialog = null;
+    @BindView(R.id.switch_view)
+    Switch mSwitchView;
+    @BindView(R.id.rell)
+    RelativeLayout mRell;
     private AccountInfoBean mAccountInfoBean = new AccountInfoBean();
     private ImportPrivateKeyDialog mImportPrivateKeyDialog;
 
@@ -110,8 +117,8 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
             if (type == 1) {
                 finish();
             } else if (type == 0) {
-                mSetMainNumber.setBackgroundColor(getResources().getColor(R.color.gray_color));
-                mSetMainNumber.setClickable(false);
+                mSwitchView.setClickable(false);
+                mSwitchView.setChecked(true);
             }
         }
 
@@ -122,7 +129,7 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
         toast(msg);
     }
 
-    @OnClick({R.id.img_right, R.id.set_main_number, R.id.import_private_key})
+    @OnClick({R.id.img_right, R.id.switch_view, R.id.resource_manager, R.id.import_private_key})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.img_right:
@@ -171,9 +178,14 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
                     dialog.show();
                 }
                 break;
-            case R.id.set_main_number://设为主账号
-                ShowDialog.showDialog(this, "", true, null).show();
+            case R.id.switch_view://设为主账号
+                showProgress();
                 presenter.setMianAccountData(mAccountInfoBean.getAccount_name(), 0);
+                break;
+            case R.id.resource_manager://资源管理
+                Bundle bundle = new Bundle();
+                bundle.putString("account", mAccountInfoBean.getAccount_name());
+                ActivityUtils.next(this, ResourceManagerActivity.class, bundle);
                 break;
             case R.id.import_private_key://导出私钥
                 PasswordDialog mPasswordDialog = new PasswordDialog(AccountDetailsActivity.this, new PasswordCallback() {
@@ -263,6 +275,16 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        hideProgress();
+        if (requestCode == Constants.REQUEST_QQ_SHARE || requestCode == Constants.REQUEST_QZONE_SHARE || requestCode == Constants.REQUEST_OLD_SHARE) {
+            Tencent.handleResultData(data, new BaseUIListener(AccountDetailsActivity.this, true));
+        }
+    }
+
+
+    @Override
     protected int getLayoutId() {
         return R.layout.activity_nuumber_details;
     }
@@ -281,18 +303,14 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
 
         mAccountInfoBean = getIntent().getParcelableExtra("bean");
         setCenterTitle(mAccountInfoBean.getAccount_name());
-        if (Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
-            setRightImg(true);
-        } else {
-            setRightImg(false);
-        }
+
         mImgRight.setImageDrawable(getResources().getDrawable(R.mipmap.makecollectionshare));
         if (mAccountInfoBean.getIs_main_account().equals("1")) {
-            mSetMainNumber.setBackgroundColor(getResources().getColor(R.color.gray_color));
-            mSetMainNumber.setClickable(false);
+            mSwitchView.setClickable(false);
+            mSwitchView.setChecked(true);
         } else {
-            mSetMainNumber.setBackgroundColor(getResources().getColor(R.color.theme_color));
-            mSetMainNumber.setClickable(true);
+            mSwitchView.setClickable(true);
+            mSwitchView.setChecked(false);
         }
         QrCodeAccountBean qrCodeAccountBean = new QrCodeAccountBean();
         qrCodeAccountBean.setAccount_name(mAccountInfoBean.getAccount_name());
@@ -313,9 +331,11 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
         }
 
         if (Utils.getSpUtils().getString("loginmode").equals("blackbox")) {
-            mSetMainNumber.setVisibility(View.GONE);
+            mRell.setVisibility(View.GONE);
+            setRightImg(false);
         } else {
-            mSetMainNumber.setVisibility(View.VISIBLE);
+            mRell.setVisibility(View.VISIBLE);
+            setRightImg(true);
         }
     }
 
@@ -421,12 +441,4 @@ public class AccountDetailsActivity extends BaseAcitvity<AccountDetailsView, Acc
         mSlideToUnlock.setmCallBack(callBack);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        hideProgress();
-        if (requestCode == Constants.REQUEST_QQ_SHARE || requestCode == Constants.REQUEST_QZONE_SHARE || requestCode == Constants.REQUEST_OLD_SHARE) {
-            Tencent.handleResultData(data, new BaseUIListener(AccountDetailsActivity.this, true));
-        }
-    }
 }

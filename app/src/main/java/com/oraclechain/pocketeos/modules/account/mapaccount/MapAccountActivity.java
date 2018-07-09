@@ -15,6 +15,7 @@ import com.oraclechain.pocketeos.bean.GetAccountsBean;
 import com.oraclechain.pocketeos.bean.UserBean;
 import com.oraclechain.pocketeos.blockchain.cypto.ec.EosPrivateKey;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
+import com.oraclechain.pocketeos.modules.blackbox.BlackBoxMainActivity;
 import com.oraclechain.pocketeos.modules.main.MainActivity;
 import com.oraclechain.pocketeos.utils.EncryptUtil;
 import com.oraclechain.pocketeos.utils.JsonUtil;
@@ -63,7 +64,11 @@ public class MapAccountActivity extends BaseAcitvity<MapAccountView, MapAccountP
 
     @Override
     protected void initData() {
-        userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
+        if (!Utils.getSpUtils().getString("loginmode").equals("blackbox")) {
+            userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
+        } else {
+            userBean = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_name.eq(Utils.getSpUtils().getString("firstUser"))).build().unique();
+        }
     }
 
     @Override
@@ -116,7 +121,11 @@ public class MapAccountActivity extends BaseAcitvity<MapAccountView, MapAccountP
                     MyApplication.getDaoInstant().getUserBeanDao().update(userBean);
                 }
                 AppManager.getAppManager().finishAllActivity();
-                ActivityUtils.next(MapAccountActivity.this, MainActivity.class, true);
+                if (!Utils.getSpUtils().getString("loginmode").equals("blackbox")) {
+                    ActivityUtils.next(MapAccountActivity.this, MainActivity.class, true);
+                } else {
+                    ActivityUtils.next(MapAccountActivity.this, BlackBoxMainActivity.class, true);
+                }
             }
         } else if (getAccountsBean.getCode().equals("0") && getAccountsBean.getData().getAccount_names().size() == 0) {
             toast(getString(R.string.no_account));

@@ -48,7 +48,7 @@ public class UnStakeActivity extends BaseAcitvity<UnStakeView, UnStakePresenter>
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setCenterTitle("赎回EOS");
+        setCenterTitle(getString(R.string.stake_eos));
     }
 
     @Override
@@ -68,7 +68,7 @@ public class UnStakeActivity extends BaseAcitvity<UnStakeView, UnStakePresenter>
         hideProgress();
         if (BigDecimalUtil.greaterThan(BigDecimalUtil.toBigDecimal(lowStake), new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_cpu_weight())))) {//已质押的EOS数量小于最低质押数量
             mGoUnstark.setClickable(false);
-            mGoUnstark.setText("无法赎回");
+            mGoUnstark.setText(R.string.dont_unstake);
             mGoUnstark.setBackgroundColor(getResources().getColor(R.color.gray_color));
             mUnstarkCpu.setText("0 EOS / " + RegexUtil.subZeroAndDot(accountDetailsBean.getEos_cpu_weight()) + " EOS ");
             mUnstarkNet.setText("0 EOS / " + RegexUtil.subZeroAndDot(accountDetailsBean.getEos_net_weight()) + " EOS");
@@ -76,7 +76,7 @@ public class UnStakeActivity extends BaseAcitvity<UnStakeView, UnStakePresenter>
         } else {
             mGoUnstark.setBackgroundColor(getResources().getColor(R.color.blue_button));
             mGoUnstark.setClickable(true);
-            mGoUnstark.setText("确认赎回");
+            mGoUnstark.setText(R.string.sure_stake);
             cpu = BigDecimalUtil.minus(new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_cpu_weight())), new BigDecimal(lowStake), 4) + "";
             net = BigDecimalUtil.minus(new BigDecimal(RegexUtil.subZeroAndDot(accountDetailsBean.getEos_net_weight())), new BigDecimal(lowStake), 4) + "";
             mUnstarkCpu.setText(cpu + " EOS / " + RegexUtil.subZeroAndDot(accountDetailsBean.getEos_cpu_weight()) + " EOS");
@@ -110,10 +110,10 @@ public class UnStakeActivity extends BaseAcitvity<UnStakeView, UnStakePresenter>
                         @Override
                         public void getResult(String result) {
                             if (result.contains("transaction_id")) {
-                                toast("赎回成功");
+                                toast(getString(R.string.stake_success));
                                 finish();
                             } else {
-                                toast("赎回失败");
+                                toast(getString(R.string.stake_fail));
                             }
                         }
                     }).pushAction("eosio", "undelegatebw",

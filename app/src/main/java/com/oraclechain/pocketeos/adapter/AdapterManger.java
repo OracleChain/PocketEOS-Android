@@ -14,6 +14,7 @@ import com.oraclechain.pocketeos.adapter.baseadapter.CommonAdapter;
 import com.oraclechain.pocketeos.adapter.baseadapter.base.ViewHolder;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
+import com.oraclechain.pocketeos.base.Constants;
 import com.oraclechain.pocketeos.bean.AccountInfoBean;
 import com.oraclechain.pocketeos.bean.AccountVoteHistoryBean;
 import com.oraclechain.pocketeos.bean.AccountWithCoinBean;
@@ -313,15 +314,15 @@ public class AdapterManger {
      * @param mDataBeanList the m data bean list
      * @return the transfer history adapter
      */
-    public static CommonAdapter getTransferHistoryAdapter(final Context context, List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList) {
-        mCommonAdapter = new CommonAdapter<TransferHistoryBean.DataBeanX.TransactionsBean>(context, R.layout.item_transfer_history, mDataBeanList) {
+    public static CommonAdapter getTransferHistoryAdapter(final Context context, List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList) {
+        mCommonAdapter = new CommonAdapter<TransferHistoryBean.DataBeanX.ActionsBean>(context, R.layout.item_transfer_history, mDataBeanList) {
             @Override
-            protected void convert(ViewHolder holder, TransferHistoryBean.DataBeanX.TransactionsBean item, int position) {
-                holder.setText(R.id.transfer_details, "发送给 " + item.getTransaction().getTransaction().getActions().get(0).getData().getTo());
+            protected void convert(ViewHolder holder, TransferHistoryBean.DataBeanX.ActionsBean item, int position) {
+                holder.setText(R.id.transfer_details, "发送给 " + item.getDoc().getData().getTo());
 
-                holder.setText(R.id.transfer_amount, "-" + item.getTransaction().getTransaction().getActions().get(0).getData().getQuantity());
+                holder.setText(R.id.transfer_amount, "-" + item.getDoc().getData().getQuantity());
 
-                holder.setText(R.id.time, "所在区块:" + item.getTransaction().getTransaction().getRef_block_num());
+                holder.setText(R.id.time, "所在区块:" + item.getBlockNum());
             }
         };
         return mCommonAdapter;
@@ -334,15 +335,15 @@ public class AdapterManger {
      * @param mDataBeanList the m data bean list
      * @return the transfer history adapter
      */
-    public static CommonAdapter getMakeCollectionHistoryAdapter(final Context context, List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList) {
-        mCommonAdapter = new CommonAdapter<TransferHistoryBean.DataBeanX.TransactionsBean>(context, R.layout.item_transfer_history, mDataBeanList) {
+    public static CommonAdapter getMakeCollectionHistoryAdapter(final Context context, List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList) {
+        mCommonAdapter = new CommonAdapter<TransferHistoryBean.DataBeanX.ActionsBean>(context, R.layout.item_transfer_history, mDataBeanList) {
             @Override
-            protected void convert(ViewHolder holder, TransferHistoryBean.DataBeanX.TransactionsBean item, int position) {
-                holder.setText(R.id.transfer_details, "接收自 " + item.getTransaction().getTransaction().getActions().get(0).getData().getFrom());
+            protected void convert(ViewHolder holder, TransferHistoryBean.DataBeanX.ActionsBean item, int position) {
+                holder.setText(R.id.transfer_details, "接收自 " + item.getDoc().getData().getFrom());
                 TextView tv = holder.getView(R.id.transfer_amount);
                 tv.setTextColor(context.getResources().getColor(R.color.up_color));
-                tv.setText("+" + item.getTransaction().getTransaction().getActions().get(0).getData().getQuantity());
-                holder.setText(R.id.time, "所在区块:" + item.getTransaction().getTransaction().getRef_block_num());
+                tv.setText("+" + item.getDoc().getData().getQuantity());
+                holder.setText(R.id.time, "所在区块:" + item.getBlockNum());
             }
         };
         return mCommonAdapter;
@@ -417,33 +418,33 @@ public class AdapterManger {
      * @param account       the account
      * @return the transfer history adapter
      */
-    public static CommonAdapter getCoinDetailsHistoryAdapter(final Context context, List<TransferHistoryBean.DataBeanX.TransactionsBean> mDataBeanList, final String account) {
-        mCommonAdapter = new CommonAdapter<TransferHistoryBean.DataBeanX.TransactionsBean>(context, R.layout.item_transfer_history, mDataBeanList) {
+    public static CommonAdapter getCoinDetailsHistoryAdapter(final Context context, List<TransferHistoryBean.DataBeanX.ActionsBean> mDataBeanList, final String account) {
+        mCommonAdapter = new CommonAdapter<TransferHistoryBean.DataBeanX.ActionsBean>(context, R.layout.item_transfer_history, mDataBeanList) {
             @Override
-            protected void convert(ViewHolder holder, TransferHistoryBean.DataBeanX.TransactionsBean item, int position) {
+            protected void convert(ViewHolder holder, TransferHistoryBean.DataBeanX.ActionsBean item, int position) {
                 TextView tv = holder.getView(R.id.transfer_amount);
-                if (item.getTransaction().getTransaction().getActions().get(0).getData().getFrom().equals(account)) {
+                if (item.getDoc().getData().getFrom().equals(account)) {
                     tv.setTextColor(context.getResources().getColor(R.color.title_color));
-                    if (item.getTransaction().getTransaction().getActions().get(0).getData().getTo().equals("oc.redpacket")) {
+                    if (item.getDoc().getData().getTo().equals(Constants.REDPACKETACCOUNT)) {
                         holder.setText(R.id.transfer_details, "发出红包");
                     } else {
-                        holder.setText(R.id.transfer_details, "发送给 " + item.getTransaction().getTransaction().getActions().get(0).getData().getTo());
+                        holder.setText(R.id.transfer_details, "发送给 " + item.getDoc().getData().getTo());
                     }
 
-                    tv.setText("-" + item.getTransaction().getTransaction().getActions().get(0).getData().getQuantity());
+                    tv.setText("-" + item.getDoc().getData().getQuantity());
 
-                } else if (item.getTransaction().getTransaction().getActions().get(0).getData().getTo().equals(account)) {
+                } else if (item.getDoc().getData().getTo().equals(account)) {
                     tv.setTextColor(context.getResources().getColor(R.color.up_color));
-                    if (item.getTransaction().getTransaction().getActions().get(0).getData().equals("oc.redpacket")) {
+                    if (item.getDoc().getData().getFrom().equals(Constants.REDPACKETACCOUNT)) {
                         holder.setText(R.id.transfer_details, "红包入账");
                     } else {
-                        holder.setText(R.id.transfer_details, "接受自 " + item.getTransaction().getTransaction().getActions().get(0).getData().getFrom());
+                        holder.setText(R.id.transfer_details, "接受自 " + item.getDoc().getData().getFrom());
                     }
 
-                    tv.setText("+" + item.getTransaction().getTransaction().getActions().get(0).getData().getQuantity());
+                    tv.setText("+" + item.getDoc().getData().getQuantity());
 
                 }
-                holder.setText(R.id.time, "所在区块:" + item.getTransaction().getTransaction().getRef_block_num());
+                holder.setText(R.id.time, "所在区块:" + item.getBlockNum());
             }
         };
         return mCommonAdapter;

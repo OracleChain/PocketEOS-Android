@@ -145,14 +145,14 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
     public void getCodeAuthDataHttp(CodeAuthBean.DataBean codeAuthBean) {
         Utils.getSpUtils().put("firstUser", mMobilePhone.getText().toString().trim());//保存场上次登陆钱包
         Utils.getSpUtils().put("loginmode", "phone");//保存当前登录模式
+
         hideProgress();
         UserBean userBean0 = MyApplication.getDaoInstant().getUserBeanDao().queryBuilder().where(UserBeanDao.Properties.Wallet_phone.eq(mMobilePhone.getText().toString().trim())).build().unique();
         if (userBean0 != null) {
-            MyApplication.getInstance().notificationCookie();//更新网络配置
             toast(getString(R.string.local_wallet_exit) + mMobilePhone.getText().toString().trim() + getString(R.string.wallet));
+            MyApplication.getInstance().setUserBean(userBean0);
             if (TextUtils.isEmpty(userBean0.getAccount_info())) {
                 if (TextUtils.isEmpty(userBean0.getWallet_shapwd())) {
-                    MyApplication.getInstance().setUserBean(userBean0);
                     ActivityUtils.next(LoginActivity.this, CreateWalletActivity.class);
                 } else {
                     MyApplication.getInstance().setUserBean(userBean0);
@@ -163,6 +163,7 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
             } else {
                 ActivityUtils.next(LoginActivity.this, MainActivity.class, true);
             }
+            MyApplication.getInstance().notificationCookie();//更新网络配置
         } else {
             //数据库存储数据
             UserBean userBean = new UserBean();
@@ -171,6 +172,7 @@ public class LoginActivity extends BaseAcitvity<LoginView, LoginPresenter> imple
             userBean.setWallet_name(mMobilePhone.getText().toString().trim().substring(7, 11).toString());
             MyApplication.getDaoInstant().getUserBeanDao().insert(userBean);
             MyApplication.getInstance().setUserBean(userBean);
+            MyApplication.getInstance().notificationCookie();//更新网络配置
             ActivityUtils.next(LoginActivity.this, CreateWalletActivity.class);
         }
     }

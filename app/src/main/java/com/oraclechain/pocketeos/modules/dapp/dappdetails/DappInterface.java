@@ -3,6 +3,7 @@ package com.oraclechain.pocketeos.modules.dapp.dappdetails;
 import android.content.Context;
 import android.webkit.JavascriptInterface;
 
+import com.lzy.okgo.utils.OkLogger;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.blockchain.DappDatamanger;
@@ -40,7 +41,9 @@ public class DappInterface {
      */
     @JavascriptInterface
     public void pushAction(String serialNumber, String message, String permissionAccount) {
-
+        OkLogger.i("============>message" + message);
+        OkLogger.i("============>serialNumber" + serialNumber);
+        OkLogger.i("============>permissionAccount" + permissionAccount);
         PasswordDialog mPasswordDialog = new PasswordDialog(mContext, new PasswordCallback() {
             @Override
             public void sure(String password) {
@@ -49,6 +52,7 @@ public class DappInterface {
                     new DappDatamanger(mContext, password, new DappDatamanger.Callback() {
                         @Override
                         public void getTxid(String txId) {
+                            OkLogger.i("=================>" + txId);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -59,8 +63,8 @@ public class DappInterface {
 
                         @Override
                         public void erroMsg(String msg) {
-                            msg += "ERROR:";
-                            String finalMsg = msg;
+                            String finalMsg = "ERROR:" + msg;
+                            OkLogger.i("=================>" + finalMsg);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -70,15 +74,30 @@ public class DappInterface {
                         }
                     }).pushAction(message, permissionAccount);
                 } else {
+                    String msg = "ERROR:" + mContext.getResources().getString(R.string.password_error);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mBaseWebView.loadUrl("javascript:pushActionResult('" + serialNumber + "','" + msg + "')");
+                        }
+                    });
                     ToastUtils.showLongToast(mContext.getResources().getString(R.string.password_error));
                 }
+
             }
 
             @Override
             public void cancle() {
+                String msg = "ERROR:" + mContext.getResources().getString(R.string.seach_cancel);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mBaseWebView.loadUrl("javascript:pushActionResult('" + serialNumber + "','" + msg + "')");
+                    }
+                });
             }
         });
-        mPasswordDialog.setCancelable(true);
+        mPasswordDialog.setCancelable(false);
         mPasswordDialog.show();
     }
 }

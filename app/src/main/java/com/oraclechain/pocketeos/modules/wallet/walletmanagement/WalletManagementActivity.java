@@ -80,7 +80,7 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
     @Override
     protected void initData() {
         userBean = MyApplication.getInstance().getUserBean();
-        mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
+        mAccountInfoBeanList = JsonUtil.parseJsonToArrayList(userBean.getAccount_info(), AccountInfoBean.class);
         for (int i = 0; i < mAccountInfoBeanList.size(); i++) {
             if (mAccountInfoBeanList.get(i).getIs_main_account().equals("1")) {//剔除主账号
                 mAccountInfoBeanList.remove(i);
@@ -136,8 +136,8 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
         main_account_img = (ImageView) contentView.findViewById(R.id.main_account_img);
         headerAndFooterWrapper.addHeaderView(linearLayout);
 
-        main_account.setText(MyApplication.getInstance().getUserBean().getWallet_main_account());
-        MyApplication.getInstance().showImage(MyApplication.getInstance().getUserBean().getWallet_main_account_img(), main_account_img);
+        main_account.setText(userBean.getWallet_main_account());
+        MyApplication.getInstance().showImage(userBean.getWallet_main_account_img(), main_account_img);
 //        mUserAccountNumber.addItemDecoration(new RecycleViewDivider(getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.line)));
         mUserAccountNumber.setAdapter(headerAndFooterWrapper);
 
@@ -181,10 +181,10 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
                     if (dialog == null) {
                         //创建本地备份生成文件
                         UserBackupPath = FilesUtils.saveTxtFile(jsonString, Environment
-                                .getExternalStorageDirectory().getAbsolutePath() + "/pocketEos/UserBackup", MyApplication.getInstance().getUserBean().getWallet_name() + "的钱包");
+                                .getExternalStorageDirectory().getAbsolutePath() + "/pocketEos/UserBackup", userBean + "的钱包");
                         dialog = new BackUpNumberDialog(WalletManagementActivity.this, new BackUpNumberCallBack() {
                         });
-                        dialog.setContent(MyApplication.getInstance().getUserBean().getWallet_name() + "的钱包", UserBackupPath);
+                        dialog.setContent(userBean.getWallet_name() + "的钱包", UserBackupPath);
                         dialog.setCancelable(true);
                         dialog.show();
                     } else {
@@ -199,21 +199,17 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
                 ChangePasswordDialog dialog = new ChangePasswordDialog(WalletManagementActivity.this, new PasswordCallback() {
                     @Override
                     public void sure(String oldPassword, String newPassword) {
-                        if (MyApplication.getInstance().getUserBean().getWallet_shapwd().equals(PasswordToKeyUtils.shaCheck(oldPassword))) {
+                        if (userBean.getWallet_shapwd().equals(PasswordToKeyUtils.shaCheck(oldPassword))) {
                             if (userBean != null) {
                                 String randomString = EncryptUtil.getRandomString(32);
                                 userBean.setWallet_shapwd(PasswordToKeyUtils.shaEncrypt(randomString + newPassword));
-                                ArrayList<AccountInfoBean> mAccountInfoBeanList1 = JsonUtil.parseJsonToArrayList(MyApplication.getInstance().getUserBean().getAccount_info(), AccountInfoBean.class);
+                                ArrayList<AccountInfoBean> mAccountInfoBeanList1 = JsonUtil.parseJsonToArrayList(userBean.getAccount_info(), AccountInfoBean.class);
                                 for (int i = 0; i < mAccountInfoBeanList1.size(); i++) {
-                                    byte[] bytes = new byte[32];
-                                    for (int j = 0; j < 32; i++) {
-                                        bytes[j] = (byte) Math.random();
-                                    }
                                     try {
                                         String owner_key = EncryptUtil.getDecryptString(mAccountInfoBeanList1.get(i).getAccount_owner_private_key(), oldPassword);
                                         mAccountInfoBeanList1.get(i).setAccount_owner_private_key(EncryptUtil.getEncryptString(owner_key, newPassword));
                                         String active_key = EncryptUtil.getDecryptString(mAccountInfoBeanList1.get(i).getAccount_active_private_key(), oldPassword);
-                                        mAccountInfoBeanList1.get(i).setAccount_active_private_key(EncryptUtil.getDecryptString(active_key, newPassword));
+                                        mAccountInfoBeanList1.get(i).setAccount_active_private_key(EncryptUtil.getEncryptString(active_key, newPassword));
                                     } catch (NoSuchAlgorithmException e) {
                                         e.printStackTrace();
                                     } catch (InvalidKeySpecException e) {
@@ -290,6 +286,6 @@ public class WalletManagementActivity extends BaseAcitvity<WalletManagementView,
 
     @Override
     public void getDataHttpFail(String msg) {
-
+        toast(msg);
     }
 }

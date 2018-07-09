@@ -8,31 +8,30 @@ import java.util.List;
 
 public class TransferHistoryBean {
 
-
     /**
      * code : 0
-     * message : ok
-     * data : {"transactions":[{"transaction_id":"72a5ca796487458f0187951f1f6b26fb8128bbfb2fffa630ee953042e98a9a67","seq_num":0,"transaction":{"packed_trx":"d0deeb5a00008f18dfecd799000000000100a6823403ea3055000000572d3ccdcd01000000428869908e00000000a8ed32323a000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9","packed_context_free_data":"00","compression":"none","signatures":["EOSKcyq1uQgfSmgP5THRyHnecCMZQj2HRFtRejEfwAvJ83zetcYRozuv2NqApQG9uY6tUXnkoZSttfsMXaDZ4AYP4UC868DkP"],"transaction":{"ref_block_prefix":2581064927,"context_free_actions":[],"expiration":"2018-05-04T04:17:20","max_net_usage_words":0,"max_kcpu_usage":0,"delay_sec":0,"region":0,"ref_block_num":6287,"actions":[{"authorization":[{"actor":"lucan222","permission":"active"}],"hex_data":"000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9","data":{"quantity":"1.0000 EOS","memo":"恭喜发财,大吉大利","from":"lucan222","to":"eosio.token"},"name":"transfer","account":"eosio.token"}]},"context_free_data":[]}},{"transaction_id":"8db62d6094e8ce997464f1c4528c9c7273f70a9621276c0f064f0dc4d6f491bd","seq_num":1,"transaction":{"packed_trx":"23d9eb5a0000350d077e2223000000000100a6823403ea3055000000572d3ccdcd010000000000ea305500000000a8ed3232250000000000ea3055000000428869908e40420f000000000004454f53000000000468616861","packed_context_free_data":"00","compression":"none","signatures":["EOSKbMiBY4tmLrgXjnUrWoQi8QpNWnppPnoaygfXmhXm2yJAgAn71BicBdfGvnBZBqAVQutdL5kwmHBppeindP1sC1pMXUpCb"],"transaction":{"ref_block_prefix":589463047,"context_free_actions":[],"expiration":"2018-05-04T03:53:07","max_net_usage_words":0,"max_kcpu_usage":0,"delay_sec":0,"region":0,"ref_block_num":3381,"actions":[{"authorization":[{"actor":"eosio","permission":"active"}],"hex_data":"0000000000ea3055000000428869908e40420f000000000004454f53000000000468616861","data":{"quantity":"100.0000 EOS","memo":"haha","from":"eosio","to":"lucan222"},"name":"transfer","account":"eosio.token"}]},"context_free_data":[]}},{"transaction_id":"12ea518efb4ec12f605b75d62c11da7ccd11ea86eabcba9b452e573bf9b2a5ce","seq_num":2,"transaction":{"packed_trx":"1bd9eb5a0000260d664f830d000000000100a6823403ea3055000000572d3ccdcd010000000000ea305500000000a8ed3232250000000000ea3055000000428869908e40420f000000000004454f53000000000468616861","packed_context_free_data":"00","compression":"none","signatures":["EOSK9aMUWLbSE8QPegfUV85QSBs5HjLkf3J7reD9W7ZQZVjqmtoydwnm5GaGBReT3bdHeD1qM8qdoyYBaXHQXaNWcqAUPq57t"],"transaction":{"ref_block_prefix":226709350,"context_free_actions":[],"expiration":"2018-05-04T03:52:59","max_net_usage_words":0,"max_kcpu_usage":0,"delay_sec":0,"region":0,"ref_block_num":3366,"actions":[{"authorization":[{"actor":"eosio","permission":"active"}],"hex_data":"0000000000ea3055000000428869908e40420f000000000004454f53000000000468616861","data":{"quantity":"100.0000 EOS","memo":"haha","from":"eosio","to":"lucan222"},"name":"transfer","account":"eosio.token"}]},"context_free_data":[]}}]}
+     * msg : 成功
+     * data : {"actions":[{"doc":{"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechengj","permission":"active"}],"data":{"from":"oraclechengj","to":"oraclechain4","quantity":"0.0010 EOS","memo":"恭喜发财,大吉大利"},"hex_data":"f0d8540da988cca540a6330da988cca50a0000000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9"},"blockNum":2039599,"trxid":"f7b6975fb294a62c5a694eee201699465937705352acbd6813fceeb2cd3435f0"},{"doc":{"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"shaoyuanbin2","quantity":"0.0010 EOS","memo":"恭喜发财,大吉大利"},"hex_data":"40a6330da988cca520a63bd3684f4dc30a0000000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9"},"blockNum":2048515,"trxid":"fc49d4197c1d589325b87e5fdc881ebbce4baaf9475be40a9da0a3e8b60cccc4"},{"doc":{"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"webstormshi1","quantity":"0.0001 EOS","memo":""},"hex_data":"40a6330da988cca5105cc3f2d28c8fe2010000000000000004454f530000000000"},"blockNum":2320390,"trxid":"1e5d7d788dd6d8207401f7cb284d9258659146c2506c6d5507c7e3e36f301db0"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"helloworldgo","permission":"active"}],"data":{"from":"helloworldgo","to":"oraclechain4","quantity":"50.0000 AAA","memo":""},"hex_data":"40598a97721aa36a40a6330da988cca520a1070000000000044141410000000000"},"blockNum":2525746,"trxid":"42bc2137eb1ad7b26cc4693cbe9dd2eb896bf2adf5132f72ab40b12a25cde755"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2525802,"trxid":"fc7e6cb456f70cd210db0caeee7d407d3ffaab9930ce597ec733310e40aa7ccb"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526228,"trxid":"72ed7470e38f0befeb36539e21a6e6c97a0ddcf75628e070d8ce6dd8dac32b7d"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526228,"trxid":"72ed7470e38f0befeb36539e21a6e6c97a0ddcf75628e070d8ce6dd8dac32b7d"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526428,"trxid":"7fb4225b88a95dfae3213fcb050a207c9755fcff690b13dada55d77f37f1cbd0"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526869,"trxid":"b402ab1f6c9ac7388279a90b579d8bc10e5e35da10e37aaae54e013fc3af00c5"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2527069,"trxid":"66310cb4cb32799ce645b7b402baa9a4d316142fe75b7678bf72ee0bb2d5390d"}],"page":0,"pageSize":10,"hasMore":true}
      */
 
-    private int code;
-    private String message;
+    private String code;
+    private String msg;
     private DataBeanX data;
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public DataBeanX getData() {
@@ -44,337 +43,209 @@ public class TransferHistoryBean {
     }
 
     public static class DataBeanX {
-        private List<TransactionsBean> transactions;
+        /**
+         * actions : [{"doc":{"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechengj","permission":"active"}],"data":{"from":"oraclechengj","to":"oraclechain4","quantity":"0.0010 EOS","memo":"恭喜发财,大吉大利"},"hex_data":"f0d8540da988cca540a6330da988cca50a0000000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9"},"blockNum":2039599,"trxid":"f7b6975fb294a62c5a694eee201699465937705352acbd6813fceeb2cd3435f0"},{"doc":{"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"shaoyuanbin2","quantity":"0.0010 EOS","memo":"恭喜发财,大吉大利"},"hex_data":"40a6330da988cca520a63bd3684f4dc30a0000000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9"},"blockNum":2048515,"trxid":"fc49d4197c1d589325b87e5fdc881ebbce4baaf9475be40a9da0a3e8b60cccc4"},{"doc":{"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"webstormshi1","quantity":"0.0001 EOS","memo":""},"hex_data":"40a6330da988cca5105cc3f2d28c8fe2010000000000000004454f530000000000"},"blockNum":2320390,"trxid":"1e5d7d788dd6d8207401f7cb284d9258659146c2506c6d5507c7e3e36f301db0"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"helloworldgo","permission":"active"}],"data":{"from":"helloworldgo","to":"oraclechain4","quantity":"50.0000 AAA","memo":""},"hex_data":"40598a97721aa36a40a6330da988cca520a1070000000000044141410000000000"},"blockNum":2525746,"trxid":"42bc2137eb1ad7b26cc4693cbe9dd2eb896bf2adf5132f72ab40b12a25cde755"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2525802,"trxid":"fc7e6cb456f70cd210db0caeee7d407d3ffaab9930ce597ec733310e40aa7ccb"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526228,"trxid":"72ed7470e38f0befeb36539e21a6e6c97a0ddcf75628e070d8ce6dd8dac32b7d"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526228,"trxid":"72ed7470e38f0befeb36539e21a6e6c97a0ddcf75628e070d8ce6dd8dac32b7d"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526428,"trxid":"7fb4225b88a95dfae3213fcb050a207c9755fcff690b13dada55d77f37f1cbd0"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2526869,"trxid":"b402ab1f6c9ac7388279a90b579d8bc10e5e35da10e37aaae54e013fc3af00c5"},{"doc":{"account":"helloworldgo","name":"transfer","authorization":[{"actor":"oraclechain4","permission":"active"}],"data":{"from":"oraclechain4","to":"prizequiz233","quantity":"3.0000 AAA","memo":"buy"},"hex_data":"40a6330da988cca53086f84e5bf5ddad3075000000000000044141410000000003627579"},"blockNum":2527069,"trxid":"66310cb4cb32799ce645b7b402baa9a4d316142fe75b7678bf72ee0bb2d5390d"}]
+         * page : 0
+         * pageSize : 10
+         * hasMore : true
+         */
 
-        public List<TransactionsBean> getTransactions() {
-            return transactions;
+        private int page;
+        private int pageSize;
+        private boolean hasMore;
+        private List<ActionsBean> actions;
+
+        public int getPage() {
+            return page;
         }
 
-        public void setTransactions(List<TransactionsBean> transactions) {
-            this.transactions = transactions;
+        public void setPage(int page) {
+            this.page = page;
         }
 
-        public static class TransactionsBean {
+        public int getPageSize() {
+            return pageSize;
+        }
+
+        public void setPageSize(int pageSize) {
+            this.pageSize = pageSize;
+        }
+
+        public boolean isHasMore() {
+            return hasMore;
+        }
+
+        public void setHasMore(boolean hasMore) {
+            this.hasMore = hasMore;
+        }
+
+        public List<ActionsBean> getActions() {
+            return actions;
+        }
+
+        public void setActions(List<ActionsBean> actions) {
+            this.actions = actions;
+        }
+
+        public static class ActionsBean {
             /**
-             * transaction_id : 72a5ca796487458f0187951f1f6b26fb8128bbfb2fffa630ee953042e98a9a67
-             * seq_num : 0
-             * transaction : {"packed_trx":"d0deeb5a00008f18dfecd799000000000100a6823403ea3055000000572d3ccdcd01000000428869908e00000000a8ed32323a000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9","packed_context_free_data":"00","compression":"none","signatures":["EOSKcyq1uQgfSmgP5THRyHnecCMZQj2HRFtRejEfwAvJ83zetcYRozuv2NqApQG9uY6tUXnkoZSttfsMXaDZ4AYP4UC868DkP"],"transaction":{"ref_block_prefix":2581064927,"context_free_actions":[],"expiration":"2018-05-04T04:17:20","max_net_usage_words":0,"max_kcpu_usage":0,"delay_sec":0,"region":0,"ref_block_num":6287,"actions":[{"authorization":[{"actor":"lucan222","permission":"active"}],"hex_data":"000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9","data":{"quantity":"1.0000 EOS","memo":"恭喜发财,大吉大利","from":"lucan222","to":"eosio.token"},"name":"transfer","account":"eosio.token"}]},"context_free_data":[]}
+             * doc : {"account":"eosio.token","name":"transfer","authorization":[{"actor":"oraclechengj","permission":"active"}],"data":{"from":"oraclechengj","to":"oraclechain4","quantity":"0.0010 EOS","memo":"恭喜发财,大吉大利"},"hex_data":"f0d8540da988cca540a6330da988cca50a0000000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9"}
+             * blockNum : 2039599
+             * trxid : f7b6975fb294a62c5a694eee201699465937705352acbd6813fceeb2cd3435f0
              */
 
-            private String transaction_id;
-            private int seq_num;
-            private TransactionBeanX transaction;
+            private DocBean doc;
+            private int blockNum;
+            private String trxid;
 
-            public String getTransaction_id() {
-                return transaction_id;
+            public DocBean getDoc() {
+                return doc;
             }
 
-            public void setTransaction_id(String transaction_id) {
-                this.transaction_id = transaction_id;
+            public void setDoc(DocBean doc) {
+                this.doc = doc;
             }
 
-            public int getSeq_num() {
-                return seq_num;
+            public int getBlockNum() {
+                return blockNum;
             }
 
-            public void setSeq_num(int seq_num) {
-                this.seq_num = seq_num;
+            public void setBlockNum(int blockNum) {
+                this.blockNum = blockNum;
             }
 
-            public TransactionBeanX getTransaction() {
-                return transaction;
+            public String getTrxid() {
+                return trxid;
             }
 
-            public void setTransaction(TransactionBeanX transaction) {
-                this.transaction = transaction;
+            public void setTrxid(String trxid) {
+                this.trxid = trxid;
             }
 
-            public static class TransactionBeanX {
+            public static class DocBean {
                 /**
-                 * packed_trx : d0deeb5a00008f18dfecd799000000000100a6823403ea3055000000572d3ccdcd01000000428869908e00000000a8ed32323a000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9
-                 * packed_context_free_data : 00
-                 * compression : none
-                 * signatures : ["EOSKcyq1uQgfSmgP5THRyHnecCMZQj2HRFtRejEfwAvJ83zetcYRozuv2NqApQG9uY6tUXnkoZSttfsMXaDZ4AYP4UC868DkP"]
-                 * transaction : {"ref_block_prefix":2581064927,"context_free_actions":[],"expiration":"2018-05-04T04:17:20","max_net_usage_words":0,"max_kcpu_usage":0,"delay_sec":0,"region":0,"ref_block_num":6287,"actions":[{"authorization":[{"actor":"lucan222","permission":"active"}],"hex_data":"000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9","data":{"quantity":"1.0000 EOS","memo":"恭喜发财,大吉大利","from":"lucan222","to":"eosio.token"},"name":"transfer","account":"eosio.token"}]}
-                 * context_free_data : []
+                 * account : eosio.token
+                 * name : transfer
+                 * authorization : [{"actor":"oraclechengj","permission":"active"}]
+                 * data : {"from":"oraclechengj","to":"oraclechain4","quantity":"0.0010 EOS","memo":"恭喜发财,大吉大利"}
+                 * hex_data : f0d8540da988cca540a6330da988cca50a0000000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9
                  */
 
-                private String packed_trx;
-                private String packed_context_free_data;
-                private String compression;
-                private TransactionBean transaction;
-                private List<String> signatures;
-                private List<?> context_free_data;
+                private String account;
+                private String name;
+                private DataBean data;
+                private String hex_data;
+                private List<AuthorizationBean> authorization;
 
-                public String getPacked_trx() {
-                    return packed_trx;
+                public String getAccount() {
+                    return account;
                 }
 
-                public void setPacked_trx(String packed_trx) {
-                    this.packed_trx = packed_trx;
+                public void setAccount(String account) {
+                    this.account = account;
                 }
 
-                public String getPacked_context_free_data() {
-                    return packed_context_free_data;
+                public String getName() {
+                    return name;
                 }
 
-                public void setPacked_context_free_data(String packed_context_free_data) {
-                    this.packed_context_free_data = packed_context_free_data;
+                public void setName(String name) {
+                    this.name = name;
                 }
 
-                public String getCompression() {
-                    return compression;
+                public DataBean getData() {
+                    return data;
                 }
 
-                public void setCompression(String compression) {
-                    this.compression = compression;
+                public void setData(DataBean data) {
+                    this.data = data;
                 }
 
-                public TransactionBean getTransaction() {
-                    return transaction;
+                public String getHex_data() {
+                    return hex_data;
                 }
 
-                public void setTransaction(TransactionBean transaction) {
-                    this.transaction = transaction;
+                public void setHex_data(String hex_data) {
+                    this.hex_data = hex_data;
                 }
 
-                public List<String> getSignatures() {
-                    return signatures;
+                public List<AuthorizationBean> getAuthorization() {
+                    return authorization;
                 }
 
-                public void setSignatures(List<String> signatures) {
-                    this.signatures = signatures;
+                public void setAuthorization(List<AuthorizationBean> authorization) {
+                    this.authorization = authorization;
                 }
 
-                public List<?> getContext_free_data() {
-                    return context_free_data;
-                }
-
-                public void setContext_free_data(List<?> context_free_data) {
-                    this.context_free_data = context_free_data;
-                }
-
-                public static class TransactionBean {
+                public static class DataBean {
                     /**
-                     * ref_block_prefix : 2581064927
-                     * context_free_actions : []
-                     * expiration : 2018-05-04T04:17:20
-                     * max_net_usage_words : 0
-                     * max_kcpu_usage : 0
-                     * delay_sec : 0
-                     * region : 0
-                     * ref_block_num : 6287
-                     * actions : [{"authorization":[{"actor":"lucan222","permission":"active"}],"hex_data":"000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9","data":{"quantity":"1.0000 EOS","memo":"恭喜发财,大吉大利","from":"lucan222","to":"eosio.token"},"name":"transfer","account":"eosio.token"}]
+                     * from : oraclechengj
+                     * to : oraclechain4
+                     * quantity : 0.0010 EOS
+                     * memo : 恭喜发财,大吉大利
                      */
 
-                    private long ref_block_prefix;
-                    private String expiration;
-                    private int max_net_usage_words;
-                    private int max_kcpu_usage;
-                    private int delay_sec;
-                    private int region;
-                    private int ref_block_num;
-                    private List<?> context_free_actions;
-                    private List<ActionsBean> actions;
+                    private String from;
+                    private String to;
+                    private String quantity;
+                    private String memo;
 
-                    public long getRef_block_prefix() {
-                        return ref_block_prefix;
+                    public String getFrom() {
+                        return from;
                     }
 
-                    public void setRef_block_prefix(long ref_block_prefix) {
-                        this.ref_block_prefix = ref_block_prefix;
+                    public void setFrom(String from) {
+                        this.from = from;
                     }
 
-                    public String getExpiration() {
-                        return expiration;
+                    public String getTo() {
+                        return to;
                     }
 
-                    public void setExpiration(String expiration) {
-                        this.expiration = expiration;
+                    public void setTo(String to) {
+                        this.to = to;
                     }
 
-                    public int getMax_net_usage_words() {
-                        return max_net_usage_words;
+                    public String getQuantity() {
+                        return quantity;
                     }
 
-                    public void setMax_net_usage_words(int max_net_usage_words) {
-                        this.max_net_usage_words = max_net_usage_words;
+                    public void setQuantity(String quantity) {
+                        this.quantity = quantity;
                     }
 
-                    public int getMax_kcpu_usage() {
-                        return max_kcpu_usage;
+                    public String getMemo() {
+                        return memo;
                     }
 
-                    public void setMax_kcpu_usage(int max_kcpu_usage) {
-                        this.max_kcpu_usage = max_kcpu_usage;
+                    public void setMemo(String memo) {
+                        this.memo = memo;
+                    }
+                }
+
+                public static class AuthorizationBean {
+                    /**
+                     * actor : oraclechengj
+                     * permission : active
+                     */
+
+                    private String actor;
+                    private String permission;
+
+                    public String getActor() {
+                        return actor;
                     }
 
-                    public int getDelay_sec() {
-                        return delay_sec;
+                    public void setActor(String actor) {
+                        this.actor = actor;
                     }
 
-                    public void setDelay_sec(int delay_sec) {
-                        this.delay_sec = delay_sec;
+                    public String getPermission() {
+                        return permission;
                     }
 
-                    public int getRegion() {
-                        return region;
-                    }
-
-                    public void setRegion(int region) {
-                        this.region = region;
-                    }
-
-                    public int getRef_block_num() {
-                        return ref_block_num;
-                    }
-
-                    public void setRef_block_num(int ref_block_num) {
-                        this.ref_block_num = ref_block_num;
-                    }
-
-                    public List<?> getContext_free_actions() {
-                        return context_free_actions;
-                    }
-
-                    public void setContext_free_actions(List<?> context_free_actions) {
-                        this.context_free_actions = context_free_actions;
-                    }
-
-                    public List<ActionsBean> getActions() {
-                        return actions;
-                    }
-
-                    public void setActions(List<ActionsBean> actions) {
-                        this.actions = actions;
-                    }
-
-                    public static class ActionsBean {
-                        /**
-                         * authorization : [{"actor":"lucan222","permission":"active"}]
-                         * hex_data : 000000428869908e00a6823403ea3055102700000000000004454f530000000019e681ade5969ce58f91e8b4a22ce5a4a7e59089e5a4a7e588a9
-                         * data : {"quantity":"1.0000 EOS","memo":"恭喜发财,大吉大利","from":"lucan222","to":"eosio.token"}
-                         * name : transfer
-                         * account : eosio.token
-                         */
-
-                        private String hex_data;
-                        private DataBean data;
-                        private String name;
-                        private String account;
-                        private List<AuthorizationBean> authorization;
-
-                        public String getHex_data() {
-                            return hex_data;
-                        }
-
-                        public void setHex_data(String hex_data) {
-                            this.hex_data = hex_data;
-                        }
-
-                        public DataBean getData() {
-                            return data;
-                        }
-
-                        public void setData(DataBean data) {
-                            this.data = data;
-                        }
-
-                        public String getName() {
-                            return name;
-                        }
-
-                        public void setName(String name) {
-                            this.name = name;
-                        }
-
-                        public String getAccount() {
-                            return account;
-                        }
-
-                        public void setAccount(String account) {
-                            this.account = account;
-                        }
-
-                        public List<AuthorizationBean> getAuthorization() {
-                            return authorization;
-                        }
-
-                        public void setAuthorization(List<AuthorizationBean> authorization) {
-                            this.authorization = authorization;
-                        }
-
-                        public static class DataBean {
-                            /**
-                             * quantity : 1.0000 EOS
-                             * memo : 恭喜发财,大吉大利
-                             * from : lucan222
-                             * to : eosio.token
-                             */
-
-                            private String quantity;
-                            private String memo;
-                            private String from;
-                            private String to;
-
-                            public String getQuantity() {
-                                return quantity;
-                            }
-
-                            public void setQuantity(String quantity) {
-                                this.quantity = quantity;
-                            }
-
-                            public String getMemo() {
-                                return memo;
-                            }
-
-                            public void setMemo(String memo) {
-                                this.memo = memo;
-                            }
-
-                            public String getFrom() {
-                                return from;
-                            }
-
-                            public void setFrom(String from) {
-                                this.from = from;
-                            }
-
-                            public String getTo() {
-                                return to;
-                            }
-
-                            public void setTo(String to) {
-                                this.to = to;
-                            }
-                        }
-
-                        public static class AuthorizationBean {
-                            /**
-                             * actor : lucan222
-                             * permission : active
-                             */
-
-                            private String actor;
-                            private String permission;
-
-                            public String getActor() {
-                                return actor;
-                            }
-
-                            public void setActor(String actor) {
-                                this.actor = actor;
-                            }
-
-                            public String getPermission() {
-                                return permission;
-                            }
-
-                            public void setPermission(String permission) {
-                                this.permission = permission;
-                            }
-                        }
+                    public void setPermission(String permission) {
+                        this.permission = permission;
                     }
                 }
             }

@@ -8,14 +8,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.lzy.okgo.utils.OkLogger;
 import com.oraclechain.pocketeos.R;
 import com.oraclechain.pocketeos.app.ActivityUtils;
 import com.oraclechain.pocketeos.app.MyApplication;
 import com.oraclechain.pocketeos.base.BaseAcitvity;
 import com.oraclechain.pocketeos.bean.AccountInfoBean;
-import com.oraclechain.pocketeos.bean.EosRegisterBean;
 import com.oraclechain.pocketeos.bean.UserBean;
-import com.oraclechain.pocketeos.blockchain.EosDataManger;
 import com.oraclechain.pocketeos.blockchain.cypto.ec.EosPrivateKey;
 import com.oraclechain.pocketeos.gen.UserBeanDao;
 import com.oraclechain.pocketeos.modules.account.backupaccount.BackUpKeyActivity;
@@ -26,6 +25,7 @@ import com.oraclechain.pocketeos.utils.EncryptUtil;
 import com.oraclechain.pocketeos.utils.FilesUtils;
 import com.oraclechain.pocketeos.utils.JsonUtil;
 import com.oraclechain.pocketeos.utils.PasswordToKeyUtils;
+import com.oraclechain.pocketeos.utils.PublicAndPrivateKeyUtils;
 import com.oraclechain.pocketeos.utils.RegexUtil;
 import com.oraclechain.pocketeos.utils.Utils;
 import com.oraclechain.pocketeos.view.ClearEditText;
@@ -67,6 +67,10 @@ public class CreateAccountActivity extends BaseAcitvity<CreateAccountView, Creat
 
     @OnClick(R.id.create_account)
     public void onViewClicked() {
+        if (!Utils.getSpUtils().getString("loginmode", "").equals("phone")) {
+            toast(getString(R.string.black_box_creat_account_toast));
+            return;
+        }
         if (RegexUtil.isEosName(mAccountName.getText().toString())) {
             PasswordDialog dialog = new PasswordDialog(CreateAccountActivity.this, new PasswordCallback() {
                 @Override
@@ -74,13 +78,15 @@ public class CreateAccountActivity extends BaseAcitvity<CreateAccountView, Creat
                     if (MyApplication.getInstance().getUserBean().getWallet_shapwd().equals(PasswordToKeyUtils.shaCheck(password))) {
                         userPassword = password;
                         showProgress();
-                        mOwnerKey = EosDataManger.getPrivateKey(2)[0];
-                        mActiveKey = EosDataManger.getPrivateKey(2)[1];
+                        mOwnerKey = PublicAndPrivateKeyUtils.getPrivateKey(2)[0];
+                        mActiveKey = PublicAndPrivateKeyUtils.getPrivateKey(2)[1];
                         mAccount_owner_public_key = mOwnerKey.getPublicKey().toString();
                         mAccount_active_public_key = mActiveKey.getPublicKey().toString();
                         mAccount_active_private_key = mActiveKey.toString();
                         mAccount_owner_private_key = mOwnerKey.toString();
-                        presenter.getRegisterData(mAccountName.getText().toString(), mAccount_owner_public_key, mAccount_active_public_key);
+                        OkLogger.i("===============>mAccount_active_private_key"+mAccount_active_private_key);
+                        OkLogger.i("===============>mAccount_owner_private_key"+mAccount_owner_private_key);
+                        presenter.postEosAccountData(mAccountName.getText().toString().trim(), mAccount_owner_public_key, mAccount_active_public_key);
                     } else {
 
                         toast(getResources().getString(R.string.password_error));
@@ -98,11 +104,9 @@ public class CreateAccountActivity extends BaseAcitvity<CreateAccountView, Creat
         }
     }
 
+
     @Override
-    public void getEosRegisterhDataHttp(EosRegisterBean.DataBeanX eosRegisterBean) {
-        if (Utils.getSpUtils().getString("loginmode","").equals("phone")) {
-            presenter.postEosAccountData(mAccountName.getText().toString().trim());//只是通知，不以服务端返回结果作为查询依据
-        }
+    public void postEosAccountDataHttp() {
         hideProgress();
         toast(getString(R.string.eos_register_success));
         ArrayList<AccountInfoBean> accountInfoBeanArrayList = new ArrayList<>();
@@ -113,8 +117,8 @@ public class CreateAccountActivity extends BaseAcitvity<CreateAccountView, Creat
         accountInfoBean.setAccount_name(mAccountName.getText().toString().trim());
         accountInfoBean.setAccount_img("");
         try {
-            accountInfoBean.setAccount_active_private_key(EncryptUtil.getEncryptString(mAccount_active_private_key,userPassword));
-            accountInfoBean.setAccount_owner_private_key(EncryptUtil.getEncryptString(mAccount_owner_private_key,userPassword));
+            accountInfoBean.setAccount_active_private_key(EncryptUtil.getEncryptString(mAccount_active_private_key, userPassword));
+            accountInfoBean.setAccount_owner_private_key(EncryptUtil.getEncryptString(mAccount_owner_private_key, userPassword));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (InvalidKeySpecException e) {
@@ -151,11 +155,6 @@ public class CreateAccountActivity extends BaseAcitvity<CreateAccountView, Creat
         Bundle bundle = new Bundle();
         bundle.putParcelable("account", accountInfoBean);
         ActivityUtils.next(this, BackUpKeyActivity.class, bundle);
-    }
-
-    @Override
-    public void postEosAccountDataHttp() {
-
     }
 
     @Override
