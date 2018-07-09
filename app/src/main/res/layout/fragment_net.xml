@@ -1,0 +1,185 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.oraclechain.pocketeos.modules.resourcemanager.resourcehome.fragment.net.NetFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/dimens_32">
+
+            <TextView
+                style="?attr/text_one_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/be_stake_eos"
+                android:textSize="@dimen/dimens_15"/>
+
+            <TextView
+                android:id="@+id/total_stake"
+                style="?attr/text_one_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_32"/>
+        </LinearLayout>
+
+        <View
+            style="?attr/item_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_10"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimens_20">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="?attr/text_one_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cpu"
+                    android:textSize="@dimen/dimens_14"/>
+
+                <TextView
+                    android:id="@+id/cpu_change_limit"
+                    style="?attr/text_two_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawablePadding="@dimen/dimens_20"
+                    android:drawableRight="@mipmap/more"
+                    android:gravity="right"
+                    android:text="@string/change_limit"
+                    android:textSize="@dimen/dimens_13"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/cpu_total_quota"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/cpu_quota_staked"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/cpu_now_take_up"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/cpu_now_usable"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+        </LinearLayout>
+
+        <View
+            style="?attr/item_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimens_10"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimens_20">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_20"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="?attr/text_one_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/net"
+                    android:textSize="@dimen/dimens_14"/>
+
+                <TextView
+                    android:id="@+id/net_change_limit"
+                    style="?attr/text_two_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawablePadding="@dimen/dimens_20"
+                    android:drawableRight="@mipmap/more"
+                    android:gravity="right"
+                    android:text="@string/change_limit"
+                    android:textSize="@dimen/dimens_13"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/net_total_quota"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/net_quota_staked"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/net_now_take_up"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimens_10"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+
+            <TextView
+                android:id="@+id/net_now_usable"
+                style="?attr/text_two_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pocket_eos"
+                android:textSize="@dimen/dimens_13"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

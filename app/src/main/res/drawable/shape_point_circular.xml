@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- 白色圆点-->
+    <!-- 蓝色圆点-->
 
-    <solid android:color="#ffffff" />
+    <solid android:color="@color/blue_button"/>
 
     <corners android:radius="8dp"/>
 
     <size
-        android:height="15dp"
-        android:width="15dp"/>
+        android:width="15dp"
+        android:height="15dp"/>
 
 </shape>

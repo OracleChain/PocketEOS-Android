@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- 底部背景 -->
-    <item android:id="@android:id/background" >
+    <item android:id="@android:id/background">
         <shape>
             <corners android:radius="8dp"/>
             <solid android:color="#CBCBCB"/>
@@ -10,11 +10,11 @@
     </item>
 
     <!-- 进度背景 -->
-    <item android:id="@android:id/progress" >
+    <item android:id="@android:id/progress">
         <clip>
             <shape>
                 <corners android:radius="8dp"/>
-                <solid android:color="#0069B6"/>
+                <solid android:color="@color/blue_button"/>
             </shape>
         </clip>
     </item>

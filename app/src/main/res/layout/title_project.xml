@@ -15,6 +15,18 @@
         android:src="@mipmap/back"/>
 
     <TextView
+        android:id="@+id/close"
+        style="?attr/text_one_style"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:layout_toRightOf="@+id/iv_back"
+        android:textSize="@dimen/dimens_15"
+        android:gravity="center"
+        android:text="@string/close"
+        android:visibility="gone"/>
+
+    <TextView
         android:id="@+id/tv_title"
         style="?attr/text_one_style"
         android:layout_width="wrap_content"
@@ -29,13 +41,13 @@
 
     <TextView
         android:id="@+id/tv_right_text"
+        style="?attr/text_one_style"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dimens_50"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimens_20"
         android:clickable="true"
         android:gravity="center"
-        android:layout_marginRight="@dimen/dimens_20"
-        style="?attr/text_one_style"
         android:textSize="@dimen/dimens_14"
         android:visibility="gone"/>
 

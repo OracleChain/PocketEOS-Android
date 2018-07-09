@@ -37,39 +37,96 @@
                     android:src="@mipmap/ic_launcher"/>
 
                 <TextView
+                    style="?attr/text_one_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/img_number_code"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dimens_10"
                     android:text="@string/scan_code_attention"
-                  style="?attr/text_one_style"
                     android:textSize="@dimen/dimens_13"/>
             </RelativeLayout>
 
-            <Button
-                android:id="@+id/set_main_number"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/dimens_300"
-                android:layout_height="@dimen/dimens_42"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dimens_32"
-                android:background="#FF4D7BFE"
-                android:text="@string/set_main_number"
-                android:textColor="@color/white"
-                android:textSize="@dimen/dimens_14"/>
+            <View
+                style="?attr/item_bg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_10"
+                android:layout_marginTop="@dimen/dimens_32"/>
 
-            <Button
+            <RelativeLayout
+                android:id="@+id/rell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dimens_5"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:paddingTop="@dimen/dimens_5">
+
+                <TextView
+                    android:id="@+id/set_main_number"
+                    style="?attr/text_one_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimens_48"
+                    android:layout_toLeftOf="@+id/switch_view"
+                    android:clickable="true"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/set_main_number"
+                    android:textSize="@dimen/dimens_15"/>
+
+                <Switch
+                    android:id="@+id/switch_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/switch_view_selected"
+                    android:thumb="@null"
+                    android:track="@null"/>
+            </RelativeLayout>
+
+            <View
+                style="?attr/line_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:paddingLeft="@dimen/dimens_20"/>
+
+            <TextView
+                android:id="@+id/resource_manager"
+                style="?attr/text_one_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:clickable="true"
+                android:drawableRight="@mipmap/more"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
+                android:text="@string/resource_manager"
+                android:textSize="@dimen/dimens_15"/>
+
+            <View
+                style="?attr/line_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:paddingLeft="@dimen/dimens_20"/>
+
+            <TextView
                 android:id="@+id/import_private_key"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="@dimen/dimens_300"
-                android:layout_height="@dimen/dimens_42"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/dimens_12"
-                android:background="#FF4D7BFE"
+                style="?attr/text_one_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_48"
+                android:clickable="true"
+                android:drawableRight="@mipmap/more"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/dimens_20"
+                android:paddingRight="@dimen/dimens_20"
                 android:text="@string/import_private_key"
-                android:textColor="@color/white"
-                android:textSize="@dimen/dimens_14"/>
+                android:textSize="@dimen/dimens_15"/>
+
+            <View
+                style="?attr/line_style"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimens_1"
+                android:paddingLeft="@dimen/dimens_20"/>
 
             <FrameLayout
                 android:layout_width="@dimen/dimens_300"
@@ -82,7 +139,7 @@
                 <RelativeLayout
                     android:id="@+id/frame"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimens_300">
+                    android:layout_height="wrap_content">
 
                     <com.oraclechain.pocketeos.view.CustomSlideToUnlockView
                         android:id="@+id/slide_to_unlock"
@@ -101,7 +158,7 @@
                 <ImageView
                     android:id="@+id/iv_slide_end"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical|right"
                     android:layout_marginRight="@dimen/dimens_40"
                     android:scaleType="fitXY"
@@ -110,12 +167,12 @@
             </FrameLayout>
 
             <TextView
+                style="?attr/text_one_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimens_10"
                 android:gravity="center_horizontal"
                 android:text="@string/slide_to_unlock_notice"
-                style="?attr/text_one_style"
                 android:textSize="@dimen/dimens_13"/>
         </LinearLayout>
     </ScrollView>

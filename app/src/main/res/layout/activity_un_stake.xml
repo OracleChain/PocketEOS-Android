@@ -96,7 +96,7 @@
         android:lineSpacingExtra="@dimen/dimens_5"
         android:paddingLeft="@dimen/dimens_20"
         android:paddingRight="@dimen/dimens_20"
-        android:text="目前暂不支持调整赎回额度。\n为保证账户可用，1 EOS以下的抵押额度暂无法赎回，请知悉。  "
+        android:text="@string/unstake_info"
         android:textColor="#FF999999"
         android:textSize="@dimen/dimens_13"
         />
