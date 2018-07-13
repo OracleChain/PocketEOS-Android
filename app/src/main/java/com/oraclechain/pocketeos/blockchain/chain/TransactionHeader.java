@@ -67,7 +67,7 @@ public class TransactionHeader implements EosType.Packer {
     }
 
     public void setReferenceBlock( String refBlockIdAsSha256 ) {
-        ref_block_num = new BigInteger( 1, HexUtils.toBytes(refBlockIdAsSha256.substring(0,8))).intValue();
+        ref_block_num = new BigInteger( 1, HexUtils.toBytes(refBlockIdAsSha256.substring(0,8))).intValue() & 0xffff;
 
         ref_block_prefix = //new BigInteger( 1, HexUtils.toBytesReversed( refBlockIdAsSha256.substring(16,24))).longValue();
                 BitUtils.uint32ToLong(HexUtils.toBytes(refBlockIdAsSha256.substring(16,24)), 0); // BitUtils treats bytes in little endian.
