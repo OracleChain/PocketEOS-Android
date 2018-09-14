@@ -57,7 +57,7 @@
 
 &emsp;3. import the project and change the configuration of backend server address according to your local PocketEOS-ShieldServer.
 
-&emsp;4. run command + R
+&emsp;4. run
 
 **DOWNLOAD & TRY/下载试用**
 
