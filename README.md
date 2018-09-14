@@ -53,7 +53,11 @@
 &emsp;1. install Android Studio 3.0以上 + jdk1.8 +gradle 4.1
 
 &emsp;2. download our git repository.
->`git clone --recurse-submodules https://github.com/OracleChain/PocketEOS-Android.git`
+>`git clone --recurse-submodules https://github.com/OracleChain/PocketEOS-Android.git` 
+
+&emsp;3. import the project and change the configuration of backend server address according to your local PocketEOS-ShieldServer.
+
+&emsp;4. run command + R
 
 **DOWNLOAD & TRY/下载试用**
 
